@@ -62,3 +62,16 @@ C:\Users\Napster\Google Drive\utn\diseño\TP_ANUAL_DDS\validadorDeContraseñas\b
 C:\Users\Napster\Google Drive\utn\diseño\TP_ANUAL_DDS\validadorDeContraseñas\bin\Debug\netcoreapp3.1\validadorDeContraseñas.dll
 C:\Users\Napster\Google Drive\utn\diseño\TP_ANUAL_DDS\validadorDeContraseñas\bin\Debug\netcoreapp3.1\validadorDeContraseñas.pdb
 C:\Users\Napster\Google Drive\utn\diseño\TP_ANUAL_DDS\validadorDeContraseñas\obj\Debug\netcoreapp3.1\validadorDeContraseñas.genruntimeconfig.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\bin\Debug\netcoreapp3.1\validadorDeContraseñas.exe
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\bin\Debug\netcoreapp3.1\validadorDeContraseñas.deps.json
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\bin\Debug\netcoreapp3.1\validadorDeContraseñas.runtimeconfig.json
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\bin\Debug\netcoreapp3.1\validadorDeContraseñas.runtimeconfig.dev.json
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\bin\Debug\netcoreapp3.1\validadorDeContraseñas.dll
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\bin\Debug\netcoreapp3.1\validadorDeContraseñas.pdb
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\obj\Debug\netcoreapp3.1\validadorDeContraseñas.csprojAssemblyReference.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\obj\Debug\netcoreapp3.1\validadorDeContraseñas.csproj.CoreCompileInputs.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\obj\Debug\netcoreapp3.1\validadorDeContraseñas.AssemblyInfoInputs.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\obj\Debug\netcoreapp3.1\validadorDeContraseñas.AssemblyInfo.cs
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\obj\Debug\netcoreapp3.1\validadorDeContraseñas.dll
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\obj\Debug\netcoreapp3.1\validadorDeContraseñas.pdb
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\C#\validadorDeContraseñas\obj\Debug\netcoreapp3.1\validadorDeContraseñas.genruntimeconfig.cache

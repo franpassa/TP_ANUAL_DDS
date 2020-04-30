@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Napster\\Google Drive\\utn\\diseño\\TP_ANUAL_DDS\\validadorDeContraseñas\\validadorDeContraseñas.csproj": {}
+    "C:\\Users\\Fenjer\\Documents\\UTN 2020\\Diseño de Sistemas\\C#\\validadorDeContraseñas\\validadorDeContraseñas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Napster\\Google Drive\\utn\\diseño\\TP_ANUAL_DDS\\validadorDeContraseñas\\validadorDeContraseñas.csproj": {
+    "C:\\Users\\Fenjer\\Documents\\UTN 2020\\Diseño de Sistemas\\C#\\validadorDeContraseñas\\validadorDeContraseñas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Napster\\Google Drive\\utn\\diseño\\TP_ANUAL_DDS\\validadorDeContraseñas\\validadorDeContraseñas.csproj",
+        "projectUniqueName": "C:\\Users\\Fenjer\\Documents\\UTN 2020\\Diseño de Sistemas\\C#\\validadorDeContraseñas\\validadorDeContraseñas.csproj",
         "projectName": "validadorDeContraseñas",
-        "projectPath": "C:\\Users\\Napster\\Google Drive\\utn\\diseño\\TP_ANUAL_DDS\\validadorDeContraseñas\\validadorDeContraseñas.csproj",
-        "packagesPath": "C:\\Users\\Napster\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Napster\\Google Drive\\utn\\diseño\\TP_ANUAL_DDS\\validadorDeContraseñas\\obj\\",
+        "projectPath": "C:\\Users\\Fenjer\\Documents\\UTN 2020\\Diseño de Sistemas\\C#\\validadorDeContraseñas\\validadorDeContraseñas.csproj",
+        "packagesPath": "C:\\Users\\Fenjer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Fenjer\\Documents\\UTN 2020\\Diseño de Sistemas\\C#\\validadorDeContraseñas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Napster\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Fenjer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
