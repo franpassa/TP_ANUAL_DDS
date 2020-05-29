@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Napster\\.nuget\\packages\\": {}
+    "C:\\Users\\Dell\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Napster\\Google Drive\\utn\\diseño\\TP_ANUAL_DDS\\tpAnual\\tpAnual.csproj",
+      "projectUniqueName": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\tpAnual\\tpAnual.csproj",
       "projectName": "tpAnual",
-      "projectPath": "C:\\Users\\Napster\\Google Drive\\utn\\diseño\\TP_ANUAL_DDS\\tpAnual\\tpAnual.csproj",
-      "packagesPath": "C:\\Users\\Napster\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Napster\\Google Drive\\utn\\diseño\\TP_ANUAL_DDS\\tpAnual\\obj\\",
+      "projectPath": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\tpAnual\\tpAnual.csproj",
+      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\tpAnual\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Napster\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
