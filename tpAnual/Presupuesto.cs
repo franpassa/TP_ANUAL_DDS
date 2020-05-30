@@ -15,8 +15,11 @@ namespace TPANUAL {
 		private List<Producto> productos;
 		private Proveedor proveedor;
 
-		public Presupuesto(){
-
+		public Presupuesto(Proveedor proveedor,List<Producto> productos){
+			this.proveedor = proveedor;
+			this.productos = productos;
+			this.detalle = null;
+			this.documentosComerciales = null;
 		}
 
 

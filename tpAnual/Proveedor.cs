@@ -24,6 +24,18 @@ namespace TPANUAL {
 			return productosDisponibles.Find(unProducto => unProducto.IdProducto == id).Valor;
         }
 
+		public Presupuesto crearPresupuesto(Compra compra)
+        {
+			List<Producto> productos = compra.ProductosRequeridos;
+
+			foreach(Producto producto in productos)
+            {
+				producto.Valor = damePrecio(producto.IdProducto);
+            }
+
+			return new Presupuesto(this, productos);
+        }
+
 	}//end Proveedor
 
 }//end namespace TPANUAL
