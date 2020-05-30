@@ -19,9 +19,14 @@ namespace TPANUAL {
 
 		}
 
-		public float valorTotal(){
+        public int Cantidad { get => cantidad; set => cantidad = value; }
+        public string IdProducto { get => idProducto; set => idProducto = value; }
+        public string Descripcion { get => descripcion; set => descripcion = value; }
+        public float Valor { get => valor; set => valor = value; }
 
-			return cantidad*valor;
+        public float valorTotal(){
+
+			return Cantidad*Valor;
 		}
 
 	}//end Producto

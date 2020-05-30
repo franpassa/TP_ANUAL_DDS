@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Linq;
 
 
 
@@ -17,6 +18,7 @@ namespace TPANUAL {
 		private List<Producto> productosRequeridos;
 		private List<Usuario> revisores;
 		private Proveedor proveedor;
+		private bool esConPresupuesto;
 
         public Compra()
         {
@@ -25,12 +27,14 @@ namespace TPANUAL {
 			this.Revisores = new List<Usuario>();
         }
 
-        public List<string> BandejaDeMensajes { get => bandejaDeMensajes; set => bandejaDeMensajes = value; }
-        public Criterio Criterio { get => criterio; set => criterio = value; }
-        public List<Presupuesto> Presupuestos { get => presupuestos; set => presupuestos = value; }
-        public Presupuesto PresupuestoElegido { get => presupuestoElegido; set => presupuestoElegido = value; }
-        public List<Usuario> Revisores { get => revisores; set => revisores = value; }
+        public List<string> BandejaDeMensajes     { get => bandejaDeMensajes;   set => bandejaDeMensajes = value; }
+        public Criterio Criterio                  { get => criterio;            set => criterio = value; }
+        public List<Presupuesto> Presupuestos     { get => presupuestos;        set => presupuestos = value; }
+        public Presupuesto PresupuestoElegido     { get => presupuestoElegido;  set => presupuestoElegido = value; }
+        public List<Usuario> Revisores			  { get => revisores;           set => revisores = value; }
         public List<Producto> ProductosRequeridos { get => productosRequeridos; set => productosRequeridos = value; }
+        public Proveedor Proveedor                { get => proveedor;           set => proveedor = value; }
+        public bool EsConPresupuesto              { get => esConPresupuesto;    set => esConPresupuesto = value; }
 
         public void agregarRevisor(Usuario usuario){
 			Revisores.Add(usuario);
@@ -41,11 +45,23 @@ namespace TPANUAL {
 			return false;
 		}
 
-		public float valorTotal(){
-			if(presupuestoElegido == null)
-            {
+		public override float valorTotal(){
 
-            }
+			float temporal = 0;
+
+			if (esConPresupuesto)
+			{
+				temporal = presupuestoElegido.valorTotal();
+			}
+			else
+			{
+				foreach(Producto producto in ProductosRequeridos)
+                {
+					temporal += proveedor.damePrecio(producto.IdProducto);
+                }
+			}
+
+			return temporal;
 		}
 
 	}//end Compra

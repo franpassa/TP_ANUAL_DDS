@@ -11,16 +11,18 @@ namespace TPANUAL {
 	public class Proveedor {
 
 		private string direccionPostal;
-		private Producto productosDisponibles;
-		public TPANUAL.Producto m_Producto;
+		private List<Producto> productosDisponibles;
 
 		public Proveedor(){
 
 		}
 
-		public void asignarValoresProducto(Producto producto){
+        public List<Producto> ProductosDisponibles { get => productosDisponibles; set => productosDisponibles = value; }
 
-		}
+		public float damePrecio(string id)
+        {
+			return productosDisponibles.Find(unProducto => unProducto.IdProducto == id).Valor;
+        }
 
 	}//end Proveedor
 

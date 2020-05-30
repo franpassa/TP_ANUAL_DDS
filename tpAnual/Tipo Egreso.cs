@@ -13,10 +13,8 @@ namespace TPANUAL {
 
 		}
 
-		public float valorTotal()
-        {
-			return 0;
-        }
+		public abstract float valorTotal();
+      
 	}//end TipoEgreso
 
 }//end namespace TPANUAL
