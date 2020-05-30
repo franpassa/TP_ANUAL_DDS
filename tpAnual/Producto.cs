@@ -14,9 +14,6 @@ namespace TPANUAL {
 		private string descripcion;
 		private string idProducto;
 		private float valor;
-		public TPANUAL.Compra m_Compra;
-		public TPANUAL.Presupuesto m_Presupuesto;
-		public TPANUAL.Proveedor m_Proveedor;
 
 		public Producto(){
 
@@ -24,7 +21,7 @@ namespace TPANUAL {
 
 		public float valorTotal(){
 
-			return 0;
+			return cantidad*valor;
 		}
 
 	}//end Producto

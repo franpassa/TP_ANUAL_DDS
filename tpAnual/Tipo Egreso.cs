@@ -7,12 +7,16 @@ using System.IO;
 
 
 namespace TPANUAL {
-	public class TipoEgreso {
+	public abstract class TipoEgreso {
 
 		public TipoEgreso(){
 
 		}
 
+		public float valorTotal()
+        {
+			return 0;
+        }
 	}//end TipoEgreso
 
 }//end namespace TPANUAL

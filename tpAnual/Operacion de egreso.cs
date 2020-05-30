@@ -9,21 +9,20 @@ using System.IO;
 namespace TPANUAL {
 	public class OperacionDeEgreso {
 
-		private DocumentoComercial documentosComerciales;
+		private List<DocumentoComercial> documentosComerciales;
 		private DateTime fechaOperacion;
 		private MedioDePago medioDePago;
 		private TipoEgreso tipoEgreso;
-		public MedioDePago m_MedioDePago;
-		public DocumentoComercial m_DocumentoComercial;
-		public TipoEgreso m_TipoEgreso;
 
-		public OperacionDeEgreso(){
-
+		public OperacionDeEgreso(TipoEgreso egreso, MedioDePago medio){
+			documentosComerciales = new List<DocumentoComercial>();
+			fechaOperacion = DateTime.Now;
+			medioDePago = medio;
+			tipoEgreso = egreso;
 		}
 
 		public float valorTotal(){
-
-			return 0;
+			return tipoEgreso.valorTotal();
 		}
 
 	}//end OperacionDeEgreso

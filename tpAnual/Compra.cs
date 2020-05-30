@@ -10,24 +10,30 @@ using TPANUAL;
 namespace TPANUAL {
 	public class Compra : TipoEgreso {
 
-		private string bandejaDeMensajes;
+		private List<string> bandejaDeMensajes;
 		private Criterio criterio;
 		private Presupuesto presupuestoElegido;
-		private Presupuesto presupuestos;
-		private Producto productosRequeridos;
-		private Usuario revisores;
-		public TPANUAL.Presupuesto m_Presupuesto;
-		public TPANUAL.Producto m_Producto;
-		public TPANUAL.Usuario m_Usuario;
-		public TPANUAL.Criterio m_Criterio;
+		private List<Presupuesto> presupuestos;
+		private List<Producto> productosRequeridos;
+		private List<Usuario> revisores;
+		private Proveedor proveedor;
 
         public Compra()
         {
-
+			this.bandejaDeMensajes = new List<string>();
+			this.criterio = null;
+			this.Revisores = new List<Usuario>();
         }
 
-		public void agregarRevisor(Usuario usuario){
+        public List<string> BandejaDeMensajes { get => bandejaDeMensajes; set => bandejaDeMensajes = value; }
+        public Criterio Criterio { get => criterio; set => criterio = value; }
+        public List<Presupuesto> Presupuestos { get => presupuestos; set => presupuestos = value; }
+        public Presupuesto PresupuestoElegido { get => presupuestoElegido; set => presupuestoElegido = value; }
+        public List<Usuario> Revisores { get => revisores; set => revisores = value; }
+        public List<Producto> ProductosRequeridos { get => productosRequeridos; set => productosRequeridos = value; }
 
+        public void agregarRevisor(Usuario usuario){
+			Revisores.Add(usuario);
 		}
 
 		public bool validarCompra(){
@@ -36,8 +42,10 @@ namespace TPANUAL {
 		}
 
 		public float valorTotal(){
+			if(presupuestoElegido == null)
+            {
 
-			return 0;
+            }
 		}
 
 	}//end Compra

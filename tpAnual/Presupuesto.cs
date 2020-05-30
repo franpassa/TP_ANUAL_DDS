@@ -11,20 +11,30 @@ namespace TPANUAL {
 	public class Presupuesto {
 
 		private string detalle;
-		private DocumentoComercial documentosComerciales;
-		private Producto productos;
+		private List<DocumentoComercial> documentosComerciales;
+		private List<Producto> productos;
 		private Proveedor proveedor;
-		public TPANUAL.Proveedor m_Proveedor;
-		public TPANUAL.Producto m_Producto;
-		public DocumentoComercial m_DocumentoComercial;
 
 		public Presupuesto(){
 
 		}
 
-		public float valorTotal(){
 
-			return 0;
+        public Proveedor Proveedor { get => proveedor; set => proveedor = value; }
+        public string Detalle { get => detalle; set => detalle = value; }
+        public List<DocumentoComercial> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
+        public List<Producto> Productos { get => productos; set => productos = value; }
+
+        public float valorTotal(){
+
+			float valor = 0;
+
+			foreach(Producto producto in productos)
+            {
+				valor += producto.valorTotal();
+            }
+
+			return valor;
 		}
 
 	}//end Presupuesto

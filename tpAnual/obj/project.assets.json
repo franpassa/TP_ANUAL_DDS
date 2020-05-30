@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {}
+    "C:\\Users\\franc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\tpAnual\\tpAnual.csproj",
+      "projectUniqueName": "C:\\Users\\franc\\Documents\\Facultad\\Diseño de Sistemas\\ReposGIT\\TP_ANUAL_DDS\\tpAnual\\tpAnual.csproj",
       "projectName": "tpAnual",
-      "projectPath": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\tpAnual\\tpAnual.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\tpAnual\\obj\\",
+      "projectPath": "C:\\Users\\franc\\Documents\\Facultad\\Diseño de Sistemas\\ReposGIT\\TP_ANUAL_DDS\\tpAnual\\tpAnual.csproj",
+      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\franc\\Documents\\Facultad\\Diseño de Sistemas\\ReposGIT\\TP_ANUAL_DDS\\tpAnual\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,12 +53,18 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.2, 3.1.2]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
