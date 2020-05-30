@@ -12,8 +12,8 @@ namespace TPANUAL {
 
         public Construccion()
         {
-        CantidadPersonalMax = new int[4] { 12, 45, 200, 590 };
-        PromedioVentasMax = new float[4] { 15230000, 90310000, 503880000, 755740000 };
+            CantidadPersonalMax = new int[4] { 12, 45, 200, 590 };
+            PromedioVentasMax = new float[4] { 15230000, 90310000, 503880000, 755740000 };
         }
 
 	}//end Construccion
