@@ -26,7 +26,7 @@ namespace TPANUAL
 			if (organizacionAsociada.EsActividadComisionistaoAgenciaDeViaje)
 			{
 				int i = 0;
-				for (int j=0; j <= 4; j++)
+				for (int j=0; j < 4; j++)
 				{
 					if (organizacionAsociada.CantidadPersonal <= organizacionAsociada.Actividad.CantidadPersonalMax[i])
 					{
@@ -38,7 +38,7 @@ namespace TPANUAL
 			else
 			{
 				int i = 0;
-				for (int j = 0; j <= 4; j++)
+				for (int j = 0; j < 4; j++)
 				{
 					if (organizacionAsociada.CantidadPersonal <= organizacionAsociada.Actividad.CantidadPersonalMax[i] ||
 					    organizacionAsociada.PromedioVentas   <= organizacionAsociada.Actividad.PromedioVentasMax[i])
