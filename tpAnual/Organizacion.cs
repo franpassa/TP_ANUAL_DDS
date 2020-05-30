@@ -19,8 +19,9 @@ namespace TPANUAL {
 		private bool esActividadComisionistaoAgenciaDeViaje;
 		private TipoEntidad tipoEntidad;
 		private TipoOrganizacion tipoOrganizacion;
-		private Usuario usuarios;
+		private List<Usuario> usuarios;
 		private OperacionDeEgreso operacionDeEgreso;
+
 		public TPANUAL.Usuario m_Usuario;
 		public TPANUAL.TipoEntidad m_TipoEntidad;
 		public TPANUAL.TipoOrganizacion m_TipoOrganizacion;
@@ -33,7 +34,7 @@ namespace TPANUAL {
 		public bool EsActividadComisionistaoAgenciaDeViaje { get => esActividadComisionistaoAgenciaDeViaje; set => esActividadComisionistaoAgenciaDeViaje = value; }
 		public TipoEntidad TipoEntidad { get => tipoEntidad; set => tipoEntidad = value; }
 		public TipoOrganizacion TipoOrganizacion { get => tipoOrganizacion; set => tipoOrganizacion = value; }
-		public Usuario Usuarios { get => usuarios; set => usuarios = value; }
+		public List<Usuario> Usuarios { get => usuarios; set => usuarios = value; }
 		public OperacionDeEgreso OperacionDeEgreso { get => operacionDeEgreso; set => operacionDeEgreso = value; }
 		public int CantidadPersonal { get => cantidadPersonal; set => cantidadPersonal = value; }
 		public int PromedioVentas { get => promedioVentas; set => promedioVentas = value; }
