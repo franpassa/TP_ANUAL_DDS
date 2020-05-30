@@ -26,19 +26,19 @@ namespace TPANUAL
 			if (organizacionAsociada.EsActividadComisionistaoAgenciaDeViaje)
 			{
 				int i = 0;
-				foreach (organizacionAsociada.Actividad.CantidadPersonalMax)
+				for (int j=0; j <= 4; j++)
 				{
 					if (organizacionAsociada.CantidadPersonal <= organizacionAsociada.Actividad.CantidadPersonalMax[i])
 					{
 						i++;
 					}
 				}
-				estructura = definirTama�o(i);
+				estructura = definirTamaño(i);
 			}
 			else
 			{
 				int i = 0;
-				foreach (organizacionAsociada.Actividad.CantidadPersonalMax)
+				for (int j = 0; j <= 4; j++)
 				{
 					if (organizacionAsociada.CantidadPersonal <= organizacionAsociada.Actividad.CantidadPersonalMax[i] ||
 					    organizacionAsociada.PromedioVentas   <= organizacionAsociada.Actividad.PromedioVentasMax[i])
@@ -46,11 +46,11 @@ namespace TPANUAL
 						i++;
 					}
 				}
-				estructura = definirTama�o(i);
+				estructura = definirTamaño(i);
 			}
 		}
 
-		public Estructura definirTama�o(int i)
+		public Estructura definirTamaño(int i)
 		{
 			switch (i)
 			{
@@ -61,11 +61,13 @@ namespace TPANUAL
 				case 2:
 					return new MedianaTramo2();
 				case 3:
-					return new Peque�a();
+					return new Pequeña();
+				default:
+					return new Pequeña();
 			}
 		}
 	}
 
 }//end TipoOrganizacion
 
-}//end namespace TPANUAL
+//end namespace TPANUAL
