@@ -12,7 +12,7 @@ namespace TPANUAL {
 	public class Compra : TipoEgreso {
 
 		private int cantidadDePresupuestosRequeridos;
-		private List<string> bandejaDeMensajes;
+		private BandejaDeMensajes bandeja;
 		private Criterio criterio;
 		private Presupuesto presupuestoElegido;
 		private List<Presupuesto> presupuestos;
@@ -21,14 +21,19 @@ namespace TPANUAL {
 		private Proveedor proveedor;
 		private bool esConPresupuesto;
 
-        public Compra()
+        public Compra(Criterio criterio, List<Usuario> revisores, List<Producto> productosRequeridos, bool esConPresupuesto, int cantidadDePresupuestosRequeridos)
         {
-			this.bandejaDeMensajes = new List<string>();
-			this.criterio = null;
-			this.Revisores = new List<Usuario>();
+            Criterio = criterio;
+            Presupuestos = null;
+            PresupuestoElegido = null;
+            Revisores = revisores;
+            ProductosRequeridos = productosRequeridos;
+            Proveedor = null;
+            EsConPresupuesto = esConPresupuesto;
+            CantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
+            Bandeja = new BandejaDeMensajes();
         }
 
-        public List<string> BandejaDeMensajes     { get => bandejaDeMensajes;   set => bandejaDeMensajes = value; }
         public Criterio Criterio                  { get => criterio;            set => criterio = value; }
         public List<Presupuesto> Presupuestos     { get => presupuestos;        set => presupuestos = value; }
         public Presupuesto PresupuestoElegido     { get => presupuestoElegido;  set => presupuestoElegido = value; }
@@ -37,10 +42,16 @@ namespace TPANUAL {
         public Proveedor Proveedor                { get => proveedor;           set => proveedor = value; }
         public bool EsConPresupuesto              { get => esConPresupuesto;    set => esConPresupuesto = value; }
         public int CantidadDePresupuestosRequeridos { get => cantidadDePresupuestosRequeridos; set => cantidadDePresupuestosRequeridos = value; }
+        public BandejaDeMensajes Bandeja { get => bandeja; set => bandeja = value; }
 
         public void agregarRevisor(Usuario usuario){
 			Revisores.Add(usuario);
 		}
+
+        public void agregarPresupuesto(Presupuesto presupuesto)
+        {
+            presupuestos.Add(presupuesto);
+        }
 
 		public bool validarCompra(){
 
@@ -78,11 +89,14 @@ namespace TPANUAL {
 			return false;
         }
 
-		public void agregarMensaje(string mensaje)
+        public void mostrarMensajes(Usuario usuario)
         {
-			bandejaDeMensajes.Add(mensaje);
+            if (usuario.esRevisor(this))
+            {
+                bandeja.imprimirMensajes();
+            }
         }
 
-	}//end Compra
+    }//end Compra
 
 }//end namespace TPANUAL

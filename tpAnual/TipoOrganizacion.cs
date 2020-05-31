@@ -9,63 +9,24 @@ using System.IO;
 using TPANUAL;
 namespace TPANUAL
 {
-	public class TipoOrganizacion
+	public abstract class TipoOrganizacion
 	{
 
 		private Estructura estructura;
 		private Organizacion organizacionAsociada;
-		public TPANUAL.Estructura m_Estructura;
 
-		public TipoOrganizacion()
-		{
+        /*public TipoOrganizacion(Estructura estructura, Organizacion organizacionAsociada)
+        {
+            this.Estructura = estructura;
+            this.OrganizacionAsociada = organizacionAsociada;
+        }*/
+        
 
-		}
+        public Estructura Estructura { get => estructura; set => estructura = value; }
+        public Organizacion OrganizacionAsociada { get => organizacionAsociada; set => organizacionAsociada = value; }
 
-		public void definirEstructura(Actividad actividad)
-		{
-			if (organizacionAsociada.EsActividadComisionistaoAgenciaDeViaje)
-			{
-				int i = 0;
-				for (int j=0; j < 4; j++)
-				{
-					if (organizacionAsociada.CantidadPersonal <= organizacionAsociada.Actividad.CantidadPersonalMax[i])
-					{
-						i++;
-					}
-				}
-				estructura = definirTamaño(i);
-			}
-			else
-			{
-				int i = 0;
-				for (int j = 0; j < 4; j++)
-				{
-					if (organizacionAsociada.CantidadPersonal <= organizacionAsociada.Actividad.CantidadPersonalMax[i] ||
-					    organizacionAsociada.PromedioVentas   <= organizacionAsociada.Actividad.PromedioVentasMax[i])
-					{
-						i++;
-					}
-				}
-				estructura = definirTamaño(i);
-			}
-		}
+        public abstract void definirEstructura(Actividad actividad);
 
-		public Estructura definirTamaño(int i)
-		{
-			switch (i)
-			{
-				case 0:
-					return new Micro();
-				case 1:
-					return new MedianaTramo1();
-				case 2:
-					return new MedianaTramo2();
-				case 3:
-					return new Pequeña();
-				default:
-					return new Pequeña();
-			}
-		}
 	}
 
 }//end TipoOrganizacion

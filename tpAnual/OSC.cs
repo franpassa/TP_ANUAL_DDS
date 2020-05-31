@@ -8,12 +8,14 @@ using System.IO;
 
 using TPANUAL;
 namespace TPANUAL {
-	public class OSC : TipoOrganizacion {
+	public class OSC : TipoOrganizacion{
 
 		public OSC(){
 
 		}
 
-	}//end OSC
+		public override void definirEstructura(Actividad actividad) { }
+
+    }//end OSC
 
 }//end namespace TPANUAL

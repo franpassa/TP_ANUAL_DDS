@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 
 using TPANUAL;
-namespace tpAnual
+namespace TPANUAL
 {
     class Validador
     {
@@ -135,39 +135,39 @@ namespace tpAnual
             {
                 if((compra.Presupuestos).Count == compra.CantidadDePresupuestosRequeridos) // PUNTO A
                 {
-                    compra.agregarMensaje("Cantidad de presupuestos correcta.");       
+                    compra.Bandeja.agregarMensaje("Cantidad de presupuestos correcta.");       
 
                 } else {
-                    compra.agregarMensaje("Cantidad de presupuestos incorrecta.");
+                    compra.Bandeja.agregarMensaje("Cantidad de presupuestos incorrecta.");
                     flag = false;
                 }
 
                 if (compra.presupuestoRequeridoEstaEnPresupuestos()) // PUNTO B
                 {
-                    compra.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
+                    compra.Bandeja.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
 
                 }
                 else
                 {
-                    compra.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
+                    compra.Bandeja.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
                     flag = false;
                 }
 
                 if ((compra.Criterio.seleccionarPresupuesto(compra) == compra.PresupuestoElegido)) // PUNTO C
                 {
-                    compra.agregarMensaje("Presupuesto elegido en base al criterio.");
+                    compra.Bandeja.agregarMensaje("Presupuesto elegido en base al criterio.");
 
                 }
                 else
                 {
-                    compra.agregarMensaje("Presupuesto no elegido en base al criterio.");
+                    compra.Bandeja.agregarMensaje("Presupuesto no elegido en base al criterio.");
                     flag = false;
                 }
 
                 return flag;
             }
 
-            compra.agregarMensaje("Compra realizada sin presupuesto.");
+            compra.Bandeja.agregarMensaje("Compra realizada sin presupuesto.");
 
             return true;
         }

@@ -14,10 +14,13 @@ namespace TPANUAL {
 		private string descripcion;
 		private string idProducto;
 		private float valor;
-
-		public Producto(){
-
-		}
+        public Producto(int cantidad, string idProducto, string descripcion, float valor)
+        {
+            Cantidad = cantidad;
+            IdProducto = idProducto;
+            Descripcion = descripcion;
+            Valor = valor;
+        }
 
         public int Cantidad { get => cantidad; set => cantidad = value; }
         public string IdProducto { get => idProducto; set => idProducto = value; }

@@ -13,9 +13,11 @@ namespace TPANUAL {
 		private string direccionPostal;
 		private List<Producto> productosDisponibles;
 
-		public Proveedor(){
-
-		}
+        public Proveedor(string direccionPostal, List<Producto> productosDisponibles)
+        {
+            this.direccionPostal = direccionPostal;
+            this.productosDisponibles = productosDisponibles;
+        }
 
         public List<Producto> ProductosDisponibles { get => productosDisponibles; set => productosDisponibles = value; }
 

@@ -15,10 +15,6 @@ namespace TPANUAL {
         public int[] CantidadPersonalMax { get => cantidadPersonalMax; set => cantidadPersonalMax = value; }
         public float[] PromedioVentasMax { get => promedioVentasMax; set => promedioVentasMax = value; }
 
-        public Actividad(){
-
-		}
-
 	}//end Actividad
 
 }//end namespace TPANUAL
