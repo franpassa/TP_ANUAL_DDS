@@ -125,16 +125,53 @@ namespace tpAnual
 
         //END VALIDADOR CONTRASEÑA
 
+        //VALIDADOR DE COMPRA
+
         public bool validarCompra(Compra compra)
         {
+            bool flag = true;
+
             if (compra.EsConPresupuesto)
             {
-                return ((compra.Presupuestos).Count == compra.CantidadDePresupuestosRequeridos)// Punto a
-                    && compra.presupuestoRequeridoEstaEnPresupuestos() && // Punto b
-                    (compra.Criterio.seleccionarPresupuesto(compra) == compra.PresupuestoElegido); // Punto c
+                if((compra.Presupuestos).Count == compra.CantidadDePresupuestosRequeridos) // PUNTO A
+                {
+                    compra.agregarMensaje("Cantidad de presupuestos correcta.");       
+
+                } else {
+                    compra.agregarMensaje("Cantidad de presupuestos incorrecta.");
+                    flag = false;
+                }
+
+                if (compra.presupuestoRequeridoEstaEnPresupuestos()) // PUNTO B
+                {
+                    compra.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
+
+                }
+                else
+                {
+                    compra.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
+                    flag = false;
+                }
+
+                if ((compra.Criterio.seleccionarPresupuesto(compra) == compra.PresupuestoElegido)) // PUNTO C
+                {
+                    compra.agregarMensaje("Presupuesto elegido en base al criterio.");
+
+                }
+                else
+                {
+                    compra.agregarMensaje("Presupuesto no elegido en base al criterio.");
+                    flag = false;
+                }
+
+                return flag;
             }
 
-            return false;
+            compra.agregarMensaje("Compra realizada sin presupuesto.");
+
+            return true;
         }
+
+        // END VALIDADOR COMPRA
     }
 }

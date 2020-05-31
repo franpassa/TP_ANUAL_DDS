@@ -78,6 +78,11 @@ namespace TPANUAL {
 			return false;
         }
 
+		public void agregarMensaje(string mensaje)
+        {
+			bandejaDeMensajes.Add(mensaje);
+        }
+
 	}//end Compra
 
 }//end namespace TPANUAL
