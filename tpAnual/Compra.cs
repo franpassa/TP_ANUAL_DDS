@@ -11,6 +11,7 @@ using TPANUAL;
 namespace TPANUAL {
 	public class Compra : TipoEgreso {
 
+		private int cantidadDePresupuestosRequeridos;
 		private List<string> bandejaDeMensajes;
 		private Criterio criterio;
 		private Presupuesto presupuestoElegido;
@@ -35,6 +36,7 @@ namespace TPANUAL {
         public List<Producto> ProductosRequeridos { get => productosRequeridos; set => productosRequeridos = value; }
         public Proveedor Proveedor                { get => proveedor;           set => proveedor = value; }
         public bool EsConPresupuesto              { get => esConPresupuesto;    set => esConPresupuesto = value; }
+        public int CantidadDePresupuestosRequeridos { get => cantidadDePresupuestosRequeridos; set => cantidadDePresupuestosRequeridos = value; }
 
         public void agregarRevisor(Usuario usuario){
 			Revisores.Add(usuario);
@@ -63,6 +65,18 @@ namespace TPANUAL {
 
 			return temporal;
 		}
+
+		public bool presupuestoRequeridoEstaEnPresupuestos()
+		{ 
+			foreach(Presupuesto presupuesto in Presupuestos)
+            {
+				if(Equals(presupuestoElegido, presupuesto)){
+					return true;
+                }
+            }
+
+			return false;
+        }
 
 	}//end Compra
 

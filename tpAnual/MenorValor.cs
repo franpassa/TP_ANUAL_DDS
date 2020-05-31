@@ -13,9 +13,21 @@ namespace TPANUAL {
 		public MenorValor(){
 
 		}
+		public override Presupuesto seleccionarPresupuesto(Compra compra){
 
-		public void seleccionarCriterio(){
+            float valorMinimo = float.MaxValue;
+            Presupuesto presupuestoMinimo = compra.Presupuestos[0]; //en caso de que no entre en el if
 
+            foreach(Presupuesto presupuesto in compra.Presupuestos)
+            {
+                if(presupuesto.valorTotal() <= valorMinimo)
+                {
+                    presupuestoMinimo = presupuesto;
+                    valorMinimo = presupuesto.valorTotal();
+                }
+            }
+
+            return presupuestoMinimo;
 		}
 
 	}//end MenorValor
