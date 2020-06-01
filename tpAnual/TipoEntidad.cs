@@ -7,11 +7,8 @@ using System.IO;
 
 
 namespace TPANUAL {
-	public class TipoEntidad {
+	public abstract class TipoEntidad {
 
-		public TipoEntidad(){
-
-		}
 
 	}//end TipoEntidad
 

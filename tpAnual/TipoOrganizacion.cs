@@ -13,19 +13,10 @@ namespace TPANUAL
 	{
 
 		private Estructura estructura;
-		private Organizacion organizacionAsociada;
-
-        /*public TipoOrganizacion(Estructura estructura, Organizacion organizacionAsociada)
-        {
-            this.Estructura = estructura;
-            this.OrganizacionAsociada = organizacionAsociada;
-        }*/
-        
 
         public Estructura Estructura { get => estructura; set => estructura = value; }
-        public Organizacion OrganizacionAsociada { get => organizacionAsociada; set => organizacionAsociada = value; }
 
-        public abstract void definirEstructura(Actividad actividad);
+        public abstract void definirEstructura(Organizacion organizacion);
 
 	}
 

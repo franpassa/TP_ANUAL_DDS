@@ -9,6 +9,11 @@ namespace TPANUAL
     {
         private List<string> listaDeMensajes;
 
+        public BandejaDeMensajes()
+        {
+            this.listaDeMensajes = new List<string>();
+        }
+
         public List<string> ListaDeMensajes { get => listaDeMensajes; set => listaDeMensajes = value; }
 
         public void agregarMensaje(string mensaje)

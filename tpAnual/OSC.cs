@@ -10,11 +10,12 @@ using TPANUAL;
 namespace TPANUAL {
 	public class OSC : TipoOrganizacion{
 
-		public OSC(){
+        public OSC(Organizacion organizacionAsociada)
+        {
+            this.Estructura = null;
+        }
 
-		}
-
-		public override void definirEstructura(Actividad actividad) { }
+        public override void definirEstructura(Organizacion organizacion) { }
 
     }//end OSC
 

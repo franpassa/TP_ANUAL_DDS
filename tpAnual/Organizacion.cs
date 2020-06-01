@@ -31,7 +31,7 @@ namespace TPANUAL {
             this.esActividadComisionistaoAgenciaDeViaje = esActividadComisionistaoAgenciaDeViaje;
             this.tipoEntidad = tipoEntidad;
             this.tipoOrganizacion = tipoOrganizacion;
-			this.tipoOrganizacion.definirEstructura(actividad);
+            tipoOrganizacion.definirEstructura(this);
             this.usuarios = usuarios;
         }
 

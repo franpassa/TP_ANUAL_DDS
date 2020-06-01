@@ -8,22 +8,17 @@ using System.IO;
 
 using TPANUAL;
 namespace TPANUAL {
-	public class Proveedor {
+	public abstract class Proveedor {
 
 		private string direccionPostal;
 		private List<Producto> productosDisponibles;
 
-        public Proveedor(string direccionPostal, List<Producto> productosDisponibles)
-        {
-            this.direccionPostal = direccionPostal;
-            this.productosDisponibles = productosDisponibles;
-        }
-
         public List<Producto> ProductosDisponibles { get => productosDisponibles; set => productosDisponibles = value; }
+        public string DireccionPostal { get => direccionPostal; set => direccionPostal = value; }
 
-		public float damePrecio(string id)
+        public float damePrecio(string id)
         {
-			return productosDisponibles.Find(unProducto => unProducto.IdProducto == id).Valor;
+			return productosDisponibles.Find(unProducto => unProducto.IdProducto.Equals(id)).Valor;
         }
 
 		public Presupuesto crearPresupuesto(Compra compra)

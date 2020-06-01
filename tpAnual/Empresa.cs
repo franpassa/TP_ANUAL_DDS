@@ -10,15 +10,19 @@ using TPANUAL;
 namespace TPANUAL {
 	public class Empresa : TipoOrganizacion {
 
-		public override void definirEstructura(Actividad actividad){
+        public Empresa() {
+            this.Estructura = null;
+        }
 
-            if (OrganizacionAsociada.EsActividadComisionistaoAgenciaDeViaje){
+        public override void definirEstructura(Organizacion organizacion){
+
+            if (organizacion.EsActividadComisionistaoAgenciaDeViaje){
               
                 int i = 0;
 
                 for (int j  =  0; j  < 4; j++) {
 
-                    if (OrganizacionAsociada.CantidadPersonal <= OrganizacionAsociada.Actividad.CantidadPersonalMax[i]){
+                    if (organizacion.CantidadPersonal <= organizacion.Actividad.CantidadPersonalMax[i]){
                         
                         i++;
                     }
@@ -30,8 +34,8 @@ namespace TPANUAL {
                 int i = 0;
                 for (int j = 0; j  < 4; j++) {
 
-                    if (OrganizacionAsociada.CantidadPersonal <= OrganizacionAsociada.Actividad.CantidadPersonalMax[i] ||
-                        OrganizacionAsociada.PromedioVentasAnuales <= OrganizacionAsociada.Actividad.PromedioVentasMax[i]){
+                    if (organizacion.CantidadPersonal <= organizacion.Actividad.CantidadPersonalMax[i] ||
+                        organizacion.PromedioVentasAnuales <= organizacion.Actividad.PromedioVentasMax[i]){
                        
                         i++;
                     }

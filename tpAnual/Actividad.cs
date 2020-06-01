@@ -7,7 +7,7 @@ using System.IO;
 
 
 namespace TPANUAL {
-	public class Actividad {
+	public abstract class Actividad {
 
         private float[] promedioVentasMax;
         private int[] cantidadPersonalMax;

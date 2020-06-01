@@ -7,11 +7,30 @@ using System.IO;
 using TPANUAL;
 namespace TPANUAL
 {
-    class Validador
+    public class Validador
     {
+        private static Validador instance = null;
+
+        protected Validador() { }
+            
+        public static Validador getInstanceValidador{
+           
+            get {
+                if (instance == null)
+                {
+
+                    instance = new Validador();
+                }
+                
+                return instance;
+            }
+
+           
+
+        }
 
         //VALIDADOR DE CONTRASEÑAS
-        public static bool validarContraseña(string contrasenia, out string mensajeDeError)
+        public bool validarContraseña(string contrasenia, out string mensajeDeError)
         {
             var validezContrasenia = false;
             mensajeDeError = string.Empty;

@@ -24,7 +24,7 @@ namespace TPANUAL {
         public Compra(Criterio criterio, List<Usuario> revisores, List<Producto> productosRequeridos, bool esConPresupuesto, int cantidadDePresupuestosRequeridos)
         {
             Criterio = criterio;
-            Presupuestos = null;
+            Presupuestos = new List<Presupuesto>();
             PresupuestoElegido = null;
             Revisores = revisores;
             ProductosRequeridos = productosRequeridos;
@@ -50,7 +50,8 @@ namespace TPANUAL {
 
         public void agregarPresupuesto(Presupuesto presupuesto)
         {
-            presupuestos.Add(presupuesto);
+            if(EsConPresupuesto)
+                presupuestos.Add(presupuesto);
         }
 
 		public bool validarCompra(){
