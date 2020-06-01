@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\tpAnual.csproj": {}
+    "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\TPANUAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\tpAnual.csproj": {
+    "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\TPANUAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\tpAnual.csproj",
-        "projectName": "tpAnual",
-        "projectPath": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\tpAnual.csproj",
+        "projectUniqueName": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\TPANUAL.csproj",
+        "projectName": "TPANUAL",
+        "projectPath": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\TPANUAL.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\obj\\",
         "projectStyle": "PackageReference",

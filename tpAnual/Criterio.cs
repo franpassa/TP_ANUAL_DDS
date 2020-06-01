@@ -9,10 +9,6 @@ using System.IO;
 namespace TPANUAL {
 	public abstract class Criterio {
 
-		public Criterio(){
-
-		}
-
 		public abstract Presupuesto seleccionarPresupuesto(Compra compra);
 
 	}//end Criterio
