@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("tpAnual")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("TPANUAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("tpAnual")]
-[assembly: System.Reflection.AssemblyTitleAttribute("tpAnual")]
+[assembly: System.Reflection.AssemblyProductAttribute("TPANUAL")]
+[assembly: System.Reflection.AssemblyTitleAttribute("TPANUAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.

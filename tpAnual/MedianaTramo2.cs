@@ -11,8 +11,8 @@ namespace TPANUAL {
 	public class MedianaTramo2 : Estructura {
 
 		public MedianaTramo2(){
-
-		}
+            //Nombre = "mediana2";
+        }
 
 	}//end MedianaTramo2
 

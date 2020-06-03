@@ -9,10 +9,12 @@ using System.IO;
 namespace TPANUAL {
 	public class Estructura {
 
+      //  private string nombre;
 		public Estructura(){
 
 		}
 
-	}//end Estructura
+      //  public string Nombre { get => nombre; set => nombre = value; }
+    }//end Estructura
 
 }//end namespace TPANUAL

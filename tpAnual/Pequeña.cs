@@ -11,8 +11,8 @@ namespace TPANUAL {
 	public class Pequeña : Estructura {
 
 		public Pequeña(){
-
-		}
+            //Nombre = "pequeña";
+        }
 
 	}//end Pequeña
 

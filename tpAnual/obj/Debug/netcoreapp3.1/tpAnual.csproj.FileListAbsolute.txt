@@ -22,3 +22,4 @@ C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANU
 C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\tpAnual.dll
 C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\tpAnual.pdb
 C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\tpAnual.genruntimeconfig.cache
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csprojAssemblyReference.cache

@@ -36,14 +36,16 @@ namespace TPANUAL
             Servicios actividadServicio = new Servicios();
             List<Usuario> usuariosDeOrg = new List<Usuario> { jose, pedro };
 
-            Organizacion zapaTuya = new Organizacion("zapaTuya", actividadServicio, 20, 249872, false, entidadBase, empresa, usuariosDeOrg);
+            Organizacion zapaTuya = new Organizacion("zapaTuya", actividadServicio, 1, 8400000, false, entidadBase, empresa, usuariosDeOrg);
 
             //creo Compra
             Producto zapatilla = new Producto(3, "1", "laquequiero", 0);
             List<Producto> productosRequeridos = new List<Producto> {zapatilla};
 
             List<Usuario> usuariosRevisores = new List<Usuario>{ jose };
+
             Compra compra = new Compra(criterio, usuariosRevisores, productosRequeridos, true, 2);
+            compra.agregarRevisor(pedro);
 
             Presupuesto presJuan = juan.crearPresupuesto(compra);
             Presupuesto presRobert = roberto.crearPresupuesto(compra);
@@ -62,17 +64,19 @@ namespace TPANUAL
             //valido Compra
             if (Validador.getInstanceValidador.validarCompra(compra))
             {
-                Console.WriteLine("Compra correcta");
+                Console.WriteLine("Compra correcta \n");
             } else
             {
-                Console.WriteLine("Compra incorrecta");
-                jose.verMensajes(compra);
+                Console.WriteLine("Compra incorrecta \n");
 
             }
             
+            pedro.verMensajes(compra);
+
+            //Console.WriteLine(zapaTuya.TipoOrganizacion.Estructura.Nombre);
 
         }
-    }
+    } 
 }
 // La organizacion "ZapaTuya" tiene a Pedro y Jose de empleados(usuarios) 
 // Juan, el proveedor que tiene 5 zapatillas le vende a ZapaTuya 3 a 10$ cada una. 

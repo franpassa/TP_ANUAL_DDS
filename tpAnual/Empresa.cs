@@ -22,7 +22,7 @@ namespace TPANUAL {
 
                 for (int j  =  0; j  < 4; j++) {
 
-                    if (organizacion.CantidadPersonal <= organizacion.Actividad.CantidadPersonalMax[i]){
+                    if (organizacion.CantidadPersonal >= organizacion.Actividad.CantidadPersonalMax[i]){
                         
                         i++;
                     }
@@ -34,8 +34,8 @@ namespace TPANUAL {
                 int i = 0;
                 for (int j = 0; j  < 4; j++) {
 
-                    if (organizacion.CantidadPersonal <= organizacion.Actividad.CantidadPersonalMax[i] ||
-                        organizacion.PromedioVentasAnuales <= organizacion.Actividad.PromedioVentasMax[i]){
+                    if (organizacion.CantidadPersonal >= organizacion.Actividad.CantidadPersonalMax[i] ||
+                        organizacion.PromedioVentasAnuales >= organizacion.Actividad.PromedioVentasMax[i]){
                        
                         i++;
                     }
@@ -50,11 +50,11 @@ namespace TPANUAL {
                 case 0:
                     return new Micro();
                 case 1:
-                    return new MedianaTramo1();
-                case 2:
-                    return new MedianaTramo2();
-                case 3:
                     return new Pequeña();
+                case 2:
+                    return new MedianaTramo1();
+                case 3:
+                    return new MedianaTramo2();
                 default:
                     return new Pequeña();
             }

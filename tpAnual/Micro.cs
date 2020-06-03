@@ -10,9 +10,8 @@ using TPANUAL;
 namespace TPANUAL {
 	public class Micro : Estructura {
 
-        public Micro()
-        {
-
+        public Micro(){
+            //Nombre = "micro";
         }
 
 	}//end Micro
