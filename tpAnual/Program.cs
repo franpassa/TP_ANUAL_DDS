@@ -24,7 +24,7 @@ namespace TPANUAL
             Usuario pedro = new Usuario("pedritoelmejor", "pepito");
 
             //creo usuario Jose
-            Usuario jose = new Usuario("password12", "elJosu");
+            Usuario jose = new Usuario("ppasswordd", "elJosu");
 
             //creo Entidad
             EntidadBase entidadBase = new EntidadBase("entidadBase", null);

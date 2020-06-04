@@ -55,7 +55,6 @@ namespace TPANUAL {
 
         public bool validarContraseña()
         {
-            string a;
             return ValidadorDeContraseña.getInstanceValidadorContra.validarContraseña(this.Constraseña);
         }
 

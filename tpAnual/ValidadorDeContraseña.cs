@@ -40,22 +40,22 @@ namespace TPANUAL
                     switch (i)
                     {
                         case 0:
-                            Console.WriteLine(" (X) La contrasenia no debe estar vacia. \n");
+                            Console.WriteLine(" (X) La contraseña no debe estar vacia. \n");
                             break;
                         case 1:
-                            Console.WriteLine("(X) La contrasenia no debe contener caracteres unicode. \n");
+                            Console.WriteLine(" (X) La contraseña no debe contener caracteres unicode. \n");
                             break;
                         case 2:
-                            Console.WriteLine(" (X) La contrasenia no debe estar incluida en el top 10.000 de contrasenias mas frecuentes. \n");
+                            Console.WriteLine(" (X) La contraseña no debe estar incluida en el top 10.000 de contrasenias mas frecuentes. \n");
                             break;
                         case 3:
-                            Console.WriteLine(" (X) La contrasenia debe contener al menos una letra minuscula. \n");
+                            Console.WriteLine(" (X) La contraseña debe contener al menos una letra minuscula. \n");
                             break;
                         case 4:
-                            Console.WriteLine(" (X) La contrasenia debe contener al menos una letra mayuscula. \n");
+                            Console.WriteLine(" (X) La contraseña debe contener al menos una letra mayuscula. \n");
                             break;
                         case 5:
-                            Console.WriteLine(" (X) La contrasenia debe contener al menos un numero. \n");
+                            Console.WriteLine(" (X) La contraseña debe contener al menos un numero. \n");
                             break;
                         case 6:
                             Console.WriteLine(" (X) La contraseña debe contener de 8 a 64 caracteres. \n");
@@ -64,9 +64,6 @@ namespace TPANUAL
                             Console.WriteLine(" (X) La contraseña no debe tener numeros consecutivos \n");
                             break;
                         case 8:
-                            Console.WriteLine(" (X) La contraseña no debe tener caracteres consecutivos iguales \n");
-                            break;
-                        case 9:
                             Console.WriteLine(" (X) La contraseña no debe tener caracteres seguidos repetidos \n");
                             break;
                     }
@@ -103,7 +100,6 @@ namespace TPANUAL
             var tieneMinusculas = new Regex(@"[a-z]+");
             var tieneMayusculas = new Regex(@"[A-Z]+");
             var tieneNumeros = new Regex(@"[0-9]+");
-            var tieneRepetidos = new Regex(@"[a-zA-z]{3,64}");
             var tieneCantidad = new Regex(@".{8,64}");
 
             listaBool[3] = tieneMinusculas.IsMatch(contrasenia);
@@ -116,9 +112,7 @@ namespace TPANUAL
 
             listaBool[7] = !NumerosConsecutivos(contrasenia);
 
-            listaBool[8] = !CaracteresConsecutivosIguales(contrasenia);
-
-            listaBool[9] = !tieneRepetidos.IsMatch(contrasenia);
+            listaBool[8] = !CaracteresRepetidos(contrasenia);
 
             return listaBool;
         }
@@ -141,26 +135,33 @@ namespace TPANUAL
 
         static private bool NumerosConsecutivos(string OtroString)
         {
-            char[] UnString = OtroString.ToCharArray();
-            bool retorno = false;
-            for (int i = 0; i < (UnString.Length - 2); i++)
+            List<string> listaConsecutivos = new List<string> { "012", "123", "234", "345", "456", "567", "678", "789" };
+
+            foreach(string consecutivo in listaConsecutivos)
             {
-                bool laPos3esPos2Mas1 = (int)UnString[i + 2] == ((int)UnString[i + 1]) + 1;
-                bool laPos2esPos1Mas1 = (int)UnString[i + 1] == ((int)UnString[i]) + 1;
-                retorno = retorno || (laPos3esPos2Mas1 && laPos3esPos2Mas1);
+                if (OtroString.Contains(consecutivo))
+                {
+                    return true;
+                }
             }
-            return retorno;
+            return false;
+
         }
 
-        static private bool CaracteresConsecutivosIguales(string OtroString)
+        static private bool CaracteresRepetidos(string OtroString)
         {
             char[] UnString = OtroString.ToCharArray();
-            bool retorno = false;
-            for (int i = 0; i < (UnString.Length - 1); i++)
+
+            for (int i = 0; i < UnString.Length -2; i++)
             {
-                retorno = retorno || (int)UnString[i] == (int)UnString[i + 1];
+                if (((int)UnString[i] == (int)UnString[i + 1]) && ((int)UnString[i + 1] == (int)UnString[i + 2]))
+                {
+                    return true;
+                } 
             }
-            return retorno;
+
+            return false;
+
         }
 
         public static bool EsUnicode(string input)
