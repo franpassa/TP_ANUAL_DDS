@@ -62,7 +62,7 @@ namespace TPANUAL
             OperacionDeEgreso operacionDeEgreso = new OperacionDeEgreso(compra, medio, null);
 
             //valido Compra
-            if (Validador.getInstanceValidador.validarCompra(compra))
+            if (compra.validarCompra())
             {
                 Console.WriteLine("Compra correcta \n");
             } else
@@ -70,8 +70,11 @@ namespace TPANUAL
                 Console.WriteLine("Compra incorrecta \n");
 
             }
-            
             pedro.verMensajes(compra);
+
+            jose.validarContraseña();
+            
+            
 
             //Console.WriteLine(zapaTuya.TipoOrganizacion.Estructura.Nombre);
 

@@ -56,7 +56,7 @@ namespace TPANUAL {
 
 		public bool validarCompra(){
 
-			return false;
+            return ValidadorDeCompra.getInstanceValidadorCompra.validarCompra(this);
 		}
 
 		public override float valorTotal(){

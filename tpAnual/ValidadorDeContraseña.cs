@@ -2,34 +2,38 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Text;
-using System.IO;
 
-using TPANUAL;
 namespace TPANUAL
 {
-    public class Validador
+    class ValidadorDeContraseña
     {
-        private static Validador instance = null;
+        private static ValidadorDeContraseña instanceContra = null;
 
-        protected Validador() { }
-            
-        public static Validador getInstanceValidador{
-           
-            get {
-                if (instance == null)
+        protected ValidadorDeContraseña() { }
+
+        public static ValidadorDeContraseña getInstanceValidadorContra
+        {
+
+            get
+            {
+                if (instanceContra == null)
                 {
 
-                    instance = new Validador();
+                    instanceContra = new ValidadorDeContraseña();
                 }
-                
-                return instance;
-            }
 
-           
+                return instanceContra;
+            }
 
         }
 
         //VALIDADOR DE CONTRASEÑAS
+
+        public void mostrarMsjValidador(string a)
+        {
+            Console.WriteLine(a);
+        }
+
         public bool validarContraseña(string contrasenia, out string mensajeDeError)
         {
             var validezContrasenia = false;
@@ -144,53 +148,5 @@ namespace TPANUAL
 
         //END VALIDADOR CONTRASEÑA
 
-        //VALIDADOR DE COMPRA
-
-        public bool validarCompra(Compra compra)
-        {
-            bool flag = true;
-
-            if (compra.EsConPresupuesto)
-            {
-                if((compra.Presupuestos).Count == compra.CantidadDePresupuestosRequeridos) // PUNTO A
-                {
-                    compra.Bandeja.agregarMensaje("Cantidad de presupuestos correcta.");       
-
-                } else {
-                    compra.Bandeja.agregarMensaje("Cantidad de presupuestos incorrecta.");
-                    flag = false;
-                }
-
-                if (compra.presupuestoRequeridoEstaEnPresupuestos()) // PUNTO B
-                {
-                    compra.Bandeja.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
-
-                }
-                else
-                {
-                    compra.Bandeja.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
-                    flag = false;
-                }
-
-                if ((compra.Criterio.seleccionarPresupuesto(compra) == compra.PresupuestoElegido)) // PUNTO C
-                {
-                    compra.Bandeja.agregarMensaje("Presupuesto elegido en base al criterio.");
-
-                }
-                else
-                {
-                    compra.Bandeja.agregarMensaje("Presupuesto no elegido en base al criterio.");
-                    flag = false;
-                }
-
-                return flag;
-            }
-
-            compra.Bandeja.agregarMensaje("Compra realizada sin presupuesto.");
-
-            return true;
-        }
-
-        // END VALIDADOR COMPRA
     }
 }

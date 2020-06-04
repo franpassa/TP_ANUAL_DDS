@@ -13,11 +13,15 @@ namespace TPANUAL {
 		private string nombreUsuario;
 		private string tipoUsuario;
 
+        public string Constraseña { get => constraseña; set => constraseña = value; }
+        public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
+        public string TipoUsuario { get => tipoUsuario; set => tipoUsuario = value; }
+
         public Usuario(string constraseña, string nombreUsuario)
         {
-            this.constraseña = constraseña;
-            this.nombreUsuario = nombreUsuario;
-            this.tipoUsuario = "estandar";
+            this.Constraseña = constraseña;
+            this.NombreUsuario = nombreUsuario;
+            this.TipoUsuario = "estandar";
         }
 
         public void verMensajes(Compra compra)
@@ -40,13 +44,19 @@ namespace TPANUAL {
 
         public void cambiarTipoUsuario()
         {
-            if(tipoUsuario == "estandar")
+            if(TipoUsuario == "estandar")
             {
-                tipoUsuario = "administrador";
+                TipoUsuario = "administrador";
             }
             else{
-                tipoUsuario = "estandar";
+                TipoUsuario = "estandar";
             }
+        }
+
+        public bool validarContraseña()
+        {
+            string a;
+            return ValidadorDeContraseña.getInstanceValidadorContra.validarContraseña(this.Constraseña, out a);
         }
 
 	}//end Usuario
