@@ -24,7 +24,7 @@ namespace TPANUAL
             Usuario pedro = new Usuario("pedritoelmejor", "pepito");
 
             //creo usuario Jose
-            Usuario jose = new Usuario("josesito", "elJosu");
+            Usuario jose = new Usuario("password12", "elJosu");
 
             //creo Entidad
             EntidadBase entidadBase = new EntidadBase("entidadBase", null);
@@ -73,6 +73,7 @@ namespace TPANUAL
             pedro.verMensajes(compra);
 
             jose.validarContraseña();
+            ValidadorDeContraseña.getInstanceValidadorContra.mostrarMsjValidador(jose.Constraseña);
             
             
 

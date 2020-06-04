@@ -11,7 +11,7 @@ namespace TPANUAL {
 	public class Presupuesto {
 
 		private string detalle;
-		private List<DocumentoComercial> documentosComerciales;
+		private List<string> documentosComerciales;
 		private List<Producto> productos;
 		private Proveedor proveedor;
 
@@ -25,7 +25,7 @@ namespace TPANUAL {
 
         public Proveedor Proveedor { get => proveedor; set => proveedor = value; }
         public string Detalle { get => detalle; set => detalle = value; }
-        public List<DocumentoComercial> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
+        public List<string> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
         public List<Producto> Productos { get => productos; set => productos = value; }
 
         public float valorTotal(){
@@ -39,6 +39,11 @@ namespace TPANUAL {
 
 			return valor;
 		}
+
+        public void agregarDocumentosComerciales(string documento)
+        {
+            DocumentosComerciales.Add(documento);
+        }
 
 	}//end Presupuesto
 
