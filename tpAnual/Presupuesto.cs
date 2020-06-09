@@ -11,13 +11,13 @@ namespace TPANUAL {
 	public class Presupuesto {
 
 		private string detalle;
-		private List<string> documentosComerciales;
-		private List<Producto> productos;
+		private List<DocumentoComercial> documentosComerciales;
+		private List<Item> items;
 		private Proveedor proveedor;
 
-		public Presupuesto(Proveedor proveedor,List<Producto> productos){
+		public Presupuesto(Proveedor proveedor,List<Item> items){
 			this.proveedor = proveedor;
-			this.productos = productos;
+			this.items = items;
 			this.detalle = null;
 			this.documentosComerciales = null;
 		}
@@ -25,22 +25,22 @@ namespace TPANUAL {
 
         public Proveedor Proveedor { get => proveedor; set => proveedor = value; }
         public string Detalle { get => detalle; set => detalle = value; }
-        public List<string> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
-        public List<Producto> Productos { get => productos; set => productos = value; }
+        public List<Item> Items { get => items; set => items = value; }
+        internal List<DocumentoComercial> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
 
         public float valorTotal(){
 
 			float valor = 0;
 
-			foreach(Producto producto in productos)
+			foreach(Item item in items)
             {
-				valor += producto.valorTotal();
+				valor += item.ValorTotal;
             }
 
 			return valor;
 		}
 
-        public void agregarDocumentosComerciales(string documento)
+        public void agregarDocumentosComerciales(DocumentoComercial documento)
         {
             DocumentosComerciales.Add(documento);
         }

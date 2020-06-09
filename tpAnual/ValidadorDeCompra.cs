@@ -45,7 +45,7 @@ namespace TPANUAL
                     flag = false;
                 }
 
-                if (compra.presupuestoRequeridoEstaEnPresupuestos()) // PUNTO B
+                if (compra.presupuestoElegidoEstaEnPresupuestos()) // PUNTO B
                 {
                     compra.Bandeja.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
 
@@ -69,8 +69,6 @@ namespace TPANUAL
 
                 return flag;
             }
-
-            compra.Bandeja.agregarMensaje("Compra realizada sin presupuesto.");
 
             return true;
         }

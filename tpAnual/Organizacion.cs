@@ -12,10 +12,10 @@ namespace TPANUAL {
 
 		private Actividad actividad;
 		private int cantidadPersonal;
+		private bool esActividadComisionistaoAgenciaDeViaje;
 		private string nombreFicticio;
 		private List<OperacionDeEgreso> operacionesDeEgreso;
 		private float promedioVentasAnuales;
-		private bool esActividadComisionistaoAgenciaDeViaje;
 		private TipoEntidad tipoEntidad;
 		private TipoOrganizacion tipoOrganizacion;
 		private List<Usuario> usuarios;

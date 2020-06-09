@@ -11,15 +11,15 @@ C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAn
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.dll
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.pdb
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.genruntimeconfig.cache
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\tpAnual.exe
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\tpAnual.deps.json
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\tpAnual.runtimeconfig.json
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\tpAnual.runtimeconfig.dev.json
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\tpAnual.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\tpAnual.pdb
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\tpAnual.AssemblyInfoInputs.cache
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\tpAnual.AssemblyInfo.cs
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\tpAnual.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\tpAnual.pdb
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\tpAnual.genruntimeconfig.cache
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfoInputs.cache
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfo.cs
 C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csprojAssemblyReference.cache
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.exe
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.deps.json
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.json
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.dev.json
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.dll
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.pdb
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.dll
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.pdb
+C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.genruntimeconfig.cache

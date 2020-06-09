@@ -14,10 +14,9 @@ namespace TPANUAL {
 		private string CUIT;
 		private string razonSocial;
 
-        public EntidadJuridicaProveedora(string direccionPostal, List<Producto> productosDisponibles, string codigoInscripcion, string CUIT, string razonSocial)
+        public EntidadJuridicaProveedora(string direccionPostal, string codigoInscripcion, string CUIT, string razonSocial)
         {
             this.DireccionPostal = direccionPostal;
-            this.ProductosDisponibles = productosDisponibles;
             this.codigoInscripcion = codigoInscripcion;
             this.CUIT = CUIT;
             this.razonSocial = razonSocial;

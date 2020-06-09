@@ -7,7 +7,7 @@ namespace TPANUAL
 {
     class ValidadorDeContraseña
     {
-        private static ValidadorDeContraseña instanceContra = null;
+        private static ValidadorDeContraseña instanceContraseña = null;
 
         protected ValidadorDeContraseña() { }
 
@@ -16,13 +16,13 @@ namespace TPANUAL
 
             get
             {
-                if (instanceContra == null)
+                if (instanceContraseña == null)
                 {
 
-                    instanceContra = new ValidadorDeContraseña();
+                    instanceContraseña = new ValidadorDeContraseña();
                 }
 
-                return instanceContra;
+                return instanceContraseña;
             }
 
         }
@@ -46,7 +46,7 @@ namespace TPANUAL
                             Console.WriteLine(" (X) La contraseña no debe contener caracteres unicode. \n");
                             break;
                         case 2:
-                            Console.WriteLine(" (X) La contraseña no debe estar incluida en el top 10.000 de contrasenias mas frecuentes. \n");
+                            Console.WriteLine(" (X) La contraseña no debe estar incluida en el top 10.000 de contraseñas mas frecuentes. \n");
                             break;
                         case 3:
                             Console.WriteLine(" (X) La contraseña debe contener al menos una letra minuscula. \n");
@@ -65,6 +65,9 @@ namespace TPANUAL
                             break;
                         case 8:
                             Console.WriteLine(" (X) La contraseña no debe tener caracteres seguidos repetidos \n");
+                            break;
+                        case 9:
+                            Console.WriteLine(" (X) La contraseña no debe tener letras consecutivas \n");
                             break;
                     }
                 }
@@ -87,45 +90,47 @@ namespace TPANUAL
             return true;
         }
 
-        public bool[] listaDeValidaciones(string contrasenia)
+        private bool[] listaDeValidaciones(string contraseña)
         {
             bool[] listaBool = new bool[10];
 
-            listaBool[0] = !string.IsNullOrWhiteSpace(contrasenia);
+            listaBool[0] = !string.IsNullOrWhiteSpace(contraseña);
 
-            listaBool[1] = !EsUnicode(contrasenia);
+            listaBool[1] = !EsUnicode(contraseña);
 
-            listaBool[2] = !EstaEnLaBaseDeDatos(contrasenia);
+            listaBool[2] = !EstaEnLaBaseDeDatos(contraseña);
 
             var tieneMinusculas = new Regex(@"[a-z]+");
             var tieneMayusculas = new Regex(@"[A-Z]+");
             var tieneNumeros = new Regex(@"[0-9]+");
             var tieneCantidad = new Regex(@".{8,64}");
 
-            listaBool[3] = tieneMinusculas.IsMatch(contrasenia);
+            listaBool[3] = tieneMinusculas.IsMatch(contraseña);
 
-            listaBool[4] = tieneMayusculas.IsMatch(contrasenia);
+            listaBool[4] = tieneMayusculas.IsMatch(contraseña);
 
-            listaBool[5] = tieneNumeros.IsMatch(contrasenia);
+            listaBool[5] = tieneNumeros.IsMatch(contraseña);
 
-            listaBool[6] = tieneCantidad.IsMatch(contrasenia);
+            listaBool[6] = tieneCantidad.IsMatch(contraseña);
 
-            listaBool[7] = !NumerosConsecutivos(contrasenia);
+            listaBool[7] = !NumerosConsecutivos(contraseña);
 
-            listaBool[8] = !CaracteresRepetidos(contrasenia);
+            listaBool[8] = !CaracteresRepetidos(contraseña);
+
+            listaBool[9] = !LetrasConsecutivas(contraseña);
 
             return listaBool;
         }
 
         //FUNCIONES AUXILIARES PARA EL VALIDADOR
 
-        private static bool EstaEnLaBaseDeDatos(string UnString)
+        private bool EstaEnLaBaseDeDatos(string unString)
         {
             string[] archivoDeContasenias = System.IO.File.ReadAllLines(@"..\..\..\10000Contrasenas.txt");
 
             foreach (string linea in archivoDeContasenias)
             {
-                if (linea == UnString)
+                if (linea == unString)
                 {
                     return true;
                 }
@@ -133,7 +138,7 @@ namespace TPANUAL
             return false;
         }
 
-        static private bool NumerosConsecutivos(string OtroString)
+        private bool NumerosConsecutivos(string OtroString)
         {
             List<string> listaConsecutivos = new List<string> { "012", "123", "234", "345", "456", "567", "678", "789" };
 
@@ -148,13 +153,27 @@ namespace TPANUAL
 
         }
 
-        static private bool CaracteresRepetidos(string OtroString)
+        private bool LetrasConsecutivas(string otroString)
         {
-            char[] UnString = OtroString.ToCharArray();
+            char[] unString = otroString.ToCharArray();
 
-            for (int i = 0; i < UnString.Length -2; i++)
+            for (int i = 0; i < unString.Length - 2; i++)
             {
-                if (((int)UnString[i] == (int)UnString[i + 1]) && ((int)UnString[i + 1] == (int)UnString[i + 2]))
+                if (((int)unString[i+1] == ((int)unString[i] +1)) && (((int)unString[i + 1] +1) == ((int)unString[i + 2])))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool CaracteresRepetidos(string otroString)
+        {
+            char[] unString = otroString.ToCharArray();
+
+            for (int i = 0; i < unString.Length -2; i++)
+            {
+                if (((int)unString[i] == (int)unString[i + 1]) && ((int)unString[i + 1] == (int)unString[i + 2]))
                 {
                     return true;
                 } 
@@ -164,7 +183,7 @@ namespace TPANUAL
 
         }
 
-        public static bool EsUnicode(string input)
+        private bool EsUnicode(string input)
         {
             var asciiBytesCount = Encoding.ASCII.GetByteCount(input);
             var unicodBytesCount = Encoding.UTF8.GetByteCount(input);

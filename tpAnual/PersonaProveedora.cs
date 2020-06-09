@@ -13,10 +13,9 @@ namespace TPANUAL {
 		private string DNI;
 		private string nombre;
 
-        public PersonaProveedora(string direccionPostal, List<Producto> productosDisponibles, string DNI, string nombre)
+        public PersonaProveedora(string direccionPostal, string DNI, string nombre)
         {
             this.DireccionPostal = direccionPostal;
-            this.ProductosDisponibles = productosDisponibles;
             this.DNI = DNI;
             this.nombre = nombre;
         }

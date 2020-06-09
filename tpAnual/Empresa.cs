@@ -45,7 +45,7 @@ namespace TPANUAL {
             }
 		}
 
-        public Estructura definirTamaño(int i){
+        private Estructura definirTamaño(int i){
             switch (i) {
                 case 0:
                     return new Micro();

@@ -6,25 +6,24 @@ namespace TPANUAL
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            MenorValor criterio = new MenorValor(); //creo criterioDeSeleccion
+        static void Main(string[] args) {
+
+            //creo criterioDeSeleccion
+            MenorValor criterio = new MenorValor(); 
 
             //creo proveedor Juan
-            Producto zapatillaJuan = new Producto(5, "1", "airmax", 10); 
-            List<Producto> productosJuan = new List<Producto> {zapatillaJuan};
-            PersonaProveedora juan = new PersonaProveedora("Alvear 276", productosJuan, "32492832", "Juan");
+            Item zapatillaJuan = new Item("airmax", 300); 
+            PersonaProveedora juan = new PersonaProveedora("Alvear 276", "32492832", "Juan");
 
             //creo proveedor Roberto
-            Producto zapatillaRoberto = new Producto(9, "1", "superzapas", 7);
-            List<Producto> productosRoberto = new List<Producto> {zapatillaRoberto};
-            PersonaProveedora roberto = new PersonaProveedora("Mitre 231", productosRoberto, "23892734", "Roberto");
+            Item zapatillaRoberto = new Item("superzapas", 400);
+            PersonaProveedora roberto = new PersonaProveedora("Mitre 231", "23892734", "Roberto");
 
             //creo usuario Pedro
             Usuario pedro = new Usuario("pedritoelmejor", "pepito");
 
             //creo usuario Jose
-            Usuario jose = new Usuario("ppasswordd", "elJosu");
+            Usuario jose = new Usuario("Ppass11wordd", "elJosu");
 
             //creo Entidad
             EntidadBase entidadBase = new EntidadBase("entidadBase", null);
@@ -39,42 +38,38 @@ namespace TPANUAL
             Organizacion zapaTuya = new Organizacion("zapaTuya", actividadServicio, 1, 8400000, false, entidadBase, empresa, usuariosDeOrg);
 
             //creo Compra
-            Producto zapatilla = new Producto(3, "1", "laquequiero", 0);
-            List<Producto> productosRequeridos = new List<Producto> {zapatilla};
-
             List<Usuario> usuariosRevisores = new List<Usuario>{ jose };
 
-            Compra compra = new Compra(criterio, usuariosRevisores, productosRequeridos, true, 2);
-            compra.agregarRevisor(pedro);
+            Compra compra = new Compra(criterio, usuariosRevisores, 2);
+            //compra.agregarRevisor(pedro);
 
-            Presupuesto presJuan = juan.crearPresupuesto(compra);
-            Presupuesto presRobert = roberto.crearPresupuesto(compra);
+            //creo presupuesto Juan
+            List<Item> itemsJuan = new List<Item> {zapatillaJuan};
+            Presupuesto presJuan = new Presupuesto(juan, itemsJuan);
+
+            //creo presupuesto Robert
+            List<Item> itemsRobert = new List<Item> { zapatillaRoberto };
+            Presupuesto presRobert = new Presupuesto(roberto, itemsRobert);
 
             compra.agregarPresupuesto(presJuan);
             compra.agregarPresupuesto(presRobert);
 
-            compra.PresupuestoElegido = presRobert;
+            compra.PresupuestoElegido = presJuan;
 
             //creo MedioDePago
             MedioDePago medio = new MedioDePago("98213", "2", "tarjeta");
 
             //creo Operacion de Egreso
             OperacionDeEgreso operacionDeEgreso = new OperacionDeEgreso(compra, medio, null);
+            
 
-            //valido Compra
-            if (compra.validarCompra())
-            {
-                Console.WriteLine("Compra correcta \n");
-            } else
-            {
-                Console.WriteLine("Compra incorrecta \n");
-
-            }
-            pedro.verMensajes(compra);
+            //valido Compra 
+            compra.validarCompra();
+            jose.verMensajes(compra);
+            
 
             jose.validarContraseña();
             ValidadorDeContraseña.getInstanceValidadorContra.mostrarMsjValidador(jose.Constraseña);
-            
             
 
             //Console.WriteLine(zapaTuya.TipoOrganizacion.Estructura.Nombre);
