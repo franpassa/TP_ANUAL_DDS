@@ -14,38 +14,27 @@ namespace TPANUAL {
 		private BandejaDeMensajes bandeja;
 		private int cantidadDePresupuestosRequeridos;
 		private Criterio criterio;
-		private bool esConPresupuesto;
-		private Presupuesto presupuestoElegido;
 		private List<Presupuesto> presupuestos;
 		private List<Item> items;
 		private Proveedor proveedor;
 		private List<Usuario> revisores;
 
-        public Compra(Criterio criterio, List<Usuario> revisores, int cantidadDePresupuestosRequeridos) {
-
-            Criterio = criterio;
-            Presupuestos = new List<Presupuesto>();
-            PresupuestoElegido = null;
-            Revisores = revisores;
-            EsConPresupuesto = true;
-            CantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
-            Bandeja = new BandejaDeMensajes();
-        }
-
-        public Compra(List<Item> items, Proveedor proveedor) {
-
-            Items = items;
-            Proveedor = proveedor;
-            EsConPresupuesto = false;
+        public Compra( int cantidadDePresupuestosRequeridos, Criterio criterio, List<Item> items, Proveedor proveedor, List<Usuario> revisores)
+        {
+            this.cantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
+            this.bandeja = new BandejaDeMensajes();
+            this.criterio = criterio;
+            this.presupuestos = new List<Presupuesto>();
+            this.items = items;
+            this.proveedor = proveedor;
+            this.revisores = revisores;
         }
 
         public Criterio Criterio                  { get => criterio;            set => criterio = value; }
         public List<Presupuesto> Presupuestos     { get => presupuestos;        set => presupuestos = value; }
-        public Presupuesto PresupuestoElegido     { get => presupuestoElegido;  set => presupuestoElegido = value; }
         public List<Usuario> Revisores			  { get => revisores;           set => revisores = value; }
         public List<Item> Items { get => items; set => items = value; }
         public Proveedor Proveedor                { get => proveedor;           set => proveedor = value; }
-        public bool EsConPresupuesto              { get => esConPresupuesto;    set => esConPresupuesto = value; }
         public int CantidadDePresupuestosRequeridos { get => cantidadDePresupuestosRequeridos; set => cantidadDePresupuestosRequeridos = value; }
         public BandejaDeMensajes Bandeja { get => bandeja; set => bandeja = value; }
 
@@ -53,9 +42,14 @@ namespace TPANUAL {
 			Revisores.Add(usuario);
 		}
 
+        public bool esConPresupuesto()
+        {
+            return (CantidadDePresupuestosRequeridos != 0);
+        }
+
         public void agregarPresupuesto(Presupuesto presupuesto)
         {
-            if(EsConPresupuesto)
+            if(esConPresupuesto())
                 presupuestos.Add(presupuesto);
         }
 
@@ -68,31 +62,36 @@ namespace TPANUAL {
 
 			float temporal = 0;
 
-			if (esConPresupuesto)
-			{
-				temporal = presupuestoElegido.valorTotal();
-			}
-			else
-			{
 				foreach(Item item in items)
                 {
 					temporal += item.ValorTotal;
                 }
-			}
-
+		
 			return temporal;
 		}
-
-		public bool presupuestoElegidoEstaEnPresupuestos()
-		{ 
+    
+	   	public bool itemsElegidosEstanEnPresupuestos()
+		{
 			foreach(Presupuesto presupuesto in Presupuestos)
             {
-				if(Equals(presupuestoElegido, presupuesto)){
-					return true;
+                if(lasListasSonIguales(presupuesto.Items, Items)) {
+
+                    return true;
                 }
             }
-
 			return false;
+        }
+
+        private bool lasListasSonIguales(List<Item> lista1, List<Item> lista2) {
+           
+            bool flag = true;
+
+            foreach(Item item in lista1)
+            {
+                flag = flag && (lista2.Any(x => x.Nombre.Equals(item.Nombre)));
+            }
+
+            return flag;
         }
 
         public void mostrarMensajes(Usuario usuario)

@@ -32,7 +32,7 @@ namespace TPANUAL
         {
             bool flag = true;
 
-            if (compra.EsConPresupuesto)
+            if (compra.esConPresupuesto())
             {
                 if ((compra.Presupuestos).Count == compra.CantidadDePresupuestosRequeridos) // PUNTO A
                 {
@@ -45,25 +45,25 @@ namespace TPANUAL
                     flag = false;
                 }
 
-                if (compra.presupuestoElegidoEstaEnPresupuestos()) // PUNTO B
+                if (compra.itemsElegidosEstanEnPresupuestos()) // PUNTO B
                 {
                     compra.Bandeja.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
 
+                    if (compra.Criterio.cumpleCriterio(compra)) // PUNTO C
+                    {
+                        compra.Bandeja.agregarMensaje("Presupuesto elegido en base al criterio.");
+
+                    }
+                    else
+                    {
+                        compra.Bandeja.agregarMensaje("Presupuesto no elegido en base al criterio.");
+                        flag = false;
+                    }
+                    
                 }
                 else
                 {
                     compra.Bandeja.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
-                    flag = false;
-                }
-
-                if ((compra.Criterio.seleccionarPresupuesto(compra) == compra.PresupuestoElegido)) // PUNTO C
-                {
-                    compra.Bandeja.agregarMensaje("Presupuesto elegido en base al criterio.");
-
-                }
-                else
-                {
-                    compra.Bandeja.agregarMensaje("Presupuesto no elegido en base al criterio.");
                     flag = false;
                 }
 

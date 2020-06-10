@@ -14,19 +14,23 @@ namespace TPANUAL {
 		private List<DocumentoComercial> documentosComerciales;
 		private List<Item> items;
 		private Proveedor proveedor;
+        private Compra compra;
 
-		public Presupuesto(Proveedor proveedor,List<Item> items){
-			this.proveedor = proveedor;
-			this.items = items;
-			this.detalle = null;
-			this.documentosComerciales = null;
-		}
+        public Presupuesto(Proveedor proveedor, List<Item> items, Compra compra, string detalle)
+        {
+            this.proveedor = proveedor;
+            this.items = items;
+            this.detalle = detalle;
+            this.documentosComerciales = null;
+            this.Compra = compra;
+        }
 
 
         public Proveedor Proveedor { get => proveedor; set => proveedor = value; }
         public string Detalle { get => detalle; set => detalle = value; }
         public List<Item> Items { get => items; set => items = value; }
         internal List<DocumentoComercial> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
+        public Compra Compra { get => compra; set => compra = value; }
 
         public float valorTotal(){
 

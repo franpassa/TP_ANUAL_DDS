@@ -8,14 +8,18 @@ using System.IO;
 
 using TPANUAL;
 namespace TPANUAL {
-	public class OSC : TipoOrganizacion{
-
-        public OSC(Organizacion organizacionAsociada)
+	public class OSC : Organizacion{
+        public OSC(Actividad actividad, int cantidadPersonal, string nombreFicticio, float promedioVentasAnuales, TipoEntidad tipoEntidad, List<Usuario> usuarios)
         {
-            this.Estructura = null;
+            Actividad = actividad;
+            CantidadPersonal = cantidadPersonal;
+            EsActividadComisionistaoAgenciaDeViaje = false;
+            NombreFicticio = nombreFicticio;
+            OperacionesDeEgreso = new List<OperacionDeEgreso>();
+            PromedioVentasAnuales = promedioVentasAnuales;
+            TipoEntidad = tipoEntidad;
+            Usuarios = usuarios;
         }
-
-        public override void definirEstructura(Organizacion organizacion) { }
 
     }//end OSC
 

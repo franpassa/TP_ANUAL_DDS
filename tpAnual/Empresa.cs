@@ -8,21 +8,33 @@ using System.IO;
 
 using TPANUAL;
 namespace TPANUAL {
-	public class Empresa : TipoOrganizacion {
+	public class Empresa : Organizacion {
 
-        public Empresa() {
-            this.Estructura = null;
+        private Estructura estructura;
+
+        public Empresa(Actividad actividad, int cantidadPersonal, bool esActividadComisionistaoAgenciaDeViaje, string nombreFicticio, float promedioVentasAnuales, TipoEntidad tipoEntidad, List<Usuario> usuarios)
+        {
+            Actividad = actividad;
+            CantidadPersonal = cantidadPersonal;
+            EsActividadComisionistaoAgenciaDeViaje = esActividadComisionistaoAgenciaDeViaje;
+            NombreFicticio = nombreFicticio;
+            OperacionesDeEgreso = new List<OperacionDeEgreso>();
+            PromedioVentasAnuales = promedioVentasAnuales;
+            TipoEntidad = tipoEntidad;
+            Usuarios = usuarios;
         }
 
-        public override void definirEstructura(Organizacion organizacion){
+        public Estructura Estructura { get => estructura; set => estructura = value; }
 
-            if (organizacion.EsActividadComisionistaoAgenciaDeViaje){
+        public void definirEstructura(){
+
+            if (EsActividadComisionistaoAgenciaDeViaje){
               
                 int i = 0;
 
                 for (int j  =  0; j  < 4; j++) {
 
-                    if (organizacion.CantidadPersonal >= organizacion.Actividad.CantidadPersonalMax[i]){
+                    if (CantidadPersonal >= Actividad.CantidadPersonalMax[i]){
                         
                         i++;
                     }
@@ -34,8 +46,8 @@ namespace TPANUAL {
                 int i = 0;
                 for (int j = 0; j  < 4; j++) {
 
-                    if (organizacion.CantidadPersonal >= organizacion.Actividad.CantidadPersonalMax[i] ||
-                        organizacion.PromedioVentasAnuales >= organizacion.Actividad.PromedioVentasMax[i]){
+                    if (CantidadPersonal >= Actividad.CantidadPersonalMax[i] ||
+                        PromedioVentasAnuales >= Actividad.PromedioVentasMax[i]){
                        
                         i++;
                     }
@@ -56,7 +68,7 @@ namespace TPANUAL {
                 case 3:
                     return new MedianaTramo2();
                 default:
-                    return new Pequeña();
+                    return null;
             }
         }
 
