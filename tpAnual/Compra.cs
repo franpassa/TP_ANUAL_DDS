@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Linq;
-
+using Quartz;
+using Quartz.Impl;
+using System.Threading.Tasks;
+using TPANUAL.Jobs;
 
 
 using TPANUAL;
@@ -53,9 +56,9 @@ namespace TPANUAL {
                 presupuestos.Add(presupuesto);
         }
 
-		public bool validarCompra(){
+		public async Task validarCompra(){
 
-            return ValidadorDeCompra.getInstanceValidadorCompra.validarCompra(this);
+            ValidadorDeCompra.getInstanceValidadorCompra.validarCompra(this);
 		}
 
 		public override float valorTotal(){

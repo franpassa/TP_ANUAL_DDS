@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Quartz;
+using Quartz.Impl;
+using System.Threading.Tasks;
+using TPANUAL.Jobs;
 
 namespace TPANUAL
 {
@@ -28,9 +32,9 @@ namespace TPANUAL
 
         //VALIDADOR DE COMPRA
 
-        public bool validarCompra(Compra compra)
+        public async void validarCompra(Compra compra)
         {
-            bool flag = true;
+         
 
             if (compra.esConPresupuesto())
             {
@@ -42,7 +46,7 @@ namespace TPANUAL
                 else
                 {
                     compra.Bandeja.agregarMensaje("Cantidad de presupuestos incorrecta.");
-                    flag = false;
+               
                 }
 
                 if (compra.itemsElegidosEstanEnPresupuestos()) // PUNTO B
@@ -57,20 +61,17 @@ namespace TPANUAL
                     else
                     {
                         compra.Bandeja.agregarMensaje("Presupuesto no elegido en base al criterio.");
-                        flag = false;
+                        
                     }
                     
                 }
                 else
                 {
                     compra.Bandeja.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
-                    flag = false;
+                  
                 }
 
-                return flag;
             }
-
-            return true;
         }
 
         // END VALIDADOR COMPRA
