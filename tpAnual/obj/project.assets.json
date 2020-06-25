@@ -4197,11 +4197,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\franc\\Documents\\Facultad\\Diseño de Sistemas\\ReposGIT\\TP_ANUAL_DDS\\tpAnual\\TPANUAL.csproj",
       "projectName": "TPANUAL",
       "projectPath": "C:\\Users\\franc\\Documents\\Facultad\\Diseño de Sistemas\\ReposGIT\\TP_ANUAL_DDS\\tpAnual\\TPANUAL.csproj",
       "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\franc\\Documents\\Facultad\\Diseño de Sistemas\\ReposGIT\\TP_ANUAL_DDS\\tpAnual\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\TPANUAL.csproj",
+      "projectName": "TPANUAL",
+      "projectPath": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\TPANUAL.csproj",
+      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dell\\Documents\\UTN\\3er año\\Diseño de sistemas\\2020\\TP_ANUAL_DDS\\TPANUAL\\obj\\",
+>>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",

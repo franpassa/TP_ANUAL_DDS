@@ -35,6 +35,7 @@ C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANU
 C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csproj.CopyComplete
+<<<<<<< HEAD
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\Quartz.dll
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
@@ -47,3 +48,5 @@ C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAn
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\TPANUAL.csproj.CopyComplete
+=======
+>>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa

@@ -5,7 +5,10 @@ using Quartz;
 using Quartz.Impl;
 using System.Threading.Tasks;
 using TPANUAL.Jobs;
+<<<<<<< HEAD
 using System.Linq;
+=======
+>>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa
 
 namespace TPANUAL
 {
@@ -69,15 +72,22 @@ namespace TPANUAL
             //creo Operacion de Egreso
             OperacionDeEgreso operacionDeEgreso = new OperacionDeEgreso(compra, medio, null);
 
+<<<<<<< HEAD
             zapatuya.agregarOperacionDeEgreso(operacionDeEgreso);
+=======
+>>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa
 
             //creo Scheduler
             Scheduler sched = Scheduler.getInstance();
             sched.run();
             jobComplejo(sched, zapatuya);
 
+<<<<<<< HEAD
 
             jose.verMensajes(compra);
+=======
+            
+>>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa
 
             jose.validarContraseña();
             ValidadorDeContraseña.getInstanceValidadorContra.mostrarMsjValidador(jose.Constraseña);
@@ -93,8 +103,21 @@ namespace TPANUAL
 
             // Guardo el objeto dentro un objeto diccionario para que pueda accederlo desde el job
             JobDataMap jobData = new JobDataMap();
+<<<<<<< HEAD
            
             jobData.Add("organizacion", organizacion);
+=======
+
+            int i = 1;
+            foreach(OperacionDeEgreso operacion in organizacion.OperacionesDeEgreso)
+            {
+                
+                jobData.Add( $"compra {i}", operacion.TipoEgreso);
+                i++;
+            }
+
+            
+>>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa
 
             IJobDetail jobComp = JobBuilder.Create<JobCompra>()
                 .WithIdentity("trabajoCompra", "grupoCompras")
@@ -115,6 +138,11 @@ namespace TPANUAL
             sched.agregarTask(jobComp, triggerComp);
 
             // Pauso el hilo por 3 segundos
+<<<<<<< HEAD
+=======
+            System.Threading.Thread.Sleep(2000);
+
+>>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa
             System.Threading.Thread.Sleep(8000);
 
         }
@@ -131,5 +159,8 @@ namespace TPANUAL
 // Pedro ve los mensajes de errores de la compra.
 
 
+<<<<<<< HEAD
             
+=======
+>>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa
             
