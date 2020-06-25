@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Quartz;
+using Quartz.Impl;
+using System.Threading.Tasks;
+using TPANUAL.Jobs;
+using System.Linq;
 
 namespace TPANUAL
 {
@@ -63,22 +68,59 @@ namespace TPANUAL
 
             //creo Operacion de Egreso
             OperacionDeEgreso operacionDeEgreso = new OperacionDeEgreso(compra, medio, null);
-            
 
-            //valido Compra 
-            compra.validarCompra();
+            zapatuya.agregarOperacionDeEgreso(operacionDeEgreso);
+
+            //creo Scheduler
+            Scheduler sched = Scheduler.getInstance();
+            sched.run();
+            jobComplejo(sched, zapatuya);
+
+
             jose.verMensajes(compra);
-            
 
             jose.validarContraseña();
             ValidadorDeContraseña.getInstanceValidadorContra.mostrarMsjValidador(jose.Constraseña);
 
 
 
-            //Console.WriteLine(zapaTuya.TipoOrganizacion.Estructura.Nombre);
+            Console.ReadLine();
+
+            sched.stop();
+        }
+        
+        private static void jobComplejo(Scheduler sched, Organizacion organizacion) {
+
+            // Guardo el objeto dentro un objeto diccionario para que pueda accederlo desde el job
+            JobDataMap jobData = new JobDataMap();
+           
+            jobData.Add("organizacion", organizacion);
+
+            IJobDetail jobComp = JobBuilder.Create<JobCompra>()
+                .WithIdentity("trabajoCompra", "grupoCompras")
+                // Aca le asigno meto el diccionario dentro del job
+                .UsingJobData(jobData)
+                .Build();
+
+            ITrigger triggerComp = TriggerBuilder.Create()
+                  .WithIdentity("triggerCompra", "grupoCompras")
+                  .StartNow()
+                  // Este trigger se va a ejecutar cada 5 segundos
+                  .WithSimpleSchedule(x => x.RepeatForever()
+                      .WithIntervalInSeconds(5)
+                      .RepeatForever())
+                  .Build();
+
+            // Asocio el job con el trigger
+            sched.agregarTask(jobComp, triggerComp);
+
+            // Pauso el hilo por 3 segundos
+            System.Threading.Thread.Sleep(8000);
 
         }
-    } 
+    }
+
+    
 }
 // La organizacion "ZapaTuya" tiene a Pedro y Jose de empleados(usuarios) 
 // Juan, el proveedor que tiene 5 zapatillas le vende a ZapaTuya 3 a 10$ cada una. 
@@ -88,12 +130,6 @@ namespace TPANUAL
 // Pedro y Jose son revisores de la compra de 5 zapatillas.
 // Pedro ve los mensajes de errores de la compra.
 
-/*CREAR:
-    ORGANIZACION
-    EGRESO
-    2 PROV
-    PROD
-    COMPRA
-    2 USUARIO
-    2 PRES
-*/
+
+            
+            

@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Quartz;
+using Quartz.Impl;
+using System.Threading.Tasks;
+using TPANUAL.Jobs;
 
 namespace TPANUAL
 {
@@ -17,7 +21,6 @@ namespace TPANUAL
             {
                 if (instanceCompra == null)
                 {
-
                     instanceCompra = new ValidadorDeCompra();
                 }
 
@@ -28,21 +31,19 @@ namespace TPANUAL
 
         //VALIDADOR DE COMPRA
 
-        public bool validarCompra(Compra compra)
+        public async Task ValidarCompra(Compra compra)
         {
-            bool flag = true;
+            await Task.Delay(1);
 
             if (compra.esConPresupuesto())
             {
                 if ((compra.Presupuestos).Count == compra.CantidadDePresupuestosRequeridos) // PUNTO A
                 {
                     compra.Bandeja.agregarMensaje("Cantidad de presupuestos correcta.");
-
                 }
                 else
                 {
                     compra.Bandeja.agregarMensaje("Cantidad de presupuestos incorrecta.");
-                    flag = false;
                 }
 
                 if (compra.itemsElegidosEstanEnPresupuestos()) // PUNTO B
@@ -52,25 +53,17 @@ namespace TPANUAL
                     if (compra.Criterio.cumpleCriterio(compra)) // PUNTO C
                     {
                         compra.Bandeja.agregarMensaje("Presupuesto elegido en base al criterio.");
-
                     }
                     else
                     {
                         compra.Bandeja.agregarMensaje("Presupuesto no elegido en base al criterio.");
-                        flag = false;
                     }
-                    
                 }
                 else
                 {
                     compra.Bandeja.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
-                    flag = false;
                 }
-
-                return flag;
             }
-
-            return true;
         }
 
         // END VALIDADOR COMPRA
