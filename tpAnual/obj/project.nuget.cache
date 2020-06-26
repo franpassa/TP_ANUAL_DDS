@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YlCku42MtP9el3bxJEMXbVAHfd2RhkPWrzduhS/NvVTIEbS2ir1iN3QPTsFJSVdeTF+wOztlJ+45ivXvDrAzFQ==",
+  "dgSpecHash": "y1pIlA0F+HMves+BjCh8PPz7pnApVtRydxZo4UONLk3e4RtnduqG49jjEV4sUh1lXTMYSdaV63gjSlZ7w3t9pg==",
   "success": true,
   "projectFilePath": "C:\\Users\\franc\\Documents\\Facultad\\Diseño de Sistemas\\ReposGIT\\TP_ANUAL_DDS\\tpAnual\\TPANUAL.csproj",
   "expectedPackageFiles": [
@@ -66,8 +66,7 @@
     "C:\\Users\\franc\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\franc\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\franc\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "C:\\Users\\franc\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

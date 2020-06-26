@@ -16,13 +16,13 @@ namespace TPANUAL {
 
 		private BandejaDeMensajes bandeja;
 		private int cantidadDePresupuestosRequeridos;
-		private Criterio criterio;
+		private CriterioCompra criterio;
 		private List<Presupuesto> presupuestos;
 		private List<Item> items;
 		private Proveedor proveedor;
 		private List<Usuario> revisores;
 
-        public Compra( int cantidadDePresupuestosRequeridos, Criterio criterio, List<Item> items, Proveedor proveedor, List<Usuario> revisores)
+        public Compra( int cantidadDePresupuestosRequeridos, CriterioCompra criterio, List<Item> items, Proveedor proveedor, List<Usuario> revisores)
         {
             this.cantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
             this.bandeja = new BandejaDeMensajes();
@@ -33,7 +33,7 @@ namespace TPANUAL {
             this.revisores = revisores;
         }
 
-        public Criterio Criterio                  { get => criterio;            set => criterio = value; }
+        public CriterioCompra Criterio                  { get => criterio;            set => criterio = value; }
         public List<Presupuesto> Presupuestos     { get => presupuestos;        set => presupuestos = value; }
         public List<Usuario> Revisores			  { get => revisores;           set => revisores = value; }
         public List<Item> Items { get => items; set => items = value; }

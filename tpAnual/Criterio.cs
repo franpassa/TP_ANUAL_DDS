@@ -1,16 +1,21 @@
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.IO;
 
+namespace TPANUAL
+{
+    public class Criterio
+    {
+        private string nombre;
+        private Criterio criterioPadre;
 
+        public Criterio(string nombre, Criterio criterioPadre)
+        {
+            this.nombre = nombre;
+            this.criterioPadre = criterioPadre;
+        }
 
-namespace TPANUAL {
-	public abstract class Criterio {
-
-		public abstract bool cumpleCriterio(Compra compra);
-
-	}//end Criterio
-
-}//end namespace TPANUAL
+        public string Nombre { get => nombre; set => nombre = value; }
+        public Criterio CriterioPadre { get => criterioPadre; set => criterioPadre = value; }
+    }
+}

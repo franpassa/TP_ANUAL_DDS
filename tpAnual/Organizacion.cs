@@ -15,10 +15,10 @@ namespace TPANUAL {
 		private bool esActividadComisionistaoAgenciaDeViaje;
 		private string nombreFicticio;
 		private List<OperacionDeEgreso> operacionesDeEgreso;
+		private List<OperacionDeIngreso> operacionesDeIngreso;
 		private float promedioVentasAnuales;
 		private TipoEntidad tipoEntidad;
 		private List<Usuario> usuarios;
-
 
         public Actividad Actividad { get => actividad; set => actividad = value; }
 		public string NombreFicticio { get => nombreFicticio; set => nombreFicticio = value; }
@@ -28,13 +28,18 @@ namespace TPANUAL {
 		public List<Usuario> Usuarios { get => usuarios; set => usuarios = value; }
 		public int CantidadPersonal { get => cantidadPersonal; set => cantidadPersonal = value; }
         public List<OperacionDeEgreso> OperacionesDeEgreso { get => operacionesDeEgreso; set => operacionesDeEgreso = value; }
+        public List<OperacionDeIngreso> OperacionesDeIngreso { get => operacionesDeIngreso; set => operacionesDeIngreso = value; }
 
         public void agregarOperacionDeEgreso(OperacionDeEgreso operacion)
         {
             OperacionesDeEgreso.Add(operacion);
         }
 
+		public void agregarOperacionDeIngreso(OperacionDeIngreso operacion)
+		{
+			OperacionesDeIngreso.Add(operacion);
+		}
 
-    }//end Organizacion
+	}//end Organizacion
 
 }//end namespace TPANUAL

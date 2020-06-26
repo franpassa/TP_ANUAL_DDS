@@ -10,6 +10,7 @@ namespace TPANUAL {
 	public class OperacionDeEgreso {
 
 		private List<DocumentoComercial> documentosComerciales;
+		private List<OperacionDeIngreso> ingresosAsociados;
 		private DateTime fechaOperacion;
 		private MedioDePago medioDePago;
 		private TipoEgreso tipoEgreso;
@@ -25,8 +26,9 @@ namespace TPANUAL {
         public MedioDePago MedioDePago { get => medioDePago; set => medioDePago = value; }
         public TipoEgreso TipoEgreso { get => tipoEgreso; set => tipoEgreso = value; }
         public List<DocumentoComercial> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
+		public List<OperacionDeIngreso> IngresosAsociados { get => ingresosAsociados; set => ingresosAsociados = value; }
 
-        public float valorTotal(){
+		public float valorTotal(){
 			return TipoEgreso.valorTotal();
 		}
 

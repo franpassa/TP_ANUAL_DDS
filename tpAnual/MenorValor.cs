@@ -8,7 +8,7 @@ using System.IO;
 
 using TPANUAL;
 namespace TPANUAL {
-	public class MenorValor : Criterio {
+	public class MenorValor : CriterioCompra {
 
 		public MenorValor(){
 
