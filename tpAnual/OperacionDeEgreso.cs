@@ -37,6 +37,11 @@ namespace TPANUAL {
 			DocumentosComerciales.Add(documento);
         }
 
-	}//end OperacionDeEgreso
+        public void agregarOperacionDeIngreso(OperacionDeIngreso operacion)
+        {
+            IngresosAsociados.Add(operacion);
+        }
+
+    }//end OperacionDeEgreso
 
 }//end namespace TPANUAL

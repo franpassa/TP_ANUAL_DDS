@@ -20,5 +20,10 @@ namespace TPANUAL
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public List<OperacionDeEgreso> EgresosAsociados { get => egresosAsociados; set => egresosAsociados = value; }
         public float Monto { get => monto; set => monto = value; }
+
+        public void agregarOperacionDeEgreso(OperacionDeEgreso operacion)
+        {
+            egresosAsociados.Add(operacion);
+        }
     }
 }

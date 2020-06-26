@@ -56,7 +56,7 @@ namespace TPANUAL {
                 presupuestos.Add(presupuesto);
         }
 
-        public override async Task Validar()
+        public override async Task validar()
         {
             await ValidadorDeCompra.getInstanceValidadorCompra.ValidarCompra(this);
         }

@@ -16,7 +16,7 @@ namespace TPANUAL.Jobs
 
             foreach (OperacionDeEgreso operacion in organizacion.OperacionesDeEgreso)
             {
-                await operacion.TipoEgreso.Validar();
+                await operacion.TipoEgreso.validar();
             }
 
             Console.WriteLine("Corrio el scheduler");
