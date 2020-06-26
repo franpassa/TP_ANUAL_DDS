@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y1pIlA0F+HMves+BjCh8PPz7pnApVtRydxZo4UONLk3e4RtnduqG49jjEV4sUh1lXTMYSdaV63gjSlZ7w3t9pg==",
+  "dgSpecHash": "otTGKe3goO4AYhwRM3FbQY4nes5gbwdTheI+e53abCcT7Gj4KDc/fhSfBPKzYeWDLErabWRM+PcfFnnBilXRxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\franc\\Documents\\Facultad\\Diseño de Sistemas\\ReposGIT\\TP_ANUAL_DDS\\tpAnual\\TPANUAL.csproj",
+  "projectFilePath": "C:\\Users\\franc\\Documents\\Facultad\\Diseño de Sistemas\\ReposGIT\\TP_ANUAL_DDS\\tpAnual\\tpanual.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\franc\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",

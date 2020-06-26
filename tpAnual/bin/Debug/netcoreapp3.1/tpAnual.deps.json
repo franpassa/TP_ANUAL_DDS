@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "TPANUAL/1.0.0": {
+      "tpanual/1.0.0": {
         "dependencies": {
           "Quartz": "3.0.7"
         },
         "runtime": {
-          "TPANUAL.dll": {}
+          "tpanual.dll": {}
         }
       },
       "Microsoft.CSharp/4.5.0": {},
@@ -605,7 +605,7 @@
     }
   },
   "libraries": {
-    "TPANUAL/1.0.0": {
+    "tpanual/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
