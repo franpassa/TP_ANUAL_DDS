@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TPANUAL.Jobs
 {
-    class JobCompra : IJob
+    public class JobCompra : IJob
     {
 
         public async Task Execute(IJobExecutionContext context)
@@ -16,7 +16,7 @@ namespace TPANUAL.Jobs
 
             foreach (OperacionDeEgreso operacion in organizacion.OperacionesDeEgreso)
             {
-                await operacion.TipoEgreso.ValidarCompra();
+                await operacion.TipoEgreso.Validar();
             }
 
             Console.WriteLine("Corrio el scheduler");

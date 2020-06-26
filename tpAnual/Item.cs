@@ -28,7 +28,7 @@ namespace TPANUAL {
         public string Nombre { get => nombre; set => nombre = value; }
         public List<Categoria> Categorias { get => categorias; set => categorias = value; }
 
-        void insertarCategoria(Categoria categoria)
+        public void insertarCategoria(Categoria categoria)
         {
             bool estaEnLaLista = false;
             foreach (Categoria unaCategoria in categorias)

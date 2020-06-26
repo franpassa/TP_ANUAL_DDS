@@ -9,7 +9,7 @@ using TPANUAL.Jobs;
 
 namespace TPANUAL
 {
-    class Scheduler
+    public class Scheduler
     {
 
         private static Scheduler instance = new Scheduler();

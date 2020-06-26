@@ -35,6 +35,8 @@ namespace TPANUAL
         {
             await Task.Delay(1);
 
+            compra.Bandeja.ListaDeMensajes.Clear();
+
             if (compra.esConPresupuesto())
             {
                 if ((compra.Presupuestos).Count == compra.CantidadDePresupuestosRequeridos) // PUNTO A

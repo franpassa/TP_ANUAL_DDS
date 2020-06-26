@@ -11,7 +11,7 @@ namespace TPANUAL {
 
 		public abstract float valorTotal();
 
-		public abstract Task ValidarCompra();
+		public abstract Task Validar();
       
 	}//end TipoEgreso
 

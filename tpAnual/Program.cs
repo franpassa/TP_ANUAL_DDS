@@ -28,19 +28,36 @@ namespace TPANUAL
             List<Usuario> usuariosDeOrg = new List<Usuario> { jose, pedro };
             Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
 
+            //creo Criterios
+            Criterio barrios = new Criterio("barrio", null);
+            Criterio clientes = new Criterio("cliente", barrios);
+
+            //creo Categorias
+            Categoria palermo = new Categoria("palermo", barrios);
+            Categoria almagro = new Categoria("almagro", barrios);
+
+            Categoria clienteA = new Categoria("clienteA", clientes);
+            Categoria clienteB = new Categoria("clienteB", clientes);
 
             //creo proveedor Juan
-            Item zapatillaJuan = new Item("zapato", "airmax", 300);
+            List<Categoria> categoriasJuan = new List<Categoria> {clienteA};
+            Item zapatillaJuan = new Item("zapato", "airmax", 300, categoriasJuan);
+            zapatillaJuan.insertarCategoria(almagro);
+            foreach(Categoria categoria in zapatillaJuan.Categorias)
+            {
+                Console.WriteLine(categoria.Nombre);
+            }
             PersonaProveedora juan = new PersonaProveedora("Alvear 276", "32492832", "Juan");
+            
 
             //creo proveedor Roberto
-            Item zapatillaRoberto = new Item("zapatillas", "superzapas", 400);
+            Item zapatillaRoberto = new Item("zapatillas", "superzapas", 400, categoriasJuan);
             PersonaProveedora roberto = new PersonaProveedora("Mitre 231", "23892734", "Roberto");
 
 
             //creo atributos de compra
             List<Usuario> usuariosRevisores = new List<Usuario> { jose };
-            Item itemCompra = new Item("zapatillas", "rositas", 2109381);
+            Item itemCompra = new Item("zapatillas", "rositas", 2109381, categoriasJuan);
             List<Item> itemsCompra = new List<Item> { itemCompra };
 
             //creo items de proveedores
@@ -60,7 +77,6 @@ namespace TPANUAL
             //creo presupuesto Robert
             Presupuesto presRobert = new Presupuesto(roberto, itemsRobert, compra, "asidjal");
 
-            compra.agregarPresupuesto(presJuan);
             compra.agregarPresupuesto(presRobert);
 
 
@@ -82,9 +98,11 @@ namespace TPANUAL
             jose.validarContraseña();
             ValidadorDeContraseña.getInstanceValidadorContra.mostrarMsjValidador(jose.Constraseña);
 
-
-
+            compra.agregarPresupuesto(presJuan);
+            
             Console.ReadLine();
+            
+            jose.verMensajes(compra);
 
             sched.stop();
         }
@@ -116,7 +134,7 @@ namespace TPANUAL
 
             // Pauso el hilo por 3 segundos
 
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(6000);
 
         }
     }
