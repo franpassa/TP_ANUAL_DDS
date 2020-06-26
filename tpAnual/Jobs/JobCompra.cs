@@ -12,8 +12,6 @@ namespace TPANUAL.Jobs
 
         public async Task Execute(IJobExecutionContext context)
         {
-<<<<<<< HEAD
-            
             Organizacion organizacion = (Organizacion)context.JobDetail.JobDataMap.Get("organizacion");
 
             foreach (OperacionDeEgreso operacion in organizacion.OperacionesDeEgreso)
@@ -23,14 +21,5 @@ namespace TPANUAL.Jobs
 
             Console.WriteLine("Corrio el scheduler");
         }
-=======
-
-            Compra compra = (Compra)context.JobDetail.JobDataMap.Get("compra");
-            await compra.validarCompra();
-
-        }
-
-
->>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa
     }
 }

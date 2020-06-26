@@ -31,15 +31,9 @@ namespace TPANUAL
 
         //VALIDADOR DE COMPRA
 
-<<<<<<< HEAD:tpAnual/Validadores/ValidadorDeCompra.cs
         public async Task ValidarCompra(Compra compra)
         {
             await Task.Delay(1);
-=======
-        public async void validarCompra(Compra compra)
-        {
-         
->>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa:tpAnual/ValidadorDeCompra.cs
 
             if (compra.esConPresupuesto())
             {
@@ -50,10 +44,6 @@ namespace TPANUAL
                 else
                 {
                     compra.Bandeja.agregarMensaje("Cantidad de presupuestos incorrecta.");
-<<<<<<< HEAD:tpAnual/Validadores/ValidadorDeCompra.cs
-=======
-               
->>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa:tpAnual/ValidadorDeCompra.cs
                 }
 
                 if (compra.itemsElegidosEstanEnPresupuestos()) // PUNTO B
@@ -67,25 +57,16 @@ namespace TPANUAL
                     else
                     {
                         compra.Bandeja.agregarMensaje("Presupuesto no elegido en base al criterio.");
-<<<<<<< HEAD:tpAnual/Validadores/ValidadorDeCompra.cs
-=======
-                        
->>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa:tpAnual/ValidadorDeCompra.cs
                     }
                 }
                 else
                 {
                     compra.Bandeja.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
-<<<<<<< HEAD:tpAnual/Validadores/ValidadorDeCompra.cs
                 }
-=======
-                  
+                
                 }
-
->>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa:tpAnual/ValidadorDeCompra.cs
             }
         }
 
         // END VALIDADOR COMPRA
     }
-}

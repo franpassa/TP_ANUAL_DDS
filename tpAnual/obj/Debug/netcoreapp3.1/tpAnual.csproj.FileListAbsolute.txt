@@ -1,41 +1,59 @@
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\tpAnual.exe
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\tpAnual.deps.json
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\tpAnual.runtimeconfig.json
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\tpAnual.runtimeconfig.dev.json
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\tpAnual.dll
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\tpAnual.pdb
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.csprojAssemblyReference.cache
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.csproj.CoreCompileInputs.cache
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.AssemblyInfoInputs.cache
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.AssemblyInfo.cs
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.dll
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.pdb
-C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\tpAnual.genruntimeconfig.cache
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfoInputs.cache
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfo.cs
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csprojAssemblyReference.cache
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.exe
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.deps.json
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.json
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.dev.json
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.pdb
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.pdb
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.genruntimeconfig.cache
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\Quartz.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Dell\Documents\UTN\3er año\Diseño de sistemas\2020\TP_ANUAL_DDS\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csproj.CopyComplete
-<<<<<<< HEAD
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csprojAssemblyReference.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfoInputs.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfo.cs
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csproj.CoreCompileInputs.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.exe
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.deps.json
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.json
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.dev.json
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.pdb
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\Quartz.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csproj.CopyComplete
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.pdb
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\TPANUAL2\TPANUAL\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.genruntimeconfig.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.exe
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.deps.json
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.json
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.dev.json
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\TPANUAL.pdb
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\Quartz.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csprojAssemblyReference.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfoInputs.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfo.cs
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csproj.CoreCompileInputs.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.csproj.CopyComplete
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.pdb
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\TPANUAL\obj\Debug\netcoreapp3.1\TPANUAL.genruntimeconfig.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\TPANUAL.exe
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\TPANUAL.deps.json
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.json
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\TPANUAL.runtimeconfig.dev.json
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\TPANUAL.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\TPANUAL.pdb
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\Quartz.dll
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
@@ -47,6 +65,11 @@ C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAn
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\TPANUAL.csprojAssemblyReference.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfoInputs.cache
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\TPANUAL.AssemblyInfo.cs
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\TPANUAL.csproj.CoreCompileInputs.cache
 C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\TPANUAL.csproj.CopyComplete
-=======
->>>>>>> 6a3e0f1547f779f4048325166cb48fefa91584fa
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\TPANUAL.dll
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\TPANUAL.pdb
+C:\Users\franc\Documents\Facultad\Diseño de Sistemas\ReposGIT\TP_ANUAL_DDS\tpAnual\obj\Debug\netcoreapp3.1\TPANUAL.genruntimeconfig.cache
