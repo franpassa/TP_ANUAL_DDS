@@ -101,7 +101,8 @@ namespace TPANUAL
             compra.agregarPresupuesto(presJuan);
             
             Console.ReadLine();
-            
+            Console.WriteLine("hola");
+
             jose.verMensajes(compra);
 
             sched.stop();
