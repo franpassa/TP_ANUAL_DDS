@@ -10,7 +10,7 @@ namespace TPANUAL {
 	public class OperacionDeEgreso {
 
 		private List<DocumentoComercial> documentosComerciales;
-		private List<OperacionDeIngreso> ingresosAsociados;
+		private OperacionDeIngreso ingresoAsociado;
 		private DateTime fechaOperacion;
 		private MedioDePago medioDePago;
 		private TipoEgreso tipoEgreso;
@@ -26,20 +26,15 @@ namespace TPANUAL {
         public MedioDePago MedioDePago { get => medioDePago; set => medioDePago = value; }
         public TipoEgreso TipoEgreso { get => tipoEgreso; set => tipoEgreso = value; }
         public List<DocumentoComercial> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
-		public List<OperacionDeIngreso> IngresosAsociados { get => ingresosAsociados; set => ingresosAsociados = value; }
+        public OperacionDeIngreso IngresoAsociado { get => ingresoAsociado; set => ingresoAsociado = value; }
 
-		public float valorTotal(){
+        public float valorTotal(){
 			return TipoEgreso.valorTotal();
 		}
 
 		public void agregarDocumentoComercial(DocumentoComercial documento)
         {
 			DocumentosComerciales.Add(documento);
-        }
-
-        public void agregarOperacionDeIngreso(OperacionDeIngreso operacion)
-        {
-            IngresosAsociados.Add(operacion);
         }
 
     }//end OperacionDeEgreso
