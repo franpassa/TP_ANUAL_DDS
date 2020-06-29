@@ -77,7 +77,7 @@ namespace TPANUAL {
 		{
 			foreach(Presupuesto presupuesto in Presupuestos)
             {
-                if(lasListasSonIguales(presupuesto.Items, Items)) {
+                if(sonIguales(presupuesto.Items, Items)) {
 
                     return true;
                 }
@@ -85,7 +85,7 @@ namespace TPANUAL {
 			return false;
         }
 
-        private bool lasListasSonIguales(List<Item> lista1, List<Item> lista2) {
+        private bool sonIguales(List<Item> lista1, List<Item> lista2) {
            
             bool flag = true;
 
