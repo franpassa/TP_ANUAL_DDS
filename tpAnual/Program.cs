@@ -91,7 +91,7 @@ namespace TPANUAL
 
             jose.verMensajes(compra);
 
-            jose.validarContraseña();
+            ValidadorDeContraseña.getInstanceValidadorContra.validarContraseña(jose.Constraseña);
             ValidadorDeContraseña.getInstanceValidadorContra.mostrarMsjValidador(jose.Constraseña);
 
             compra.agregarPresupuesto(presJuan);

@@ -29,18 +29,6 @@ namespace TPANUAL {
             compra.mostrarMensajes(this);
         }
 
-        public bool esRevisor(Compra compra)
-        {
-            foreach (Usuario usuario in compra.Revisores)
-            {
-                if (Equals(this, usuario))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
 
         public void cambiarTipoUsuario()
         {

@@ -99,11 +99,25 @@ namespace TPANUAL {
 
         public void mostrarMensajes(Usuario usuario)
         {
-            if (usuario.esRevisor(this))
+            if (esRevisor(usuario))
             {
                 bandeja.imprimirMensajes();
             }
         }
+
+        private bool esRevisor(Usuario unUsuario)
+        {
+            foreach (Usuario usuario in Revisores)
+            {
+                if (Equals(unUsuario, usuario))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
 
     }//end Compra
 
