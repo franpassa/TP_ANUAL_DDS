@@ -43,10 +43,6 @@ namespace TPANUAL
             List<Categoria> categoriasJuan = new List<Categoria> {clienteA};
             Item zapatillaJuan = new Item("zapato", "airmax", 300, categoriasJuan);
             zapatillaJuan.insertarCategoria(almagro);
-            foreach(Categoria categoria in zapatillaJuan.Categorias)
-            {
-                Console.WriteLine(categoria.Nombre);
-            }
             PersonaProveedora juan = new PersonaProveedora("Alvear 276", "32492832", "Juan");
             
 
