@@ -11,7 +11,8 @@ using TPANUAL.Jobs;
 
 
 using TPANUAL;
-namespace TPANUAL {
+namespace TPANUAL 
+{
 	public class Compra : TipoEgreso {
 
 		private BandejaDeMensajes bandeja;
