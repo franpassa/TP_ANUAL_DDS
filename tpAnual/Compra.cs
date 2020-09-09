@@ -23,6 +23,12 @@ namespace TPANUAL
 		private Proveedor proveedor;
 		private List<Usuario> revisores;
 
+        /*
+        Al momento de crear la compra, ya le paso la lista de items con el valor total de cada uno, osea lo que salieron cuando compre. 
+        Lo mismo pasa con el proveedor (ya compre, ya se el valor de los items, ya se a quien le compre)
+        La compra que necesita presupuestos, NO necesariamente tiene que hacerse en base a uno de esos presupuestos. Basicamente puedo comprar donde quiera
+        (y despues se validara la compra, pero no me importa)
+         */
         public Compra( int cantidadDePresupuestosRequeridos, CriterioCompra criterio, List<Item> items, Proveedor proveedor, List<Usuario> revisores)
         {
             this.cantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
