@@ -1,0 +1,36 @@
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\bin\Debug\API_MercadoLibre.exe.config
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\bin\Debug\API_MercadoLibre.exe
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\bin\Debug\API_MercadoLibre.pdb
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\bin\Debug\RestSharp.dll
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\bin\Debug\RestSharp.xml
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\obj\Debug\API_MercadoLibre.csprojAssemblyReference.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\obj\Debug\API_MercadoLibre.csproj.CoreCompileInputs.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\obj\Debug\API_MercadoLibre.csproj.CopyComplete
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\obj\Debug\API_MercadoLibre.exe
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\API MercadoLibre\Codigo\obj\Debug\API_MercadoLibre.pdb
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\bin\Debug\API_MercadoLibre.exe.config
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\bin\Debug\API_MercadoLibre.exe
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\bin\Debug\API_MercadoLibre.pdb
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\bin\Debug\RestSharp.dll
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\bin\Debug\RestSharp.xml
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\obj\Debug\API_MercadoLibre.csprojAssemblyReference.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\obj\Debug\API_MercadoLibre.csproj.CoreCompileInputs.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\obj\Debug\API_MercadoLibre.csproj.CopyComplete
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\obj\Debug\API_MercadoLibre.exe
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\DDS2020\API MercadoLibre (Para TP-ANUAL)\Codigo\obj\Debug\API_MercadoLibre.pdb
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\bin\Debug\API_MercadoLibre.exe.config
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\bin\Debug\API_MercadoLibre.exe
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\bin\Debug\API_MercadoLibre.pdb
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\bin\Debug\RestSharp.dll
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\bin\Debug\RestSharp.xml
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\obj\Debug\API_MercadoLibre.csprojAssemblyReference.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\obj\Debug\API_MercadoLibre.csproj.CoreCompileInputs.cache
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\obj\Debug\API_MercadoLibre.csproj.CopyComplete
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\obj\Debug\API_MercadoLibre.exe
+C:\Users\Fenjer\Documents\UTN 2020\Diseño de Sistemas\Repositorios\TP_ANUAL_DDS\tpAnual\API_ML\obj\Debug\API_MercadoLibre.pdb
