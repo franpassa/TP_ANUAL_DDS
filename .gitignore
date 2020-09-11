@@ -4,5 +4,7 @@ tpAnual/**/obj/
 tpAnual/obj/
 tpAnual/**/bin/
 tpAnual/bin/
+bin/
+obj/
 *.ldb
 **/*.cache
