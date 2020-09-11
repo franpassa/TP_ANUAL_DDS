@@ -1,8 +1,8 @@
 tpAnual/**/.vs/
-tpanual/.vs/
+tpAnual/.vs/
 tpAnual/**/obj/
-tpanual/obj/
+tpAnual/obj/
 tpAnual/**/bin/
-tpanual/bin/
+tpAnual/bin/
 *.ldb
 **/*.cache
