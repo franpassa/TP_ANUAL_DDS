@@ -20,6 +20,8 @@ namespace Bibliotecas
 
         public DbSet<EntidadJuridica> EntidadesJuridicas { get; set; }
 
+	public DbSet<OperacionDeIngreso> OperacionesDeEgreso { get; set; }
+
         public Context() : base("ContextDB")
         {
             Database.SetInitializer<Context>(new CreateDatabaseIfNotExists<Context>());
