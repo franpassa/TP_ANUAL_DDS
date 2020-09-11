@@ -20,6 +20,16 @@ namespace API_MercadoLibre {
 		public String id;
 		public String nombre;
 
+		public Ciudad(String _id, String _nombre)
+        {
+			id = _id;
+			nombre = _nombre;
+
+			this.imprimir();
+		}
+
+		// Este constructor lo había hecho antes, ahora la clase Provincia usa el de arriba, pero 
+		// lo dejo porque puede ser util si se necesita mas info de una ciudad
 		public Ciudad(String _id){
 			WebRequest request_ciudad = HttpWebRequest.Create("https://api.mercadolibre.com/classified_locations/cities/" + _id);
 			bool leidoCorrectamente = true;

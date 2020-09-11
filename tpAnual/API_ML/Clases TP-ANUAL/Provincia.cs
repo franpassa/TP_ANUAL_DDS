@@ -61,7 +61,7 @@ namespace API_MercadoLibre {
 				foreach (ML_PlaceSmall ciudad in _ciudades)
 				{
 					//Console.WriteLine(ciudad.name);
-					ciudades.Add(new Ciudad(ciudad.id));
+					ciudades.Add(new Ciudad(ciudad.id, ciudad.name));
 				}
 			}
 		}
