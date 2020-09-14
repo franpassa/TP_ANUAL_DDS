@@ -25,6 +25,9 @@ namespace TPANUAL {
         [Column("TipoUsuario")]
         public string TipoUsuario { get; set; }
 
+        [Column("ID_Organizacion")]
+        public int id_organizacion { get; set; }
+
         public Usuario(string contraseña, string nombreUsuario)
         {
             this.Contraseña = contraseña;

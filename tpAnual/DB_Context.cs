@@ -13,14 +13,13 @@ namespace TPANUAL
     public class DB_Context : DbContext
     {
         public DbSet<Usuario> usuario { get; set; }
-        //public DbSet<Organizacion> organizacion { get; set; }
+        public DbSet<Organizacion> organizacion { get; set; }
 
         // El string "dbConn" es el nombre del connection string definido en App.config
         public DB_Context() : base("db_tpanual")
         {
             // Deshabilita la inicializacion mágica del ORM
             Database.SetInitializer<DB_Context>(null);
-
         }
     }
 

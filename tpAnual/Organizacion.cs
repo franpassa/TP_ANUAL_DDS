@@ -29,19 +29,15 @@ namespace TPANUAL {
         [Column("actComisionistaoAgenciaDeViaje")]
         public bool EsActividadComisionistaoAgenciaDeViaje { get; set; }
 
-        [NotMapped]
-        public TipoEntidad TipoEntidad { get; set; }
-
-        [NotMapped]
-        public List<Usuario> Usuarios { get; set; }
-
         [Column("CantidadPersonal")]
         public int CantidadPersonal { get; set; }
 
-        [NotMapped]
+        public TipoEntidad TipoEntidad { get; set; }
+
+        public List<Usuario> Usuarios { get; set; }
+
         public List<OperacionDeEgreso> OperacionesDeEgreso { get; set; }
-        
-        [NotMapped]
+
         public List<OperacionDeIngreso> OperacionesDeIngreso { get; set; }
 
         public void agregarOperacionDeEgreso(OperacionDeEgreso operacion)
@@ -53,6 +49,8 @@ namespace TPANUAL {
         {
             OperacionesDeIngreso.Add(operacion);
         }
+
+        public Organizacion() { }
 
     }//end Organizacion
 

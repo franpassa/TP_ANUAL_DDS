@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
-
 using TPANUAL;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace TPANUAL {
-	public class OSC : Organizacion{
+
+    [Table("organizacion")]
+    public class OSC : Organizacion{
         public OSC(Actividad actividad, int cantidadPersonal, string nombreFicticio, float promedioVentasAnuales, TipoEntidad tipoEntidad, List<Usuario> usuarios)
         {
             Actividad = actividad;

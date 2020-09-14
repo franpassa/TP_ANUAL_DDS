@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
-
 using TPANUAL;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,8 +10,7 @@ namespace TPANUAL {
 
     [Table("organizacion")]
 	public class Empresa : Organizacion {
-
-        private Estructura estructura;
+        public Estructura Estructura { get; set; }
 
         public Empresa(Actividad actividad, int cantidadPersonal, bool esActividadComisionistaoAgenciaDeViaje, string nombreFicticio, float promedioVentasAnuales, TipoEntidad tipoEntidad, List<Usuario> usuarios)
         {
@@ -28,7 +24,7 @@ namespace TPANUAL {
             Usuarios = usuarios;
         }
 
-        public Estructura Estructura { get => estructura; set => estructura = value; }
+        public Empresa() { }
 
         public void definirEstructura(){
 

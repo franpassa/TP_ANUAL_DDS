@@ -15,16 +15,16 @@ namespace TPANUAL
             using (var contexto = new DB_Context())
             {
                 //creo usuario Pedro
-                //Usuario pedro = new Usuario(2, "pedritoelmejor", "pepito");
+                Usuario pedro = new Usuario("pedritoelmejor", "pepito");
                 //var cantUsuarios = contexto.usuario.ToArray();
                 //Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");
 
                 //creo usuario Jose
                 //Usuario jose = new Usuario("Ppass11wordd", "elJosu");
 
-                Usuario buscado = contexto.usuario.Find(11);
+                //Usuario buscado = contexto.usuario.Find(11);
 
-                Console.WriteLine(buscado.NombreUsuario);
+                //Console.WriteLine(buscado.NombreUsuario);
 
                 //creo Entidad
                 //EntidadBase entidadBase = new EntidadBase("entidadBase", null);
@@ -34,8 +34,11 @@ namespace TPANUAL
                 //List<Usuario> usuariosDeOrg = new List<Usuario> { pedro };
                 //Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
 
-                //contexto.organizacion.Add(zapatuya);
-                //contexto.usuario.Add(jose);
+                contexto.usuario.Add(pedro);
+
+                //contexto.SaveChanges();
+
+                //contexto.organizacion.Add(zapatuya);               
 
                 contexto.SaveChanges();
 
@@ -43,8 +46,8 @@ namespace TPANUAL
                 //Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");
                 //Console.ReadLine();
 
-                var cantUsuarios2 = contexto.usuario.ToArray();
-                Console.WriteLine($"Existen {cantUsuarios2.Length} usuario(s).");
+                //var cantUsuarios2 = contexto.usuario.ToArray();
+               // Console.WriteLine($"Existen {cantUsuarios2.Length} usuario(s).");
 
                 Console.ReadLine();
                 // //creo Criterios

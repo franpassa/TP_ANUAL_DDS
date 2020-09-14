@@ -3,32 +3,42 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace TPANUAL {
+
+	[Table("operaciondeegreso")]
 	public class OperacionDeEgreso {
+		[Key]
 
-		private List<DocumentoComercial> documentosComerciales;
-		private OperacionDeIngreso ingresoAsociado;
-		private DateTime fechaOperacion;
-		private MedioDePago medioDePago;
-		private TipoEgreso tipoEgreso;
+		[Column("ID_Egreso")]
+		public int ID_Egreso { get; set; }
 
-		public OperacionDeEgreso(TipoEgreso egreso, MedioDePago medio, List<DocumentoComercial> documentos){
+		[Column("ID_Ingreso")]
+		public int ID_Ingreso { get; set; }
+
+		[Column("ID_Organizacion")]
+		public int ID_Organizacion { get; set; }
+
+		[Column("Fecha")]
+		public DateTime FechaOperacion { get; set; }
+        public MedioDePago MedioDePago { get; set; }
+        public TipoEgreso TipoEgreso { get; set; }
+        public List<DocumentoComercial> DocumentosComerciales { get; set; }
+        public OperacionDeIngreso IngresoAsociado { get; set; }
+
+		public OperacionDeEgreso(TipoEgreso egreso, MedioDePago medio, List<DocumentoComercial> documentos)
+		{
 			DocumentosComerciales = documentos;
 			FechaOperacion = DateTime.Now;
 			MedioDePago = medio;
 			TipoEgreso = egreso;
 		}
 
-        public DateTime FechaOperacion { get => fechaOperacion; set => fechaOperacion = value; }
-        public MedioDePago MedioDePago { get => medioDePago; set => medioDePago = value; }
-        public TipoEgreso TipoEgreso { get => tipoEgreso; set => tipoEgreso = value; }
-        public List<DocumentoComercial> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
-        public OperacionDeIngreso IngresoAsociado { get => ingresoAsociado; set => ingresoAsociado = value; }
+		public OperacionDeEgreso() { }
 
-        public float valorTotal(){
+		public float valorTotal(){
 			return TipoEgreso.valorTotal();
 		}
 
