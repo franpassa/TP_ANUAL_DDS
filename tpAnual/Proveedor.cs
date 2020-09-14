@@ -7,12 +7,12 @@ using System.IO;
 
 
 using TPANUAL;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace TPANUAL {
 	public abstract class Proveedor {
-
-		private string direccionPostal;
-
-        public string DireccionPostal { get => direccionPostal; set => direccionPostal = value; }
+		
+		public Direccion DireccionPostal { get; set; }
 
 	}//end Proveedor
 

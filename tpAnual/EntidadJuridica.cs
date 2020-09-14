@@ -7,23 +7,44 @@ using System.IO;
 
 
 using TPANUAL;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
 namespace TPANUAL {
+    [Table("entidadjuridica")]
 	public class EntidadJuridica : TipoEntidad {
 
-		private List<EntidadBase> basesAsociadas;
-		private string codigoInscripcion;
-		private string CUIT;
-		private string direccionPostal;
-		private string razonSocial;
+        [Key]
+        [Column("ID_EntidadJuridica")]
+        public int ID_EntidadJuridica { get; set; }
 
-        public EntidadJuridica(List<EntidadBase> basesAsociadas, string codigoInscripcion, string CUIT, string direccionPostal, string razonSocial)
+        [Column("ID_Organizacion")]
+        public int ID_Organizacion { get; set; }
+
+        [Column("CodigoInscripcion")]
+		public string CodigoInscripcion { get; set; }
+
+        [Column("CUIT")]
+        public string CUIT { get; set; }
+
+        [Column("ID_Direccion")]
+        public int ID_Direccion { get; set; }
+        public Direccion DireccionPostal { get; set; }
+
+        [Column("RazonSocial")]
+        public string RazonSocial { get; set; }
+        public List<EntidadBase> BasesAsociadas { get; set; }
+        public EntidadJuridica(List<EntidadBase> basesAsociadas, string codigoInscripcion, string CUIT, Direccion direccionPostal, string razonSocial)
         {
-            this.basesAsociadas = basesAsociadas;
-            this.codigoInscripcion = codigoInscripcion;
+            BasesAsociadas = basesAsociadas;
+            CodigoInscripcion = codigoInscripcion;
             this.CUIT = CUIT;
-            this.direccionPostal = direccionPostal;
-            this.razonSocial = razonSocial;
+            DireccionPostal = direccionPostal;
+            ID_Direccion = direccionPostal.ID_Direccion;
+            RazonSocial = razonSocial;
         }
+
+        public EntidadJuridica() { }
 
     }//end Entidad Juridica
 

@@ -7,36 +7,46 @@ using System.IO;
 
 
 using TPANUAL;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
 namespace TPANUAL {
+    [Table("presupuesto")]
 	public class Presupuesto {
 
-		private string detalle;
-		private List<DocumentoComercial> documentosComerciales;
-		private List<Item> items;
-		private Proveedor proveedor;
-        private Compra compra;
+        [Key]
+        [Column("ID_Presupuesto")]
+        public int ID_Presupuesto { get; set; }
+
+        [Column("Detalle")]
+        public string Detalle { get; set; }
+
+        [Column("ID_Compra")]
+        public int ID_Compra { get; set; }
+        public Compra Compra { get; set; }
+
+        public List<Item> Items { get; set ; }
+        public Proveedor Proveedor { get; set; }
+        internal List<DocumentoComercial> DocumentosComerciales { get; set; }
 
         public Presupuesto(Proveedor proveedor, List<Item> items, Compra compra, string detalle)
         {
-            this.proveedor = proveedor;
-            this.items = items;
-            this.detalle = detalle;
-            this.documentosComerciales = null;
-            this.Compra = compra;
+            Proveedor = proveedor;
+            Items = items;
+            Detalle = detalle;
+            DocumentosComerciales = null;
+            Compra = compra;
         }
 
+        public Presupuesto() { }
 
-        public Proveedor Proveedor { get => proveedor; set => proveedor = value; }
-        public string Detalle { get => detalle; set => detalle = value; }
-        public List<Item> Items { get => items; set => items = value; }
-        internal List<DocumentoComercial> DocumentosComerciales { get => documentosComerciales; set => documentosComerciales = value; }
-        public Compra Compra { get => compra; set => compra = value; }
+
 
         public float valorTotal(){
 
 			float valor = 0;
 
-			foreach(Item item in items)
+			foreach(Item item in Items)
             {
 				valor += item.ValorTotal;
             }

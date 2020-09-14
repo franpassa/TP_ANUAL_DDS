@@ -13,20 +13,30 @@ using System.IO;
 using System.Net;
 using System.Linq;
 using API_MercadoLibre;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace API_MercadoLibre {
+	[Table("ciudad")]
 	public class Ciudad {
 
-		public String id;
-		public String nombre;
+		[Key]
+		[Column("ID_Ciudad")]
+		public string ID_Ciudad { get; set; }
+		[Column("nombre")]
+		public string Nombre { get; set; }
+		[Column("ID_Provincia")]
+		public string ID_Provincia { get; set; }
 
 		public Ciudad(String _id, String _nombre)
         {
-			id = _id;
-			nombre = _nombre;
+			ID_Ciudad = _id;
+			Nombre = _nombre;
 
 			this.imprimir();
 		}
+
+		public Ciudad() { }
 
 		// Este constructor lo había hecho antes, ahora la clase Provincia usa el de arriba, pero 
 		// lo dejo porque puede ser util si se necesita mas info de una ciudad
@@ -52,8 +62,8 @@ namespace API_MercadoLibre {
 				string objetoJSON_ciudad = reader_ciudad.ReadToEnd();
 				ML_City ML_CityObject = Newtonsoft.Json.JsonConvert.DeserializeObject<ML_City>(objetoJSON_ciudad);
 
-				id = ML_CityObject.id;
-				nombre = ML_CityObject.name;
+				ID_Ciudad = ML_CityObject.id;
+				Nombre = ML_CityObject.name;
 
 				this.imprimir();
 			}
@@ -62,8 +72,8 @@ namespace API_MercadoLibre {
 		public void imprimir()
         {
 			Console.WriteLine();
-			Console.WriteLine("			ID: " + id);
-			Console.WriteLine("			Nombre ciudad: " + nombre);
+			Console.WriteLine("			ID: " + ID_Ciudad);
+			Console.WriteLine("			Nombre ciudad: " + Nombre);
 		}
 	}
 }

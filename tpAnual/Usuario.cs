@@ -12,7 +12,6 @@ namespace TPANUAL {
 	public class Usuario {
 
         [Key]
-
         [Column("ID_Usuario")]
         public int ID_Usuario { get; set; }
 
@@ -27,6 +26,8 @@ namespace TPANUAL {
 
         [Column("ID_Organizacion")]
         public int id_organizacion { get; set; }
+
+        public List<Compra> ComprasRevisables{ get; set; }
 
         public Usuario(string contraseña, string nombreUsuario)
         {

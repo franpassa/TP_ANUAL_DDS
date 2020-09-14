@@ -11,17 +11,30 @@ using TPANUAL.Jobs;
 
 
 using TPANUAL;
-namespace TPANUAL 
-{
-	public class Compra : TipoEgreso {
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-		private BandejaDeMensajes bandeja;
-		private int cantidadDePresupuestosRequeridos;
-		private CriterioCompra criterio;
-		private List<Presupuesto> presupuestos;
-		private List<Item> items;
-		private Proveedor proveedor;
-		private List<Usuario> revisores;
+namespace TPANUAL {
+    [Table("compra")]
+	public class Compra : TipoEgreso {
+        [Key]
+        [Column("ID_Compra")]
+        public int ID_Compra { get; set; }
+
+        [Column("cantidadDePresupuestosRequeridos")]
+        public int CantidadDePresupuestosRequeridos { get; set; }
+
+        [Column("ID_Egreso")]
+        public int ID_Egreso { get; set; }
+        public CriterioCompra Criterio { get; set; }
+        public List<Presupuesto> Presupuestos{ get; set; }
+        
+        //many to many
+        public List<Usuario> Revisores { get; set; }
+        public List<Item> Items { get; set; }
+        public Proveedor Proveedor{ get; set; }
+
+        public BandejaDeMensajes Bandeja { get; set; }
 
         /*
         Al momento de crear la compra, ya le paso la lista de items con el valor total de cada uno, osea lo que salieron cuando compre. 
@@ -31,22 +44,16 @@ namespace TPANUAL
          */
         public Compra( int cantidadDePresupuestosRequeridos, CriterioCompra criterio, List<Item> items, Proveedor proveedor, List<Usuario> revisores)
         {
-            this.cantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
-            this.bandeja = new BandejaDeMensajes();
-            this.criterio = criterio;
-            this.presupuestos = new List<Presupuesto>();
-            this.items = items;
-            this.proveedor = proveedor;
-            this.revisores = revisores;
+            CantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
+            Bandeja = new BandejaDeMensajes();
+            Criterio = criterio;
+            Presupuestos = new List<Presupuesto>();
+            Items = items;
+            Proveedor = proveedor;
+            Revisores = revisores;
         }
 
-        public CriterioCompra Criterio                  { get => criterio;            set => criterio = value; }
-        public List<Presupuesto> Presupuestos     { get => presupuestos;        set => presupuestos = value; }
-        public List<Usuario> Revisores			  { get => revisores;           set => revisores = value; }
-        public List<Item> Items { get => items; set => items = value; }
-        public Proveedor Proveedor                { get => proveedor;           set => proveedor = value; }
-        public int CantidadDePresupuestosRequeridos { get => cantidadDePresupuestosRequeridos; set => cantidadDePresupuestosRequeridos = value; }
-        public BandejaDeMensajes Bandeja { get => bandeja; set => bandeja = value; }
+        public Compra() { }
 
         public void agregarRevisor(Usuario usuario){
 			Revisores.Add(usuario);
@@ -60,7 +67,7 @@ namespace TPANUAL
         public void agregarPresupuesto(Presupuesto presupuesto)
         {
             if(esConPresupuesto())
-                presupuestos.Add(presupuesto);
+                Presupuestos.Add(presupuesto);
         }
 
         public override async Task validar()
@@ -72,7 +79,7 @@ namespace TPANUAL
 
 			float temporal = 0;
 
-				foreach(Item item in items)
+				foreach(Item item in Items)
                 {
 					temporal += item.ValorTotal;
                 }
@@ -108,7 +115,7 @@ namespace TPANUAL
         {
             if (esRevisor(usuario))
             {
-                bandeja.imprimirMensajes();
+                Bandeja.imprimirMensajes();
             }
         }
 

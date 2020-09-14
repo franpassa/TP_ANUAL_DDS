@@ -155,6 +155,7 @@
     <Compile Include="Criterio.cs" />
     <Compile Include="CriterioCompra.cs" />
     <Compile Include="DB_Context.cs" />
+    <Compile Include="Direccion.cs" />
     <Compile Include="DocumentoComercial.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="EntidadBase.cs" />
