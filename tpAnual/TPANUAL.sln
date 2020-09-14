@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPANUAL", "TPANUAL.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_MercadoLibre", "API_ML\API_MercadoLibre.csproj", "{D8B1BB92-7C32-4B55-B062-B55DAD988D00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinculador_IngresosEgresos", "Vinculador_Ingresos-Egresos\Vinculador_IngresosEgresos.csproj", "{C96B3BAB-DC25-4FC4-B6E6-A7D08000892A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D8B1BB92-7C32-4B55-B062-B55DAD988D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8B1BB92-7C32-4B55-B062-B55DAD988D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8B1BB92-7C32-4B55-B062-B55DAD988D00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96B3BAB-DC25-4FC4-B6E6-A7D08000892A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96B3BAB-DC25-4FC4-B6E6-A7D08000892A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96B3BAB-DC25-4FC4-B6E6-A7D08000892A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96B3BAB-DC25-4FC4-B6E6-A7D08000892A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

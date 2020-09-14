@@ -1,17 +1,13 @@
 ﻿using System;
 
-namespace API_MercadoLibre
+namespace Vinculador_Ingresos_Egresos
 {
     class Program
     {
         static void Main(string[] args)
         {
-            API_MercadoLibre ml = new API_MercadoLibre();
-
+            Console.WriteLine("Mati te amo");
             Console.ReadLine();
-            Console.ReadLine();
-
-
         }
     }
 }

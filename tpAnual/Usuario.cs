@@ -3,26 +3,36 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TPANUAL {
+
+    [Table("usuario")]
 	public class Usuario {
 
-		private string constraseña;
-		private string nombreUsuario;
-		private string tipoUsuario;
+        [Key]
 
-        public string Constraseña { get => constraseña; set => constraseña = value; }
-        public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
-        public string TipoUsuario { get => tipoUsuario; set => tipoUsuario = value; }
+        [Column("ID_Usuario")]
+        public int ID_Usuario { get; set; }
 
-        public Usuario(string constraseña, string nombreUsuario)
+        [Column("Contraseña")]
+        public string Contraseña { get; set; }
+
+        [Column("NombreUsuario")]
+        public string NombreUsuario { get; set; }
+
+        [Column("TipoUsuario")]
+        public string TipoUsuario { get; set; }
+
+        public Usuario(string contraseña, string nombreUsuario)
         {
-            this.Constraseña = constraseña;
+            this.Contraseña = contraseña;
             this.NombreUsuario = nombreUsuario;
             this.TipoUsuario = "estandar";
         }
+
+        public Usuario() { }
 
         public void verMensajes(Compra compra)
         {
@@ -43,7 +53,7 @@ namespace TPANUAL {
 
         public bool validarContraseña()
         {
-            return ValidadorDeContraseña.getInstanceValidadorContra.validarContraseña(this.Constraseña);
+            return ValidadorDeContraseña.getInstanceValidadorContra.validarContraseña(this.Contraseña);
         }
 
 	}//end Usuario

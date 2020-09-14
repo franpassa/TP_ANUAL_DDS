@@ -3,43 +3,57 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
-
 using TPANUAL;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace TPANUAL {
-	public abstract class Organizacion {
 
-		private Actividad actividad;
-		private int cantidadPersonal;
-		private bool esActividadComisionistaoAgenciaDeViaje;
-		private string nombreFicticio;
-		private List<OperacionDeEgreso> operacionesDeEgreso;
-		private List<OperacionDeIngreso> operacionesDeIngreso;
-		private float promedioVentasAnuales;
-		private TipoEntidad tipoEntidad;
-		private List<Usuario> usuarios;
+    [Table("organizacion")]
+    public abstract class Organizacion
+    {
+        [Key]
 
-        public Actividad Actividad { get => actividad; set => actividad = value; }
-		public string NombreFicticio { get => nombreFicticio; set => nombreFicticio = value; }
-		public float PromedioVentasAnuales { get => promedioVentasAnuales; set => promedioVentasAnuales = value; }
-		public bool EsActividadComisionistaoAgenciaDeViaje { get => esActividadComisionistaoAgenciaDeViaje; set => esActividadComisionistaoAgenciaDeViaje = value; }
-		public TipoEntidad TipoEntidad { get => tipoEntidad; set => tipoEntidad = value; }
-		public List<Usuario> Usuarios { get => usuarios; set => usuarios = value; }
-		public int CantidadPersonal { get => cantidadPersonal; set => cantidadPersonal = value; }
-        public List<OperacionDeEgreso> OperacionesDeEgreso { get => operacionesDeEgreso; set => operacionesDeEgreso = value; }
-        public List<OperacionDeIngreso> OperacionesDeIngreso { get => operacionesDeIngreso; set => operacionesDeIngreso = value; }
+        [Column("ID_Organizacion")]
+        public int ID_Organizacion { get; set; }
+
+        [NotMapped]
+        public Actividad Actividad { get; set; }
+
+        [Column("NombreFicticio")]
+        public string NombreFicticio { get; set; }
+
+        [Column("PromedioVentasAnuales")]
+        public float PromedioVentasAnuales { get; set; }
+
+        [Column("actComisionistaoAgenciaDeViaje")]
+        public bool EsActividadComisionistaoAgenciaDeViaje { get; set; }
+
+        [NotMapped]
+        public TipoEntidad TipoEntidad { get; set; }
+
+        [NotMapped]
+        public List<Usuario> Usuarios { get; set; }
+
+        [Column("CantidadPersonal")]
+        public int CantidadPersonal { get; set; }
+
+        [NotMapped]
+        public List<OperacionDeEgreso> OperacionesDeEgreso { get; set; }
+        
+        [NotMapped]
+        public List<OperacionDeIngreso> OperacionesDeIngreso { get; set; }
 
         public void agregarOperacionDeEgreso(OperacionDeEgreso operacion)
         {
             OperacionesDeEgreso.Add(operacion);
         }
 
-		public void agregarOperacionDeIngreso(OperacionDeIngreso operacion)
-		{
-			OperacionesDeIngreso.Add(operacion);
-		}
+        public void agregarOperacionDeIngreso(OperacionDeIngreso operacion)
+        {
+            OperacionesDeIngreso.Add(operacion);
+        }
 
-	}//end Organizacion
+    }//end Organizacion
 
 }//end namespace TPANUAL

@@ -13,11 +13,20 @@ using System.IO;
 using System.Net;
 using System.Linq;
 using API_MercadoLibre;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API_MercadoLibre {
+
+	[Table("pais")]
 	public class Pais {
 
+		[Key]
+
+		[Column("ID_Pais")]
 		public String id { get; set; }
+
+		[Column("nombre")]
 		public String nombre { get; set; }
 		public List<Provincia> provincias { get; set; }
 		public Moneda moneda { get; set; }

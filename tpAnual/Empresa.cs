@@ -7,7 +7,11 @@ using System.IO;
 
 
 using TPANUAL;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace TPANUAL {
+
+    [Table("organizacion")]
 	public class Empresa : Organizacion {
 
         private Estructura estructura;

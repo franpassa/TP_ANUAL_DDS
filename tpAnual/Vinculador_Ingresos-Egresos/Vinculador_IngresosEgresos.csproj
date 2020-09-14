@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D8B1BB92-7C32-4B55-B062-B55DAD988D00}</ProjectGuid>
+    <ProjectGuid>{C96B3BAB-DC25-4FC4-B6E6-A7D08000892A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>API_MercadoLibre</RootNamespace>
-    <AssemblyName>API_MercadoLibre</AssemblyName>
+    <RootNamespace>Vinculador_Ingresos_Egresos</RootNamespace>
+    <AssemblyName>Vinculador_Ingresos-Egresos</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,16 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp, Version=106.11.4.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
-      <HintPath>packages\RestSharp.106.11.4\lib\net452\RestSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,26 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases API\ML_City.cs" />
-    <Compile Include="Clases API\ML_Country.cs" />
-    <Compile Include="Clases API\ML_CountrySmall.cs" />
-    <Compile Include="Clases API\ML_Currency.cs" />
-    <Compile Include="Clases API\ML_CurrencyConversion.cs" />
-    <Compile Include="Clases API\ML_GeoInformation.cs" />
-    <Compile Include="Clases API\ML_Location.cs" />
-    <Compile Include="Clases API\ML_PlaceSmall.cs" />
-    <Compile Include="Clases API\ML_State.cs" />
-    <Compile Include="Clases TP-ANUAL\Ciudad.cs" />
-    <Compile Include="Clases TP-ANUAL\Moneda.cs" />
-    <Compile Include="Clases TP-ANUAL\API_MercadoLibre.cs" />
-    <Compile Include="Clases TP-ANUAL\País.cs" />
-    <Compile Include="Clases TP-ANUAL\Provincia.cs" />
+    <Compile Include="Condicion.cs" />
+    <Compile Include="CriterioVinculador.cs" />
+    <Compile Include="Fecha.cs" />
+    <Compile Include="Mix.cs" />
+    <Compile Include="Orden_Valor_PrimeroEgreso.cs" />
+    <Compile Include="Orden_Valor_PrimeroIngreso.cs" />
+    <Compile Include="PeriodoDeAceptabilidad.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vinculador.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Quartz;
-using Quartz.Impl;
-using System.Threading.Tasks;
-using TPANUAL.Jobs;
+using System.Data.Entity;
 using System.Linq;
 using API_MercadoLibre;
+using Quartz;
+using TPANUAL.Jobs;
 
 namespace TPANUAL
 {
@@ -14,93 +12,115 @@ namespace TPANUAL
     {
         static void Main(string[] args) {
 
-            //creo usuario Pedro
-            Usuario pedro = new Usuario("pedritoelmejor", "pepito");
+            using (var contexto = new DB_Context())
+            {
+                //creo usuario Pedro
+                //Usuario pedro = new Usuario(2, "pedritoelmejor", "pepito");
+                //var cantUsuarios = contexto.usuario.ToArray();
+                //Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");
 
-            //creo usuario Jose
-            Usuario jose = new Usuario("Ppass11wordd", "elJosu");
+                //creo usuario Jose
+                //Usuario jose = new Usuario("Ppass11wordd", "elJosu");
 
-            //creo Entidad
-            EntidadBase entidadBase = new EntidadBase("entidadBase", null);
+                Usuario buscado = contexto.usuario.Find(11);
 
-            //creo Organizacion
-            Servicios actividadServicio = new Servicios();
-            List<Usuario> usuariosDeOrg = new List<Usuario> { jose, pedro };
-            Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
+                Console.WriteLine(buscado.NombreUsuario);
 
-            //creo Criterios
-            Criterio barrios = new Criterio("barrio", null);
-            Criterio clientes = new Criterio("cliente", barrios);
+                //creo Entidad
+                //EntidadBase entidadBase = new EntidadBase("entidadBase", null);
 
-            //creo Categorias
-            Categoria palermo = new Categoria("palermo", barrios);
-            Categoria almagro = new Categoria("almagro", barrios);
+                //creo Organizacion
+                //Servicios actividadServicio = new Servicios();
+                //List<Usuario> usuariosDeOrg = new List<Usuario> { pedro };
+                //Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
 
-            Categoria clienteA = new Categoria("clienteA", clientes);
-            Categoria clienteB = new Categoria("clienteB", clientes);
+                //contexto.organizacion.Add(zapatuya);
+                //contexto.usuario.Add(jose);
 
-            //creo proveedor Juan
-            List<Categoria> categoriasJuan = new List<Categoria> {clienteA};
-            Item zapatillaJuan = new Item("zapato", "airmax", 300, categoriasJuan);
-            zapatillaJuan.insertarCategoria(almagro);
-            PersonaProveedora juan = new PersonaProveedora("Alvear 276", "32492832", "Juan");
-            
+                contexto.SaveChanges();
 
-            //creo proveedor Roberto
-            Item zapatillaRoberto = new Item("zapatillas", "superzapas", 400, categoriasJuan);
-            PersonaProveedora roberto = new PersonaProveedora("Mitre 231", "23892734", "Roberto");
+                //var cantUsuarios = contexto.usuario.ToArray();
+                //Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");
+                //Console.ReadLine();
 
+                var cantUsuarios2 = contexto.usuario.ToArray();
+                Console.WriteLine($"Existen {cantUsuarios2.Length} usuario(s).");
 
-            //creo atributos de compra
-            List<Usuario> usuariosRevisores = new List<Usuario> { jose };
-            Item itemCompra = new Item("zapatillas", "rositas", 2109381, categoriasJuan);
-            List<Item> itemsCompra = new List<Item> { itemCompra };
+                Console.ReadLine();
+                // //creo Criterios
+                // Criterio barrios = new Criterio("barrio", null);
+                // Criterio clientes = new Criterio("cliente", barrios);
 
-            //creo items de proveedores
-            List<Item> itemsJuan = new List<Item> {zapatillaJuan};
-            List<Item> itemsRobert = new List<Item> { zapatillaRoberto };
-            
-            //creo criterioDeSeleccion
-            MenorValor criterio = new MenorValor();
+                // //creo Categorias
+                // Categoria palermo = new Categoria("palermo", barrios);
+                // Categoria almagro = new Categoria("almagro", barrios);
 
-            //creo Compra
-            Compra compra = new Compra(2, criterio, itemsJuan, roberto, usuariosRevisores);
-            //compra.agregarRevisor(pedro);
+                // Categoria clienteA = new Categoria("clienteA", clientes);
+                // Categoria clienteB = new Categoria("clienteB", clientes);
 
-            //creo presupuesto Juan
-            Presupuesto presJuan = new Presupuesto(juan, itemsJuan, compra, "asodlks");
-
-            //creo presupuesto Robert
-            Presupuesto presRobert = new Presupuesto(roberto, itemsRobert, compra, "asidjal");
-
-            compra.agregarPresupuesto(presRobert);
+                // //creo proveedor Juan
+                // List<Categoria> categoriasJuan = new List<Categoria> {clienteA};
+                // Item zapatillaJuan = new Item("zapato", "airmax", 300, categoriasJuan);
+                // zapatillaJuan.insertarCategoria(almagro);
+                // PersonaProveedora juan = new PersonaProveedora("Alvear 276", "32492832", "Juan");
 
 
-            //creo MedioDePago
-            MedioDePago medio = new MedioDePago("98213", "2", "tarjeta");
+                // //creo proveedor Roberto
+                // Item zapatillaRoberto = new Item("zapatillas", "superzapas", 400, categoriasJuan);
+                // PersonaProveedora roberto = new PersonaProveedora("Mitre 231", "23892734", "Roberto");
 
-            //creo Operacion de Egreso
-            OperacionDeEgreso operacionDeEgreso = new OperacionDeEgreso(compra, medio, null);
 
-           zapatuya.agregarOperacionDeEgreso(operacionDeEgreso);
+                // //creo atributos de compra
+                // List<Usuario> usuariosRevisores = new List<Usuario> { jose };
+                // Item itemCompra = new Item("zapatillas", "rositas", 2109381, categoriasJuan);
+                // List<Item> itemsCompra = new List<Item> { itemCompra };
 
-            //creo Scheduler
-            Scheduler sched = Scheduler.getInstance();
-            sched.run();
-            jobComplejo(sched, zapatuya);
+                // //creo items de proveedores
+                // List<Item> itemsJuan = new List<Item> {zapatillaJuan};
+                // List<Item> itemsRobert = new List<Item> { zapatillaRoberto };
 
-            jose.verMensajes(compra);
+                // //creo criterioDeSeleccion
+                // MenorValor criterio = new MenorValor();
 
-            ValidadorDeContraseña.getInstanceValidadorContra.validarContraseña(jose.Constraseña);
-            ValidadorDeContraseña.getInstanceValidadorContra.mostrarMsjValidador(jose.Constraseña);
+                // //creo Compra
+                // Compra compra = new Compra(2, criterio, itemsJuan, roberto, usuariosRevisores);
+                // //compra.agregarRevisor(pedro);
 
-            compra.agregarPresupuesto(presJuan);
-            
-            Console.ReadLine();
+                // //creo presupuesto Juan
+                // Presupuesto presJuan = new Presupuesto(juan, itemsJuan, compra, "asodlks");
 
-            jose.verMensajes(compra);
+                // //creo presupuesto Robert
+                // Presupuesto presRobert = new Presupuesto(roberto, itemsRobert, compra, "asidjal");
 
-            sched.stop();
+                // compra.agregarPresupuesto(presRobert);
+
+
+                // //creo MedioDePago
+                // MedioDePago medio = new MedioDePago("98213", "2", "tarjeta");
+
+                // //creo Operacion de Egreso
+                // OperacionDeEgreso operacionDeEgreso = new OperacionDeEgreso(compra, medio, null);
+
+                //zapatuya.agregarOperacionDeEgreso(operacionDeEgreso);
+
+                // //creo Scheduler
+                // Scheduler sched = Scheduler.getInstance();
+                // sched.run();
+                // jobComplejo(sched, zapatuya);
+
+                // jose.verMensajes(compra);
+
+                // ValidadorDeContraseña.getInstanceValidadorContra.validarContraseña(jose.Constraseña);
+                // ValidadorDeContraseña.getInstanceValidadorContra.mostrarMsjValidador(jose.Constraseña);
+
+                // compra.agregarPresupuesto(presJuan);
+
+                // Console.ReadLine();
+
+                // jose.verMensajes(compra);
+
+                // sched.stop();      
+            }
         }
         
         private static void jobComplejo(Scheduler sched, Organizacion organizacion) {
