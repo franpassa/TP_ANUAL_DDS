@@ -14,10 +14,6 @@ namespace TPANUAL {
     [Table("entidadjuridicaproveedora")]
 	public class EntidadJuridicaProveedora : Proveedor {
 
-        [Key]
-        [Column("ID_EJProveedora")]
-        public int ID_EJProveedora { get; set; }
-
         [Column("CodigoInscripcion")]
         public string CodigoInscripcion { get; set; }
 
@@ -32,6 +28,8 @@ namespace TPANUAL {
 
         [Column("ID_Direccion")]
         public int ID_Direccion { get; set; }
+
+        public Direccion DireccionPostal { get; set; }
 
         [Column("ID_Presupuesto")]
         public int ID_Presupuesto { get; set; }

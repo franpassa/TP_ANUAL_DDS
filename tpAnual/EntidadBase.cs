@@ -15,11 +15,6 @@ namespace TPANUAL {
     [Table("entidadbase")]
 	public class EntidadBase : TipoEntidad {
 
-        [Key]
-
-        [Column("ID_EntidadBase")]
-        public int ID_EntidadBase { get; set; }
-
         [Column("ID_Organizacion")]
         public int ID_Organizacion { get; set; }
 

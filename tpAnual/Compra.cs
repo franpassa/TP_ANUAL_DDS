@@ -17,15 +17,9 @@ using System.ComponentModel.DataAnnotations;
 namespace TPANUAL {
     [Table("compra")]
 	public class Compra : TipoEgreso {
-        [Key]
-        [Column("ID_Compra")]
-        public int ID_Compra { get; set; }
 
         [Column("CantidadDePresupuestosRequeridos")]
         public int CantidadDePresupuestosRequeridos { get; set; }
-
-        [Column("ID_Egreso")]
-        public int ID_Egreso { get; set; }
 
         [NotMapped]
         public CriterioCompra Criterio { get; set; }
@@ -35,6 +29,8 @@ namespace TPANUAL {
         public List<Usuario> Revisores { get; set; }
         public List<Item> Items { get; set; }
         public Proveedor Proveedor{ get; set; }
+
+        [NotMapped]
         public BandejaDeMensajes Bandeja { get; set; }
 
         /*

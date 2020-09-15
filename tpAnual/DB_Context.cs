@@ -14,11 +14,10 @@ namespace TPANUAL
     public class DB_Context : DbContext
     {
         public DbSet<Ciudad> ciudad { get; set; }
-        public DbSet<Compra> compra { get; set; }
+        public DbSet<TipoEntidad> tipoentidad { get; set; }
         public DbSet<Direccion> direccion { get; set; }
         public DbSet<DocumentoComercial> documentoComercial { get; set; }
-        public DbSet<EntidadBase> entidadBase { get; set; }
-        public DbSet<EntidadJuridica> entidadJuridica { get; set; }
+        public DbSet<TipoEgreso> tipoegreso { get; set; }
         public DbSet<Item> item { get; set; }
         public DbSet<MedioDePago> mediodepago { get; set; }
         public DbSet<Moneda> moneda { get; set; }
@@ -26,8 +25,6 @@ namespace TPANUAL
         public DbSet<OperacionDeIngreso> operacionDeIngreso { get; set; }
         public DbSet<Organizacion> organizacion { get; set; }
         public DbSet<Pais> pais { get; set; }
-        //public DbSet<PersonaProveedora> personaproveedora { get; set; }
-        //public DbSet<EntidadJuridicaProveedora> entidadJuridicaProveedora { get; set; }
         public DbSet<Proveedor> proveedor { get; set; }
         public DbSet<Presupuesto> presupuesto { get; set; }
         public DbSet<Provincia> provincia { get; set; }
@@ -42,10 +39,6 @@ namespace TPANUAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Proveedor>()
-            .Property(p => p.ID_Proveedor)
-            . HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
             modelBuilder.Entity<PersonaProveedora>().Map(m =>
             {
                 m.MapInheritedProperties();
@@ -75,15 +68,6 @@ namespace TPANUAL
                 m.MapInheritedProperties();
                 m.ToTable("entidadjuridica");
             });
-            //modelBuilder.Entity<Student>()
-            //            .HasMany<Course>(s => s.Courses)
-            //            .WithMany(c => c.Students)
-            //            .Map(cs =>
-            //            {
-            //                cs.MapLeftKey("StudentRefId");
-            //                cs.MapRightKey("CourseRefId");
-            //                cs.ToTable("StudentCourse");
-            //            });
 
             modelBuilder.Entity<Compra>()
                 .HasMany<Usuario>(c => c.Revisores)
@@ -95,6 +79,7 @@ namespace TPANUAL
                     cs.ToTable("usuariosxcompra");
                 });
 
+            base.OnModelCreating(modelBuilder);
         }
     }
 

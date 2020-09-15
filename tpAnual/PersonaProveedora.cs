@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
-
 using TPANUAL;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -13,10 +10,6 @@ using System.ComponentModel.DataAnnotations;
 namespace TPANUAL {
     [Table("personaproveedora")]
 	public class PersonaProveedora : Proveedor {
-
-        [Key]
-        [Column("ID_PersonaProveedora")]
-        public int ID_PersonaProveedora { get; set; }
 
         [Column("DNI")]
         public string DNI { get; set; }
@@ -29,7 +22,7 @@ namespace TPANUAL {
 
         [Column("ID_Direccion")]
         public int ID_Direccion { get; set; }
-
+        public Direccion DireccionPostal { get; set; }
 
         [Column("ID_Presupuesto")]
         public int ID_Presupuesto { get; set; }

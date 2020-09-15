@@ -417,7 +417,7 @@ ALTER TABLE Usuario
 
 ALTER TABLE UsuariosxCompra 
  ADD CONSTRAINT FK_UsuariosxCompra_Compra
-	FOREIGN KEY (ID_Compra) REFERENCES Compra (ID_Compra) ON DELETE Restrict ON UPDATE Restrict
+	FOREIGN KEY (ID_Compra) REFERENCES Compra (ID_Compra) ON DELETE restrict ON UPDATE restrict
 ;
 
 ALTER TABLE UsuariosxCompra 
