@@ -23,7 +23,7 @@ namespace API_MercadoLibre {
 		[Key]
 		[Column("ID_Ciudad")]
 		public string ID_Ciudad { get; set; }
-		[Column("nombre")]
+		[Column("Nombre")]
 		public string Nombre { get; set; }
 		[Column("ID_Provincia")]
 		public string ID_Provincia { get; set; }

@@ -13,13 +13,21 @@ using System.IO;
 using System.Net;
 using System.Linq;
 using API_MercadoLibre;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace API_MercadoLibre {
+	[Table("moneda")]
 	public class Moneda {
+		[Key]
+		[Column("ID_Moneda")]
+		public string ID_Moneda { get; set; }
 
-		public String id;
-		public String descripcion;
-		public String simbolo;
+		[Column("Descripcion")]
+		public string Descripcion { get; set; }
+
+		[Column("Simbolo")]
+		public string Simbolo { get; set; }
 
 		public Moneda(String _id)
         {
@@ -45,14 +53,16 @@ namespace API_MercadoLibre {
 				string objetoJSON_moneda = reader_moneda.ReadToEnd();
 				ML_Currency ML_CurrencyObject = Newtonsoft.Json.JsonConvert.DeserializeObject<ML_Currency>(objetoJSON_moneda);
 
-				id = ML_CurrencyObject.id;
-				descripcion = ML_CurrencyObject.description;
-				simbolo = ML_CurrencyObject.symbol;
+				ID_Moneda = ML_CurrencyObject.id;
+				Descripcion = ML_CurrencyObject.description;
+				Simbolo = ML_CurrencyObject.symbol;
 			}
         }
 
+		public Moneda() { }
+
 		public Double cambioDivisa(Pais _otroPais, Double _cantidad){
-			WebRequest webRequestCurrency = HttpWebRequest.Create("https://api.mercadolibre.com/currency_conversions/search?from=" + id + "&to=" + _otroPais.moneda.id);
+			WebRequest webRequestCurrency = HttpWebRequest.Create("https://api.mercadolibre.com/currency_conversions/search?from=" + ID_Moneda + "&to=" + _otroPais.moneda.id);
 			WebResponse responseCurrency = webRequestCurrency.GetResponse();
 			StreamReader readerCurrency = new StreamReader(responseCurrency.GetResponseStream());
 

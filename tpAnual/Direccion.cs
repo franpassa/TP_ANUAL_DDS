@@ -16,13 +16,13 @@ namespace TPANUAL
         [Column("ID_Direccion")]
         public int ID_Direccion { get; set; }
 
-        [Column("calle")]
+        [Column("Calle")]
         public string Calle { get; set; }
 
-        [Column("depto")]
+        [Column("Depto")]
         public string Depto { get; set; }
 
-        [Column("piso")]
+        [Column("Piso")]
         public int Piso { get; set; }
 
         [Column("ID_Ciudad")]

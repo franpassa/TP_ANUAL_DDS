@@ -7,13 +7,32 @@ using System.IO;
 
 
 using TPANUAL;
-namespace TPANUAL {
-	public class Item {
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-        private List<Categoria> categorias;
-        private string nombre;
-		private string descripcion;
-        private float valorTotal;
+namespace TPANUAL {
+    [Table("item")]
+	public class Item {
+        [Key]
+        [Column("ID_Item")]
+        public int ID_Item { get; set; }
+
+        [Column("ID_Compra")]
+        public int ID_Compra { get; set; }
+
+        [Column("ID_Presupuesto")]
+        public int ID_Presupuesto { get; set; }
+
+        [Column("Nombre")]
+        public string Nombre { get; set; }
+
+        [Column("ValorTotal")]
+        public float ValorTotal { get; set; }
+
+        [Column("Descripcion")]
+        public string Descripcion { get; set; }
+
+        public List<Categoria> Categorias { get; set; }
 
         public Item(string nombre, string descripcion, float valorTotal, List<Categoria> categorias)
         {
@@ -23,15 +42,12 @@ namespace TPANUAL {
             Categorias = categorias;
         }
 
-        public string Descripcion { get => descripcion; set => descripcion = value; }
-        public float ValorTotal { get => valorTotal; set => valorTotal = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public List<Categoria> Categorias { get => categorias; set => categorias = value; }
+        public Item() { }
 
         public void insertarCategoria(Categoria categoria)
         {
             bool estaEnLaLista = false;
-            foreach (Categoria unaCategoria in categorias)
+            foreach (Categoria unaCategoria in Categorias)
             {
                 if (Equals(unaCategoria.Criterio,categoria.Criterio))
                 {
@@ -39,7 +55,7 @@ namespace TPANUAL {
                 }
             }
 
-            if (!estaEnLaLista) { categorias.Add(categoria); }
+            if (!estaEnLaLista) { Categorias.Add(categoria); }
         }
 
     }//end Producto

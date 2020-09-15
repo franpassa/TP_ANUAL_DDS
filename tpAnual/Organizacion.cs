@@ -26,10 +26,10 @@ namespace TPANUAL {
         [Column("PromedioVentasAnuales")]
         public float PromedioVentasAnuales { get; set; }
 
-        [Column("actComisionistaoAgenciaDeViaje")]
+        [Column("ActComisionistaoAgenciaDeViaje")]
         public bool EsActividadComisionistaoAgenciaDeViaje { get; set; }
 
-        [Column("CantidadPersonal")]
+        [Column("CantidadDePersonal")]
         public int CantidadPersonal { get; set; }
 
         public TipoEntidad TipoEntidad { get; set; }

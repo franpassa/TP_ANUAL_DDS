@@ -25,15 +25,15 @@ namespace TPANUAL {
         public string TipoUsuario { get; set; }
 
         [Column("ID_Organizacion")]
-        public int id_organizacion { get; set; }
+        public int ID_organizacion { get; set; }
 
         public List<Compra> ComprasRevisables{ get; set; }
 
         public Usuario(string contraseña, string nombreUsuario)
         {
-            this.Contraseña = contraseña;
-            this.NombreUsuario = nombreUsuario;
-            this.TipoUsuario = "estandar";
+            Contraseña = contraseña;
+            NombreUsuario = nombreUsuario;
+            TipoUsuario = "estandar";
         }
 
         public Usuario() { }
@@ -42,7 +42,6 @@ namespace TPANUAL {
         {
             compra.mostrarMensajes(this);
         }
-
 
         public void cambiarTipoUsuario()
         {

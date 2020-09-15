@@ -19,11 +19,11 @@ namespace TPANUAL
 
         [Column("Descripcion")]
         public string Descripcion { get; set; }
-        public List<OperacionDeEgreso> EgresosAsociados { get; set; }
 
         [Column("Monto")]
         public float Monto { get; set; }
 
+        public List<OperacionDeEgreso> EgresosAsociados { get; set; }
         public OperacionDeIngreso(string descripcion, List<OperacionDeEgreso> egresosAsociados, float monto)
         {
             this.Descripcion = descripcion;

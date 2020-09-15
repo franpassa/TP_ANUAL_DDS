@@ -13,13 +13,26 @@ using System.IO;
 using System.Net;
 using System.Linq;
 using API_MercadoLibre;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace API_MercadoLibre {
+	[Table("provincia")]
 	public class Provincia {
+		
+		[Key]
+		[Column("ID_Provincia")]
+		public string ID_Provincia { get; set; }
 
-		public List<Ciudad> ciudades;
-		public String id;
-		public String nombre;
+		[Column("Nombre")]
+		public string Nombre { get; set; }
+
+		[Column("ID_Pais")]
+		public string ID_Pais { get; set; }
+
+		public List<Ciudad> ciudades { get; set; }
+		
+		
 
 		public Provincia(string _id){
 			WebRequest request_provincia = HttpWebRequest.Create("https://api.mercadolibre.com/classified_locations/states/" + _id);
@@ -43,14 +56,16 @@ namespace API_MercadoLibre {
 				string objetoJSON_provincia = reader_provincia.ReadToEnd();
 				ML_State ML_StateObject = Newtonsoft.Json.JsonConvert.DeserializeObject<ML_State>(objetoJSON_provincia);
 
-				id = ML_StateObject.id;
-				nombre = ML_StateObject.name;
+				ID_Provincia = ML_StateObject.id;
+				Nombre = ML_StateObject.name;
 
                 this.imprimir();
 
 				llenarCiudades(ML_StateObject.cities);
 			}
 		}
+
+		public Provincia() { }
 
 		private void llenarCiudades(List<ML_PlaceSmall> _ciudades) 
 		{
@@ -69,8 +84,8 @@ namespace API_MercadoLibre {
 		public void imprimir()
         {
 			Console.WriteLine("________________________________________________________");
-			Console.WriteLine("		ID: " + id);
-			Console.WriteLine("		Nombre provincia: " + nombre);
+			Console.WriteLine("		ID: " + ID_Provincia);
+			Console.WriteLine("		Nombre provincia: " + Nombre);
 		}
 	}
 }

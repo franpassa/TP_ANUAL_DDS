@@ -18,7 +18,7 @@ namespace TPANUAL {
         [Column("ID_EJProveedora")]
         public int ID_EJProveedora { get; set; }
 
-        [Column("codigoInscripcion")]
+        [Column("CodigoInscripcion")]
         public string CodigoInscripcion { get; set; }
 
         [Column("CUIT")]

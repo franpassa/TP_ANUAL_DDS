@@ -24,14 +24,17 @@ namespace API_MercadoLibre {
 		[Key]
 
 		[Column("ID_Pais")]
-		public String id { get; set; }
+		public string ID_Pais { get; set; }
 
-		[Column("nombre")]
-		public String nombre { get; set; }
+		[Column("Nombre")]
+		public string Nombre { get; set; }
+
+		[Column("ID_Moneda")]
+        public string ID_Moneda { get; set; }
+        public Moneda Moneda { get; set; }
+
 		public List<Provincia> provincias { get; set; }
-		public Moneda moneda { get; set; }
-
-		public Pais(String _id)
+		public Pais(string _id)
 		{
 			// Pido info del pais en la API
 			WebRequest request_pais = HttpWebRequest.Create("https://api.mercadolibre.com/classified_locations/countries/" + _id);
@@ -56,15 +59,17 @@ namespace API_MercadoLibre {
 				string objetoJSON_pais = reader_pais.ReadToEnd();
 				ML_Country ML_CountryObject = Newtonsoft.Json.JsonConvert.DeserializeObject<ML_Country>(objetoJSON_pais);
 
-				id = ML_CountryObject.id;
-				nombre = ML_CountryObject.name;
-				moneda = new Moneda(ML_CountryObject.currency_id);
+				ID_Pais = ML_CountryObject.id;
+				Nombre = ML_CountryObject.name;
+				Moneda = new Moneda(ML_CountryObject.currency_id);
 
                 this.imprimir();
 
 				llenarProvincias(ML_CountryObject.states);
 			}
 		}
+
+		public Pais() { }
 
 		private void llenarProvincias(List<ML_PlaceSmall> _provincias)
 		{
@@ -83,9 +88,9 @@ namespace API_MercadoLibre {
 		public void imprimir()
         {
 			Console.WriteLine("____________________________________________________________________________________");
-			Console.WriteLine("ID: " + id);
-			Console.WriteLine("Nombre pais: " + nombre);
-			Console.WriteLine("Moneda pais: " + moneda.descripcion);
+			Console.WriteLine("ID: " + ID_Pais);
+			Console.WriteLine("Nombre pais: " + Nombre);
+			Console.WriteLine("Moneda pais: " + Moneda.Descripcion);
 		}
 	}
 }

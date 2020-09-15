@@ -12,15 +12,34 @@ namespace TPANUAL
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class DB_Context : DbContext
     {
-        public DbSet<Usuario> usuario { get; set; }
-        public DbSet<Organizacion> organizacion { get; set; }
+        public DbSet<Ciudad> ciudad { get; set; }
         public DbSet<Compra> compra { get; set; }
-        public DbSet<Presupuesto> presupuesto { get; set; }
+        public DbSet<Direccion> direccion { get; set; }
+        public DbSet<DocumentoComercial> documentoComercial { get; set; }
+        public DbSet<EntidadBase> entidadBase { get; set; }
         public DbSet<EntidadJuridica> entidadJuridica { get; set; }
         public DbSet<EntidadJuridicaProveedora> entidadJuridicaProveedora { get; set; }
-        public DbSet<Direccion> direccion { get; set; }
-        public DbSet<EntidadBase> entidadBase { get; set; }
-        public DbSet<Ciudad> ciudad { get; set; }
+        public DbSet<Item> item { get; set; }
+        public DbSet<MedioDePago> mediodepago { get; set; }
+        public DbSet<Moneda> moneda { get; set; }
+        public DbSet<OperacionDeEgreso> operacionDeEgreso { get; set; }
+        public DbSet<OperacionDeIngreso> operacionDeIngreso { get; set; }
+        public DbSet<Organizacion> organizacion { get; set; }
+        public DbSet<Pais> pais { get; set; }
+        public DbSet<PersonaProveedora> personaproveedora { get; set; }
+        public DbSet<Presupuesto> presupuesto { get; set; }
+        public DbSet<Provincia> provincia { get; set; }
+        public DbSet<Usuario> usuario { get; set; }
+
+
+
+
+
+
+
+        
+
+
 
 
 

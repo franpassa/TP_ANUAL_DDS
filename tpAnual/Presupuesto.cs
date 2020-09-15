@@ -9,6 +9,7 @@ using System.IO;
 using TPANUAL;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.Identity.Client;
 
 namespace TPANUAL {
     [Table("presupuesto")]
@@ -25,9 +26,12 @@ namespace TPANUAL {
         public int ID_Compra { get; set; }
         public Compra Compra { get; set; }
 
+        [Column("ValorTotal")]
+        public float ValorTotal { get; set; }
+
         public List<Item> Items { get; set ; }
         public Proveedor Proveedor { get; set; }
-        internal List<DocumentoComercial> DocumentosComerciales { get; set; }
+        public List<DocumentoComercial> DocumentosComerciales { get; set; }
 
         public Presupuesto(Proveedor proveedor, List<Item> items, Compra compra, string detalle)
         {
@@ -51,6 +55,7 @@ namespace TPANUAL {
 				valor += item.ValorTotal;
             }
 
+            ValorTotal = valor;
 			return valor;
 		}
 

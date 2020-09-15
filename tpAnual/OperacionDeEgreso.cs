@@ -17,16 +17,22 @@ namespace TPANUAL {
 
 		[Column("ID_Ingreso")]
 		public int ID_Ingreso { get; set; }
+		public OperacionDeIngreso IngresoAsociado { get; set; }
 
 		[Column("ID_Organizacion")]
 		public int ID_Organizacion { get; set; }
 
 		[Column("Fecha")]
 		public DateTime FechaOperacion { get; set; }
-        public MedioDePago MedioDePago { get; set; }
+
+		[Column("ValorTotal")]
+		public float ValorTotal { get; set; }
+
+		[Column("ID_MedioDePago")]
+		public int ID_MedioDePago { get; set; }
+		public MedioDePago MedioDePago { get; set; }
         public TipoEgreso TipoEgreso { get; set; }
         public List<DocumentoComercial> DocumentosComerciales { get; set; }
-        public OperacionDeIngreso IngresoAsociado { get; set; }
 
 		public OperacionDeEgreso(TipoEgreso egreso, MedioDePago medio, List<DocumentoComercial> documentos)
 		{
@@ -39,7 +45,8 @@ namespace TPANUAL {
 		public OperacionDeEgreso() { }
 
 		public float valorTotal(){
-			return TipoEgreso.valorTotal();
+			ValorTotal = TipoEgreso.valorTotal();
+			return ValorTotal;
 		}
 
 		public void agregarDocumentoComercial(DocumentoComercial documento)

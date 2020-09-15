@@ -21,7 +21,7 @@ namespace TPANUAL {
         [Column("ID_Compra")]
         public int ID_Compra { get; set; }
 
-        [Column("cantidadDePresupuestosRequeridos")]
+        [Column("CantidadDePresupuestosRequeridos")]
         public int CantidadDePresupuestosRequeridos { get; set; }
 
         [Column("ID_Egreso")]
