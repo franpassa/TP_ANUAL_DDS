@@ -26,6 +26,8 @@ namespace TPANUAL {
 
         [Column("ID_Egreso")]
         public int ID_Egreso { get; set; }
+
+        [NotMapped]
         public CriterioCompra Criterio { get; set; }
         public List<Presupuesto> Presupuestos{ get; set; }
         
@@ -33,7 +35,6 @@ namespace TPANUAL {
         public List<Usuario> Revisores { get; set; }
         public List<Item> Items { get; set; }
         public Proveedor Proveedor{ get; set; }
-
         public BandejaDeMensajes Bandeja { get; set; }
 
         /*

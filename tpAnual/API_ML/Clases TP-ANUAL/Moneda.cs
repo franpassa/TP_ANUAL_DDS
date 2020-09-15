@@ -62,7 +62,7 @@ namespace API_MercadoLibre {
 		public Moneda() { }
 
 		public Double cambioDivisa(Pais _otroPais, Double _cantidad){
-			WebRequest webRequestCurrency = HttpWebRequest.Create("https://api.mercadolibre.com/currency_conversions/search?from=" + ID_Moneda + "&to=" + _otroPais.moneda.id);
+			WebRequest webRequestCurrency = HttpWebRequest.Create("https://api.mercadolibre.com/currency_conversions/search?from=" + ID_Moneda + "&to=" + _otroPais.Moneda.ID_Moneda);
 			WebResponse responseCurrency = webRequestCurrency.GetResponse();
 			StreamReader readerCurrency = new StreamReader(responseCurrency.GetResponseStream());
 
