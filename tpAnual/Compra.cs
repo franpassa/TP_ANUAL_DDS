@@ -8,8 +8,6 @@ using Quartz;
 using Quartz.Impl;
 using System.Threading.Tasks;
 using TPANUAL.Jobs;
-
-
 using TPANUAL;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -29,10 +27,6 @@ namespace TPANUAL {
         public List<Usuario> Revisores { get; set; }
         public List<Item> Items { get; set; }
 
-        [ForeignKey("Proveedor")]
-        public int ID_Proveedor { get; set; }
-        public Proveedor Proveedor { get; set; }
-
         [NotMapped]
         public BandejaDeMensajes Bandeja { get; set; }
 
@@ -42,14 +36,13 @@ namespace TPANUAL {
         La compra que necesita presupuestos, NO necesariamente tiene que hacerse en base a uno de esos presupuestos. Basicamente puedo comprar donde quiera
         (y despues se validara la compra, pero no me importa)
          */
-        public Compra( int cantidadDePresupuestosRequeridos, CriterioCompra criterio, List<Item> items, Proveedor proveedor, List<Usuario> revisores)
+        public Compra( int cantidadDePresupuestosRequeridos, CriterioCompra criterio, List<Item> items, List<Usuario> revisores)
         {
             CantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
             Bandeja = new BandejaDeMensajes();
             Criterio = criterio;
             Presupuestos = new List<Presupuesto>();
             Items = items;
-            Proveedor = proveedor;
             Revisores = revisores;
         }
 

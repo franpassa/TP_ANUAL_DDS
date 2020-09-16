@@ -10,10 +10,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TPANUAL {
 	public abstract class TipoEgreso {
-		[Key]
-		[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-		public int ID_Egreso { get; set; }
 
+		[Key]
+
+		[Column("ID_Egreso")]
+		public int ID_Egreso { get; set; }
+		public int ID_OperacionDeEgreso { get; set; }
+
+		[Required]
+
+		[ForeignKey("ID_OperacionDeEgreso")]
+		public OperacionDeEgreso operacion { get; set; }
 		public abstract float valorTotal();
 
 		public abstract Task validar();

@@ -10,9 +10,8 @@ using System.ComponentModel.DataAnnotations;
 namespace TPANUAL {
 	public abstract class Proveedor {
 		[Key]
+		[Column("ID_Proveedor")]
 		public int ID_Proveedor { get; set; }
-
-		public List<Compra> Compras { get; set; }
 
 	}//end Proveedor
 
