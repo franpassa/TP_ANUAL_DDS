@@ -170,6 +170,7 @@
     <Compile Include="MediodePago.cs" />
     <Compile Include="MenorValor.cs" />
     <Compile Include="Micro.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OperacionDeEgreso.cs" />
     <Compile Include="OperacionDeIngreso.cs" />
     <Compile Include="Organizacion.cs" />

@@ -23,9 +23,11 @@ namespace TPANUAL
         public DbSet<Moneda> moneda { get; set; }
         public DbSet<OperacionDeEgreso> operacionDeEgreso { get; set; }
         public DbSet<OperacionDeIngreso> operacionDeIngreso { get; set; }
-        public DbSet<Organizacion> organizacion { get; set; }
+        public DbSet<Empresa> empresas { get; set; }
+        public DbSet<OSC> oscs { get; set; }
         public DbSet<Pais> pais { get; set; }
-        public DbSet<Proveedor> proveedor { get; set; }
+        public DbSet<EntidadJuridicaProveedora> entidadjuridicaproveedora { get; set; }
+        public DbSet<PersonaProveedora> personaaproveedora { get; set; }
         public DbSet<Presupuesto> presupuesto { get; set; }
         public DbSet<Provincia> provincia { get; set; }
         public DbSet<Usuario> usuario { get; set; }
@@ -34,11 +36,13 @@ namespace TPANUAL
         public DB_Context() : base("db_tpanual")
         {
             // Deshabilita la inicializacion mágica del ORM
-            Database.SetInitializer<DB_Context>(null);
+            Database.SetInitializer<DB_Context>(new CreateDatabaseIfNotExists<DB_Context>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Organizacion>().ToTable("organizacion");
+
             modelBuilder.Entity<PersonaProveedora>().Map(m =>
             {
                 m.MapInheritedProperties();

@@ -10,8 +10,12 @@ namespace TPANUAL {
 	public abstract class TipoEntidad {
 
 		[Key]
-		[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+		[Column("ID_Entidad")]
 		public int ID_Entidad { get; set; }
+
+		[Column("ID_Direccion")]
+		public int? ID_Direccion { get; set; }
+		public Direccion DireccionPostal { get; set; }
 
 	}//end TipoEntidad
 

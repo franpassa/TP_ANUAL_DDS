@@ -10,6 +10,8 @@ namespace TPANUAL {
 
     [Table("organizacion")]
 	public class Empresa : Organizacion {
+
+        [NotMapped]
         public Estructura Estructura { get; set; }
 
         public Empresa(Actividad actividad, int cantidadPersonal, bool esActividadComisionistaoAgenciaDeViaje, string nombreFicticio, float promedioVentasAnuales, TipoEntidad tipoEntidad, List<Usuario> usuarios)

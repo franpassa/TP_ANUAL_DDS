@@ -25,7 +25,8 @@ namespace TPANUAL {
         public string TipoUsuario { get; set; }
 
         [Column("ID_Organizacion")]
-        public int ID_organizacion { get; set; }
+        public int? ID_organizacion { get; set; }
+        public Organizacion organizacionAsociada { get; set; }
 
         public List<Compra> ComprasRevisables{ get; set; }
 

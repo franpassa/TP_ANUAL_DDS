@@ -15,12 +15,12 @@ namespace TPANUAL
             using (var contexto = new DB_Context())
             {
                 //creo usuario Pedro
-                Usuario pedro = new Usuario("pedritoelmejor", "pepito");
+                //Usuario pedro = new Usuario("pedritoelmejor", "pepito");
                 //var cantUsuarios = contexto.usuario.ToArray();
                 //Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");
 
                 //creo usuario Jose
-                //Usuario jose = new Usuario("Ppass11wordd", "elJosu");
+                Usuario jose = new Usuario("Ppass11wordd", "elJosu");
 
                 //Usuario buscado = contexto.usuario.Find(11);
 
@@ -29,18 +29,19 @@ namespace TPANUAL
                 //creo Entidad
                 //EntidadBase entidadBase = new EntidadBase("entidadBase", null);
 
+
                 //creo Organizacion
                 //Servicios actividadServicio = new Servicios();
                 //List<Usuario> usuariosDeOrg = new List<Usuario> { pedro };
-                //Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
 
-                contexto.usuario.Add(pedro);
-
-                //contexto.SaveChanges();
-
-                //contexto.organizacion.Add(zapatuya);               
+                contexto.usuario.Add(jose);
 
                 contexto.SaveChanges();
+
+                //Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
+             
+                //contexto.empresas.Add(zapatuya);  
+               // contexto.SaveChanges();
 
                 //var cantUsuarios = contexto.usuario.ToArray();
                 //Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");

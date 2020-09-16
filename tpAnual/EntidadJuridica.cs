@@ -23,10 +23,6 @@ namespace TPANUAL {
         [Column("CUIT")]
         public string CUIT { get; set; }
 
-        [Column("ID_Direccion")]
-        public int ID_Direccion { get; set; }
-        public Direccion DireccionPostal { get; set; }
-
         [Column("RazonSocial")]
         public string RazonSocial { get; set; }
         public List<EntidadBase> BasesAsociadas { get; set; }
