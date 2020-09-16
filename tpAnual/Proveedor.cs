@@ -10,8 +10,9 @@ using System.ComponentModel.DataAnnotations;
 namespace TPANUAL {
 	public abstract class Proveedor {
 		[Key]
-		[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
 		public int ID_Proveedor { get; set; }
+
+		public List<Compra> Compras { get; set; }
 
 	}//end Proveedor
 

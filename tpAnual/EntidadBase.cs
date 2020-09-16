@@ -21,8 +21,6 @@ namespace TPANUAL {
         [Column("Descripcion")]
         public string Descripcion { get; set; }
 
-        [Column("ID_EntidadJuridica")]
-        public int ID_EntidadJuridica { get; set; }
         public EntidadJuridica JuridicaAsociada { get; set; }
 
         public EntidadBase(string descripcion, EntidadJuridica juridicaAsociada)

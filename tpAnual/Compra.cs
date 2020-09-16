@@ -28,7 +28,10 @@ namespace TPANUAL {
         //many to many
         public List<Usuario> Revisores { get; set; }
         public List<Item> Items { get; set; }
-        public Proveedor Proveedor{ get; set; }
+
+        [ForeignKey("Proveedor")]
+        public int ID_Proveedor { get; set; }
+        public Proveedor Proveedor { get; set; }
 
         [NotMapped]
         public BandejaDeMensajes Bandeja { get; set; }

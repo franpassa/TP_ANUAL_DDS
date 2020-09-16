@@ -24,9 +24,8 @@ namespace TPANUAL
 
         [Column("Piso")]
         public int Piso { get; set; }
-
-        [Column("ID_Ciudad")]
-        public string ID_Ciudad { get; set; }
+        
+        public Ciudad Ciudad { get; set; }
 
         //al momento de crear la direccion, no se el id de la ciudad (choclo de letras y numeros)
         //entonces le paso la ciudad directamente y se guarda su id en el atributo
@@ -35,7 +34,7 @@ namespace TPANUAL
             Calle = calle;
             Depto = depto;
             Piso = piso;
-            ID_Ciudad = ciudad.ID_Ciudad;
+            Ciudad = ciudad;
         }
 
         public Direccion() { }

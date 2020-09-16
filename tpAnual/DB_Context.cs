@@ -41,6 +41,8 @@ namespace TPANUAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Proveedor>().HasMany<Compra>(p => p.Compras);
+
             modelBuilder.Entity<Organizacion>().ToTable("organizacion");
 
             modelBuilder.Entity<PersonaProveedora>().Map(m =>

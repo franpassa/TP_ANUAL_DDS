@@ -23,16 +23,10 @@ namespace TPANUAL {
         [Column("RazonSocial")]
         public string RazonSocial { get; set; }
 
-        [Column("ID_Compra")]
-        public int ID_Compra { get; set; }
-
         [Column("ID_Direccion")]
         public int ID_Direccion { get; set; }
 
         public Direccion DireccionPostal { get; set; }
-
-        [Column("ID_Presupuesto")]
-        public int ID_Presupuesto { get; set; }
 
         public EntidadJuridicaProveedora(Direccion direccionPostal, string codigoInscripcion, string CUIT, string razonSocial)
         {

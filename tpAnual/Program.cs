@@ -27,21 +27,21 @@ namespace TPANUAL
                 //Console.WriteLine(buscado.NombreUsuario);
 
                 //creo Entidad
-                //EntidadBase entidadBase = new EntidadBase("entidadBase", null);
+                EntidadBase entidadBase = new EntidadBase("entidadBase", null);
 
 
                 //creo Organizacion
-                //Servicios actividadServicio = new Servicios();
-                //List<Usuario> usuariosDeOrg = new List<Usuario> { pedro };
+                Servicios actividadServicio = new Servicios();
+                List<Usuario> usuariosDeOrg = new List<Usuario> { jose };
 
                 contexto.usuario.Add(jose);
 
-                contexto.SaveChanges();
+                //contexto.SaveChanges();
 
-                //Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
+                Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
              
-                //contexto.empresas.Add(zapatuya);  
-               // contexto.SaveChanges();
+                contexto.empresas.Add(zapatuya);  
+                contexto.SaveChanges();
 
                 //var cantUsuarios = contexto.usuario.ToArray();
                 //Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");
