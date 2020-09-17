@@ -32,6 +32,7 @@ namespace TPANUAL {
         [Column("CantidadDePersonal")]
         public int CantidadPersonal { get; set; }
 
+        [NotMapped]
         public TipoEntidad TipoEntidad { get; set; }
 
         public List<Usuario> Usuarios { get; set; }

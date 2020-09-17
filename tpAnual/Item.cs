@@ -17,12 +17,6 @@ namespace TPANUAL {
         [Column("ID_Item")]
         public int ID_Item { get; set; }
 
-        [Column("ID_Compra")]
-        public int ID_Compra { get; set; }
-
-        [Column("ID_Presupuesto")]
-        public int ID_Presupuesto { get; set; }
-
         [Column("Nombre")]
         public string Nombre { get; set; }
 

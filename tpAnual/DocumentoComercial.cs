@@ -16,12 +16,6 @@ namespace TPANUAL
         [Column("TipoDocumento")]
         public string TipoDocumento { get; set; }
 
-        [Column("ID_Egreso")]
-        public int ID_Egreso { get; set; }
-
-        [Column("ID_Presupuesto")]
-        public int ID_Presupuesto{ get; set; }
-
         public DocumentoComercial(string idDocumento, string tipoDocumento)
         {
             ID_DocumentoComercial = idDocumento;

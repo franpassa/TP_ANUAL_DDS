@@ -21,15 +21,13 @@ namespace TPANUAL {
 
         [Column("Detalle")]
         public string Detalle { get; set; }
-
-        [Column("ID_Compra")]
-        public int ID_Compra { get; set; }
         public Compra Compra { get; set; }
 
         [Column("ValorTotal")]
         public float ValorTotal { get; set; }
-
         public List<Item> Items { get; set ; }
+
+        [NotMapped]
         public Proveedor Proveedor { get; set; }
         public List<DocumentoComercial> DocumentosComerciales { get; set; }
 

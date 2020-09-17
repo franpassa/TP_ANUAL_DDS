@@ -12,15 +12,9 @@ namespace TPANUAL {
 	public abstract class TipoEgreso {
 
 		[Key]
+		[Column("ID_TipoEgreso")]
+		public int ID_TipoEgreso { get; set; }
 
-		[Column("ID_Egreso")]
-		public int ID_Egreso { get; set; }
-		public int ID_OperacionDeEgreso { get; set; }
-
-		[Required]
-
-		[ForeignKey("ID_OperacionDeEgreso")]
-		public OperacionDeEgreso operacion { get; set; }
 		public abstract float valorTotal();
 
 		public abstract Task validar();

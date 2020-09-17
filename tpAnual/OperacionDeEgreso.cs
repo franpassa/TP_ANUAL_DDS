@@ -24,13 +24,10 @@ namespace TPANUAL {
 		[Column("ValorTotal")]
 		public float ValorTotal { get; set; }
 
-		[Column("ID_MedioDePago")]
-		public int ID_MedioDePago { get; set; }
 		public MedioDePago MedioDePago { get; set; }
-		public int ID_Egreso { get; set; }
 
-		[ForeignKey("ID_Egreso")]
-		public TipoEgreso TipoEgreso { get; set; }
+		[NotMapped]
+		public virtual TipoEgreso TipoEgreso { get; set; }
         public List<DocumentoComercial> DocumentosComerciales { get; set; }
 
 		public OperacionDeEgreso(TipoEgreso egreso, MedioDePago medio, List<DocumentoComercial> documentos)

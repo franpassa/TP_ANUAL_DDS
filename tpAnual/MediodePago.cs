@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using API_MercadoLibre;
 
 namespace TPANUAL {
     [Table("mediodepago")]
@@ -15,6 +16,7 @@ namespace TPANUAL {
 
         [Column("ID_Pais")]
         public string ID_Pais { get; set; }
+        public Pais Pais { get; set; }
 
         [Column("Numero")]
         public string Numero { get; set; }

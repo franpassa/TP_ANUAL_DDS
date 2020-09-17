@@ -19,8 +19,15 @@ namespace TPANUAL {
         [Column("CantidadDePresupuestosRequeridos")]
         public int CantidadDePresupuestosRequeridos { get; set; }
 
+        [ForeignKey("Operacion")]
+        public int ID_OperacionDeEgreso { get; set; }
+        public virtual OperacionDeEgreso Operacion { get; set; }
+
         [NotMapped]
         public CriterioCompra Criterio { get; set; }
+
+        [NotMapped]
+        public Proveedor Proveedor { get; set; }
         public List<Presupuesto> Presupuestos{ get; set; }
         
         //many to many
