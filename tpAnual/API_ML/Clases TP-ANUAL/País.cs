@@ -66,7 +66,7 @@ namespace API_MercadoLibre {
 				if(Moneda.ID_Moneda == null)
                 {
 					Moneda = new Moneda();
-					Moneda.ID_Moneda = Nombre;
+					Moneda.ID_Moneda = Nombre + "(moneda)";
 					Moneda.Descripcion = "Pais sin moneda";
 					Moneda.Simbolo = "-";
                 }
@@ -83,7 +83,7 @@ namespace API_MercadoLibre {
 		private void llenarProvincias(List<ML_PlaceSmall> _provincias)
 		{
 			provincias = new List<Provincia> { };
-			// Chequeo que la lista no esté vacía
+			// Chequeo que la lista no estÃ© vacÃ­a
 			if (_provincias?.Any() == true)
 			{ 
 				foreach (ML_PlaceSmall provincia in _provincias)
