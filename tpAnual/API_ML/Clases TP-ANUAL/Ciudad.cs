@@ -25,8 +25,9 @@ namespace API_MercadoLibre {
 		public string ID_Ciudad { get; set; }
 		[Column("Nombre")]
 		public string Nombre { get; set; }
-		[Column("ID_Provincia")]
+		[Column("ID_Provincia")]		
 		public string ID_Provincia { get; set; }
+
 
 		public Ciudad(String _id, String _nombre)
         {
@@ -49,8 +50,8 @@ namespace API_MercadoLibre {
 			}
 			catch (System.Net.WebException e)
 			{
-				Console.WriteLine("{0} Exception caught.", e);
-				Console.WriteLine("Id de ciudad " + _id + " erroneo.");
+				Console.WriteLine("\nException caught.", e);
+				Console.WriteLine("\nId de ciudad " + _id + " erroneo.");
 				leidoCorrectamente = false;
 			}
 			if (leidoCorrectamente)
@@ -67,6 +68,12 @@ namespace API_MercadoLibre {
 
 				this.imprimir();
 			}
+            else
+            {
+				ID_Ciudad = null;
+                Nombre = null;
+				ID_Provincia = null;
+            }
 		}
 
 		public void imprimir()

@@ -43,8 +43,8 @@ namespace API_MercadoLibre {
 			}
 			catch (System.Net.WebException e)
 			{
-				Console.WriteLine("{0} Exception caught.", e);
-				Console.WriteLine("Id de provincia " + _id + " erroneo.");
+				Console.WriteLine("\nException caught.", e);
+				Console.WriteLine("\nId de provincia " + _id + " erroneo.");
 				leidoCorrectamente = false;
 			}
 			if (leidoCorrectamente)
@@ -63,6 +63,13 @@ namespace API_MercadoLibre {
 
 				llenarCiudades(ML_StateObject.cities);
 			}
+            else
+            {
+				ID_Provincia = null;
+				Nombre = null;
+				ID_Pais = null;
+				ciudades = null;
+            }
 		}
 
 		public Provincia() { }

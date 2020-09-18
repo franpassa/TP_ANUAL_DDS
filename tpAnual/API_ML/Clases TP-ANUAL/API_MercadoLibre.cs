@@ -35,10 +35,13 @@ namespace API_MercadoLibre {
             string JSON_ids = reader_id.ReadToEnd();
             List<ML_CountrySmall> objetoCountrySmall = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ML_CountrySmall>>(JSON_ids);
 
+            List<String> noPaises = new List<string> { "Cross Border Trade", "newCOL" };
+
             // Agrego los IDs a la lista id_paises
             foreach (ML_CountrySmall pais in objetoCountrySmall)
             {
-                id_paises.Add(pais.id);
+                if (!noPaises.Contains(pais.name))
+                    id_paises.Add(pais.id);
             }
 
             paises = new List<Pais> { };

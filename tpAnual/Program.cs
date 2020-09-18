@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using API_MercadoLibre;
 using Quartz;
@@ -14,11 +15,40 @@ namespace TPANUAL
 
             using (var contexto = new DB_Context())
             {
+                API_MercadoLibre.API_MercadoLibre ml = new API_MercadoLibre.API_MercadoLibre();
+                                
+                foreach(Pais p in ml.paises)
+                {
+                    // Si ya está la moneda, la saco del contexto 
+                    // antes de volver a agregarla
+                    foreach (Moneda m in contexto.moneda) {
+                        if (m.ID_Moneda == p.Moneda.ID_Moneda) 
+                        {
+                            contexto.moneda.Remove(m);
+                        }
+                    }
+
+                    try
+                    {
+                        contexto.pais.Add(p);
+                        contexto.SaveChanges();
+                        Console.WriteLine("Pais " + p.Nombre + " agregado a la base de datos.");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("No se puede agregar el pais " + p.Nombre + " a la tabla." );
+                        Console.WriteLine(e);
+                    }
+                }
+                
+                Console.WriteLine("\nCambios guardados.");
+                Console.ReadLine();
+
                 //creo usuario Pedro
                 //Usuario pedro = new Usuario("pedritoelmejor", "pepito");
                 //var cantUsuarios = contexto.usuario.ToArray();
                 //Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");
-
+                /*
                 //creo usuario Jose
                 Usuario jose = new Usuario("Ppass11wordd", "elJosu");
 
@@ -40,17 +70,16 @@ namespace TPANUAL
 
                 Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
              
-                contexto.empresas.Add(zapatuya);  
-                contexto.SaveChanges();
+                contexto.empresas.Add(zapatuya);*/
+
 
                 //var cantUsuarios = contexto.usuario.ToArray();
                 //Console.WriteLine($"Existen {cantUsuarios.Length} usuario(s).");
                 //Console.ReadLine();
 
                 //var cantUsuarios2 = contexto.usuario.ToArray();
-               // Console.WriteLine($"Existen {cantUsuarios2.Length} usuario(s).");
+                // Console.WriteLine($"Existen {cantUsuarios2.Length} usuario(s).");
 
-                Console.ReadLine();
                 // //creo Criterios
                 // Criterio barrios = new Criterio("barrio", null);
                 // Criterio clientes = new Criterio("cliente", barrios);

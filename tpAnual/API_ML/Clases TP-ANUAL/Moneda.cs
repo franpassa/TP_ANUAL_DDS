@@ -21,7 +21,7 @@ namespace API_MercadoLibre {
 	public class Moneda {
 		[Key]
 		[Column("ID_Moneda")]
-		public string ID_Moneda { get; set; }
+		public string ID_Moneda { get; set; }		
 
 		[Column("Descripcion")]
 		public string Descripcion { get; set; }
@@ -33,18 +33,18 @@ namespace API_MercadoLibre {
         {
 			// Pido info de la moneda en la API
 			WebRequest request_moneda = HttpWebRequest.Create("https://api.mercadolibre.com/currencies/" + _id);
-			bool error = false;
+			bool leidoCorrectamente = true;
 			try
 			{
 				request_moneda.GetResponse();
 			}
 			catch (System.Net.WebException e)
 			{
-                Console.WriteLine("{0} Exception caught.", e);
-				Console.WriteLine("Id de moneda " + _id + " erroneo.");
-				error = true;
+				Console.WriteLine(e);
+				Console.WriteLine("\nId de moneda " + _id + " erroneo.");
+				leidoCorrectamente = false;
 			}
-			if (!error)
+			if (leidoCorrectamente)
 			{
 				WebResponse response_moneda = request_moneda.GetResponse();
 				StreamReader reader_moneda = new StreamReader(response_moneda.GetResponseStream());

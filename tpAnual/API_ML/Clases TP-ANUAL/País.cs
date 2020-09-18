@@ -22,7 +22,6 @@ namespace API_MercadoLibre {
 	public class Pais {
 
 		[Key]
-
 		[Column("ID_Pais")]
 		public string ID_Pais { get; set; }
 
@@ -30,10 +29,12 @@ namespace API_MercadoLibre {
 		public string Nombre { get; set; }
 
 		[Column("ID_Moneda")]
-        public string ID_Moneda { get; set; }
-        public Moneda Moneda { get; set; }
+		public string ID_Moneda { get; set; }
+
+		public Moneda Moneda { get; set; }
 
 		public List<Provincia> provincias { get; set; }
+
 		public Pais(string _id)
 		{
 			// Pido info del pais en la API
@@ -45,8 +46,8 @@ namespace API_MercadoLibre {
 			}
 			catch (System.Net.WebException e)
 			{
-				Console.WriteLine("{0} Exception caught.", e);
-				Console.WriteLine("Id de pais " + _id + " erroneo.");
+				Console.WriteLine(e);
+				Console.WriteLine("\nId de pais " + _id + " erroneo.");
 				leidoCorrectamente = false;
 				Console.WriteLine(_id);
 			}
@@ -62,10 +63,18 @@ namespace API_MercadoLibre {
 				ID_Pais = ML_CountryObject.id;
 				Nombre = ML_CountryObject.name;
 				Moneda = new Moneda(ML_CountryObject.currency_id);
+				if(Moneda.ID_Moneda == null)
+                {
+					Moneda = new Moneda();
+					Moneda.ID_Moneda = Nombre;
+					Moneda.Descripcion = "Pais sin moneda";
+					Moneda.Simbolo = "-";
+                }
 
                 this.imprimir();
 
 				llenarProvincias(ML_CountryObject.states);
+
 			}
 		}
 
