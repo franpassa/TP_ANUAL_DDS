@@ -4,6 +4,8 @@ tpAnual/**/obj/
 tpAnual/obj/
 tpAnual/**/bin/
 tpAnual/bin/
+tpAnual/App.config
+tpAnual/*.sln.user
 bin/
 obj/
 *.ldb
