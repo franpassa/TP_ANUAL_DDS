@@ -66,8 +66,7 @@ namespace API_MercadoLibre {
 				ID_Pais = ML_CountryObject.id;
 				Nombre = ML_CountryObject.name;
 				Moneda = new Moneda(ML_CountryObject.currency_id);
-<<<<<<< HEAD:tpAnual/API_ML/Clases/Clases TP-ANUAL/País.cs
-=======
+
 				if(Moneda.ID_Moneda == null)
                 {
 					Moneda = new Moneda();
@@ -75,7 +74,6 @@ namespace API_MercadoLibre {
 					Moneda.Descripcion = "Pais sin moneda";
 					Moneda.Simbolo = "-";
                 }
->>>>>>> 607f443de18d9f971e4407161e58ff29c4d7fa13:tpAnual/API_ML/Clases TP-ANUAL/País.cs
 
                 this.imprimir();
 
