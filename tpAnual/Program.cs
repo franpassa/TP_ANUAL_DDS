@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Linq;
 using API_MercadoLibre;
 using Quartz;
@@ -13,19 +14,27 @@ namespace TPANUAL
     {
         static void Main(string[] args) {
             using (var contexto = new DB_Context())
-            {
-                API_MercadoLibre.API_MercadoLibre ml = new API_MercadoLibre.API_MercadoLibre();
+            {            
                 contexto.Database
                     .ExecuteSqlCommand(
                     "delete from ciudad; delete from provincia; delete from pais; delete from moneda;");
 
+                API_MercadoLibre.API_MercadoLibre ml = new API_MercadoLibre.API_MercadoLibre();
+                /*
+                List<Pais> listaPaises = new List<Pais> { };
+                listaPaises.Add(new Pais("PA"));
+                listaPaises.Add(new Pais("PR"));
+                listaPaises.Add(new Pais("EC"));
+                listaPaises.Add(new Pais("GT"));
+                */
 
-                foreach(Pais p in ml.paises)
+                Console.WriteLine();
+                Dictionary<string, string> paisMoneda = new Dictionary<string, string> { };
+
+               foreach (Pais p in ml.paises)
+               //foreach (Pais p in listaPaises)
                 {
-                    /*
-                     Si ya está la moneda, la saco del contexto 
-                     antes de volver a agregarla
-
+                    paisMoneda.Add(p.ID_Pais, p.Moneda.ID_Moneda);
                     foreach (Moneda m in contexto.moneda)
                     {
                         if (m.ID_Moneda == p.Moneda.ID_Moneda)
@@ -33,24 +42,34 @@ namespace TPANUAL
                             contexto.moneda.Remove(m);
                         }
                     }
-                    */
+                    try
+                    {
+                        contexto.pais.Add(p);
+                        contexto.SaveChanges();
+                        Console.WriteLine("Pais \"" + p.Nombre + "\" agregado a la base de datos.");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("_____________________________________________________________________________________");
+                        Console.WriteLine("No se puede agregar el pais \"" + p.Nombre + "\" a la tabla.");
+                        Console.WriteLine();
+                        Console.WriteLine(e);
+                     }
+                }
 
-                try
-                {
-                    contexto.pais.Add(p);
-                    contexto.SaveChanges();
-                    Console.WriteLine("Pais \"" + p.Nombre + "\" agregado a la base de datos.");
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("_____________________________________________________________________________________");
-                    Console.WriteLine("No se puede agregar el pais \"" + p.Nombre + "\" a la tabla.");
-                    Console.WriteLine(e);
-                }
-            }
-            Console.WriteLine("_____________________________________________________________________________________");
-            Console.WriteLine("\nCambios guardados.");
-            Console.ReadLine();
+               // Asigno los FK de las monedas a los paises
+               foreach (KeyValuePair<string, string> pm in paisMoneda)
+               {
+                   Console.WriteLine("El ID del pais " + pm.Key + " es: " + pm.Value);
+                   contexto.Database.ExecuteSqlCommand
+                   ("Update pais set ID_Moneda = {0} where (ID_Pais = {1}) and (ID_Moneda is null);",
+                   pm.Value,
+                   pm.Key);
+               }
+
+                Console.WriteLine("_____________________________________________________________________________________");
+                Console.WriteLine("\nCambios guardados.");
+                Console.ReadLine();
 
                 //creo usuario Pedro
                 //Usuario pedro = new Usuario("pedritoelmejor", "pepito");

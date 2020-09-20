@@ -177,6 +177,7 @@
     <Compile Include="Clases\Organizacion\TiposDeOrganizacion\Empresa\Estructura\Pequeña.cs" />
     <Compile Include="Clases\Proveedor\TiposDeProveedor\PersonaProveedora.cs" />
     <Compile Include="Clases\Compra\Presupuesto.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clases\Proveedor\Proveedor.cs" />

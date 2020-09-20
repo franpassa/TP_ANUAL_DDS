@@ -82,8 +82,8 @@ namespace API_MercadoLibre {
 			{
 				foreach (ML_PlaceSmall ciudad in _ciudades)
 				{
-					//Console.WriteLine(ciudad.name);
-					ciudades.Add(new Ciudad(ciudad.id, ciudad.name));
+					if(!ciudadesInvalidas().Contains(ciudad.id))
+						ciudades.Add(new Ciudad(ciudad.id, ciudad.name));
 				}
 			}
 		}
@@ -94,5 +94,10 @@ namespace API_MercadoLibre {
 			Console.WriteLine("		ID: " + ID_Provincia);
 			Console.WriteLine("		Nombre provincia: " + Nombre);
 		}
+
+		public List<string> ciudadesInvalidas()
+        {
+			return new List<string> { "TUdUQ01HVFNhblNjTQ" };
+        }
 	}
 }
