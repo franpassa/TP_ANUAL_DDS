@@ -5,10 +5,9 @@
 //  Created on:      12-Sep-2020 7:23:03 PM
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
+using System.Collections.Generic;
+using TPANUAL;
 
-/// <summary>
-/// This class implements the algorithm using the Strategy interface.
-/// </summary>
 public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
 
 	public Orden_Valor_PrimeroEgreso(){
@@ -16,7 +15,41 @@ public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
 	}
 
 	public override void vincular(){
+		/*
+		var listaEgresos = contexto.OperacionDeEgreso
+			.SqlQuery("SELECT * FROM OperacionDeEgreso ORDER BY ValorTotal ASC")
+			.ToList<OperacionDeEgreso>();
 
+		var listaIngresos = contexto.OperacionDeIngreso
+			.SqlQuery("SELECT * FROM OperacionDeIngreso ORDER BY ValorTotal ASC")
+			.ToList<OperacionDeEgreso>();
+
+		// Guarda la diferencia restante entre ingreso y egreso
+		float montoIngresoRestante;
+		foreach (OperacionDeIngreso ingreso in listaIngresos)
+		{
+			// Le asigna el valor del ingreso al principio del foreach
+			montoIngresoRestante = ingreso.Monto;
+
+			// Para cada egreso 
+			foreach (OperacionDeEgreso egreso in listaEgresos)
+			{
+				// Chequeo si puedo asociar el egreso al ingreso
+				if ((ingreso.Monto >= egreso.valorTotal()) ||
+				   // O si lo que me falta para asociarlo es mayor al valor del egreso 
+				   (montoIngresoRestante >= egreso.valorTotal()))
+				{
+					// Si se puede, lo asocio
+					base.asociarEgresoIngreso(egreso, ingreso);
+
+					// Guardo lo que me falta para llenar el ingreso
+					montoIngresoRestante -= egreso.valorTotal();
+
+					// Saco el egreso que acabo de vicular, para no vincularlo de nuevo a nada
+					listaEgresos.Remove(egreso);
+				}
+			}
+		}
+		*/
 	}
-
-}//end Orden-Valor-PrimeroEgreso
+}

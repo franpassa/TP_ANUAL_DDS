@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using API_MercadoLibre;
+
 
 namespace TPANUAL {
     [Table("mediodepago")]

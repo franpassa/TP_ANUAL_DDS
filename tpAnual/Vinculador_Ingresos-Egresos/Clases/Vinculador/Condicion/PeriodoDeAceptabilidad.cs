@@ -6,9 +6,6 @@
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
 
-/// <summary>
-/// This class implements the algorithm using the Strategy interface.
-/// </summary>
 public class PeriodoDeAceptabilidad : Condicion {
 
 	private int periodoDeAceptabilidad;
@@ -22,4 +19,4 @@ public class PeriodoDeAceptabilidad : Condicion {
 		return false;
 	}
 
-}//end PeriodoDeAceptabilidad
+}

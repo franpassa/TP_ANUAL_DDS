@@ -5,11 +5,9 @@
 //  Created on:      12-Sep-2020 7:23:02 PM
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
+using System.Collections.Generic;
+using TPANUAL;
 
-/// <summary>
-/// This class declares an interface common to all supported algorithms. Context
-/// uses this interface to call the algorithm defined by a ConcreteStrategy.
-/// </summary>
 public abstract class CriterioVinculador {
 
 	public CriterioVinculador(){
@@ -17,4 +15,16 @@ public abstract class CriterioVinculador {
 	}
 	public abstract void vincular();
 
-}//end Criterio
+	public void asociarEgresoIngreso(OperacionDeEgreso _egreso, OperacionDeIngreso _ingreso)
+	{
+		/* 
+		contexto.Database
+			.ExecuteSqlCommand(
+			"UPDATE OperacionDeEgreso SET ID_Ingreso = {0} WHERE ID_OperacionDeEgreso = {1}", _ingreso.ID_Ingreso, _egreso.ID_OperacionDeEgreso);
+
+		   UPDATE OperacionDeEgreso  
+		   SET ID_Ingreso = ingreso.ID_Ingreso
+		   WHERE ID_OperacionDeEgreso = egreso.ID_Egreso
+		 */
+	}
+}

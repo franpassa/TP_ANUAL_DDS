@@ -5,12 +5,9 @@
 //  Created on:      12-Sep-2020 7:23:05 PM
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
-
 using System.Collections.Generic;
+using TPANUAL;
 
-/// <summary>
-/// This class implements the algorithm using the Strategy interface.
-/// </summary>
 public class Mix : CriterioVinculador {
 
 	private List<CriterioVinculador> criterios;
@@ -20,7 +17,7 @@ public class Mix : CriterioVinculador {
 	}
 
 	public override void vincular(){
-
+		foreach (CriterioVinculador c in criterios) { c.vincular(); }
 	}
 
-}//end Mix
+}

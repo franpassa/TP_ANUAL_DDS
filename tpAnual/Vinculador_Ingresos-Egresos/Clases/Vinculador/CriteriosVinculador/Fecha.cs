@@ -5,10 +5,9 @@
 //  Created on:      12-Sep-2020 7:23:04 PM
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
+using System.Collections.Generic;
+using TPANUAL;
 
-/// <summary>
-/// This class implements the algorithm using the Strategy interface.
-/// </summary>
 public class Fecha : CriterioVinculador {
 
 	public Fecha(){
@@ -19,4 +18,4 @@ public class Fecha : CriterioVinculador {
 
 	}
 
-}//end Fecha
+}

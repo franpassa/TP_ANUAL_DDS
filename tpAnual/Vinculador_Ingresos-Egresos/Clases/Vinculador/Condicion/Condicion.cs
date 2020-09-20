@@ -5,11 +5,9 @@
 //  Created on:      12-Sep-2020 7:23:06 PM
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
+using System.Collections.Generic;
+using TPANUAL;
 
-/// <summary>
-/// This class declares an interface common to all supported algorithms. Context
-/// uses this interface to call the algorithm defined by a ConcreteStrategy.
-/// </summary>
 public abstract class Condicion {
 
 	public Condicion(){
