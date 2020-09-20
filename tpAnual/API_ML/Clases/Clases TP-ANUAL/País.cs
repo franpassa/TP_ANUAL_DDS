@@ -29,8 +29,11 @@ namespace API_MercadoLibre {
 		public string Nombre { get; set; }
 
 		[Column("ID_Moneda")]
-		public string ID_Moneda { get; set; }
+		#nullable enable
+		public string? ID_Moneda { get; set; }
+		#nullable disable
 
+		[NotMapped]
 		public Moneda Moneda { get; set; }
 
 		public List<Provincia> provincias { get; set; }
@@ -63,18 +66,10 @@ namespace API_MercadoLibre {
 				ID_Pais = ML_CountryObject.id;
 				Nombre = ML_CountryObject.name;
 				Moneda = new Moneda(ML_CountryObject.currency_id);
-				if(Moneda.ID_Moneda == null)
-                {
-					Moneda = new Moneda();
-					Moneda.ID_Moneda = Nombre;
-					Moneda.Descripcion = "Pais sin moneda";
-					Moneda.Simbolo = "-";
-                }
 
                 this.imprimir();
 
 				llenarProvincias(ML_CountryObject.states);
-
 			}
 		}
 

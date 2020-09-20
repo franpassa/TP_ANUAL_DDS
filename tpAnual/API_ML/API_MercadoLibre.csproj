@@ -68,20 +68,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases API\ML_City.cs" />
-    <Compile Include="Clases API\ML_Country.cs" />
-    <Compile Include="Clases API\ML_CountrySmall.cs" />
-    <Compile Include="Clases API\ML_Currency.cs" />
-    <Compile Include="Clases API\ML_CurrencyConversion.cs" />
-    <Compile Include="Clases API\ML_GeoInformation.cs" />
-    <Compile Include="Clases API\ML_Location.cs" />
-    <Compile Include="Clases API\ML_PlaceSmall.cs" />
-    <Compile Include="Clases API\ML_State.cs" />
-    <Compile Include="Clases TP-ANUAL\Ciudad.cs" />
-    <Compile Include="Clases TP-ANUAL\Moneda.cs" />
-    <Compile Include="Clases TP-ANUAL\API_MercadoLibre.cs" />
-    <Compile Include="Clases TP-ANUAL\País.cs" />
-    <Compile Include="Clases TP-ANUAL\Provincia.cs" />
+    <Compile Include="Clases\Clases API\ML_City.cs" />
+    <Compile Include="Clases\Clases API\ML_Country.cs" />
+    <Compile Include="Clases\Clases API\ML_CountrySmall.cs" />
+    <Compile Include="Clases\Clases API\ML_Currency.cs" />
+    <Compile Include="Clases\Clases API\ML_CurrencyConversion.cs" />
+    <Compile Include="Clases\Clases API\ML_GeoInformation.cs" />
+    <Compile Include="Clases\Clases API\ML_Location.cs" />
+    <Compile Include="Clases\Clases API\ML_PlaceSmall.cs" />
+    <Compile Include="Clases\Clases API\ML_State.cs" />
+    <Compile Include="Clases\Clases TP-ANUAL\Ciudad.cs" />
+    <Compile Include="Clases\Clases TP-ANUAL\Moneda.cs" />
+    <Compile Include="Clases\Clases TP-ANUAL\API_MercadoLibre.cs" />
+    <Compile Include="Clases\Clases TP-ANUAL\País.cs" />
+    <Compile Include="Clases\Clases TP-ANUAL\Provincia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

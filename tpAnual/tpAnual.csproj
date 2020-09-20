@@ -145,60 +145,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actividad.cs" />
-    <Compile Include="Agropecuario.cs" />
-    <Compile Include="BandejaDeMensajes.cs" />
-    <Compile Include="Categoria.cs" />
-    <Compile Include="Comercio.cs" />
-    <Compile Include="Compra.cs" />
-    <Compile Include="Construccion.cs" />
-    <Compile Include="Criterio.cs" />
-    <Compile Include="CriterioCompra.cs" />
-    <Compile Include="DB_Context.cs" />
-    <Compile Include="Direccion.cs" />
-    <Compile Include="DocumentoComercial.cs" />
-    <Compile Include="Empresa.cs" />
-    <Compile Include="EntidadBase.cs" />
-    <Compile Include="EntidadJuridica.cs" />
-    <Compile Include="EntidadJuridicaProveedora.cs" />
-    <Compile Include="Estructura.cs" />
-    <Compile Include="IndustriaYMineria.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="JobCompra.cs" />
-    <Compile Include="MedianaTramo1.cs" />
-    <Compile Include="MedianaTramo2.cs" />
-    <Compile Include="MediodePago.cs" />
-    <Compile Include="MenorValor.cs" />
-    <Compile Include="Micro.cs" />
-    <Compile Include="Migrations\202009172153351_Inicial.cs" />
-    <Compile Include="Migrations\202009172153351_Inicial.designer.cs">
-      <DependentUpon>202009172153351_Inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="OperacionDeEgreso.cs" />
-    <Compile Include="OperacionDeIngreso.cs" />
-    <Compile Include="Organizacion.cs" />
-    <Compile Include="OSC.cs" />
-    <Compile Include="Pequeña.cs" />
-    <Compile Include="PersonaProveedora.cs" />
-    <Compile Include="Presupuesto.cs" />
+    <Compile Include="Clases\Organizacion\Actividad\Actividad.cs" />
+    <Compile Include="Clases\Organizacion\Actividad\Agropecuario.cs" />
+    <Compile Include="Clases\Compra\BandejaDeMensajes.cs" />
+    <Compile Include="Clases\Item\Categoria.cs" />
+    <Compile Include="Clases\Organizacion\Actividad\Comercio.cs" />
+    <Compile Include="Clases\Compra\Compra.cs" />
+    <Compile Include="Clases\Organizacion\Actividad\Construccion.cs" />
+    <Compile Include="Clases\Item\Criterio.cs" />
+    <Compile Include="Clases\Compra\CriterioCompra.cs" />
+    <Compile Include="Clases\BaseDeDatos\DB_Context.cs" />
+    <Compile Include="Clases\Direccion\Direccion.cs" />
+    <Compile Include="Clases\DocumentoComercial\DocumentoComercial.cs" />
+    <Compile Include="Clases\Organizacion\TiposDeOrganizacion\Empresa\Empresa.cs" />
+    <Compile Include="Clases\Organizacion\Entidad\EntidadBase.cs" />
+    <Compile Include="Clases\Organizacion\Entidad\EntidadJuridica.cs" />
+    <Compile Include="Clases\Proveedor\TiposDeProveedor\EntidadJuridicaProveedora.cs" />
+    <Compile Include="Clases\Organizacion\TiposDeOrganizacion\Empresa\Estructura\Estructura.cs" />
+    <Compile Include="Clases\Organizacion\Actividad\IndustriaYMineria.cs" />
+    <Compile Include="Clases\Item\Item.cs" />
+    <Compile Include="Clases\Scheduler\JobCompra.cs" />
+    <Compile Include="Clases\Organizacion\TiposDeOrganizacion\Empresa\Estructura\MedianaTramo1.cs" />
+    <Compile Include="Clases\Organizacion\TiposDeOrganizacion\Empresa\Estructura\MedianaTramo2.cs" />
+    <Compile Include="Clases\Organizacion\Operaciones\OperacionDeEgreso\MediodePago.cs" />
+    <Compile Include="Clases\Compra\MenorValor.cs" />
+    <Compile Include="Clases\Organizacion\TiposDeOrganizacion\Empresa\Estructura\Micro.cs" />
+    <Compile Include="Clases\Organizacion\Operaciones\OperacionDeEgreso\OperacionDeEgreso.cs" />
+    <Compile Include="Clases\Organizacion\Operaciones\OperacionDeIngreso.cs" />
+    <Compile Include="Clases\Organizacion\Organizacion.cs" />
+    <Compile Include="Clases\Organizacion\TiposDeOrganizacion\OSC.cs" />
+    <Compile Include="Clases\Organizacion\TiposDeOrganizacion\Empresa\Estructura\Pequeña.cs" />
+    <Compile Include="Clases\Proveedor\TiposDeProveedor\PersonaProveedora.cs" />
+    <Compile Include="Clases\Compra\Presupuesto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proveedor.cs" />
-    <Compile Include="Scheduler.cs" />
-    <Compile Include="Servicios.cs" />
-    <Compile Include="TipoEgreso.cs" />
-    <Compile Include="TipoEntidad.cs" />
-    <Compile Include="Usuario.cs" />
-    <Compile Include="ValidadorDeCompra.cs" />
-    <Compile Include="ValidadorDeContraseña.cs" />
+    <Compile Include="Clases\Proveedor\Proveedor.cs" />
+    <Compile Include="Clases\Scheduler\Scheduler.cs" />
+    <Compile Include="Clases\Organizacion\Actividad\Servicios.cs" />
+    <Compile Include="Clases\Compra\TipoEgreso.cs" />
+    <Compile Include="Clases\Organizacion\Entidad\TipoEntidad.cs" />
+    <Compile Include="Clases\Usuario\Usuario.cs" />
+    <Compile Include="Clases\Validadores\ValidadorDeCompra.cs" />
+    <Compile Include="Clases\Validadores\ValidadorDeContraseña.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="10000Contrasenas.txt" />
+    <Content Include="Clases\Validadores\10000Contrasenas.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="API_ML\API_MercadoLibre.csproj">
@@ -210,11 +205,7 @@
       <Name>Vinculador_IngresosEgresos</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009172153351_Inicial.resx">
-      <DependentUpon>202009172153351_Inicial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Data.SqlClient.SNI.2.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('packages\Microsoft.Data.SqlClient.SNI.2.0.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

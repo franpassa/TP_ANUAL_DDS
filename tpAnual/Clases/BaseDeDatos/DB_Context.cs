@@ -86,5 +86,4 @@ namespace TPANUAL
             base.OnModelCreating(modelBuilder);
         }
     }
-
 }

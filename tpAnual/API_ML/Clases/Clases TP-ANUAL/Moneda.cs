@@ -21,13 +21,17 @@ namespace API_MercadoLibre {
 	public class Moneda {
 		[Key]
 		[Column("ID_Moneda")]
-		public string ID_Moneda { get; set; }		
+		#nullable enable
+		public string? ID_Moneda { get; set; }
+		#nullable disable
 
 		[Column("Descripcion")]
 		public string Descripcion { get; set; }
 
 		[Column("Simbolo")]
 		public string Simbolo { get; set; }
+
+		public List<Pais> paises { get; set; }
 
 		public Moneda(String _id)
         {
@@ -57,7 +61,13 @@ namespace API_MercadoLibre {
 				Descripcion = ML_CurrencyObject.description;
 				Simbolo = ML_CurrencyObject.symbol;
 			}
-        }
+			else
+			{
+				ID_Moneda = null ;
+				Descripcion = null ;
+				Simbolo = null ;
+			}
+		}
 
 		public Moneda() { }
 

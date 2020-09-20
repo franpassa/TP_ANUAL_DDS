@@ -43,16 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Condicion.cs" />
-    <Compile Include="CriterioVinculador.cs" />
-    <Compile Include="Fecha.cs" />
-    <Compile Include="Mix.cs" />
-    <Compile Include="Orden_Valor_PrimeroEgreso.cs" />
-    <Compile Include="Orden_Valor_PrimeroIngreso.cs" />
-    <Compile Include="PeriodoDeAceptabilidad.cs" />
+    <Compile Include="Clases\Vinculador\Condicion\Condicion.cs" />
+    <Compile Include="Clases\Vinculador\CriteriosVinculador\CriterioVinculador.cs" />
+    <Compile Include="Clases\Vinculador\CriteriosVinculador\Fecha.cs" />
+    <Compile Include="Clases\Vinculador\CriteriosVinculador\Mix.cs" />
+    <Compile Include="Clases\Vinculador\CriteriosVinculador\Orden_Valor_PrimeroEgreso.cs" />
+    <Compile Include="Clases\Vinculador\CriteriosVinculador\Orden_Valor_PrimeroIngreso.cs" />
+    <Compile Include="Clases\Vinculador\Condicion\PeriodoDeAceptabilidad.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vinculador.cs" />
+    <Compile Include="Clases\Vinculador\Vinculador.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

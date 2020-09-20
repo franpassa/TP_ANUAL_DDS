@@ -12,37 +12,45 @@ namespace TPANUAL
     class Program
     {
         static void Main(string[] args) {
-
             using (var contexto = new DB_Context())
             {
                 API_MercadoLibre.API_MercadoLibre ml = new API_MercadoLibre.API_MercadoLibre();
-                                
+                contexto.Database
+                    .ExecuteSqlCommand(
+                    "delete from ciudad; delete from provincia; delete from pais; delete from moneda;");
+
+
                 foreach(Pais p in ml.paises)
                 {
-                    // Si ya está la moneda, la saco del contexto 
-                    // antes de volver a agregarla
-                    foreach (Moneda m in contexto.moneda) {
-                        if (m.ID_Moneda == p.Moneda.ID_Moneda) 
+                    /*
+                     Si ya está la moneda, la saco del contexto 
+                     antes de volver a agregarla
+
+                    foreach (Moneda m in contexto.moneda)
+                    {
+                        if (m.ID_Moneda == p.Moneda.ID_Moneda)
                         {
                             contexto.moneda.Remove(m);
                         }
                     }
+                    */
 
-                    try
-                    {
-                        contexto.pais.Add(p);
-                        contexto.SaveChanges();
-                        Console.WriteLine("Pais " + p.Nombre + " agregado a la base de datos.");
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("No se puede agregar el pais " + p.Nombre + " a la tabla." );
-                        Console.WriteLine(e);
-                    }
+                try
+                {
+                    contexto.pais.Add(p);
+                    contexto.SaveChanges();
+                    Console.WriteLine("Pais \"" + p.Nombre + "\" agregado a la base de datos.");
                 }
-                
-                Console.WriteLine("\nCambios guardados.");
-                Console.ReadLine();
+                catch (Exception e)
+                {
+                    Console.WriteLine("_____________________________________________________________________________________");
+                    Console.WriteLine("No se puede agregar el pais \"" + p.Nombre + "\" a la tabla.");
+                    Console.WriteLine(e);
+                }
+            }
+            Console.WriteLine("_____________________________________________________________________________________");
+            Console.WriteLine("\nCambios guardados.");
+            Console.ReadLine();
 
                 //creo usuario Pedro
                 //Usuario pedro = new Usuario("pedritoelmejor", "pepito");
