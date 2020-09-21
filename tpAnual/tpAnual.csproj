@@ -186,7 +186,6 @@
     <Compile Include="Clases\Organizacion\TiposDeOrganizacion\Empresa\Estructura\Pequeña.cs" />
     <Compile Include="Clases\Proveedor\TiposDeProveedor\PersonaProveedora.cs" />
     <Compile Include="Clases\Compra\Presupuesto.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Clases\API\ML\ML_City.cs" />
     <Compile Include="Clases\API\ML\ML_Country.cs" />
     <Compile Include="Clases\API\ML\ML_CountrySmall.cs" />
@@ -196,6 +195,7 @@
     <Compile Include="Clases\API\ML\ML_Location.cs" />
     <Compile Include="Clases\API\ML\ML_PlaceSmall.cs" />
     <Compile Include="Clases\API\ML\ML_State.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clases\Proveedor\Proveedor.cs" />
@@ -214,7 +214,6 @@
   <ItemGroup>
     <Content Include="Clases\Validadores\10000Contrasenas.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

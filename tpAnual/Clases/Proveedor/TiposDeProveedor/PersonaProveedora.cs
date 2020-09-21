@@ -16,6 +16,8 @@ namespace TPANUAL {
 
         [Column("Nombre")]
         public string Nombre { get; set; }
+        public List<Compra> compras { get; set; }
+        public List<Presupuesto> presupuestos { get; set; }
 
         public PersonaProveedora(Direccion direccionPostal, string DNI, string nombre)
         {

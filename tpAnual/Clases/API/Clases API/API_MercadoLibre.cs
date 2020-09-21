@@ -66,7 +66,6 @@ namespace TPANUAL {
             listaPaises.Add(new Pais("GT"));
             */
 
-            Console.WriteLine();
             Dictionary<string, string> paisMoneda = new Dictionary<string, string> { };
 
             foreach (Pais p in paises)
@@ -107,7 +106,6 @@ namespace TPANUAL {
 
             Console.WriteLine("_____________________________________________________________________________________");
             Console.WriteLine("\nCambios guardados.");
-            Console.ReadLine();
         }
 	}
 }

@@ -27,12 +27,14 @@ namespace TPANUAL {
         public float ValorTotal { get; set; }
         public List<Item> Items { get; set ; }
 
-        public Proveedor Proveedor { get; set; }
+        public PersonaProveedora Persona { get; set; }
+        public EntidadJuridicaProveedora Entidad { get; set; }
         public List<DocumentoComercial> DocumentosComerciales { get; set; }
 
-        public Presupuesto(Proveedor proveedor, List<Item> items, Compra compra, string detalle)
+        public Presupuesto(PersonaProveedora persona, EntidadJuridicaProveedora entidad, List<Item> items, Compra compra, string detalle)
         {
-            Proveedor = proveedor;
+            Persona = persona;
+            Entidad = entidad;
             Items = items;
             Detalle = detalle;
             DocumentosComerciales = null;

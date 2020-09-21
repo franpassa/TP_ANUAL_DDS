@@ -83,12 +83,12 @@ namespace TPANUAL
                 MenorValor criterio = new MenorValor();
 
                 //creo Compra
-                Compra compra = new Compra(1, criterio, itemsCompra, usuariosRevisores, juan);
+                Compra compra = new Compra(1, criterio, itemsCompra, usuariosRevisores, juan, null);
                 //compra.agregarRevisor(pedro);
                 contexto.tipoegreso.Add(compra);
 
                 //creo presupuesto Juan
-                Presupuesto presJuan = new Presupuesto(juan, itemsJuan, compra, "presupuesto de juancito");
+                Presupuesto presJuan = new Presupuesto(juan, null, itemsJuan, compra, "presupuesto de juancito");
                 // //creo presupuesto Robert
                 // Presupuesto presRobert = new Presupuesto(roberto, itemsRobert, compra, "asidjal");
 

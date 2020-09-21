@@ -42,11 +42,19 @@ namespace TPANUAL
         {
             modelBuilder.Entity<Organizacion>().ToTable("organizacion");
 
+            modelBuilder.Entity<PersonaProveedora>().HasMany(m => m.compras);
+
+            modelBuilder.Entity<PersonaProveedora>().HasMany(m => m.presupuestos);
+
             modelBuilder.Entity<PersonaProveedora>().Map(m =>
             {
                 m.MapInheritedProperties();
                 m.ToTable("personaproveedora");
             });
+
+            modelBuilder.Entity<EntidadJuridicaProveedora>().HasMany(m => m.compras);
+
+            modelBuilder.Entity<EntidadJuridicaProveedora>().HasMany(m => m.presupuestos);
 
             modelBuilder.Entity<EntidadJuridicaProveedora>().Map(m =>
             {

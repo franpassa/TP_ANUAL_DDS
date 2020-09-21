@@ -11,12 +11,12 @@ namespace TPANUAL
     {
         [Key]
         [Column("ID_DocumentoComercial")]
-        public string ID_DocumentoComercial { get; set; }
+        public int ID_DocumentoComercial { get; set; }
 
         [Column("TipoDocumento")]
         public string TipoDocumento { get; set; }
 
-        public DocumentoComercial(string idDocumento, string tipoDocumento)
+        public DocumentoComercial(int idDocumento, string tipoDocumento)
         {
             ID_DocumentoComercial = idDocumento;
             TipoDocumento = tipoDocumento;

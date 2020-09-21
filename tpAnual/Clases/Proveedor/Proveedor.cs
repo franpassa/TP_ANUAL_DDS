@@ -11,6 +11,7 @@ namespace TPANUAL {
 	public abstract class Proveedor {
 		[Key]
 		[Column("ID_Proveedor")]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ID_Proveedor { get; set; }
 
 		[Column("ID_Direccion")]

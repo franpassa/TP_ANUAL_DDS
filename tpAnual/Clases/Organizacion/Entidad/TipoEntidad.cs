@@ -11,6 +11,7 @@ namespace TPANUAL {
 
 		[Key]
 		[Column("ID_Entidad")]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ID_Entidad { get; set; }
 
 		[Column("ID_Direccion")]

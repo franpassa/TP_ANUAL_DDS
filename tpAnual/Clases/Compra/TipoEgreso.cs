@@ -13,6 +13,7 @@ namespace TPANUAL {
 
 		[Key]
 		[Column("ID_TipoEgreso")]
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ID_TipoEgreso { get; set; }
 
 		public abstract float valorTotal();
