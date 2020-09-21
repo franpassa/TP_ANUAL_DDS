@@ -60,7 +60,7 @@ namespace TPANUAL {
 			else
 			{
 				ID_Moneda = "NULL";
-				Descripcion = "Pais sin moneda";
+				Descripcion = "Moneda Inválida";
 				Simbolo = "-";
 			}
 		}

@@ -38,6 +38,10 @@ namespace TPANUAL
             Database.SetInitializer<DB_Context>(new CreateDatabaseIfNotExists<DB_Context>());
         }
 
+        /*
+        Enable-Migrations -EnableAutomaticMigrations -Force -Verbose
+        Update-Database -Force -Verbose
+        */
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Organizacion>().ToTable("organizacion");

@@ -13,8 +13,10 @@ public class Vinculador {
 	private List<Condicion> condiciones;
 	private CriterioVinculador criterio;
 
-	public Vinculador(){
-
+	public Vinculador(List<Condicion> _condiciones, CriterioVinculador _criterio)
+	{
+		condiciones = _condiciones;
+		criterio = _criterio;
 	}
 
 	public void cambiarCriterio(CriterioVinculador criterio){
@@ -30,7 +32,7 @@ public class Vinculador {
 		return false;
 	}
 
-	public void vincular(){
-
+	public void vincular(DB_Context _contexto, Organizacion _org) {
+		criterio.vincular(_contexto, _org);
 	}
 }

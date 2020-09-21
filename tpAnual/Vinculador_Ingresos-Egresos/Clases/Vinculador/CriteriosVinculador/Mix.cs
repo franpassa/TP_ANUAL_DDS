@@ -16,8 +16,9 @@ public class Mix : CriterioVinculador {
 
 	}
 
-	public override void vincular(){
-		foreach (CriterioVinculador c in criterios) { c.vincular(); }
+	public override void vincular(DB_Context _contexto, Organizacion _org)
+	{
+		foreach (CriterioVinculador c in criterios) { c.vincular(_contexto, _org); }
 	}
 
 }

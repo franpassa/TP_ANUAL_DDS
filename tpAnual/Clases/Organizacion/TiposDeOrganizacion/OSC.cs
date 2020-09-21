@@ -22,6 +22,8 @@ namespace TPANUAL {
             Usuarios = usuarios;
         }
 
+        public OSC() { }
+
     }//end OSC
 
 }//end namespace TPANUAL

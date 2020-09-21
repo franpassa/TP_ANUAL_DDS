@@ -14,7 +14,8 @@ public class Fecha : CriterioVinculador {
 
 	}
 
-	public override void vincular(){
+	public override void vincular(DB_Context _contexto, Organizacion _org)
+	{
 
 	}
 

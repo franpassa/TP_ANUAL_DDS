@@ -10,8 +10,8 @@ public class PeriodoDeAceptabilidad : Condicion {
 
 	private int periodoDeAceptabilidad;
 
-	public PeriodoDeAceptabilidad(){
-
+	public PeriodoDeAceptabilidad(int _dias){
+		periodoDeAceptabilidad = _dias;
 	}
 
 	public override bool cumpleCondicion(){

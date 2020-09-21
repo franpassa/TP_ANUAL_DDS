@@ -13,7 +13,7 @@ public abstract class CriterioVinculador {
 	public CriterioVinculador(){
 
 	}
-	public abstract void vincular(DB_Context contexto);
+	public abstract void vincular(DB_Context _contexto, Organizacion _org);
 
 	public void asociarEgresoIngreso(OperacionDeEgreso _egreso, OperacionDeIngreso _ingreso)
 	{

@@ -13,7 +13,7 @@ public class Orden_Valor_PrimeroIngreso : CriterioVinculador {
 	public Orden_Valor_PrimeroIngreso(){
 
 	}
-	public override void vincular(){
+	public override void vincular(DB_Context _contexto, Organizacion _org){
 
 	}
 
