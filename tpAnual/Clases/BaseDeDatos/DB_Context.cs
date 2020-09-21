@@ -26,8 +26,7 @@ namespace TPANUAL
         public DbSet<Empresa> empresas { get; set; }
         public DbSet<OSC> oscs { get; set; }
         public DbSet<Pais> pais { get; set; }
-        public DbSet<EntidadJuridicaProveedora> entidadjuridicaproveedora { get; set; }
-        public DbSet<PersonaProveedora> personaaproveedora { get; set; }
+        public DbSet<Proveedor> proveedor { get; set; }
         public DbSet<Presupuesto> presupuesto { get; set; }
         public DbSet<Provincia> provincia { get; set; }
         public DbSet<Usuario> usuario { get; set; }

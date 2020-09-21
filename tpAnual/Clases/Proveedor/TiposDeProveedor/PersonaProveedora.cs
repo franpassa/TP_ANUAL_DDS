@@ -17,17 +17,12 @@ namespace TPANUAL {
         [Column("Nombre")]
         public string Nombre { get; set; }
 
-        [Column("ID_Direccion")]
-        public int ID_Direccion { get; set; }
-        public Direccion DireccionPostal { get; set; }
-        public List<Compra> Compras { get; set; }
-        public List<Presupuesto> Presupuestos { get; set; }
-
         public PersonaProveedora(Direccion direccionPostal, string DNI, string nombre)
         {
             DireccionPostal = direccionPostal;
             this.DNI = DNI;
             Nombre = nombre;
+            ID_Direccion = direccionPostal.ID_Direccion;
         }
 
         public PersonaProveedora() { }

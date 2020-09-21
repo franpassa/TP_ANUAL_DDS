@@ -24,10 +24,12 @@ namespace TPANUAL {
 
         public EntidadJuridica JuridicaAsociada { get; set; }
 
-        public EntidadBase(string descripcion, EntidadJuridica juridicaAsociada)
+        public EntidadBase(string descripcion, EntidadJuridica juridicaAsociada, Direccion direccion)
         {
             this.Descripcion = descripcion;
             this.JuridicaAsociada = juridicaAsociada;
+            this.DireccionPostal = direccion;
+            this.ID_Direccion = direccion.ID_Direccion;
         }
         public EntidadBase() { }
 

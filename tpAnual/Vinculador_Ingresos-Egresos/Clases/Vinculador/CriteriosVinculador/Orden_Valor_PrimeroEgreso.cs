@@ -5,7 +5,9 @@
 //  Created on:      12-Sep-2020 7:23:03 PM
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using TPANUAL;
 
 public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
@@ -14,16 +16,19 @@ public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
 
 	}
 
-	public override void vincular(){
+	public override void vincular(DB_Context contexto){
+		
+		var listaEgresos = contexto.operacionDeEgreso
+			.SqlQuery("SELECT * FROM OperacionDeEgreso ORDER BY ValorTotal ASC").ToList<OperacionDeEgreso>();
+
+		var listaIngresos = contexto.operacionDeIngreso
+			.SqlQuery("SELECT * FROM OperacionDeIngreso ORDER BY ValorTotal ASC").ToList<OperacionDeIngreso>();
+
+		Console.WriteLine("Lista egresos [0]", listaEgresos.Count());
+
+		Console.WriteLine("Lista ingresos [0]", listaIngresos.Count());
+
 		/*
-		var listaEgresos = contexto.OperacionDeEgreso
-			.SqlQuery("SELECT * FROM OperacionDeEgreso ORDER BY ValorTotal ASC")
-			.ToList<OperacionDeEgreso>();
-
-		var listaIngresos = contexto.OperacionDeIngreso
-			.SqlQuery("SELECT * FROM OperacionDeIngreso ORDER BY ValorTotal ASC")
-			.ToList<OperacionDeEgreso>();
-
 		// Guarda la diferencia restante entre ingreso y egreso
 		float montoIngresoRestante;
 		foreach (OperacionDeIngreso ingreso in listaIngresos)
@@ -49,7 +54,7 @@ public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
 					listaEgresos.Remove(egreso);
 				}
 			}
-		}
-		*/
+		}*/
+
 	}
 }

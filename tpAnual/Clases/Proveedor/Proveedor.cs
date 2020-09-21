@@ -13,6 +13,10 @@ namespace TPANUAL {
 		[Column("ID_Proveedor")]
 		public int ID_Proveedor { get; set; }
 
+		[Column("ID_Direccion")]
+		public int? ID_Direccion { get; set; }
+		public Direccion DireccionPostal { get; set; }
+
 	}//end Proveedor
 
 }//end namespace TPANUAL

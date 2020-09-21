@@ -26,7 +26,6 @@ namespace TPANUAL {
         [NotMapped]
         public CriterioCompra Criterio { get; set; }
 
-        [NotMapped]
         public Proveedor Proveedor { get; set; }
         public List<Presupuesto> Presupuestos{ get; set; }
         
@@ -43,7 +42,7 @@ namespace TPANUAL {
         La compra que necesita presupuestos, NO necesariamente tiene que hacerse en base a uno de esos presupuestos. Basicamente puedo comprar donde quiera
         (y despues se validara la compra, pero no me importa)
          */
-        public Compra( int cantidadDePresupuestosRequeridos, CriterioCompra criterio, List<Item> items, List<Usuario> revisores)
+        public Compra( int cantidadDePresupuestosRequeridos, CriterioCompra criterio, List<Item> items, List<Usuario> revisores, Proveedor proveedor)
         {
             CantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
             Bandeja = new BandejaDeMensajes();
@@ -51,6 +50,7 @@ namespace TPANUAL {
             Presupuestos = new List<Presupuesto>();
             Items = items;
             Revisores = revisores;
+            Proveedor = proveedor;
         }
 
         public Compra() { }

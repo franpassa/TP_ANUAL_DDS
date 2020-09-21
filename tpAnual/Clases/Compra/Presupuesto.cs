@@ -27,7 +27,6 @@ namespace TPANUAL {
         public float ValorTotal { get; set; }
         public List<Item> Items { get; set ; }
 
-        [NotMapped]
         public Proveedor Proveedor { get; set; }
         public List<DocumentoComercial> DocumentosComerciales { get; set; }
 
@@ -38,6 +37,7 @@ namespace TPANUAL {
             Detalle = detalle;
             DocumentosComerciales = null;
             Compra = compra;
+            ValorTotal = valorTotal();
         }
 
         public Presupuesto() { }

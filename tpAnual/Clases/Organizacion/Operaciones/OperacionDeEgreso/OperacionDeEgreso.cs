@@ -36,6 +36,7 @@ namespace TPANUAL {
 			FechaOperacion = DateTime.Now;
 			MedioDePago = medio;
 			TipoEgreso = egreso;
+			ValorTotal = egreso.valorTotal();
 		}
 
 		public OperacionDeEgreso() { }
