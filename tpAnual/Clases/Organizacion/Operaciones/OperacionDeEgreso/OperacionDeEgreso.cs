@@ -19,7 +19,7 @@ namespace TPANUAL {
 		public int ID_Organizacion { get; set; }
 
 		[Column("Fecha")]
-		public DateTime FechaOperacion { get; set; }
+		public DateTime Fecha { get; set; }
 
 		[Column("ValorTotal")]
 		public float ValorTotal { get; set; }
@@ -30,10 +30,10 @@ namespace TPANUAL {
 		public virtual TipoEgreso TipoEgreso { get; set; }
         public List<DocumentoComercial> DocumentosComerciales { get; set; }
 
-		public OperacionDeEgreso(TipoEgreso egreso, MedioDePago medio, List<DocumentoComercial> documentos)
+		public OperacionDeEgreso(TipoEgreso egreso, MedioDePago medio, List<DocumentoComercial> documentos, DateTime fecha)
 		{
 			DocumentosComerciales = documentos;
-			FechaOperacion = DateTime.Now;
+			Fecha = fecha;
 			MedioDePago = medio;
 			TipoEgreso = egreso;
 			ValorTotal = egreso.valorTotal();

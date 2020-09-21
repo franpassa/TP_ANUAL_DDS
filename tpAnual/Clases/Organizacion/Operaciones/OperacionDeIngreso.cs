@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace TPANUAL
 {
@@ -20,15 +19,19 @@ namespace TPANUAL
         [Column("Descripcion")]
         public string Descripcion { get; set; }
 
+        [Column("Fecha")]
+        public DateTime Fecha { get; set; }
+
         [Column("Monto")]
         public float Monto { get; set; }
 
         public List<OperacionDeEgreso> EgresosAsociados { get; set; }
-        public OperacionDeIngreso(string descripcion, List<OperacionDeEgreso> egresosAsociados, float monto)
+        public OperacionDeIngreso(string descripcion, List<OperacionDeEgreso> egresosAsociados, float monto, DateTime fecha)
         {
             this.Descripcion = descripcion;
             this.EgresosAsociados = egresosAsociados;
             this.Monto = monto;
+            this.Fecha = fecha;
         }
         public OperacionDeIngreso() { }
 
