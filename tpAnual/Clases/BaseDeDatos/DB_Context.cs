@@ -17,7 +17,7 @@ namespace TPANUAL
         public DbSet<TipoEntidad> tipoentidad { get; set; }
         public DbSet<Direccion> direccion { get; set; }
         public DbSet<DocumentoComercial> documentoComercial { get; set; }
-        public DbSet<TipoEgreso> tipoegreso { get; set; }
+        public DbSet<Compra> compra { get; set; }
         public DbSet<Item> item { get; set; }
         public DbSet<MedioDePago> mediodepago { get; set; }
         public DbSet<Moneda> moneda { get; set; }
@@ -66,12 +66,6 @@ namespace TPANUAL
                 m.ToTable("entidadjuridicaproveedora");
             });
 
-            modelBuilder.Entity<Compra>().Map(m =>
-            {
-                m.MapInheritedProperties();
-                m.ToTable("compra");
-            });
-
             modelBuilder.Entity<EntidadBase>().Map(m =>
             {
                 m.MapInheritedProperties();
@@ -83,6 +77,10 @@ namespace TPANUAL
                 m.MapInheritedProperties();
                 m.ToTable("entidadjuridica");
             });
+
+            modelBuilder.Entity<OperacionDeEgreso>()
+                .HasRequired(o => o.Compra)
+                .WithRequiredPrincipal( c => c.OperacionDeEgreso);
 
             modelBuilder.Entity<Compra>()
                 .HasMany<Usuario>(c => c.Revisores)

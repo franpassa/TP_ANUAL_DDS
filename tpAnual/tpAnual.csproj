@@ -201,7 +201,6 @@
     <Compile Include="Clases\Proveedor\Proveedor.cs" />
     <Compile Include="Clases\Scheduler\Scheduler.cs" />
     <Compile Include="Clases\Organizacion\Actividad\Servicios.cs" />
-    <Compile Include="Clases\Compra\TipoEgreso.cs" />
     <Compile Include="Clases\Organizacion\Entidad\TipoEntidad.cs" />
     <Compile Include="Clases\Usuario\Usuario.cs" />
     <Compile Include="Clases\Validadores\ValidadorDeCompra.cs" />

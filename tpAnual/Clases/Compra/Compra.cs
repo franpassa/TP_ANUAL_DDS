@@ -14,19 +14,23 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TPANUAL {
     [Table("compra")]
-	public class Compra : TipoEgreso {
+	public class Compra {
+        
+        [Key]
+        [Column("ID_Compra")]
+        public int ID_Compra { get; set; }
 
         [Column("CantidadDePresupuestosRequeridos")]
         public int CantidadDePresupuestosRequeridos { get; set; }
 
-        [ForeignKey("Operacion")]
-        public int ID_OperacionDeEgreso { get; set; }
-        public virtual OperacionDeEgreso Operacion { get; set; }
+        public virtual OperacionDeEgreso OperacionDeEgreso { get; set; }
 
         [NotMapped]
         public CriterioCompra Criterio { get; set; }
 
         public PersonaProveedora Persona { get; set; }
+
+        public float ValorTotal { get; set; }
 
         public EntidadJuridicaProveedora Entidad { get; set; }
         public List<Presupuesto> Presupuestos{ get; set; }
@@ -54,6 +58,7 @@ namespace TPANUAL {
             Revisores = revisores;
             Persona = persona;
             Entidad = entidad;
+            ValorTotal = valorTotal();
         }
 
         public Compra() { }
@@ -73,12 +78,12 @@ namespace TPANUAL {
                 Presupuestos.Add(presupuesto);
         }
 
-        public override async Task validar()
+        public async Task validar()
         {
             await ValidadorDeCompra.getInstanceValidadorCompra.ValidarCompra(this);
         }
 
-        public override float valorTotal(){
+        public float valorTotal(){
 
 			float temporal = 0;
 
@@ -86,7 +91,8 @@ namespace TPANUAL {
                 {
 					temporal += item.ValorTotal;
                 }
-		
+
+            ValorTotal = temporal;
 			return temporal;
 		}
     

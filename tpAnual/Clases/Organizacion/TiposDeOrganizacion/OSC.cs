@@ -17,6 +17,7 @@ namespace TPANUAL {
             EsActividadComisionistaoAgenciaDeViaje = false;
             NombreFicticio = nombreFicticio;
             OperacionesDeEgreso = new List<OperacionDeEgreso>();
+            OperacionesDeIngreso = new List<OperacionDeIngreso>();
             PromedioVentasAnuales = promedioVentasAnuales;
             TipoEntidad = tipoEntidad;
             Usuarios = usuarios;

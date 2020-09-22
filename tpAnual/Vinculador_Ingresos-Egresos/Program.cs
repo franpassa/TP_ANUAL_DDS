@@ -10,7 +10,7 @@ namespace Vinculador_Ingresos_Egresos
         {
             using (var contexto = new DB_Context())
             {
-                Empresa e = contexto.empresas.Find(1);
+                Empresa e = contexto.empresas.Find(2);
 
                 // Creo el vinculador con sus parametros
                 Vinculador v = new Vinculador(

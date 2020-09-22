@@ -11,7 +11,8 @@ namespace TPANUAL {
 	[Table("operaciondeegreso")]
 	public class OperacionDeEgreso {
 
-		[Key]
+		[Key, ForeignKey("Compra")]
+		[Column("ID_OperacionDeEgreso")]
 		public int ID_OperacionDeEgreso { get; set; }
 		public OperacionDeIngreso IngresoAsociado { get; set; }
 
@@ -25,24 +26,23 @@ namespace TPANUAL {
 		public float ValorTotal { get; set; }
 
 		public MedioDePago MedioDePago { get; set; }
-
-		[NotMapped]
-		public virtual TipoEgreso TipoEgreso { get; set; }
+		
+		public virtual Compra Compra { get; set; }
         public List<DocumentoComercial> DocumentosComerciales { get; set; }
 
-		public OperacionDeEgreso(TipoEgreso egreso, MedioDePago medio, List<DocumentoComercial> documentos, DateTime fecha)
+		public OperacionDeEgreso(Compra compra, MedioDePago medio, List<DocumentoComercial> documentos, DateTime fecha)
 		{
 			DocumentosComerciales = documentos;
 			Fecha = fecha;
 			MedioDePago = medio;
-			TipoEgreso = egreso;
-			ValorTotal = egreso.valorTotal();
+			Compra = compra;
+			ValorTotal = valorTotal();
 		}
 
 		public OperacionDeEgreso() { }
 
 		public float valorTotal(){
-			ValorTotal = TipoEgreso.valorTotal();
+			ValorTotal = Compra.valorTotal();
 			return ValorTotal;
 		}
 

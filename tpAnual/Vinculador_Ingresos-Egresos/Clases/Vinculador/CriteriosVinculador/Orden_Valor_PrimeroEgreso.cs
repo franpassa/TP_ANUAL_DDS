@@ -15,48 +15,63 @@ public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
 
 	}
 
-	public override void vincular(DB_Context _contexto, Organizacion _org){
+	public override void vincular(DB_Context contexto, Organizacion organizacion){
 
-		var listaIngresos = _contexto.operacionDeIngreso
-			.SqlQuery("Select * from operaciondeingreso where ID_Organizacion = {0}", _org.ID_Organizacion)
+		var listaIngresos = contexto.operacionDeIngreso
+			.SqlQuery("Select * from operaciondeingreso where ID_Organizacion = {0} order by monto", organizacion.ID_Organizacion)
 			.ToList();
 
-		var listaEgresos = _contexto.operacionDeEgreso
-			.SqlQuery("Select * from operaciondeegreso where ID_Organizacion = {0}", _org.ID_Organizacion)
+		var listaEgresos = contexto.operacionDeEgreso
+			.SqlQuery("Select * from operaciondeegreso where ID_Organizacion = {0} order by valortotal", organizacion.ID_Organizacion)
 			.ToList();
+/*
+		for (int j = 0; j < listaEgresos.Count; j++)
+		{
+			Console.WriteLine(listaEgresos[j].ID_OperacionDeEgreso);
+			Console.WriteLine(listaEgresos[j].ValorTotal);
+		}
 
-		Console.WriteLine(listaIngresos.Count);
-		Console.WriteLine(listaEgresos.Count);
+		Console.WriteLine("--------------------");
+
+		for (int i = 0; i < listaIngresos.Count; i++)	
+        {
+			Console.WriteLine(listaIngresos[i].ID_Ingreso);
+			Console.WriteLine(listaIngresos[i].Monto);
+		}
+
 		Console.ReadLine();
+*/
 		
-		/*
 		// Guarda la diferencia restante entre ingreso y egreso
 		float montoIngresoRestante;
-		foreach (OperacionDeIngreso ingreso in listaIngresos)
+
+		for(int i = 0; i < listaIngresos.Count; i++)
 		{
 			// Le asigna el valor del ingreso al principio del foreach
-			montoIngresoRestante = ingreso.Monto;
+			montoIngresoRestante = listaIngresos[i].Monto;
+			Console.WriteLine(listaIngresos[i].ID_Ingreso);
+			Console.WriteLine(listaIngresos[i].Monto);
 
 			// Para cada egreso 
-			foreach (OperacionDeEgreso egreso in listaEgresos)
+			for (int j = 0; j < listaEgresos.Count; j++)
 			{
 				// Chequeo si puedo asociar el egreso al ingreso
-				if ((ingreso.Monto >= egreso.valorTotal()) ||
-				   // O si lo que me falta para asociarlo es mayor al valor del egreso 
-				   (montoIngresoRestante >= egreso.valorTotal()))
-				{
-					// Si se puede, lo asocio
-					base.asociarEgresoIngreso(egreso, ingreso);
-
+				if(montoIngresoRestante >= listaEgresos[j].ValorTotal)
+				{	
 					// Guardo lo que me falta para llenar el ingreso
-					montoIngresoRestante -= egreso.valorTotal();
+					montoIngresoRestante -= listaEgresos[j].ValorTotal;
 
-					// Saco el egreso que acabo de vicular, para no vincularlo de nuevo a nada
-					listaEgresos.Remove(egreso);
+					// Si se puede, lo asocio
+					asociarEgresoIngreso(contexto, listaEgresos[j], listaIngresos[i]);
+
+					Console.WriteLine(listaEgresos[j].ID_OperacionDeEgreso);
+					Console.WriteLine(listaEgresos[j].ValorTotal);
+					
+					
+					
 				}
 			}
 		}
-		*/
-
+		Console.ReadLine();
 	}
 }

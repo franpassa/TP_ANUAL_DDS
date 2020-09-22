@@ -13,18 +13,12 @@ public abstract class CriterioVinculador {
 	public CriterioVinculador(){
 
 	}
-	public abstract void vincular(DB_Context _contexto, Organizacion _org);
+	public abstract void vincular(DB_Context contexto, Organizacion organizacion);
 
-	public void asociarEgresoIngreso(OperacionDeEgreso _egreso, OperacionDeIngreso _ingreso)
+	public void asociarEgresoIngreso(DB_Context contexto, OperacionDeEgreso egreso, OperacionDeIngreso ingreso)
 	{
-		/* 
 		contexto.Database
 			.ExecuteSqlCommand(
-			"UPDATE OperacionDeEgreso SET ID_Ingreso = {0} WHERE ID_OperacionDeEgreso = {1}", _ingreso.ID_Ingreso, _egreso.ID_OperacionDeEgreso);
-
-		   UPDATE OperacionDeEgreso  
-		   SET ID_Ingreso = ingreso.ID_Ingreso
-		   WHERE ID_OperacionDeEgreso = egreso.ID_Egreso
-		 */
+			"UPDATE OperacionDeEgreso SET IngresoAsociado_ID_Ingreso = {0} WHERE (ID_OperacionDeEgreso = {1}) and (IngresoAsociado_ID_Ingreso is null)", ingreso.ID_Ingreso, egreso.ID_OperacionDeEgreso);
 	}
 }
