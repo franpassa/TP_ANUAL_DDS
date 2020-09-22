@@ -39,8 +39,7 @@ namespace TPANUAL {
         public List<Usuario> Revisores { get; set; }
         public List<Item> Items { get; set; }
 
-        [NotMapped]
-        public BandejaDeMensajes Bandeja { get; set; }
+        public List<Mensaje> Bandeja { get; set; }
 
         /*
         Al momento de crear la compra, ya le paso la lista de items con el valor total de cada uno, osea lo que salieron cuando compre. 
@@ -51,7 +50,7 @@ namespace TPANUAL {
         public Compra( int cantidadDePresupuestosRequeridos, CriterioCompra criterio, List<Item> items, List<Usuario> revisores, PersonaProveedora persona, EntidadJuridicaProveedora entidad)
         {
             CantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
-            Bandeja = new BandejaDeMensajes();
+            Bandeja = new List<Mensaje>();
             Criterio = criterio;
             Presupuestos = new List<Presupuesto>();
             Items = items;
@@ -124,8 +123,16 @@ namespace TPANUAL {
         {
             if (esRevisor(usuario))
             {
-                Bandeja.imprimirMensajes();
+                foreach (Mensaje mensaje in Bandeja)
+                {
+                    mensaje.mostrarMensaje();
+                }
             }
+        }
+
+        public void agregarMensaje(string mensaje)
+        {
+            Bandeja.Add(new Mensaje(mensaje));
         }
 
         private bool esRevisor(Usuario unUsuario)

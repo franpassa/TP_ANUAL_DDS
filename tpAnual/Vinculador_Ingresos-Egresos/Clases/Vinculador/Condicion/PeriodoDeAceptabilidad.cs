@@ -6,20 +6,23 @@
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
 
+using System;
 using TPANUAL;
 
 public class PeriodoDeAceptabilidad : Condicion {
 
-	private int periodo;
+	private TimeSpan periodo;
 
 	public PeriodoDeAceptabilidad(int dias){
-		periodo = dias;
+		periodo = new TimeSpan(dias/2, 0, 0, 0);
 	}
 
-    public int Periodo { get => periodo; set => periodo = value; }
+    public TimeSpan Periodo { get => periodo; set => periodo = value; }
 
     public override bool cumpleCondicion(OperacionDeEgreso opegreso, OperacionDeIngreso opingreso){
-		return true;
-	}
+		DateTime inferior = opingreso.Fecha.Subtract(Periodo);
+		DateTime superior = opingreso.Fecha.Add(Periodo);
 
+		return opegreso.Fecha < superior && opegreso.Fecha > inferior;
+	}
 }

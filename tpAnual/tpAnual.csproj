@@ -154,9 +154,9 @@
     <Compile Include="Clases\API\Clases API\Moneda.cs" />
     <Compile Include="Clases\API\Clases API\País.cs" />
     <Compile Include="Clases\API\Clases API\Provincia.cs" />
+    <Compile Include="Clases\Compra\Mensaje.cs" />
     <Compile Include="Clases\Organizacion\Actividad\Actividad.cs" />
     <Compile Include="Clases\Organizacion\Actividad\Agropecuario.cs" />
-    <Compile Include="Clases\Compra\BandejaDeMensajes.cs" />
     <Compile Include="Clases\Item\Categoria.cs" />
     <Compile Include="Clases\Organizacion\Actividad\Comercio.cs" />
     <Compile Include="Clases\Compra\Compra.cs" />

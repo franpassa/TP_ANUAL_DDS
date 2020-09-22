@@ -10,8 +10,8 @@ namespace TPANUAL
     {
         [Key]
 
-        [Column("ID_Ingreso")]
-        public int ID_Ingreso { get; set; }
+        [Column("ID_OperacionDeIngreso")]
+        public int ID_OperacionDeIngreso { get; set; }
 
         [Column("ID_Organizacion")]
         public int ID_Organizacion { get; set; }

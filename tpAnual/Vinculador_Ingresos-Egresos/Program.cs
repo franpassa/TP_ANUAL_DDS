@@ -9,7 +9,7 @@ namespace Vinculador_Ingresos_Egresos
         static void Main(string[] args)
         {
             using (var contexto = new DB_Context())
-            {
+            {                   
                 Empresa e = contexto.empresas.Find(1);
 
                 // Creo condiciones
@@ -23,7 +23,7 @@ namespace Vinculador_Ingresos_Egresos
 
                 vinculador.cambiarCriterio( criterio );
 
-                vinculador.vincular(contexto, e);         
+                vinculador.vincular(contexto, e);     
             }
         }
     }

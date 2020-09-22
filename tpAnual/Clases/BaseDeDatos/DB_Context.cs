@@ -13,6 +13,7 @@ namespace TPANUAL
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public class DB_Context : DbContext
     {
+        public DbSet<Mensaje> mensaje { get; set; }
         public DbSet<Ciudad> ciudad { get; set; }
         public DbSet<TipoEntidad> tipoentidad { get; set; }
         public DbSet<Direccion> direccion { get; set; }

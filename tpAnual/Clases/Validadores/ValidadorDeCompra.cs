@@ -35,35 +35,35 @@ namespace TPANUAL
         {
             await Task.Delay(1);
 
-            compra.Bandeja.ListaDeMensajes.Clear();
+            compra.Bandeja.Clear();
 
             if (compra.esConPresupuesto())
             {
                 if ((compra.Presupuestos).Count == compra.CantidadDePresupuestosRequeridos) // PUNTO A
                 {
-                    compra.Bandeja.agregarMensaje("Cantidad de presupuestos correcta.");
+                    compra.agregarMensaje("Cantidad de presupuestos correcta.");
                 }
                 else
                 {
-                    compra.Bandeja.agregarMensaje("Cantidad de presupuestos incorrecta.");
+                    compra.agregarMensaje("Cantidad de presupuestos incorrecta.");
                 }
 
                 if (compra.itemsElegidosEstanEnPresupuestos()) // PUNTO B
                 {
-                    compra.Bandeja.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
+                    compra.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
 
                     if (compra.Criterio.cumpleCriterio(compra)) // PUNTO C
                     {
-                        compra.Bandeja.agregarMensaje("Presupuesto elegido en base al criterio.");
+                        compra.agregarMensaje("Presupuesto elegido en base al criterio.");
                     }
                     else
                     {
-                        compra.Bandeja.agregarMensaje("Presupuesto no elegido en base al criterio.");
+                        compra.agregarMensaje("Presupuesto no elegido en base al criterio.");
                     }
                 }
                 else
                 {
-                    compra.Bandeja.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
+                    compra.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
                 }
                 
                 }

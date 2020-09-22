@@ -15,7 +15,7 @@ using System.Linq;
 using System.Data.Entity;
 
 namespace TPANUAL {
-	public class API_MercadoLibre { // Convertir en singleton
+	public class API_MercadoLibre {
 
 		public List<Pais> paises;
 
@@ -58,18 +58,9 @@ namespace TPANUAL {
                 .ExecuteSqlCommand(
                 "delete from ciudad; delete from provincia; delete from pais; delete from moneda;");
 
-            /*
-            List<Pais> listaPaises = new List<Pais> { };
-            listaPaises.Add(new Pais("PA"));
-            listaPaises.Add(new Pais("PR"));
-            listaPaises.Add(new Pais("EC"));
-            listaPaises.Add(new Pais("GT"));
-            */
-
             Dictionary<string, string> paisMoneda = new Dictionary<string, string> { };
 
             foreach (Pais p in paises)
-            //foreach (Pais p in listaPaises)
             {
                 paisMoneda.Add(p.ID_Pais, p.Moneda.ID_Moneda);
                 foreach (Moneda m in contexto.moneda)
