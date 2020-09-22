@@ -15,13 +15,12 @@ namespace TPANUAL
         static void Main(string[] args) {
             using (var contexto = new DB_Context())
             {
-                
-                API_MercadoLibre ml = new API_MercadoLibre();
+                API_MercadoLibre ml = API_MercadoLibre.getInstance();
                 ml.persistir(contexto);
                 
 
 
-
+                /*
                 
                 //creo usuario Pedro
                 Usuario pedro = new Usuario("pedritoelmejor", "pepito");
@@ -92,7 +91,7 @@ namespace TPANUAL
                 */
 
                 //OPERACION DE EGRESO 1
-
+                /*
                 //creo atributos de compra
                 List<Usuario> usuariosRevisores = new List<Usuario> { pedro };
                 Item itemCompra1 = new Item("zapatillas", "rositas", 126312, categoriasJuan);
@@ -264,7 +263,7 @@ namespace TPANUAL
                 // Console.ReadLine();
 
                 // jose.verMensajes(compra);
-
+                */
                 // sched.stop();
                 contexto.SaveChanges();
             }

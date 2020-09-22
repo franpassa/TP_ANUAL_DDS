@@ -26,7 +26,7 @@ public abstract class CriterioVinculador {
 	{
 		contexto.Database
 			.ExecuteSqlCommand(
-			"UPDATE OperacionDeEgreso SET IngresoAsociado_ID_Ingreso = {0} WHERE (ID_OperacionDeEgreso = {1}) and (IngresoAsociado_ID_Ingreso is null)", ingreso.ID_Ingreso, egreso.ID_OperacionDeEgreso);
+			"UPDATE OperacionDeEgreso SET IngresoAsociado_ID_Ingreso = {0} WHERE (ID_OperacionDeEgreso = {1}) and (IngresoAsociado_ID_Ingreso is null)", ingreso.ID_OperacionDeIngreso, egreso.ID_OperacionDeEgreso);
 		egreso.IngresoAsociado = ingreso;
 	}
 }

@@ -17,9 +17,20 @@ using System.Data.Entity;
 namespace TPANUAL {
 	public class API_MercadoLibre {
 
+        private static API_MercadoLibre instance;   
+
 		public List<Pais> paises;
 
-		public API_MercadoLibre(){
+        public static API_MercadoLibre getInstance()
+        {
+            if(instance == null)
+            {
+                instance = new API_MercadoLibre();
+            }
+            return instance;
+        }
+
+		private API_MercadoLibre(){
             // Si ya hay algo, me aseguro que se vacíe
             paises = new List<Pais> { };
 
