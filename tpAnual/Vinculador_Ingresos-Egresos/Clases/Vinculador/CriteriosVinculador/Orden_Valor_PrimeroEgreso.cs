@@ -24,54 +24,25 @@ public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
 		var listaEgresos = contexto.operacionDeEgreso
 			.SqlQuery("Select * from operaciondeegreso where ID_Organizacion = {0} order by valortotal", organizacion.ID_Organizacion)
 			.ToList();
-/*
-		for (int j = 0; j < listaEgresos.Count; j++)
-		{
-			Console.WriteLine(listaEgresos[j].ID_OperacionDeEgreso);
-			Console.WriteLine(listaEgresos[j].ValorTotal);
-		}
 
-		Console.WriteLine("--------------------");
-
-		for (int i = 0; i < listaIngresos.Count; i++)	
+		foreach(OperacionDeIngreso opingreso in listaIngresos)
         {
-			Console.WriteLine(listaIngresos[i].ID_Ingreso);
-			Console.WriteLine(listaIngresos[i].Monto);
-		}
 
-		Console.ReadLine();
-*/
-		
-		// Guarda la diferencia restante entre ingreso y egreso
-		float montoIngresoRestante;
-
-		for(int i = 0; i < listaIngresos.Count; i++)
-		{
-			// Le asigna el valor del ingreso al principio del foreach
-			montoIngresoRestante = listaIngresos[i].Monto;
-			Console.WriteLine(listaIngresos[i].ID_Ingreso);
-			Console.WriteLine(listaIngresos[i].Monto);
-
-			// Para cada egreso 
-			for (int j = 0; j < listaEgresos.Count; j++)
-			{
-				// Chequeo si puedo asociar el egreso al ingreso
-				if(montoIngresoRestante >= listaEgresos[j].ValorTotal)
-				{	
+			foreach(OperacionDeEgreso opegreso in listaEgresos)
+            {
+				if (opingreso.Monto >= opegreso.ValorTotal && opegreso.IngresoAsociado is null)
+				{
 					// Guardo lo que me falta para llenar el ingreso
-					montoIngresoRestante -= listaEgresos[j].ValorTotal;
+					opingreso.Monto -= opegreso.ValorTotal;
 
 					// Si se puede, lo asocio
-					asociarEgresoIngreso(contexto, listaEgresos[j], listaIngresos[i]);
+					asociarEgresoIngreso(contexto, opegreso, opingreso);
 
-					Console.WriteLine(listaEgresos[j].ID_OperacionDeEgreso);
-					Console.WriteLine(listaEgresos[j].ValorTotal);
-					
-					
-					
 				}
 			}
 		}
+		
+		Console.WriteLine("ok");
 		Console.ReadLine();
 	}
 }

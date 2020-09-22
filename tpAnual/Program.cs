@@ -15,10 +15,10 @@ namespace TPANUAL
         static void Main(string[] args) {
             using (var contexto = new DB_Context())
             {
-                /*
+                
                 API_MercadoLibre ml = new API_MercadoLibre();
                 ml.persistir(contexto);
-                */
+                
 
 
 
