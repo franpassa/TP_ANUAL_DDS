@@ -11,10 +11,16 @@ using TPANUAL;
 
 public abstract class CriterioVinculador {
 
-	public CriterioVinculador(){
+	private Vinculador vinculador;
 
-	}
+    public Vinculador Vinculador { get => vinculador; set => vinculador = value; }
+
 	public abstract void vincular(DB_Context contexto, Organizacion organizacion);
+
+	public bool cumpleCondicionesVinculador(OperacionDeEgreso opegreso, OperacionDeIngreso opingreso)
+    {
+		return Vinculador.cumpleCondiciones(opegreso, opingreso);
+    }
 
 	public void asociarEgresoIngreso(DB_Context contexto, OperacionDeEgreso egreso, OperacionDeIngreso ingreso)
 	{

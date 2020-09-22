@@ -30,7 +30,8 @@ public class Orden_Valor_PrimeroIngreso : CriterioVinculador {
 			foreach (OperacionDeIngreso opingreso in listaIngresos)
 			{
 				if ( opegreso.ValorTotal <= opingreso.Monto
-					&& opegreso.IngresoAsociado is null)
+					&& opegreso.IngresoAsociado is null 
+					&& cumpleCondicionesVinculador(opegreso, opingreso))
 				{
 					// Guardo lo que me falta para llenar el ingreso
 					opingreso.Monto -= opegreso.ValorTotal;

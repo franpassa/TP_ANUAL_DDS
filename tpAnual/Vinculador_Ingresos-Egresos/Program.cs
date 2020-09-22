@@ -12,16 +12,18 @@ namespace Vinculador_Ingresos_Egresos
             {
                 Empresa e = contexto.empresas.Find(1);
 
-                // Creo el vinculador con sus parametros
-                Vinculador v = new Vinculador(
-                    new List<Condicion>() 
-                    {
-                        new PeriodoDeAceptabilidad(20) 
-                    },
-                    new Orden_Valor_PrimeroEgreso()
-                    );
+                // Creo condiciones
+                List<Condicion> condiciones = new List<Condicion>() { new PeriodoDeAceptabilidad(20) };
 
-                v.vincular(contexto, e);         
+                // Creo el vinculador con sus parametros
+                Vinculador vinculador = new Vinculador(condiciones);
+
+                CriterioVinculador criterio = new Orden_Valor_PrimeroEgreso();
+                criterio.Vinculador = vinculador;
+
+                vinculador.cambiarCriterio( criterio );
+
+                vinculador.vincular(contexto, e);         
             }
         }
     }

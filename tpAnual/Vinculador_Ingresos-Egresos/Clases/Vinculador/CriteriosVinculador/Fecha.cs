@@ -5,7 +5,9 @@
 //  Created on:      12-Sep-2020 7:23:04 PM
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using TPANUAL;
 
 public class Fecha : CriterioVinculador {
@@ -14,9 +16,37 @@ public class Fecha : CriterioVinculador {
 
 	}
 
-	public override void vincular(DB_Context _contexto, Organizacion _org)
+	public override void vincular(DB_Context contexto, Organizacion organizacion)
 	{
+		var listaIngresos = contexto.operacionDeIngreso
+			.SqlQuery("Select * from operaciondeingreso where ID_Organizacion = {0} order by fecha", organizacion.ID_Organizacion)
+			.ToList();
 
+		var listaEgresos = contexto.operacionDeEgreso
+			.SqlQuery("Select * from operaciondeegreso where ID_Organizacion = {0} order by fecha", organizacion.ID_Organizacion)
+			.ToList();
+
+		foreach (OperacionDeIngreso opingreso in listaIngresos)
+		{
+
+			foreach (OperacionDeEgreso opegreso in listaEgresos)
+			{
+				if (opingreso.Monto >= opegreso.ValorTotal 
+					&& opegreso.IngresoAsociado is null 
+					&& cumpleCondicionesVinculador(opegreso, opingreso))
+				{
+					// Guardo lo que me falta para llenar el ingreso
+					opingreso.Monto -= opegreso.ValorTotal;
+
+					// Si se puede, lo asocio
+					asociarEgresoIngreso(contexto, opegreso, opingreso);
+
+				}
+			}
+		}
+
+		Console.WriteLine("ok");
+		Console.ReadLine();
 	}
 
 }

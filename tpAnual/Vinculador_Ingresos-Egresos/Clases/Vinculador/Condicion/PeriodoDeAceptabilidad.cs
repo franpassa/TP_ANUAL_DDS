@@ -6,17 +6,20 @@
 //  Original author: Franco
 ///////////////////////////////////////////////////////////
 
+using TPANUAL;
+
 public class PeriodoDeAceptabilidad : Condicion {
 
-	private int periodoDeAceptabilidad;
+	private int periodo;
 
-	public PeriodoDeAceptabilidad(int _dias){
-		periodoDeAceptabilidad = _dias;
+	public PeriodoDeAceptabilidad(int dias){
+		periodo = dias;
 	}
 
-	public override bool cumpleCondicion(){
+    public int Periodo { get => periodo; set => periodo = value; }
 
-		return false;
+    public override bool cumpleCondicion(OperacionDeEgreso opegreso, OperacionDeIngreso opingreso){
+		return true;
 	}
 
 }

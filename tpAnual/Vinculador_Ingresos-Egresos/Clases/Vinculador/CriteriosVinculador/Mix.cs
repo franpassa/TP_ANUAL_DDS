@@ -10,15 +10,15 @@ using TPANUAL;
 
 public class Mix : CriterioVinculador {
 
-	private List<CriterioVinculador> criterios;
+	private List<CriterioVinculador> Criterios = new List<CriterioVinculador>();
 
-	public Mix(){
-
+	public Mix(List<CriterioVinculador> criterios){
+		Criterios = criterios;
 	}
 
 	public override void vincular(DB_Context _contexto, Organizacion _org)
 	{
-		foreach (CriterioVinculador c in criterios) { c.vincular(_contexto, _org); }
+		foreach (CriterioVinculador c in Criterios) { c.vincular(_contexto, _org); }
 	}
 
 }

@@ -14,6 +14,6 @@ public abstract class Condicion {
 
 	}
 
-	public abstract bool cumpleCondicion();
+	public abstract bool cumpleCondicion(OperacionDeEgreso opegreso, OperacionDeIngreso opingreso);
 
 }//end Condicion
