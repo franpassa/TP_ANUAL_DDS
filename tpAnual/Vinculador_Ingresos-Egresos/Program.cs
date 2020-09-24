@@ -10,7 +10,7 @@ namespace Vinculador_Ingresos_Egresos
         {
             using (var contexto = new DB_Context())
             {                   
-                Empresa e = contexto.empresas.Find(1);
+                Empresa empresa = contexto.empresas.Find(1);
 
                 // Creo condiciones
                 List<Condicion> condiciones = new List<Condicion>() { new PeriodoDeAceptabilidad(20) };
@@ -23,7 +23,7 @@ namespace Vinculador_Ingresos_Egresos
 
                 vinculador.cambiarCriterio( criterio );
 
-                vinculador.vincular(contexto, e);     
+                vinculador.vincular(contexto, empresa); 
             }
         }
     }
