@@ -137,6 +137,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\black-dashboard.css.map" />
+    <Content Include="Pictures\GeSoc_foto.jpg" />
     <Content Include="Scripts\black-dashboard.js" />
     <Content Include="Scripts\bootstrap-notify.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -176,6 +177,8 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\Proveedores.cshtml" />
     <Content Include="Views\Home\Presupuestos.cshtml" />
+    <Content Include="Views\Home\IndexSesion.cshtml" />
+    <Content Include="Views\Shared\_ShowView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TPANUAL.csproj">
