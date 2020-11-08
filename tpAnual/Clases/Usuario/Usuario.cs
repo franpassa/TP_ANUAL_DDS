@@ -57,7 +57,7 @@ namespace TPANUAL {
 
         public bool validarContraseña()
         {
-            return ValidadorDeContraseña.getInstanceValidadorContra.validarContraseña(this.Contraseña);
+            return ValidadorDeContraseña.getInstanceValidadorContra().validarContraseña(this.Contraseña);
         }
 
 	}//end Usuario

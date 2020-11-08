@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
-
 using Quartz;
 using TPANUAL.Jobs;
 

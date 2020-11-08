@@ -156,16 +156,19 @@
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav ml-auto">
                             <li class="dropdown nav-item">
-                                    <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                        <i class="fas fa-user-circle"></i>
-                                        <b class="caret d-none d-lg-block d-xl-block"></b>
-                                        <p class="d-lg-none"> Usuario </p>
-                                    </a>
+                                <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <i class="fas fa-user-circle"></i>
+                                    @ViewBag.usuario &nbsp;
+                                    <b class="caret d-none d-lg-block d-xl-block"></b>
+                                </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                    <li class="nav-link"><a href="~/Home/Index" class="nav-item dropdown-item"> Cerrar sesión </a></li>
+                                    <li class="nav-link">
+                                        <a href="~/Home/Index" class="nav-item dropdown-item"> 
+                                            Cerrar sesión 
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li class="separator d-lg-none"></li>
                         </ul>
                     </div>
                 </div>

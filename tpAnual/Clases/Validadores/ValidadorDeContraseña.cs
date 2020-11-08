@@ -11,20 +11,13 @@ namespace TPANUAL
 
         protected ValidadorDeContraseña() { }
 
-        public static ValidadorDeContraseña getInstanceValidadorContra
+        public static ValidadorDeContraseña getInstanceValidadorContra()
         {
-
-            get
+            if (instanceContraseña == null)
             {
-                if (instanceContraseña == null)
-                {
-
-                    instanceContraseña = new ValidadorDeContraseña();
-                }
-
-                return instanceContraseña;
+                instanceContraseña = new ValidadorDeContraseña();
             }
-
+            return instanceContraseña;
         }
 
         //VALIDADOR DE CONTRASEÑAS
