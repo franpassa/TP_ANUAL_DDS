@@ -158,7 +158,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Organizaciones.cshtml" />
     <Content Include="Views\Home\Ingresos.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Egresos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -177,8 +177,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\Proveedores.cshtml" />
     <Content Include="Views\Home\Presupuestos.cshtml" />
-    <Content Include="Views\Home\IndexSesion.cshtml" />
-    <Content Include="Views\Shared\_ShowView.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TPANUAL.csproj">

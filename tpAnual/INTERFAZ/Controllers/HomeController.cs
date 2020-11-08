@@ -14,6 +14,11 @@ namespace INTERFAZ.Controllers
             return View();
         }
 
+        public ActionResult Egresos()
+        {
+            return View();
+        }
+
         public ActionResult Ingresos()
         {
             return View();
