@@ -19,19 +19,12 @@ namespace INTERFAZ.Controllers
         {
             using (DB_Context contexto = new DB_Context())
             {
-                ViewBag.usuario = _usuario;
-                ViewBag.contraseña = _contraseña;
+                Usuario uLoggeado = Usuario.iniciarSesion(_usuario, _contraseña);
 
-                /*
-                // Selecciono el usuario y la contraseña que me dan en la base de datos
-                var usuarios = contexto.usuario
-                    .SqlQuery("Select NombreUsuario from usuario where NombreUsuario = {0} and Contraseña = {1}", 
-                    _usuario, _contraseña)
-                    .ToList();
-                */
-
-                if (_usuario.Length == 5) // if(usuarios.Count() == 1)
+                if ( uLoggeado != null)
                 {
+                    Session["UsuarioLoggeado"] = uLoggeado;
+                    Session["NombreUsuarioLoggeado"] = uLoggeado.NombreUsuario;
                     return View("Egresos");
                 }
                 else
