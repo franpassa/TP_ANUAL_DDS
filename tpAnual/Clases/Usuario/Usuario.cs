@@ -60,7 +60,8 @@ namespace TPANUAL {
             return ValidadorDeContraseña.getInstanceValidadorContra().validarContraseña(this.Contraseña);
         }
 
-        // Devuelve -1 si no encuentra al usuario, pero si existe devuelve el ID
+        // Metodo estático que apartir de un string _usuario y _contraseña
+        // devuelve el usuario de la base de datos, o null si no lo encuentra
         public static Usuario iniciarSesion(string _usuario, string _contraseña)
         {
             using (var contexto = new DB_Context())

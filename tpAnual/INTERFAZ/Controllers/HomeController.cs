@@ -23,7 +23,7 @@ namespace INTERFAZ.Controllers
 
                 if ( uLoggeado != null)
                 {
-                    Session["UsuarioLoggeado"] = uLoggeado;
+                    // Aparentemente no se puede hacer "Session["UsuarioLoggeado"] = uLoggeado;" :(
                     Session["NombreUsuarioLoggeado"] = uLoggeado.NombreUsuario;
                     return View("Egresos");
                 }
