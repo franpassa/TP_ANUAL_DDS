@@ -11,11 +11,12 @@ namespace INTERFAZ.Controllers
     {
         public ActionResult Index()
         {
+            Session.Clear();
             return View();
         }
 
         [HttpGet]
-        public ActionResult FormSesion(String _usuario, String _contraseña)
+        public ActionResult InicioSesión(String _usuario, String _contraseña)
         {
             using (DB_Context contexto = new DB_Context())
             {
@@ -24,7 +25,9 @@ namespace INTERFAZ.Controllers
                 if ( uLoggeado != null)
                 {
                     // Aparentemente no se puede hacer "Session["UsuarioLoggeado"] = uLoggeado;" :(
-                    Session["NombreUsuarioLoggeado"] = uLoggeado.NombreUsuario;
+                    Session["NombreUsuario"] = uLoggeado.NombreUsuario;
+                    Session["IdUsuario"] = uLoggeado.ID_Usuario;
+                    Session["IdOrgUsuario"] = uLoggeado.ID_Usuario;
                     return View("Egresos");
                 }
                 else
@@ -37,27 +40,62 @@ namespace INTERFAZ.Controllers
 
         public ActionResult Egresos()
         {
-            return View();
+            if (Session["NombreUsuario"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }
         }
 
         public ActionResult Ingresos()
         {
-            return View();
+            if (Session["NombreUsuario"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }
         }
 
         public ActionResult Organizaciones()
         {
-            return View();
+            if (Session["NombreUsuario"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }
         }
 
         public ActionResult Presupuestos()
         {
-            return View();
+            if (Session["NombreUsuario"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }
         }
 
         public ActionResult Proveedores()
         {
-            return View();
+            if (Session["NombreUsuario"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }
         }
     }
 }

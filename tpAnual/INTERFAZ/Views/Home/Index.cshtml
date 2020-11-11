@@ -72,8 +72,7 @@
                                 <br>
                             </div>
                             <div class="card-body">
-                                @{Session["NombreUsuarioLoggeado"] = null;}
-                                @using (Html.BeginForm("FormSesion", "Home", FormMethod.Get))
+                                @using (Html.BeginForm("InicioSesión", "Home", FormMethod.Get))
                                 {
                                     <div class="col">
                                         <div class="form-group">
@@ -102,18 +101,7 @@
                                                     <div class="alert alert-danger" role="alert">
                                                         @ViewBag.errorInicioSesion
                                                     </div>
-                                                    <br />
                                                 }
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" value="">
-                                                        Recordarme
-                                                        <span class="form-check-sign">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                    <br>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
