@@ -15,7 +15,7 @@ namespace INTERFAZ.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult InicioSesión(String _usuario, String _contraseña)
         {
             using (DB_Context contexto = new DB_Context())
