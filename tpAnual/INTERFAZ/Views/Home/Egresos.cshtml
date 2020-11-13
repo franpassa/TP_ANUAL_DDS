@@ -1,5 +1,7 @@
-﻿@{
+﻿@using TPANUAL 
+@{
     ViewBag.Title = "Egresos";
+    Usuario usuario = (Usuario)Session["Usuario"];
 }
 <style>
     .bandeja-mensajes {
@@ -12,7 +14,6 @@
         overflow-y: scroll;
     }
 </style>
-
 <div class="card card-chart">
     <div class="card-header ">
         <div class="row">

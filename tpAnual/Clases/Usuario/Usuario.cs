@@ -85,6 +85,24 @@ namespace TPANUAL {
             }
         }
 
+        public static Usuario registrarse(string _usuario, string _contraseña)
+        {
+            if (!ValidadorDeContraseña.getInstanceValidadorContra().validarContraseña(_contraseña))
+            {
+                return null;
+            }
+            else
+            {
+                using (var contexto = new DB_Context())
+                {
+                    Usuario usuarioNuevo = new Usuario(_contraseña, _usuario);
+                    contexto.usuario.Add(usuarioNuevo);
+                    contexto.SaveChanges();
+                    return usuarioNuevo;
+                }
+            }
+        }
+
 	}//end Usuario
 
 }//end namespace TPANUAL

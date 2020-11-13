@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Text;
+using System.IO;
+using System.Reflection;
 
 namespace TPANUAL
 {
-    class ValidadorDeContraseña
+    public class ValidadorDeContraseña
     {
         private static ValidadorDeContraseña instanceContraseña = null;
 
@@ -64,9 +66,54 @@ namespace TPANUAL
                             break;
                     }
                 }
-
             }
+        }
 
+        public List<String> mostrarMsjValidadorLista(string contraseña)
+        {
+            bool[] lista = listaDeValidaciones(contraseña);
+            List<String> msj = new List<string> { };
+
+            for (int i = 0; i < lista.Length; i++)
+            {
+                if (!lista[i])
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            msj.Add("La contraseña no debe estar vacia.");
+                            break;
+                        case 1:
+                            msj.Add("La contraseña no debe contener caracteres unicode.");
+                            break;
+                        case 2:
+                            msj.Add("La contraseña no debe estar incluida en el top 10.000 de contraseñas mas frecuentes.");
+                            break;
+                        case 3:
+                            msj.Add("La contraseña debe contener al menos una letra minuscula.");
+                            break;
+                        case 4:
+                            msj.Add("La contraseña debe contener al menos una letra mayuscula.");
+                            break;
+                        case 5:
+                            msj.Add("La contraseña debe contener al menos un numero.");
+                            break;
+                        case 6:
+                            msj.Add("La contraseña debe contener de 8 a 64 caracteres.");
+                            break;
+                        case 7:
+                            msj.Add("La contraseña no debe tener numeros consecutivos.");
+                            break;
+                        case 8:
+                            msj.Add("La contraseña no debe tener caracteres seguidos repetidos." );
+                            break;
+                        case 9:
+                            msj.Add("La contraseña no debe tener letras consecutivas.");
+                            break;
+                    }
+                }
+            }
+            return msj;
         }
 
         public bool validarContraseña(string contraseña)
@@ -91,7 +138,9 @@ namespace TPANUAL
 
             listaBool[1] = !EsUnicode(contraseña);
 
-            listaBool[2] = !EstaEnLaBaseDeDatos(contraseña);
+            //listaBool[2] = !EstaEnLaBaseDeDatos(contraseña);
+            listaBool[2] = true;
+
 
             var tieneMinusculas = new Regex(@"[a-z]+");
             var tieneMayusculas = new Regex(@"[A-Z]+");
@@ -117,19 +166,22 @@ namespace TPANUAL
 
         //FUNCIONES AUXILIARES PARA EL VALIDADOR
 
-        private bool EstaEnLaBaseDeDatos(string unString)
-        {
-            string[] archivoDeContasenias = System.IO.File.ReadAllLines(@"..\..\10000Contrasenas.txt");
+        // Cuando inicia el servidor, el path del archivo de 10000 contraseñas c
+        //private bool EstaEnLaBaseDeDatos(string unString)
+        //{
+        //    string currentDirectory = Environment.CurrentDirectory;
+        //    string directorioArchivoContrasenias = Path.Combine(currentDirectory, "10000Contasenas.txt");
+        //    string[] archivoDeContasenias = System.IO.File.ReadAllLines(directorioArchivoContrasenias);
 
-            foreach (string linea in archivoDeContasenias)
-            {
-                if (linea == unString)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        //    foreach (string linea in archivoDeContasenias)
+        //    {
+        //        if (linea == unString)
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
 
         private bool NumerosConsecutivos(string OtroString)
         {
