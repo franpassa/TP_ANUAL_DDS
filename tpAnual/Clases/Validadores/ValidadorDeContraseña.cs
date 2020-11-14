@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System.IO;
 using System.Reflection;
+using System.Web;
 
 namespace TPANUAL
 {
@@ -138,8 +139,8 @@ namespace TPANUAL
 
             listaBool[1] = !EsUnicode(contraseña);
 
-            //listaBool[2] = !EstaEnLaBaseDeDatos(contraseña);
-            listaBool[2] = true;
+            listaBool[2] = !EstaEnLaBaseDeDatos(contraseña);
+            //listaBool[2] = true;
 
 
             var tieneMinusculas = new Regex(@"[a-z]+");
@@ -182,6 +183,22 @@ namespace TPANUAL
         //    }
         //    return false;
         //}
+
+        private bool EstaEnLaBaseDeDatos(string unString)
+        {
+            string sFileName = HttpContext.Current.Server.MapPath(@"~/10000Contrasenas.txt");
+
+            string[] archivoDeContasenias = System.IO.File.ReadAllLines(sFileName);
+
+            foreach (string linea in archivoDeContasenias)
+            {
+                if (linea == unString)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         private bool NumerosConsecutivos(string OtroString)
         {
