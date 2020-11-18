@@ -18,6 +18,7 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Black Dashboard CSS -->
     <link href="/Content/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
 </head>
 <body class="">
     <div class="wrapper">
@@ -213,16 +214,104 @@
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="~/Scripts/black-dashboard.js?v=1.0.0" type="text/javascript"></script>
     <style>
-        ::-moz-selection {
-            /* Code for Firefox */
-            color: #f799f7 !important;
-            background: #282C34 !important;
+        @{
+            double maxheight = 700;
+            double halfmaxheight = maxheight/2;
         }
 
-        ::selection {
-            color: #f799f7 !important;
-            background: #282C34 !important;
+      .cuadro-texto {
+        max-height: @halfmaxheight px;
+        min-height: @halfmaxheight px;
+        overflow-y: scroll;
+        align-items: stretch;
+      }
+
+      .tabla-compras {
+        max-height: @maxheight px;
+        min-height: @maxheight px;
+        overflow-y: scroll;
+      }
+
+      a {
+        color: #1D8CF8;
+      }
+
+      a:hover {
+        color: #859bd1;
+      }
+
+      input {
+        background-color: #27293D;
+        color: #BEBFC5;
+        border: solid;
+        border-width: 1px;
+        border-radius: 2px;
+        border-color: #3D3F51;
+        padding: 5px;
+      }
+
+        @@media (max-width: 1199.98px) {
+
+        .cuadros-texto {
+          display: flex;
+          justify-content: stretch;
+          align-content: stretch;
+          width: 100%;
         }
+
+        .cuadro-texto {
+          flex-grow: 1;
+          flex-basis: auto;
+          text-align: center;
+        }
+
+        .invertir-sm {
+         flex-direction: column-reverse;
+        }
+
+        .tabla-compras {
+         margin-bottom: 16px;
+        }
+      }
+
+      hr {
+        border-color: #1D8CF8;
+      }
+
+      .nav-tabs .nav-link.active,
+      .nav-tabs .nav-item.show .nav-link {
+        color: #BEBFC5;
+        background-color: #27293D;
+        border-color: #54648B #54648B #27293D;
+      }
+
+      .nav-tabs {
+        border-bottom: 0.0625rem solid #54648B;
+      }
+
+      .nav-tabs a {
+        color: #6d7da5;
+      }
+
+      .nav-item .nav-link:hover {
+        border-color: #54648B;
+      }
+
+      .boton-flotante {
+        display: flex;
+        align-items: center;
+        align-content: space-between;
+        font-size: 14px;
+        margin: 18px;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+      }
+
+      .boton-flotante i {
+        font-size: 35px;
+      }
     </style>
 </body>
 </html>

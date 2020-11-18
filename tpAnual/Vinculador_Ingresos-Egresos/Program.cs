@@ -23,7 +23,7 @@ namespace Vinculador_Ingresos_Egresos
 
                 vinculador.cambiarCriterio( criterio );
 
-                vinculador.vincular(contexto, empresa); 
+                vinculador.vincular(contexto, empresa);
             }
         }
     }

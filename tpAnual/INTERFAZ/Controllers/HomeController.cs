@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TPANUAL;
+using TPANUAL.Clases.DAO;
 
 namespace INTERFAZ.Controllers
 {
@@ -22,8 +23,11 @@ namespace INTERFAZ.Controllers
 
         public ActionResult Egresos()
         {
+            ViewBag.Title = "Egresos";
+
             if (Session["Usuario"] != null)
             {
+                Session["Egresos"] = OperacionDeEgresoDAO.obtenerEgresos((Usuario)Session["Usuario"]);
                 return View();
             }
             else
@@ -36,6 +40,7 @@ namespace INTERFAZ.Controllers
         {
             if (Session["Usuario"] != null)
             {
+                Session["Ingresos"] = OperacionDeIngresoDAO.obtenerIngresos((Usuario)Session["Usuario"]);
                 return View();
             }
             else

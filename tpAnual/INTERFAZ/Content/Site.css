@@ -1,1 +1,10 @@
-﻿
+﻿::-moz-selection {
+    /* Code for Firefox */
+    color: white !important;
+    background: #54648B !important;
+}
+
+::selection {
+    color: white !important;
+    background: #DD4FCF !important;
+}

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TPANUAL;
+using TPANUAL.Clases.DAO;
 
 namespace INTERFAZ.Controllers
 {
@@ -14,7 +15,7 @@ namespace INTERFAZ.Controllers
         {
             if (_IniciarSesion != null) // Si hizo click en iniciar sesión
             {
-                Usuario uLoggeado = Usuario.iniciarSesion(_usuario, _contraseña);
+                Usuario uLoggeado = UsuarioDAO.iniciarSesion(_usuario, _contraseña);
 
                 if (uLoggeado != null)
                 {
@@ -29,7 +30,7 @@ namespace INTERFAZ.Controllers
             }
             else // Si hizo click en registrarse
             {
-                Usuario uRegistrado = Usuario.registrarse(_usuario, _contraseña);
+                Usuario uRegistrado = UsuarioDAO.registrarse(_usuario, _contraseña);
 
                 if(uRegistrado != null)
                 {

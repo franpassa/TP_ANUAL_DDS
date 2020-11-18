@@ -155,6 +155,10 @@
     <Compile Include="Clases\API\Clases API\País.cs" />
     <Compile Include="Clases\API\Clases API\Provincia.cs" />
     <Compile Include="Clases\Compra\Mensaje.cs" />
+    <Compile Include="Clases\DAO\OperacionDeEgresoDAO.cs" />
+    <Compile Include="Clases\DAO\OperacionDeIngresoDAO.cs" />
+    <Compile Include="Clases\DAO\OrganizacionDAO.cs" />
+    <Compile Include="Clases\DAO\UsuarioDAO.cs" />
     <Compile Include="Clases\Organizacion\Actividad\Actividad.cs" />
     <Compile Include="Clases\Organizacion\Actividad\Agropecuario.cs" />
     <Compile Include="Clases\Item\Categoria.cs" />

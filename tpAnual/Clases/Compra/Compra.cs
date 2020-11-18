@@ -148,7 +148,6 @@ namespace TPANUAL {
             return false;
         }
 
-
     }//end Compra
 
 }//end namespace TPANUAL
