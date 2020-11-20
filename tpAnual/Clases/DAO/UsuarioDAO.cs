@@ -26,6 +26,7 @@ namespace TPANUAL.Clases.DAO
                         (u.NombreUsuario == _usuario)
                         &&
                         (u.Contraseña == _contraseña))
+                    .Include(u => u.ComprasRevisables)
                     .FirstOrDefault();
 
                 if (usuario != null)

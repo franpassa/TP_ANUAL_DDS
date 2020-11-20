@@ -33,6 +33,7 @@ namespace TPANUAL
             this.Monto = monto;
             this.Fecha = fecha;
         }
+        public OperacionDeIngreso() { }
 
         public void agregarOperacionDeEgreso(OperacionDeEgreso operacion)
         {

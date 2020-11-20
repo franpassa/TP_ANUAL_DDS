@@ -38,6 +38,7 @@ namespace TPANUAL {
 			Compra = compra;
 			ValorTotal = valorTotal();
 		}
+		public OperacionDeEgreso() { }
 
 		public float valorTotal(){
 			ValorTotal = Compra.valorTotal();

@@ -14,7 +14,7 @@ namespace INTERFAZ.Controllers
         {
             List<String> erroresFormSesion = (List<String>) Session["erroresFormSesion"];
             String _usuario = (String) Session["_usuario"];
-            String _contraseña= (String) Session["_contraseña"];
+            String _contraseña = (String) Session["_contraseña"];
             Session.Clear();
             Session["erroresFormSesion"] = erroresFormSesion;
             Session["_usuario"] = _usuario;
@@ -53,6 +53,7 @@ namespace INTERFAZ.Controllers
         {
             if (Session["Usuario"] != null)
             {
+                Session["Organizacion"] = OrganizacionDAO.obtenerOrganizacion((Usuario)Session["Usuario"]);
                 return View();
             }
             else
