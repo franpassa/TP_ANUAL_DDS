@@ -164,8 +164,9 @@
                             <li class="dropdown nav-item">
                                 <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <i class="fas fa-user-circle"></i>
-                                    @usuario.NombreUsuario
                                     &nbsp;
+                                    @usuario.NombreUsuario
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
                                     <b class="caret d-none d-lg-block d-xl-block"></b>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar dropdown-black">
@@ -311,6 +312,11 @@
 
       .boton-flotante i {
         font-size: 35px;
+      }
+
+      .blur {
+        backdrop-filter: blur(3px);
+        transition: ease-in-out;
       }
     </style>
 </body>

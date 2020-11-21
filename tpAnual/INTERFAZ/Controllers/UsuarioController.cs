@@ -8,7 +8,7 @@ using TPANUAL.Clases.DAO;
 
 namespace INTERFAZ.Controllers
 {
-    public class UserController : Controller
+    public class UsuarioController : Controller
     {
         [HttpPost]
         public ActionResult FormSesion(String _usuario, String _contraseña, String _IniciarSesion, String _Registrarse)

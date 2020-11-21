@@ -22,18 +22,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal modal-black fade" tabindex="-1" role="dialog" id="popup-@oe.Compra.ID_Compra" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal modal-black fade blur" tabindex="-1" role="dialog" id="popup-@oe.Compra.ID_Compra" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-center">Editar compra</h5>
+                                    <h3 class="modal-title text-center">Editar compra</h3>
                                 </div>
                                 <div class="modal-body">
                                     <p>Este  es el form para editar la compra #@oe.Compra.ID_Compra</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success animation-on-hover">Save changes</button>
-                                    <button type="button" class="btn btn-danger animation-on-hover" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-success animation-on-hover">Guardar cambios</button>
+                                    <button type="button" class="btn btn-danger animation-on-hover" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </div>
                         </div>
@@ -216,18 +216,24 @@
         <i class="far fa-plus-square"></i>
     </div>
 </button>
-<div class="modal modal-black fade" tabindex="-1" role="dialog" id="registrarCompra" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal modal-black fade blur" tabindex="-1" role="dialog" id="registrarCompra" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-center">Registrar compra</h5>
+                <h3 class="modal-title text-center">Registrar compra</h3>
             </div>
             <div class="modal-body">
-                <p>Este  es el form para registrar una compra</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success animation-on-hover">Save changes</button>
-                <button type="button" class="btn btn-danger animation-on-hover" data-dismiss="modal">Close</button>
+                @using (Html.BeginForm("FormRegistroCompra", "Egresos", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <label for="nuevaCompra">Proveedor</label>
+                        <input type="text" class="form-control" id="nuevaCompra" placeholder="Ingresar nombre del proveedor">
+                    </div>
+                    <div class="modal-footer">
+                        <button name="_CrearCompra" type="submit" class="btn btn-success animation-on-hover">Guardar cambios</button>
+                        <button type="button" class="btn btn-danger animation-on-hover" data-dismiss="modal">Cerrar</button>
+                    </div>
+                }
             </div>
         </div>
     </div>
