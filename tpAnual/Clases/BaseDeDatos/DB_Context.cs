@@ -31,6 +31,10 @@ namespace TPANUAL
         public DbSet<Presupuesto> presupuesto { get; set; }
         public DbSet<Provincia> provincia { get; set; }
         public DbSet<Usuario> usuario { get; set; }
+        public DbSet<Categoria> categoria { get; set; }
+        public DbSet<Criterio> criterio { get; set; }
+
+
 
         // El string "dbConn" es el nombre del connection string definido en App.config
         public DB_Context() : base("db_tpanual")
@@ -82,6 +86,16 @@ namespace TPANUAL
             modelBuilder.Entity<OperacionDeEgreso>()
                 .HasRequired(o => o.Compra)
                 .WithRequiredPrincipal( c => c.OperacionDeEgreso);
+
+            modelBuilder.Entity<Item>()
+                 .HasMany<Categoria>(I => I.Categorias)
+                 .WithMany(C => C.Items)
+                 .Map(cs =>
+                 {
+                     cs.MapLeftKey("ID_Item");
+                     cs.MapRightKey("ID_Categoria");
+                     cs.ToTable("categoriasxitem");
+                 });
 
             modelBuilder.Entity<Compra>()
                 .HasMany<Usuario>(c => c.Revisores)

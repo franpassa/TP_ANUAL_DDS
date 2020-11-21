@@ -26,7 +26,6 @@ namespace TPANUAL {
         [Column("Descripcion")]
         public string Descripcion { get; set; }
 
-        [NotMapped]
         public List<Categoria> Categorias { get; set; }
 
         public Item(string nombre, string descripcion, float valorTotal, List<Categoria> categorias)
