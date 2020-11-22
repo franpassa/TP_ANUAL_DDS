@@ -76,21 +76,21 @@
                     }
 
                     @{
-                        if (ViewBag.Title == "Organizaciones")
+                        if (ViewBag.Title == "Organizacion")
                         {
                             <li class="active ">
-                                <a href="~/Home/Organizaciones">
+                                <a href="~/Home/Organizacion">
                                     <i class="fas fa-city"></i>
-                                    <p>Organizaciones</p>
+                                    <p>Organización</p>
                                 </a>
                             </li>
                         }
                         else
                         {
                             <li>
-                                <a href="~/Home/Organizaciones">
+                                <a href="~/Home/Organizacion">
                                     <i class="fas fa-city"></i>
-                                    <p>Organizaciones</p>
+                                    <p>Organización</p>
                                 </a>
                             </li>
                         }
@@ -133,6 +133,27 @@
                                 <a href="~/Home/Presupuestos">
                                     <i class="fas fa-cash-register"></i>
                                     <p>Presupuestos</p>
+                                </a>
+                            </li>
+                        }
+                    }
+
+                    @{
+                        if (ViewBag.Title == "Items")
+                        {
+                            <li class="active ">
+                                <a href="~/Home/Items">
+                                    <i class="fas fa-boxes"></i>                                    
+                                    <p>Items</p>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="~/Home/Items">
+                                    <i class="fas fa-boxes"></i>
+                                    <p>Items</p>
                                 </a>
                             </li>
                         }

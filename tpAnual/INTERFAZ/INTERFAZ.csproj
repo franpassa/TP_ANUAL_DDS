@@ -170,7 +170,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Organizaciones.cshtml" />
+    <Content Include="Views\Home\Organizacion.cshtml" />
     <Content Include="Views\Home\Ingresos.cshtml" />
     <Content Include="Views\Home\Egresos.cshtml" />
   </ItemGroup>
@@ -195,6 +195,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Views\Home\Items.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TPANUAL.csproj">

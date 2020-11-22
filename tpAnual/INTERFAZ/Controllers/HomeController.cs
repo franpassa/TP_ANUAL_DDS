@@ -49,7 +49,7 @@ namespace INTERFAZ.Controllers
             }
         }
 
-        public ActionResult Organizaciones()
+        public ActionResult Organizacion()
         {
             if (Session["Usuario"] != null)
             {
@@ -75,6 +75,18 @@ namespace INTERFAZ.Controllers
         }
 
         public ActionResult Proveedores()
+        {
+            if (Session["Usuario"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+        
+        public ActionResult Items()
         {
             if (Session["Usuario"] != null)
             {

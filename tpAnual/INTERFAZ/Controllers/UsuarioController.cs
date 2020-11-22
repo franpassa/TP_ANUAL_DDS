@@ -11,7 +11,7 @@ namespace INTERFAZ.Controllers
     public class UsuarioController : Controller
     {
         [HttpPost]
-        public ActionResult FormSesion(String _usuario, String _contraseña, String _IniciarSesion, String _Registrarse)
+        public ActionResult FormSesion(String _usuario, String _contraseña, String _IniciarSesion)
         {
             if (_IniciarSesion != null) // Si hizo click en iniciar sesión
             {
