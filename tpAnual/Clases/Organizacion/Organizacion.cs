@@ -12,8 +12,8 @@ namespace TPANUAL {
     [Table("organizacion")]
     public abstract class Organizacion
     {
-        [Key]
 
+        [Key, ForeignKey("TipoEntidad")]
         [Column("ID_Organizacion")]
         public int ID_Organizacion { get; set; }
 
@@ -32,8 +32,7 @@ namespace TPANUAL {
         [Column("CantidadDePersonal")]
         public int CantidadPersonal { get; set; }
 
-        [NotMapped]
-        public TipoEntidad TipoEntidad { get; set; }
+        public virtual TipoEntidad TipoEntidad { get; set; }
 
         public List<Usuario> Usuarios { get; set; }
 

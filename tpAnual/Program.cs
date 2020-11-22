@@ -5,6 +5,7 @@ using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
 using Quartz;
+using TPANUAL.Clases.DAO;
 using TPANUAL.Jobs;
 
 namespace TPANUAL
@@ -15,18 +16,300 @@ namespace TPANUAL
         {
             using (var contexto = new DB_Context())
             {
+
+                API_MercadoLibre ml = API_MercadoLibre.getInstance();
+                ml.persistir(contexto);
+
+                //creo usuario Pedro
+                Usuario pedro = new Usuario("pedritoelmejor", "pepito");
+                Usuario scarlet = new Usuario("DAMNSCARLE77", "scarlet");
+                Usuario daniel = new Usuario("imTheKarateKid", "danielSan");
+                Usuario megan = new Usuario("iHateDrake&Josh", "megan");
+                Usuario juan = new Usuario("JuanManoDura22", "juancho");
+                Usuario dillon = new Usuario("theBestDJInTheWorld", "dillon");
+                Usuario nola = new Usuario("noLoSonieeeee131313", "nola");
+                Usuario beto = new Usuario("Alberto7Gonzalez", "el_beto");
+                Usuario daphne = new Usuario("123tengoUnNombreReCheto", "daphne");
+                Usuario matias = new Usuario("AguanteArmenia", "hayastantsi");
+                Usuario nacho = new Usuario("teCarreoElTp", "nachoElCrack");
+                Usuario giu = new Usuario("AguanteElRockNacional12", "GNVP");
+                Usuario fran = new Usuario("HuracanPasion", "franquito");
+
+                contexto.usuario.Add(pedro);
+                contexto.usuario.Add(scarlet);
+                contexto.usuario.Add(daniel);
+                contexto.usuario.Add(megan);
+                contexto.usuario.Add(juan);
+                contexto.usuario.Add(dillon);
+                contexto.usuario.Add(nola);
+                contexto.usuario.Add(beto);
+                contexto.usuario.Add(daphne);
+                contexto.usuario.Add(matias);
+                contexto.usuario.Add(nacho);
+                contexto.usuario.Add(giu);
+                contexto.usuario.Add(fran);
+
+
+
+                Direccion direcPedrito = new Direccion("Saavedra 353", "2", 1, contexto.ciudad.Find("TUxBQ0NBUGZlZG1sYQ"));// capital  federal capital federal
+                Direccion direcJuancito = new Direccion("Mariano moreno 241", " ", 0, contexto.ciudad.Find("TUxBQ1NPQjVkNGVi"));// sobremonte cordoba
+                Direccion direcBetito = new Direccion("Masferrer 1022", "c", 2, contexto.ciudad.Find("TUxBQ0ZPUjNmZWYz")); // fformosa formosa
+                Direccion direcMatute = new Direccion("Fray Luis Beltran Este 343", "1", 4, contexto.ciudad.Find("TUxBQ01BTDZjYjM4")); // malargue mendoza
+                Direccion direcNachito = new Direccion("Av. Domuyo S/N", " ", 0, contexto.ciudad.Find("TUxBQ01JTjhhZGE5")); // minas neuquen Q8353
+                Direccion direcGiulsita = new Direccion("Perito Moreno Nº 3560", " ", 0, contexto.ciudad.Find("TUxBQ0VMQjM5MDg4MA")); // el bolson rio negro
+                Direccion direcFranquito = new Direccion("Bv. Villada 2005", " ", 0, contexto.ciudad.Find("TUxBQ0NBUzQwOWFl")); // caseros santa fe XR6J+MC
+                Direccion direcMirna = new Direccion("Bv. Villada 2005", " ", 0, contexto.ciudad.Find("TUxBQ0NBUzQwOWFl")); // caseros santa fe XR6J+MC
+                Direccion direcIsma = new Direccion("sarmiento 640", " 3", 2, contexto.ciudad.Find("TUxBQ0xBWjE1MzFk")); // la paz catamrca
+                Direccion direcKronk = new Direccion("9 de julio 1622", " ", 0, contexto.ciudad.Find("TUxBQ0ZVVGFsZXVmdQ")); // futaleufu chubut
+                Direccion direcCuzco = new Direccion("Belgrano 536", " ", 0, contexto.ciudad.Find("TUxBQ1RJTGM5NTAx")); // tilcara jujuy
+
+                //creo Entidad
+                EntidadBase entidadBase = new EntidadBase("entidadBase", null, direcPedrito);
+                EntidadBase entidadBase2 = new EntidadBase("entidadBase2", null, direcJuancito);
+                EntidadBase entidadBase3 = new EntidadBase("entidadBase3", null, direcBetito);
+                EntidadBase entidadBase4 = new EntidadBase("entidadBase4", null, direcMatute);
+                EntidadBase entidadBase5 = new EntidadBase("entidadBase5", null, direcNachito);
+                EntidadBase entidadBase6 = new EntidadBase("entidadBase6", null, direcGiulsita);
+                EntidadBase entidadBase7 = new EntidadBase("entidadBase7", null, direcFranquito);
+
+
+                contexto.tipoentidad.Add(entidadBase);
+                contexto.tipoentidad.Add(entidadBase2);
+                contexto.tipoentidad.Add(entidadBase3);
+                contexto.tipoentidad.Add(entidadBase4);
+                contexto.tipoentidad.Add(entidadBase5);
+                contexto.tipoentidad.Add(entidadBase6);
+                contexto.tipoentidad.Add(entidadBase7);
+
+                //creo Organizacion
+                Servicios actividadServicio = new Servicios();
+                List<Usuario> usuariosDeOrg = new List<Usuario> { pedro, scarlet, daniel };
+                Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
+
+                Agropecuario actividadAgropecuario = new Agropecuario();
+                List<Usuario> usuariosAgropecuario = new List<Usuario> { juan, megan };
+                Empresa superSoja = new Empresa(actividadAgropecuario, 5, false, "superSoja", 12340000, entidadBase2, usuariosAgropecuario);
+
+                Comercio actividadComercio = new Comercio();
+                List<Usuario> usuariosDeComercio = new List<Usuario> { beto, dillon, nola };
+                Empresa tiendaCTM = new Empresa(actividadComercio, 32, false, "tiendaCTM", 1502002300, entidadBase3, usuariosDeComercio);
+
+                IndustriaYMineria actividadIYM = new IndustriaYMineria();
+                List<Usuario> usuariosDeMineria = new List<Usuario> { matias };
+                Empresa MinMining = new Empresa(actividadIYM, 122, false, "MinMining", 1673990500, entidadBase4, usuariosDeMineria);
+
+                Construccion actividadConstruccion = new Construccion();
+                List<Usuario> usuariosDeConstruccion = new List<Usuario> { nacho, daphne };
+                Empresa DunMaker = new Empresa(actividadConstruccion, 299, false, "DunMaker", 721230000, entidadBase5, usuariosDeConstruccion);
+
+                //guardo organizacion
+                contexto.empresas.Add(zapatuya);
+                contexto.empresas.Add(superSoja);
+                contexto.empresas.Add(tiendaCTM);
+                contexto.empresas.Add(MinMining);
+                contexto.empresas.Add(DunMaker);
+
+                //creo Criterios
+                Criterio barrios = new Criterio("barrio", null);
+                Criterio clientes = new Criterio("cliente", barrios);
+                Criterio ropa = new Criterio("ropa", null);
+                Criterio calzado = new Criterio("Calzado", ropa);
+                Criterio magia = new Criterio("magia", null);
+                Criterio pociones = new Criterio("pociones", magia);
+                Criterio comida = new Criterio("Comida", null);
+                Criterio comidaCaliente = new Criterio("Comida Caliente", comida);
+                Criterio comidaCalienteParaLlevar = new Criterio("Comida Caliente Para Llevar", comidaCaliente);
+                Criterio Alguno = new Criterio("Alguno", null);
+
+                List<Criterio> listcrit = new List<Criterio> { barrios, clientes, ropa, calzado, magia, pociones, comida, comidaCaliente, comidaCalienteParaLlevar };
+                contexto.criterio.AddRange(listcrit);
+
+                //creo Categorias
+                Categoria almagro = new Categoria("almagro", barrios);
+                Categoria clienteA = new Categoria("clienteA", clientes);
+                Categoria calzadoTipoA = new Categoria("Calzado Tipo A", calzado);
+                Categoria calzadoTipoB = new Categoria("Calzado Tipo B", calzado);
+                Categoria calzadoModerno = new Categoria("Calzado Moderno", calzado);
+                Categoria magiaNegra = new Categoria("Magia Negra", magia);
+                Categoria pocionesYHechizos = new Categoria("posiones y hechizos", pociones);
+                Categoria guiso = new Categoria("Guisos", comidaCalienteParaLlevar);
+                Categoria fideos = new Categoria("Fideos", comidaCaliente);
+                Categoria alguna = new Categoria("Alguna", Alguno);
+
+                List<Categoria> listcat = new List<Categoria> { almagro, clienteA, calzadoTipoA, calzadoTipoB, calzadoModerno, magiaNegra, pocionesYHechizos, guiso, fideos, alguna };
+                contexto.categoria.AddRange(listcat);
+
+                //creo proveedor Mirna
+                PersonaProveedora mirna = new PersonaProveedora(direcMirna, "23098213", "Mirna");
+
+                List<Categoria> categoriasMirnaTrabajo = new List<Categoria> { calzadoTipoA, calzadoTipoB };
+                List<Categoria> categoriasMirnaModerno = new List<Categoria> { calzadoModerno };
+                //Item BotaDeTrabajo1 = new Item("melman", "Bota de trabajo", 300, categoriasMirnaTrabajo);
+                //Item BotaDeTrabajo2 = new Item("gloria", "Bota de trabajo Super", 400, categoriasMirnaTrabajo);
+                //Item AirmaxSuperPro = new Item("airmaxSuperPro", "la super tilla ", 500, categoriasMirnaModerno);
+                //Item AirmaxBatmanEdition = new Item("airmaxBatmanEdition", "super tilla version batman", 600, categoriasMirnaModerno);
+
+                //BotaDeTrabajo1.insertarCategoria(calzadoTipoA);
+                //BotaDeTrabajo2.insertarCategoria(calzadoTipoB);
+                //AirmaxSuperPro.insertarCategoria(calzadoModerno);
+                //AirmaxBatmanEdition.insertarCategoria(calzadoModerno);
+
+
+
+                //creo proveedor Isma
+                PersonaProveedora isma = new PersonaProveedora(direcIsma, "21439203", "Isma");
+
+                List<Categoria> categoriaIsma = new List<Categoria> { pocionesYHechizos, magiaNegra };
+                //Item pataDeConejo = new Item("PataBlanca", "patas de conejo", 12332, categoriaIsma);
+                //Item venenoMagico = new Item("shotDeTequila", "veneno para matar ", 1200, categoriaIsma);
+                //Item posimaDelInfierno = new Item("aguaMagica", "pocion magica", 666, categoriaIsma);
+
+                //pataDeConejo.insertarCategoria(magiaNegra);
+                //venenoMagico.insertarCategoria(pocionesYHechizos);
+                //posimaDelInfierno.insertarCategoria(pocionesYHechizos);
+
+                //creo proveedor Isma
+                PersonaProveedora kronk = new PersonaProveedora(direcKronk, "34245231", "Kronk");
+
+                List<Categoria> categoriakronk = new List<Categoria> { guiso, fideos };
+                //Item fideosDeEspinaja = new Item("Espinaja", "Fideos De Espinaca", 100, categoriakronk);
+                //Item guisoDeMondongo = new Item("Mondongo", "Guiso De Mondongo ", 200, categoriakronk);
+
+
+                //fideosDeEspinaja.insertarCategoria(fideos);
+                //guisoDeMondongo.insertarCategoria(guiso);
+
+                PersonaProveedora cuzco = new PersonaProveedora(direcCuzco, "10239726", "Cuzco");
+                List<Categoria> categoriaCuzco = new List<Categoria> { alguna };
+                //Item alguno = new Item("alguno", "ya me aburri", 123123, categoriaCuzco);
+
+                //guardo el proveedor
+                contexto.proveedor.Add(mirna);
+                contexto.proveedor.Add(isma);
+                contexto.proveedor.Add(kronk);
+                contexto.proveedor.Add(cuzco);
+
+
+
+                /*OPERACION DE EGRESO 1*/
+
+                //creo atributos de compra 1
+                List<Usuario> usuariosRevisoresCompra1 = new List<Usuario> { pedro, scarlet, daniel };
+                Item item1Compra1 = new Item("zapatillas", "rositas", 126312, categoriasMirnaModerno);
+                Item item2Compra1 = new Item("zapatillas", "azules", 126312, categoriasMirnaModerno);
+                Item item3Compra1 = new Item("zapatillas", "verdes", 126312, categoriasMirnaModerno);
+                Item item4Compra1 = new Item("zapatillas", "marrones", 126312, categoriasMirnaModerno);
+                List<Item> itemsCompra1 = new List<Item> { item1Compra1, item2Compra1, item3Compra1, item4Compra1 };
+
+                //creo atributos de compra 2
+                List<Usuario> usuariosRevisoresCompra2 = new List<Usuario> { megan, juan, dillon };
+                Item item1Compra2 = new Item("pataDeConejo", "Patas De Conejo", 20320, categoriaIsma);
+                List<Item> itemsCompra2 = new List<Item> { item1Compra2, item1Compra2, item1Compra2, item1Compra2 };
+
+                //creo atributos de compra 3
+                List<Usuario> usuariosRevisoresCompra3 = new List<Usuario> { matias, nacho, giu, fran };
+                Item item1Compra3 = new Item("guiso 1", "guiso de mariscos", 100, categoriakronk);
+                Item item2Compra3 = new Item("guiso 2", "guiso de lentejas", 200, categoriakronk);
+                Item item3Compra3 = new Item("fideos 1", "fuciles con salsa rosa", 300, categoriakronk);
+                Item item4Compra3 = new Item("fideos 2", "spaguettis con bolognesa", 300, categoriakronk);
+                List<Item> itemsCompra3 = new List<Item> { item1Compra3, item1Compra3, item1Compra3, item2Compra3, item3Compra3, item3Compra3, item3Compra3, item4Compra3 };
+
+                contexto.item.AddRange(itemsCompra1.Concat(itemsCompra2.Concat(itemsCompra3)));
+
+                //creo criterioDeSeleccion
+                MenorValor criterio = new MenorValor();
+
+                //creo Compras
+                Compra compra1 = new Compra(1, criterio, itemsCompra1, usuariosRevisoresCompra1, mirna, null);
+                Compra compra2 = new Compra(2, criterio, itemsCompra2, usuariosRevisoresCompra2, isma, null);
+                Compra compra3 = new Compra(3, criterio, itemsCompra3, usuariosRevisoresCompra3, kronk, null);
+
+                List<Compra> listcom = new List<Compra> { compra1, compra2, compra3 };
+                contexto.compra.AddRange(listcom);
+
+                //creo MediosDePago
+                MedioDePago medio1 = new MedioDePago("AR", "1", "cash");
+                MedioDePago medio2 = new MedioDePago("AR", "2", "debito");
+                MedioDePago medio3 = new MedioDePago("AR", "3", "credito");
+
+                List<MedioDePago> listmed = new List<MedioDePago> { medio1, medio2, medio3 };
+                contexto.mediodepago.AddRange(listmed);
+
+                //creo Operacion de Egreso
+                OperacionDeEgreso operacionDeEgreso1 = new OperacionDeEgreso(compra1, medio1, null, DateTime.Now);
+                OperacionDeEgreso operacionDeEgreso2 = new OperacionDeEgreso(compra2, medio2, null, DateTime.Now);
+                OperacionDeEgreso operacionDeEgreso3 = new OperacionDeEgreso(compra3, medio3, null, DateTime.Now);
+
+                operacionDeEgreso1.valorTotal();
+                operacionDeEgreso2.valorTotal();
+                operacionDeEgreso3.valorTotal();
+
+                List<OperacionDeEgreso> listoe = new List<OperacionDeEgreso> { operacionDeEgreso1, operacionDeEgreso2, operacionDeEgreso3 };
+                contexto.operacionDeEgreso.AddRange(listoe);
+
+                //agrego a empresa todas las operaciones de egresos
+                zapatuya.agregarOperacionDeEgreso(operacionDeEgreso1);
+                superSoja.agregarOperacionDeEgreso(operacionDeEgreso2);
+                MinMining.agregarOperacionDeEgreso(operacionDeEgreso3);
+
+
+                /*CREO Y AGREGO OPERACIONES DE INGRESO*/
+
+                OperacionDeIngreso op1 = new OperacionDeIngreso("Prestamo", null, 7824, DateTime.Now);
+                OperacionDeIngreso op2 = new OperacionDeIngreso("Prestamo", null, 23734, DateTime.Now);
+                OperacionDeIngreso op3 = new OperacionDeIngreso("Prestamo", null, 127623, DateTime.Now);
+                OperacionDeIngreso op4 = new OperacionDeIngreso("Prestamo", null, 1273, DateTime.Now);
+                OperacionDeIngreso op5 = new OperacionDeIngreso("Prestamo", null, 12673, DateTime.Now);
+                OperacionDeIngreso op6 = new OperacionDeIngreso("Prestamo", null, 27, DateTime.Now);
+                OperacionDeIngreso op7 = new OperacionDeIngreso("Prestamo", null, 1632, DateTime.Now);
+                OperacionDeIngreso op8 = new OperacionDeIngreso("Prestamo", null, 1554, DateTime.Now);
+                OperacionDeIngreso op9 = new OperacionDeIngreso("Prestamo", null, 16327, DateTime.Now);
+                OperacionDeIngreso op10 = new OperacionDeIngreso("Prestamo", null, 1563, DateTime.Now);
+
+                List<OperacionDeIngreso> opingr = new List<OperacionDeIngreso> { op1, op2, op3, op4, op5, op6, op7, op8, op9, op10};
+                contexto.operacionDeIngreso.AddRange(opingr);
+
+                foreach (OperacionDeIngreso operacion in opingr)
+                {
+                    zapatuya.agregarOperacionDeIngreso(operacion);
+                }
+
+
+
+                //guardo los cambios en la base de datos
+                contexto.SaveChanges();
+
+
+
+
+
+
+
+
+
+
+
+
+
                 //API_MercadoLibre ml = API_MercadoLibre.getInstance();
                 //ml.persistir(contexto);
 
-                ////creo usuario Pedro
+                //creo usuario Pedro
                 //Usuario pedro = new Usuario("pedritoelmejor", "pepito");
                 //contexto.usuario.Add(pedro);
 
                 //Direccion direcJuancito = new Direccion("Saavedra 353", "2", 1, contexto.ciudad.Find("TUxNQ1RESmFkODcz"));
+                //Direccion direcJuancito2 = new Direccion("Saavedra adfijas", "5", 2, contexto.ciudad.Find("TU5JQ01OSUdyYVVwSg"));
 
                 ////creo Entidad
                 //EntidadBase entidadBase = new EntidadBase("entidadBase", null, direcJuancito);
-                //contexto.tipoentidad.Add(entidadBase);
+
+
+                //EntidadBase entidadBase2 = new EntidadBase("entidadBase", null, direcJuancito2);
+
+                //List<EntidadBase> listte = new List<EntidadBase>() { entidadBase, entidadBase2 };
+
+                //contexto.tipoentidad.AddRange(listte);
 
                 ////creo Organizacion
                 //Servicios actividadServicio = new Servicios();
@@ -34,8 +317,19 @@ namespace TPANUAL
 
                 //Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
 
+
+                //Usuario juan = new Usuario("juanasldk", "juan");
+
+
+                //List<Usuario> usuariosDeOrg2 = new List<Usuario> { juan };
+                // Empresa alksdj = new Empresa(actividadServicio, 213, false, "aalksjd", 298371298, entidadBase2, usuariosDeOrg2);
+
+                //List<Empresa> listEmp = new List<Empresa>() { zapatuya, alksdj };
                 ////guardo organizacion
-                //contexto.empresas.Add(zapatuya);
+                //contexto.empresas.AddRange(listEmp);
+                //contexto.empresas.Add(alksdj);
+
+                //var org = OrganizacionDAO.obtenerOrganizacion(pedro); //breakpoint acá con el debugger y ves que tiene adentro
 
                 ////creo Criterios
                 //Criterio barrios = new Criterio("barrio", null);
@@ -218,7 +512,7 @@ namespace TPANUAL
 
                 ////guardo los cambios en la base de datos
                 //contexto.SaveChanges();
-                
+
 
                 ///*
 

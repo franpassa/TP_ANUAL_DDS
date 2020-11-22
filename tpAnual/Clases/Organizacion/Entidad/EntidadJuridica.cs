@@ -11,10 +11,6 @@ namespace TPANUAL {
     [Table("entidadjuridica")]
 	public class EntidadJuridica : TipoEntidad {
 
-        [Column("ID_Organizacion")]
-        public int ID_Organizacion { get; set; }
-        public Organizacion organizacion { get; set; }
-
         [Column("CodigoInscripcion")]
 		public string CodigoInscripcion { get; set; }
 

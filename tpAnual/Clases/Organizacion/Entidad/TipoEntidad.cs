@@ -18,6 +18,8 @@ namespace TPANUAL {
 		public int? ID_Direccion { get; set; }
 		public Direccion DireccionPostal { get; set; }
 
+		public TipoEntidad() { }
+
 	}//end TipoEntidad
 
 }//end namespace TPANUAL
