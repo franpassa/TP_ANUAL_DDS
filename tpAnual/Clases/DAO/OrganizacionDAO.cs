@@ -18,7 +18,7 @@ namespace TPANUAL.Clases.DAO
         public static dynamic obtenerOrganizacion(Usuario _usuario)
         {
             using var contexto = new DB_Context();
-            var tipoOrg = contexto.empresas.Find(_usuario.organizacionAsociada.ID_Organizacion);
+            var tipoOrg = contexto.empresas.Find(_usuario.ID_organizacion);
 
             if (tipoOrg != null)
                 return obtenerEmpresa(_usuario);
@@ -30,11 +30,11 @@ namespace TPANUAL.Clases.DAO
         {
             using var contexto = new DB_Context();
             var osc = contexto.oscs
-                .Where(osc => osc.ID_Organizacion == _usuario.organizacionAsociada.ID_Organizacion)
+                .Where(osc => osc.ID_Organizacion == _usuario.ID_organizacion)
                 .Include(osc => osc.Usuarios)
                 .Include(osc => osc.OperacionesDeEgreso)
                 .Include(osc => osc.OperacionesDeIngreso)
-                .Include(osc => osc.ID_Organizacion)
+                .Include(osc => osc.TipoEntidad)
                 .FirstOrDefault();
 
             return osc;            
@@ -44,11 +44,11 @@ namespace TPANUAL.Clases.DAO
         {
             using var contexto = new DB_Context();
             var empresa = contexto.empresas
-                .Where(e => e.ID_Organizacion == _usuario.organizacionAsociada.ID_Organizacion)
+                .Where(e => e.ID_Organizacion == _usuario.ID_organizacion)
                 .Include(e => e.Usuarios)
                 .Include(e => e.OperacionesDeEgreso)
                 .Include(e => e.OperacionesDeIngreso)
-                .Include(e => e.ID_Organizacion)
+                .Include(e => e.TipoEntidad)
                 .FirstOrDefault();
 
             return empresa;
