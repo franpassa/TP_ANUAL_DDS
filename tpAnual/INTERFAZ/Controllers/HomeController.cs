@@ -28,6 +28,24 @@ namespace INTERFAZ.Controllers
             if (Session["Usuario"] != null)
             {
                 Session["Egresos"] = OperacionDeEgresoDAO.obtenerEgresos((Usuario)Session["Usuario"]);
+                Session["Organizacion"] = OrganizacionDAO.obtenerOrganizacion((Usuario)Session["Usuario"]);
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+
+        public ActionResult NuevaCompra()
+        {
+            ViewBag.Title = "Egresos";
+
+            if (Session["Usuario"] != null)
+            {
+                Session["Egresos"] = OperacionDeEgresoDAO.obtenerEgresos((Usuario)Session["Usuario"]);
+                Session["Organizacion"] = OrganizacionDAO.obtenerOrganizacion((Usuario)Session["Usuario"]);
+                Session["Paises"] = Pais.obtenerPaises();
                 return View();
             }
             else

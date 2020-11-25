@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vinculador_IngresosEgresos", "Vinculador_Ingresos-Egresos\Vinculador_IngresosEgresos.csproj", "{C96B3BAB-DC25-4FC4-B6E6-A7D08000892A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INTERFAZ", "INTERFAZ\INTERFAZ.csproj", "{9000073C-FE0C-4DFE-9356-A6F4577ADF88}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C96B3BAB-DC25-4FC4-B6E6-A7D08000892A} = {C96B3BAB-DC25-4FC4-B6E6-A7D08000892A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

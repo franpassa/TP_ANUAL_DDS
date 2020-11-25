@@ -92,5 +92,14 @@ namespace TPANUAL {
 			Console.WriteLine("Nombre pais: " + Nombre);
 			Console.WriteLine("Moneda pais: " + Moneda.Descripcion);
 		}
+
+		public static List<Pais> obtenerPaises()
+        {
+			using var contexto = new DB_Context();
+			var paises = contexto.pais
+				.ToList();
+
+			return paises;
+		}
 	}
 }

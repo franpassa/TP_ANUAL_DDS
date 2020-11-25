@@ -57,5 +57,26 @@ namespace TPANUAL.Clases.DAO
                 }
             }
         }
+
+        public static Usuario obtenerUsuario(int _IdUsuario)
+        {
+            using (var contexto = new DB_Context())
+            {
+                // Selecciono el usuario y la contraseña que me dan en la base de datos
+                var usuario = contexto.usuario
+                    .Where(u => u.ID_Usuario == _IdUsuario)
+                    .Include(u => u.ComprasRevisables)
+                    .FirstOrDefault();
+
+                if (usuario != null)
+                {
+                    return usuario;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
     }
 }

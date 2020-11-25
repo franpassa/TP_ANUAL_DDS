@@ -73,18 +73,21 @@
                         </div>
                     </div>
                     <hr />
+                    @using (Html.BeginForm("FormVinculacion", "Organizacion", FormMethod.Post))
+                    {
                     <div class="row">
                         <div class="col-6">
-                            <button class="btn btn-success animation-on-hover" type="button" style="width: 100%;">
+                            <button class="btn btn-success animation-on-hover" name="_vincular" type="button" style="width: 100%;">
                                 Vincular ingreso y egresos
                             </button>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-warning animation-on-hover" type="button" style="width: 100%;">
+                            <button class="btn btn-warning animation-on-hover" name="_desvincular" type="button" style="width: 100%;">
                                 Desvincular ingreso y egresos
                             </button>
                         </div>
                     </div>
+                    }
                 </div>
             </div>
         </div>

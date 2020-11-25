@@ -1,0 +1,273 @@
+﻿@using TPANUAL
+@{
+    ViewBag.Title = "Egresos";
+    Usuario usuario = (Usuario)Session["Usuario"];
+    List<OperacionDeEgreso> operacionesDeEgreso = (List<OperacionDeEgreso>)Session["Egresos"];
+    Organizacion org = (Organizacion)Session["Organizacion"];
+    List<Pais> paises = (List<Pais>)Session["Paises"];
+}
+<div class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <h1>Nueva compra</h1>
+                </div>
+                <div class="card-body pl-3 pr-3">
+                    @using (Html.BeginForm("FormRegistroCompra", "Egresos", FormMethod.Post))
+                    {
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-info-tab" data-toggle="pill" href="#pills-info" role="tab" aria-controls="pills-info" aria-selected="true">Info</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-items-tab" data-toggle="pill" href="#pills-items" role="tab" aria-controls="pills-items" aria-selected="false">Items</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h3>Compra</h3>
+                                        <div class="form-group">
+                                            <h6>Fecha de la compra</h6>
+                                            <input class="form-input-tp" type="date" name="_fechaCompra" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Usuarios revisores</h6>
+                                            <select multiple class="form-control form-input-tp" id="UsuariosRevisores" name="_UsuariosRevisores">
+                                                @foreach (Usuario u in org.Usuarios)
+                                                {
+                                                    <option value=@u.ID_Usuario> @u.NombreUsuario </option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <h3>Medio de pago</h3>
+                                        <div class="form-group">
+                                            <h6>ID</h6>
+                                            <input class="form-input-tp" type="text" placeholder="ID del medio de pago" name="_IdMedioDePago" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Tipo de pago</h6>
+                                            <input class="form-input-tp" type="text" placeholder="Tipo de pago" name="_tipoPago" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Numero</h6>
+                                            <input class="form-input-tp" type="number" placeholder="Numero" name="_numero" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <h6>Pais</h6>
+                                            <select id="_IdPais" name="_IdPais">
+                                                @foreach (Pais p in paises)
+                                                {
+                                                    <option value=@p.ID_Pais> @p.Nombre </option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h3>Presupuestos</h3>
+
+                                        <div class="form-group">
+                                            <h6>Proveedor</h6>
+                                            <input class="form-input-tp" type="text" placeholder="ID del proveedor" name="_IdProveedor" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <h6>Presupuestos requeridos</h6>
+                                            <input class="form-input-tp" type="number" placeholder="Cantidad de presupuestos requeridos" name="_cantPresReq" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <h6>Detalle</h6>
+                                            <input class="form-input-tp" type="text" placeholder="Detalle del presupuesto" name="_detallePresupuesto" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <h3>Documento comercial</h3>
+
+                                        <div>
+                                            <div class="form-group">
+                                                <h6>ID</h6>
+                                                <input class="form-input-tp" type="text" placeholder="ID del documento comercial" name="_IdDocumentoComercial" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <h6>Tipo de documento</h6>
+                                                <input class="form-input-tp" type="text" placeholder="Tipo de documento" name="_TipoDeDocumento" required>
+                                            </div>
+                                        </div>
+
+                                        <a class="col text-center" id="nuevoDocumentoComercial" onclick="agregarDocumentoComercial()">
+                                            <i class="fas fa-plus-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-items" role="tabpanel" aria-labelledby="pills-items-tab">
+                                <div class="row">
+                                    <div class="col">
+                                        <table class="table tabla-items">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Descripción</th>
+                                                    <th>Criterio & Categoria</th>
+                                                    <th>Valor total</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input type="text" class="form-control form-input-tp" name="_ItemsNombres" required>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control form-input-tp" name="_ItemsDescripciones" required>
+                                                    </td>
+                                                    <td>
+                                                        <div>
+                                                            <input type="text" class="form-control form-input-tp" name="_ItemsCategorias" required>
+                                                            <br />
+                                                            <input type="text" class="form-control form-input-tp" name="_ItemsCriterios" required>
+                                                        </div>
+
+                                                        <a id="nuevoCriterioCategoria" class="col text-center" onclick="agregarCriterioCategoria(nuevoCriterioCategoria)">
+                                                            <i class="fas fa-plus-circle"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control form-input-tp" type="number" name="_ItemsValoresTotales" required>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr id="nuevoItem"></tr>
+                                            </tbody>
+                                        </table>
+                                        <a class="col text-center" onclick="agregarItem(nuevoItem)">
+                                            <i class="fas fa-plus-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-success animation-on-hover" type="submit" style="width: 100%;">
+                                    Crear nueva compra
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <a href="~/Home/Egresos" class="btn btn-warning animation-on-hover" style="width: 100%;">
+                                    Volver
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-input-tp {
+        width: 75%;
+        color: #D2D3D8;
+    }
+
+    .tabla-items {
+        max-height: 100px;
+        overflow-y: scroll;
+    }
+</style>
+
+<script type="text/javascript">
+    var ID_item = 0;
+    var ID_documentoComercial = 0;
+    var ID_criterioCategoria = 0;
+
+
+    function agregarItem() {
+        document.getElementById('nuevoItem').insertAdjacentHTML('beforebegin', `
+             <tr id="${ID_item}">
+                <td>
+                    <input type="text" class="form-control form-input-tp" name="_ItemsNombres" required>
+                </td>
+                <td>
+                    <input type="text" class="form-control form-input-tp" name="_ItemsDescripciones" required>
+                </td>
+                <td>
+                    <div>
+                        <input type="text" class="form-control form-input-tp" name="_ItemsCategorias" required>
+                        <br />
+                        <input type="text" class="form-control form-input-tp" name="_ItemsCriterios" required>
+                    </div>
+
+                    <a id="nuevoCriterioCategoria${ID_item}" class="col text-center" onclick="agregarCriterioCategoria(${ID_item})">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                </td>
+                <td>
+                    <input class="form-control form-input-tp" type="number" name="_ItemsValoresTotales" required>
+                </td>
+                <td>
+                <a onclick="borrar(${ID_item})">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+                </td>
+            </tr>
+        `);
+        ID_item++;
+    }
+
+    function agregarCriterioCategoria(ID_item) {
+        document.getElementById(`nuevoCriterioCategoria${ID_item}`).insertAdjacentHTML('beforebegin', `
+             <div id="${ID_criterioCategoria}">
+             <hr>
+                <input type="text" class="form-control form-input-tp" name="_ItemsCategorias" required>
+                <br />
+                <input type="text" class="form-control form-input-tp" name="_ItemsCriterios" required>
+                <a onclick="borrar(${ID_criterioCategoria})">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </div>
+        `);
+        ID_criterioCategoria++;
+    }
+
+    function agregarDocumentoComercial() {
+        document.getElementById('nuevoDocumentoComercial').insertAdjacentHTML('beforebegin', `
+             <div id="${ID_documentoComercial}">
+             <hr>
+                <div class="form-group">
+                    <h6>ID</h6>
+                    <input class="form-input-tp" type="text" placeholder="ID del documento comercial" name="_IdDocumentoComercial" required>
+                </div>
+                <div class="form-group">
+                    <h6>Tipo de documento</h6>
+                    <input class="form-input-tp" type="text" placeholder="Tipo de documento" name="_TipoDeDocumento" required>
+                </div>
+                <a onclick="borrar(${ID_documentoComercial})">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </div>
+        `);
+        ID_documentoComercial++;
+    }
+
+
+    function borrar(_ID) {
+        document.getElementById(_ID).remove();
+    }
+</script>

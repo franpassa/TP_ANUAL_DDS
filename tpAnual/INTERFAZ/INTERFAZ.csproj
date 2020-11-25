@@ -124,6 +124,7 @@
     <Compile Include="Controllers\EgresosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngresosController.cs" />
+    <Compile Include="Controllers\OrganizacionController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,11 +197,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Views\Home\Items.cshtml" />
+    <Content Include="Views\Home\NuevaCompra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TPANUAL.csproj">
       <Project>{03ee393d-8324-4b35-b768-cdc2851a63c4}</Project>
       <Name>TPANUAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vinculador_Ingresos-Egresos\Vinculador_IngresosEgresos.csproj">
+      <Project>{c96b3bab-dc25-4fc4-b6e6-a7d08000892a}</Project>
+      <Name>Vinculador_IngresosEgresos</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

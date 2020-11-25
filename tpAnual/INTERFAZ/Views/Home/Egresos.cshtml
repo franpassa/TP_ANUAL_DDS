@@ -204,7 +204,7 @@
         </div>
     </div>
 </div>
-<button class="boton-flotante btn btn-info animation-on-hover" type="button" data-toggle="modal" data-target="#registrarCompra">
+<a href="~/Home/NuevaCompra" class="boton-flotante btn btn-info animation-on-hover">
     <div class="mr-4">
         Registrar
         <br>
@@ -213,26 +213,4 @@
     <div class="ml-4">
         <i class="far fa-plus-square"></i>
     </div>
-</button>
-<div class="modal modal-black fade blur" tabindex="-1" role="dialog" id="registrarCompra" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title text-center">Registrar compra</h3>
-            </div>
-            <div class="modal-body">
-                @using (Html.BeginForm("FormRegistroCompra", "Egresos", FormMethod.Post))
-                {
-                    <div class="form-group">
-                        <label for="nuevaCompra">Proveedor</label>
-                        <input type="text" class="form-control" id="nuevaCompra" placeholder="Ingresar nombre del proveedor">
-                    </div>
-                    <div class="modal-footer">
-                        <button name="_CrearCompra" type="submit" class="btn btn-success animation-on-hover">Guardar cambios</button>
-                        <button type="button" class="btn btn-danger animation-on-hover" data-dismiss="modal">Cerrar</button>
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
-</div>
+</a>
