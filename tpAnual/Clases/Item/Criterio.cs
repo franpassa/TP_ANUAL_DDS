@@ -23,6 +23,8 @@ namespace TPANUAL
             this.criterioPadre = criterioPadre;
         }
 
+        public Criterio() { }
+
         public string Nombre { get => nombre; set => nombre = value; }
         public Criterio CriterioPadre { get => criterioPadre; set => criterioPadre = value; }
     }

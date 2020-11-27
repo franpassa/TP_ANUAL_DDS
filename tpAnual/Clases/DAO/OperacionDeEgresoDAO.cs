@@ -23,7 +23,11 @@ namespace TPANUAL.Clases.DAO
                     .Include(oe => oe.MedioDePago)
                     .Include(oe => oe.DocumentosComerciales)
                     .Include(oe => oe.IngresoAsociado)
-                    .Include(oe => oe.Compra.Items)
+                    .Include(oe => oe.Compra.Items
+                        .Select(i => i.Categorias
+                            .Select(c => c.Criterio)
+                                )
+                            )
                     .Include(oe => oe.Compra.Presupuestos)
                     .Include(oe => oe.Compra.Revisores)
                     .Include(oe => oe.Compra.Bandeja)

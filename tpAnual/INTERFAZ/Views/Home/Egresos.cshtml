@@ -80,7 +80,7 @@
                                                 {
                                                     <h6>Mensaje #@msj.ID_Mensaje</h6>
                                                     <p>"@msj.texto"</p>
-                                                    <hr>
+                                                    <br>
                                                 }
                                             }
                                             <button class="btn btn-danger animation-on-hover mb-0" type="submit" name="_noSerRevisor">
@@ -107,7 +107,7 @@
                                                 <th>ID</th>
                                                 <th>Nombre</th>
                                                 <th>Descripción</th>
-                                                <th>Categoría</th>
+                                                <th>Categoría, Criterio.</th>
                                                 <th class="text-right">Valor</th>
                                             </tr>
                                         </thead>
@@ -119,7 +119,17 @@
                                                     <td>@item.Nombre</td>
                                                     <td>@item.Descripcion</td>
                                                     <td>
-                                                        X
+                                                        @if (item.Categorias != null)
+                                                        {
+                                                            foreach (Categoria cat in item.Categorias)
+                                                            {
+                                                                <p> @cat.Nombre, @cat.Criterio.Nombre. </p>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <p> Item sin categoria </p>
+                                                        }
                                                     </td>
                                                     <td class="text-right"> $@item.ValorTotal</td>
                                                 </tr>

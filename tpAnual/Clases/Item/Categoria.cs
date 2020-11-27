@@ -25,6 +25,9 @@ namespace TPANUAL
             this.nombre = nombre;
             this.criterio = criterio;
         }
+
+        public Categoria() { }
+
         public string Nombre { get => nombre; set => nombre = value; }
         public Criterio Criterio { get => criterio; set => criterio = value; }
     }
