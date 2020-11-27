@@ -40,6 +40,17 @@ namespace TPANUAL {
 
         public Usuario() { }
 
+        public void agregarCompra(Compra _compra)
+        {
+            if (ComprasRevisables == null) ComprasRevisables = new List<Compra> { };
+            ComprasRevisables.Add(_compra);
+        }
+
+        public void sacarCompra(Compra _compra)
+        {
+            if(ComprasRevisables != null) ComprasRevisables.Remove(_compra);
+        }
+
         public void verMensajes(Compra compra)
         {
             compra.mostrarMensajes(this);

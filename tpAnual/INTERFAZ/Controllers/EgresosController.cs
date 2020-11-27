@@ -59,5 +59,20 @@ namespace INTERFAZ.Controllers
             Compra n_compra = new Compra();
             return RedirectToAction("Egresos", "Home");
         }
+
+        [HttpPost]
+        public ActionResult FormRevisor(string _serRevisor, string _noSerRevisor, string _ID_Compra, string _ID_Usuario)
+        {
+            if (_serRevisor != null)
+            {
+                OperacionDeEgresoDAO.agregarRevisorCompra(int.Parse(_ID_Compra), int.Parse(_ID_Usuario));
+                return RedirectToAction("Egresos", "Home");
+            }
+            else
+            {
+                OperacionDeEgresoDAO.sacarRevisorCompra(int.Parse(_ID_Compra), int.Parse(_ID_Usuario));
+                return RedirectToAction("Egresos", "Home");
+            }
+        }
     }
 }

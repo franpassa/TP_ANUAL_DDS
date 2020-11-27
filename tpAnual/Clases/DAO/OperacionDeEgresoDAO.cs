@@ -33,5 +33,48 @@ namespace TPANUAL.Clases.DAO
                 return operacionesDeEgreso;
             }
         }
+
+        public static OperacionDeEgreso obtenerEgreso(int _ID)
+        {
+            using (var contexto = new DB_Context()) 
+            {
+                return contexto.operacionDeEgreso
+                    .Where(oe => oe.ID_OperacionDeEgreso == _ID)
+                    .Include(oe => oe.Compra.Revisores)
+                    .FirstOrDefault();
+            }
+        }
+
+        public static void agregarRevisorCompra(int _ID_Compra, int _ID_Usuario) 
+        {
+            using (var contexto = new DB_Context())
+            {
+                Compra c = contexto.compra.Find(_ID_Compra);
+                Usuario u = contexto.usuario.Find(_ID_Usuario);
+
+                c.agregarRevisor(u);
+
+                contexto.SaveChanges();
+            }
+        }
+        
+        public static void sacarRevisorCompra(int _ID_Compra, int _ID_Usuario)
+        {
+            using (var contexto = new DB_Context())
+            {
+                Compra c = contexto.compra.Find(_ID_Compra);
+                Usuario u = contexto.usuario.Find(_ID_Usuario);
+
+                c.sacarRevisor(u);
+
+                contexto.Database.ExecuteSqlCommand(
+                        "delete from usuariosxcompra where ID_Compra = {0} and ID_Usuario = {1};",
+                        _ID_Compra,
+                        _ID_Usuario
+                        );
+
+                contexto.SaveChanges();
+            }
+        }
     }
 }

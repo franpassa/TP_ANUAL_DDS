@@ -63,10 +63,14 @@
                                         </div>
                                         <hr>
                                     }
-                                    <div class="cuadro-texto alert alert-info" role="alert">
-                                        @if (usuario.ComprasRevisables.Contains(oe.Compra))
+                                <div class="cuadro-texto alert alert-info" role="alert">
+                                    @using (Html.BeginForm("FormRevisor", "Egresos", FormMethod.Post))
+                                    {
+                                        <input name="_ID_Compra" value=@oe.Compra.ID_Compra type="hidden">
+                                        <input name="_ID_Usuario" value=@usuario.ID_Usuario type="hidden">
+                                        if (oe.Compra.Revisores.Any(u => u.ID_Usuario == usuario.ID_Usuario))
                                         {
-                                            if (!oe.Compra.Bandeja.Any())
+                                            if (oe.Compra.Bandeja.Count == 0)
                                             {
                                                 <h6>Bandeja de mensajes vacía</h6>
                                             }
@@ -79,18 +83,19 @@
                                                     <hr>
                                                 }
                                             }
-                                            <button class="btn btn-danger animation-on-hover mb-0" type="button">
+                                            <button class="btn btn-danger animation-on-hover mb-0" type="submit" name="_noSerRevisor">
                                                 No ser revisor
                                             </button>
                                         }
                                         else
                                         {
                                             <h6>Bandeja de mensajes</h6>
-                                            <button class="btn btn-warning animation-on-hover mb-0" type="button">
+                                            <button class="btn btn-warning animation-on-hover mb-0" type="submit" name="_serRevisor">
                                                 Ser revisor
                                             </button>
                                         }
-                                    </div>
+                                    }
+                                </div>
                                 </div>
                             </div>
                             <div class="col-xl-10">

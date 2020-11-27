@@ -51,6 +51,7 @@ namespace TPANUAL {
         {
             CantidadDePresupuestosRequeridos = cantidadDePresupuestosRequeridos;
             Bandeja = new List<Mensaje>();
+            Revisores = new List<Usuario>() { };
             Criterio = criterio;
             Presupuestos = new List<Presupuesto>();
             Items = items;
@@ -63,8 +64,16 @@ namespace TPANUAL {
         public Compra() { }
 
         public void agregarRevisor(Usuario usuario){
-			Revisores.Add(usuario);
+            if(Revisores == null) Revisores = new List<Usuario> { };
+            Revisores.Add(usuario);
+            usuario.agregarCompra(this);
 		}
+
+        public void sacarRevisor(Usuario usuario)
+        {
+            if (Revisores != null) Revisores.Remove(usuario);
+            usuario.sacarCompra(this);
+        }
 
         public bool esConPresupuesto()
         {
