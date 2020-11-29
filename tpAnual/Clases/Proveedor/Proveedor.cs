@@ -14,9 +14,14 @@ namespace TPANUAL {
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ID_Proveedor { get; set; }
 
+		[Column("Numero_Identificatorio")]     // dni para persona, cuit para entidad juridica
+		public string Numero_identificatorio { get; set; }
+
 		[Column("ID_Direccion")]
 		public int? ID_Direccion { get; set; }
 		public Direccion DireccionPostal { get; set; }
+
+
 
 	}//end Proveedor
 

@@ -11,8 +11,6 @@ namespace TPANUAL {
     [Table("personaproveedora")]
 	public class PersonaProveedora : Proveedor {
 
-        [Column("DNI")]
-        public string DNI { get; set; }
 
         [Column("Nombre")]
         public string Nombre { get; set; }
@@ -22,7 +20,7 @@ namespace TPANUAL {
         public PersonaProveedora(Direccion direccionPostal, string DNI, string nombre)
         {
             DireccionPostal = direccionPostal;
-            this.DNI = DNI;
+            Numero_identificatorio = DNI;
             Nombre = nombre;
             ID_Direccion = direccionPostal.ID_Direccion;
         }

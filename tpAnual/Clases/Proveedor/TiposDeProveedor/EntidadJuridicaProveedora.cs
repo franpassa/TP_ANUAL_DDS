@@ -14,9 +14,6 @@ namespace TPANUAL {
         [Column("CodigoInscripcion")]
         public string CodigoInscripcion { get; set; }
 
-        [Column("CUIT")]
-        public string CUIT { get; set; }
-
         [Column("RazonSocial")]
         public string RazonSocial { get; set; }
         public List<Compra> compras { get; set; }
@@ -26,7 +23,7 @@ namespace TPANUAL {
         {
             DireccionPostal = direccionPostal;
             CodigoInscripcion = codigoInscripcion;
-            this.CUIT = CUIT;
+            Numero_identificatorio = CUIT;
             RazonSocial = razonSocial;
             ID_Direccion = direccionPostal.ID_Direccion;
         }
