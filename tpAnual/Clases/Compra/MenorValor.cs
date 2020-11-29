@@ -10,9 +10,7 @@ using TPANUAL;
 namespace TPANUAL {
 	public class MenorValor : CriterioCompra {
 
-		public MenorValor(){
-
-		}
+		public MenorValor() {}
 		public override bool cumpleCriterio(Compra compra){
 
             float valorMinimo = float.MaxValue;
@@ -29,8 +27,6 @@ namespace TPANUAL {
 
             return compra.valorTotal() <= presupuestoMinimo.valorTotal();
 		}
-
-
 
 	}//end MenorValor
 

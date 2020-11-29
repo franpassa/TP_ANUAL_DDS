@@ -101,5 +101,15 @@ namespace TPANUAL {
 
 			return paises;
 		}
+		
+		public static List<Pais> obtenerPais(string _id)
+		{
+			using var contexto = new DB_Context();
+			var pais = contexto.pais
+				.Where(p => p.ID_Pais == _id)
+				.ToList();
+
+			return pais;
+		}
 	}
 }

@@ -16,11 +16,11 @@
                 <div class="card-body pl-3 pr-3">
                     @using (Html.BeginForm("FormRegistroCompra", "Egresos", FormMethod.Post))
                     {
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <li class="nav-item">
+                        <ul class="row nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                            <li class="col-6 text-center nav-item">
                                 <a class="nav-link active" id="pills-info-tab" data-toggle="pill" href="#pills-info" role="tab" aria-controls="pills-info" aria-selected="true">Info</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="col-6 text-center nav-item">
                                 <a class="nav-link" id="pills-items-tab" data-toggle="pill" href="#pills-items" role="tab" aria-controls="pills-items" aria-selected="false">Items</a>
                             </li>
                         </ul>
@@ -48,10 +48,6 @@
 
                                     <div class="col-lg-6">
                                         <h3>Medio de pago</h3>
-                                        <div class="form-group">
-                                            <h6>ID</h6>
-                                            <input class="form-input-tp" type="text" placeholder="ID del medio de pago" name="_IdMedioDePago" required>
-                                        </div>
 
                                         <div class="form-group">
                                             <h6>Tipo de pago</h6>
@@ -76,40 +72,41 @@
                                 </div>
                                 <hr />
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-md-6">
                                         <h3>Presupuestos</h3>
 
                                         <div class="form-group">
-                                            <h6>Proveedor</h6>
-                                            <input class="form-input-tp" type="text" placeholder="ID del proveedor" name="_IdProveedor" required>
+                                            <h6>ID Persona Proveedora</h6>
+                                            <input class="form-input-tp" type="text" placeholder="ID de la persona jurídica proveedora" name="_IdPersona">
+                                        </div>
+                                        <div class="form-group">
+                                            <h6>ID Entidad Jurídica Proveedora</h6>
+                                            <input class="form-input-tp" type="text" placeholder="ID de la entidad jurídica proveedora" name="_IdEntidadJuridica">
                                         </div>
                                         <div class="form-group">
                                             <h6>Presupuestos requeridos</h6>
                                             <input class="form-input-tp" type="number" placeholder="Cantidad de presupuestos requeridos" name="_cantPresReq" required>
                                         </div>
-                                        <div class="form-group">
-                                            <h6>Detalle</h6>
-                                            <input class="form-input-tp" type="text" placeholder="Detalle del presupuesto" name="_detallePresupuesto" required>
-                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <h3>Documento comercial</h3>
 
+                                    <div class="col-md-6">
+                                        <h3>Documento comercial</h3>
                                         <div>
                                             <div class="form-group">
                                                 <h6>ID</h6>
                                                 <input class="form-input-tp" type="text" placeholder="ID del documento comercial" name="_IdDocumentoComercial" required>
                                             </div>
-
                                             <div class="form-group">
                                                 <h6>Tipo de documento</h6>
                                                 <input class="form-input-tp" type="text" placeholder="Tipo de documento" name="_TipoDeDocumento" required>
                                             </div>
                                         </div>
-
-                                        <a class="col text-center" id="nuevoDocumentoComercial" onclick="agregarDocumentoComercial()">
-                                            <i class="fas fa-plus-circle"></i>
-                                        </a>
+                                        <hr id="nuevoDocumentoComercial" style="border: 1px dashed;" />
+                                        <div class="col text-center">
+                                            <a class="btn btn-success btn-fab btn-icon btn-round animation-on-hover" onclick="agregarDocumentoComercial()">
+                                                <i class="fas fa-plus" style="color: white;"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +119,7 @@
                                                 <tr>
                                                     <th>Nombre</th>
                                                     <th>Descripción</th>
-                                                    <th>Criterio & Categoria</th>
+                                                    <th>Categoría, criterio.</th>
                                                     <th>Valor total</th>
                                                     <th></th>
                                                 </tr>
@@ -130,33 +127,27 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <input type="text" class="form-control form-input-tp" name="_ItemsNombres" required>
+                                                        <input type="text" class="form-control form-input-tp" name="_ItemsNombres" placeholder="Nombre del item" required>
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control form-input-tp" name="_ItemsDescripciones" required>
+                                                        <input type="text" class="form-control form-input-tp" name="_ItemsDescripciones" placeholder="Descripción del item" required>
                                                     </td>
                                                     <td>
-                                                        <div>
-                                                            <input type="text" class="form-control form-input-tp" name="_ItemsCategorias" required>
-                                                            <br />
-                                                            <input type="text" class="form-control form-input-tp" name="_ItemsCriterios" required>
-                                                        </div>
-
-                                                        <a id="nuevoCriterioCategoria" class="col text-center" onclick="agregarCriterioCategoria(nuevoCriterioCategoria)">
-                                                            <i class="fas fa-plus-circle"></i>
-                                                        </a>
+                                                        <input type="text" class="form-control form-input-tp" name="_ItemsCategoriasCriterios" placeholder="Categoría1, Criterio1. Categoría2, Criterio2. Etc..." required>
                                                     </td>
                                                     <td>
-                                                        <input class="form-control form-input-tp" type="number" name="_ItemsValoresTotales" required>
+                                                        <input class="form-control form-input-tp" type="number" name="_ItemsValoresTotales" placeholder="Valor total del item" required>
                                                     </td>
                                                     <td></td>
                                                 </tr>
                                                 <tr id="nuevoItem"></tr>
                                             </tbody>
                                         </table>
-                                        <a class="col text-center" onclick="agregarItem(nuevoItem)">
-                                            <i class="fas fa-plus-circle"></i>
-                                        </a>
+                                        <div class="col text-center">
+                                            <a class="btn btn-success btn-fab btn-icon btn-round animation-on-hover" onclick="agregarItem(nuevoItem)">
+                                                <i class="fas fa-plus" style="color: white;"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -202,28 +193,20 @@
         document.getElementById('nuevoItem').insertAdjacentHTML('beforebegin', `
              <tr id="${ID_item}">
                 <td>
-                    <input type="text" class="form-control form-input-tp" name="_ItemsNombres" required>
+                    <input type="text" class="form-control form-input-tp" name="_ItemsNombres" placeholder="Nombre del item" required>
                 </td>
                 <td>
-                    <input type="text" class="form-control form-input-tp" name="_ItemsDescripciones" required>
+                    <input type="text" class="form-control form-input-tp" name="_ItemsDescripciones" placeholder="Descripción del item" required>
                 </td>
                 <td>
-                    <div>
-                        <input type="text" class="form-control form-input-tp" name="_ItemsCategorias" required>
-                        <br />
-                        <input type="text" class="form-control form-input-tp" name="_ItemsCriterios" required>
-                    </div>
-
-                    <a id="nuevoCriterioCategoria${ID_item}" class="col text-center" onclick="agregarCriterioCategoria(${ID_item})">
-                        <i class="fas fa-plus-circle"></i>
-                    </a>
+                    <input type="text" class="form-control form-input-tp" name="_ItemsCategoriasCriterios" placeholder="Criterio1, Categoria1. Criterio2, Categoria2. Etc..." required>
                 </td>
                 <td>
-                    <input class="form-control form-input-tp" type="number" name="_ItemsValoresTotales" required>
+                    <input class="form-control form-input-tp" type="number" name="_ItemsValoresTotales" placeholder="Valor total del item" required>
                 </td>
                 <td>
-                <a onclick="borrar(${ID_item})">
-                    <i class="fas fa-trash-alt"></i>
+                <a class="text-center btn btn-warning btn-fab btn-icon btn-round animation-on-hover" onclick="borrar(${ID_item})">
+                     <i class="fas fa-trash-alt" style="color: white;"></i>
                 </a>
                 </td>
             </tr>
@@ -231,36 +214,29 @@
         ID_item++;
     }
 
-    function agregarCriterioCategoria(ID_item) {
-        document.getElementById(`nuevoCriterioCategoria${ID_item}`).insertAdjacentHTML('beforebegin', `
-             <div id="${ID_criterioCategoria}">
-             <hr>
-                <input type="text" class="form-control form-input-tp" name="_ItemsCategorias" required>
-                <br />
-                <input type="text" class="form-control form-input-tp" name="_ItemsCriterios" required>
-                <a onclick="borrar(${ID_criterioCategoria})">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-            </div>
-        `);
-        ID_criterioCategoria++;
-    }
-
     function agregarDocumentoComercial() {
         document.getElementById('nuevoDocumentoComercial').insertAdjacentHTML('beforebegin', `
              <div id="${ID_documentoComercial}">
-             <hr>
-                <div class="form-group">
-                    <h6>ID</h6>
-                    <input class="form-input-tp" type="text" placeholder="ID del documento comercial" name="_IdDocumentoComercial" required>
+             <hr style="border: 1px dashed;">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <h6>ID</h6>
+                            <input class="form-input-tp" type="text" placeholder="ID del documento comercial" name="_IdDocumentoComercial" required>
+                        </div>
+                        <div class="form-group">
+                            <h6>Tipo de documento</h6>
+                            <input class="form-input-tp" type="text" placeholder="Tipo de documento" name="_TipoDeDocumento" required>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <h6>Tipo de documento</h6>
-                    <input class="form-input-tp" type="text" placeholder="Tipo de documento" name="_TipoDeDocumento" required>
+                <div class="row">
+                    <div class="col text-center">
+                        <a class="text-center btn btn-warning btn-fab btn-icon btn-round animation-on-hover" onclick="borrar(${ID_documentoComercial})">
+                            <i class="fas fa-trash-alt" style="color: white;"></i>
+                        </a>
+                    </div>
                 </div>
-                <a onclick="borrar(${ID_documentoComercial})">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
             </div>
         `);
         ID_documentoComercial++;

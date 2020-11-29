@@ -157,6 +157,8 @@
     <Compile Include="Clases\Compra\Mensaje.cs" />
     <Compile Include="Clases\DAO\OperacionDeEgresoDAO.cs" />
     <Compile Include="Clases\DAO\OperacionDeIngresoDAO.cs" />
+    <Compile Include="Clases\DAO\EntidadJuridicaProveedoraDAO.cs" />
+    <Compile Include="Clases\DAO\PersonaProveedoraDAO.cs" />
     <Compile Include="Clases\DAO\OrganizacionDAO.cs" />
     <Compile Include="Clases\DAO\UsuarioDAO.cs" />
     <Compile Include="Clases\Organizacion\Actividad\Actividad.cs" />
