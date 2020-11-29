@@ -49,6 +49,14 @@ namespace TPANUAL.Clases.DAO
             }
         }
 
+        public static void guardar(OperacionDeEgreso _oe)
+        {
+            var contexto = new DB_Context();
+            contexto.operacionDeEgreso.Add(_oe);
+            contexto.SaveChanges();
+        }
+
+
         public static void agregarRevisorCompra(int _ID_Compra, int _ID_Usuario) 
         {
             using (var contexto = new DB_Context())

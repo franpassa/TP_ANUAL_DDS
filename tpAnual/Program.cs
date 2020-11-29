@@ -27,7 +27,7 @@ namespace TPANUAL
 
                 contexto.SaveChanges();
 
-                var persona =  EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora("1212837192837");
+                var persona =  EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(4);
 
                 Console.WriteLine(persona.RazonSocial);
                 Console.WriteLine(persona.Numero_identificatorio);
@@ -35,7 +35,7 @@ namespace TPANUAL
                 Console.WriteLine(persona.ID_Proveedor);
                 Console.WriteLine(persona.ID_Direccion);
 
-                var per = PersonaProveedoraDAO.obtenerPersonaProveedora("23098213");
+                var per = PersonaProveedoraDAO.obtenerPersonaProveedora(7);
 
                 Console.WriteLine(per.ID_Proveedor);
                 Console.WriteLine(per.ID_Direccion);

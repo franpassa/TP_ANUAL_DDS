@@ -16,6 +16,7 @@
                 <div class="card-body pl-3 pr-3">
                     @using (Html.BeginForm("FormRegistroCompra", "Egresos", FormMethod.Post))
                     {
+                        <input type="hidden" name="_IdOrg" value=@usuario.ID_organizacion required>
                         <ul class="row nav nav-tabs mb-3" id="pills-tab" role="tablist">
                             <li class="col-6 text-center nav-item">
                                 <a class="nav-link active" id="pills-info-tab" data-toggle="pill" href="#pills-info" role="tab" aria-controls="pills-info" aria-selected="true">Info</a>

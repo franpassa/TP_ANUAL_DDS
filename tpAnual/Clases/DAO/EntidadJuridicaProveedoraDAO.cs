@@ -15,13 +15,11 @@ namespace TPANUAL.Clases.DAO
     {
         private EntidadJuridicaProveedoraDAO() { }
 
-        public static EntidadJuridicaProveedora obtenerEntidadJuridicaProveedora(string _cuit) //no busca por id (PK) -> busca por el cuit 
+        public static EntidadJuridicaProveedora obtenerEntidadJuridicaProveedora(int _id)
         {
             using var contexto = new DB_Context();
-            var prov = (EntidadJuridicaProveedora)contexto.proveedor.Where(p => p.Numero_identificatorio == _cuit).FirstOrDefault();
-            var direc = contexto.direccion.Find(prov.ID_Direccion);
-            EntidadJuridicaProveedora ejProveedora = new EntidadJuridicaProveedora(direc, prov.CodigoInscripcion, prov.Numero_identificatorio, prov.RazonSocial);
-            return ejProveedora;
+            var prov = (EntidadJuridicaProveedora)contexto.proveedor.Find(_id);
+            return prov;
         }
     }
 }

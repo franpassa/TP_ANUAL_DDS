@@ -13,6 +13,7 @@ namespace INTERFAZ.Controllers
     {
         [HttpPost]
         public ActionResult FormRegistroCompra(
+            string _IdOrg,
             string _fechaCompra,
             string _cantPresReq, 
             string[] _UsuariosRevisores,
@@ -69,7 +70,8 @@ namespace INTERFAZ.Controllers
                         _ItemsDescripciones[i],
                         float.Parse(_ItemsValoresTotales[i]),
                         categorias
-                    ));
+                    )
+                );
             }
 
 
@@ -114,12 +116,16 @@ namespace INTERFAZ.Controllers
                 n_entidadJuridicaProveedora
                 );
 
-            OperacionDeEgreso m_oe = new OperacionDeEgreso(
+            OperacionDeEgreso n_oe = new OperacionDeEgreso(
                 n_compra,
                 n_medioDePago,
                 n_documentosComerciales,
                 DateTime.Parse(_fechaCompra)
                 );
+
+            n_oe.ID_Organizacion = int.Parse(_IdOrg);
+
+            OperacionDeEgresoDAO.guardar(n_oe);
 
             return RedirectToAction("Egresos", "Home");
         }
