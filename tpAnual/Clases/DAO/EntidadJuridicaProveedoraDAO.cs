@@ -15,7 +15,7 @@ namespace TPANUAL.Clases.DAO
     {
         private EntidadJuridicaProveedoraDAO() { }
 
-        public static EntidadJuridicaProveedora obtenerEntidadJuridicaProveedora(int _id)
+        public static EntidadJuridicaProveedora obtenerEntidadJuridicaProveedora(string _cuit) //no busca por id (PK) -> busca por el cuit 
         {
             using var contexto = new DB_Context();
             var prov = (EntidadJuridicaProveedora)contexto.entidadJuridicaProveedora.Find(_id);
