@@ -19,8 +19,8 @@ namespace INTERFAZ.Controllers
             string _tipoPago,
             string _numero,
             string _IdPais,
-            string _IdPersona,
-            string _IdEntidadJuridica,
+            string _TipoProveedor,
+            string _IdProveedor,
             string[] _IdDocumentoComercial,
             string[] _TipoDeDocumento,
             string[] _ItemsNombres,
@@ -93,10 +93,10 @@ namespace INTERFAZ.Controllers
             PersonaProveedora n_personaProveedora = null;
             EntidadJuridicaProveedora n_entidadJuridicaProveedora = null;
 
-            if(_IdPersona.Length != 0)
-                n_personaProveedora = PersonaProveedoraDAO.obtenerPersonaProveedora(int.Parse(_IdPersona));
-            else
-                n_entidadJuridicaProveedora = EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(int.Parse(_IdEntidadJuridica));
+            if(_TipoProveedor == "PersonaProveedora")
+                n_personaProveedora = PersonaProveedoraDAO.obtenerPersonaProveedora(int.Parse(_IdProveedor));
+            if(_TipoProveedor == "EntidadJuridicaProveedora")
+                n_entidadJuridicaProveedora = EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(int.Parse(_IdProveedor));
             
             CriterioCompra n_criterio = new MenorValor();
 
@@ -137,9 +137,9 @@ namespace INTERFAZ.Controllers
 
         [HttpPost]
         public ActionResult FormRegistroPresupuesto(
-            string _Detalle,
-            string _IdPersona,
-            string _IdEntidadJuridica,
+            string _Detalle, 
+            string _TipoProveedor,
+            string _IdProveedor,
             string[] _IdDocumentoComercial,
             string[] _TipoDeDocumento,
             string[] _ItemsNombres,
@@ -205,10 +205,10 @@ namespace INTERFAZ.Controllers
             PersonaProveedora n_personaProveedora = null;
             EntidadJuridicaProveedora n_entidadJuridicaProveedora = null;
 
-            if (_IdPersona.Length != 0)
-                n_personaProveedora = PersonaProveedoraDAO.obtenerPersonaProveedora(int.Parse(_IdPersona));
-            else
-                n_entidadJuridicaProveedora = EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(int.Parse(_IdEntidadJuridica));
+            if (_TipoProveedor == "PersonaProveedora")
+                n_personaProveedora = PersonaProveedoraDAO.obtenerPersonaProveedora(int.Parse(_IdProveedor));
+            if (_TipoProveedor == "EntidadJuridicaProveedora")
+                n_entidadJuridicaProveedora = EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(int.Parse(_IdProveedor));
 
             var n_presupuesto = new Presupuesto(
                 n_personaProveedora,

@@ -77,13 +77,28 @@
                                         <h3>Presupuestos</h3>
 
                                         <div class="form-group">
-                                            <h6>ID Persona Proveedora</h6>
-                                            <input class="form-input-tp" type="text" placeholder="ID de la persona jurídica proveedora" name="_IdPersona">
+                                            <h6>ID Proveedor</h6>
+                                            <input class="form-input-tp" type="text" placeholder="ID del proveedor" name="_IdProveedor">
                                         </div>
-                                        <div class="form-group">
-                                            <h6>ID Entidad Jurídica Proveedora</h6>
-                                            <input class="form-input-tp" type="text" placeholder="ID de la entidad jurídica proveedora" name="_IdEntidadJuridica">
+
+                                        <div class="mt-1 mb-3">
+                                            <h6>Tipo de proveedor</h6>
+                                            <div class="form-check form-check-radio form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="_TipoProveedor" id="inlineRadio1" value="PersonaProveedora" required>
+                                                    Persona proveedora
+                                                    <span class="form-check-sign"></span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-radio form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="_TipoProveedor" id="inlineRadio2" value="EntidadJuridicaProveedora" required>
+                                                    Entidad jurídica proveedora
+                                                    <span class="form-check-sign"></span>
+                                                </label>
+                                            </div>
                                         </div>
+
                                         <div class="form-group">
                                             <h6>Presupuestos requeridos</h6>
                                             <input class="form-input-tp" type="number" placeholder="Cantidad de presupuestos requeridos" name="_cantPresReq">

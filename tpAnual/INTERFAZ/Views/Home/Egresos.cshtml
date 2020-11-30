@@ -43,7 +43,14 @@
                             <div class="cuadros-texto col-xl-2">
                                 <div class="cuadro-texto alert alert-default" role="alert">
                                     <h6>Proveedor</h6>
-                                    <p>@oe.Compra.Persona.Nombre</p>
+                                    @if (oe.Compra.Persona == null)
+                                    {
+                                        <p>@oe.Compra.Entidad.RazonSocial</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@oe.Compra.Persona.Nombre</p>
+                                    }
                                     <hr>
                                     <h6>Medio de pago</h6>
                                     <p>@oe.MedioDePago.TipoPago</p>
@@ -63,39 +70,39 @@
                                         </div>
                                         <hr>
                                     }
-                                <div class="cuadro-texto alert alert-info" role="alert">
-                                    @using (Html.BeginForm("FormRevisor", "Egresos", FormMethod.Post))
-                                    {
-                                        <input name="_ID_Compra" value=@oe.Compra.ID_Compra type="hidden">
-                                        <input name="_ID_Usuario" value=@usuario.ID_Usuario type="hidden">
-                                        if (oe.Compra.Revisores.Any(u => u.ID_Usuario == usuario.ID_Usuario))
+                                    <div class="cuadro-texto alert alert-info" role="alert">
+                                        @using (Html.BeginForm("FormRevisor", "Egresos", FormMethod.Post))
                                         {
-                                            if (oe.Compra.Bandeja.Count == 0)
+                                            <input name="_ID_Compra" value=@oe.Compra.ID_Compra type="hidden">
+                                            <input name="_ID_Usuario" value=@usuario.ID_Usuario type="hidden">
+                                            if (oe.Compra.Revisores.Any(u => u.ID_Usuario == usuario.ID_Usuario))
                                             {
-                                                <h6>Bandeja de mensajes vacía</h6>
+                                                if (oe.Compra.Bandeja.Count == 0)
+                                                {
+                                                    <h6>Bandeja de mensajes vacía</h6>
+                                                }
+                                                else
+                                                {
+                                                    foreach (Mensaje msj in oe.Compra.Bandeja)
+                                                    {
+                                                        <h6>Mensaje #@msj.ID_Mensaje</h6>
+                                                        <p>"@msj.texto"</p>
+                                                        <br>
+                                                    }
+                                                }
+                                                <button class="btn btn-danger animation-on-hover mb-0" type="submit" name="_noSerRevisor">
+                                                    No ser revisor
+                                                </button>
                                             }
                                             else
                                             {
-                                                foreach (Mensaje msj in oe.Compra.Bandeja)
-                                                {
-                                                    <h6>Mensaje #@msj.ID_Mensaje</h6>
-                                                    <p>"@msj.texto"</p>
-                                                    <br>
-                                                }
+                                                <h6>Bandeja de mensajes</h6>
+                                                <button class="btn btn-warning animation-on-hover mb-0" type="submit" name="_serRevisor">
+                                                    Ser revisor
+                                                </button>
                                             }
-                                            <button class="btn btn-danger animation-on-hover mb-0" type="submit" name="_noSerRevisor">
-                                                No ser revisor
-                                            </button>
                                         }
-                                        else
-                                        {
-                                            <h6>Bandeja de mensajes</h6>
-                                            <button class="btn btn-warning animation-on-hover mb-0" type="submit" name="_serRevisor">
-                                                Ser revisor
-                                            </button>
-                                        }
-                                    }
-                                </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-xl-10">
@@ -142,21 +149,49 @@
                         <hr />
                         @if (oe.Compra.Presupuestos.Any())
                         {
-                            <hr>
                             <h2>Presupuestos</h2>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <ul class="nav nav-tabs" id="Tab-Presupuestos" role="tablist">
                                 @foreach (Presupuesto presupuesto in oe.Compra.Presupuestos)
                                 {
+                                    string mostrar = "", seleccionado = "false";
+                                    if (oe.Compra.Presupuestos.First() == presupuesto) 
+                                    { 
+                                        mostrar = "active"; seleccionado = "true"; 
+                                    }
+                                    else 
+                                    { 
+                                        mostrar = ""; seleccionado = "false"; 
+                                    }
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" id="@presupuesto.ID_Presupuesto" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                                           aria-selected="true">@presupuesto.ID_Presupuesto</a>
+                                        <a class="nav-link @mostrar" 
+                                           id="@presupuesto.ID_Presupuesto-presupuesto-tab" 
+                                           data-toggle = "tab" 
+                                           href="#@presupuesto.ID_Presupuesto-presupuesto-panel"
+                                           role="tab" 
+                                           aria-controls="@presupuesto.ID_Presupuesto-presupuesto-panel"
+                                           aria-selected="@seleccionado">
+                                            Presupuesto #@presupuesto.ID_Presupuesto
+                                        </a>
                                     </li>
                                 }
                             </ul>
-                            <div class="tab-content" id="myTabContent">
+                            <div class="tab-content" id="Tab-Presupuestos-Contenido">
                                 @foreach (Presupuesto presupuesto in oe.Compra.Presupuestos)
                                 {
-                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    string mostrar="";
+                                    if (oe.Compra.Presupuestos.First() == presupuesto) 
+                                    { 
+                                        mostrar = "show active"; 
+                                    }
+                                    else 
+                                    { 
+                                        mostrar = "";
+                                    }
+
+                                    <div class="tab-pane fade @mostrar" 
+                                         id="@presupuesto.ID_Presupuesto-presupuesto-panel" 
+                                         role="tabpanel" 
+                                         aria-labelledby="@presupuesto.ID_Presupuesto-presupuesto-tab">
                                         <div class="row">
                                             <div class="col-xl-2">
                                                 <div class="cuadro-texto alert alert-default" role="alert" style="margin-top: 32px;">
@@ -172,11 +207,10 @@
                                                     <table class="table table-stripped table-hover">
                                                         <thead>
                                                             <tr>
-                                                                <th class="text-center">ID</th>
+                                                                <th>ID</th>
                                                                 <th>Nombre</th>
                                                                 <th>Descripción</th>
-                                                                <th>Categoría</th>
-                                                                <th class="text-center">Cantidad</th>
+                                                                <th>Categoría, Criterio.</th>
                                                                 <th class="text-right">Valor</th>
                                                             </tr>
                                                         </thead>
@@ -184,17 +218,22 @@
                                                             @foreach (Item item in presupuesto.Items)
                                                             {
                                                                 <tr>
-                                                                    <td class="text-center">@item.ID_Item</td>
+                                                                    <td>@item.ID_Item</td>
+                                                                    <td>@item.Nombre</td>
                                                                     <td>@item.Descripcion</td>
-                                                                    <td>Zapatos de talla 41 con taco de madera</td>
                                                                     <td>
-                                                                        <input type="text" name="city" list="cityname" value="Ropa para hombres">
-                                                                        <datalist id="cityname">
-                                                                            <option value="Ropa para mujeres">
-                                                                            <option value="Ropa para niños">
-                                                                        </datalist>
+                                                                        @if (item.Categorias != null)
+                                                                        {
+                                                                            foreach (Categoria cat in item.Categorias)
+                                                                            {
+                                                                                <p> @cat.Nombre, @cat.Criterio.Nombre. </p>
+                                                                            }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <p> Item sin categoria </p>
+                                                                        }
                                                                     </td>
-                                                                    <td class="text-center">X</td>
                                                                     <td class="text-right"> $@item.ValorTotal</td>
                                                                 </tr>
                                                             }

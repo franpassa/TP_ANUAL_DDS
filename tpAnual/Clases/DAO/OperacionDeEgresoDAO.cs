@@ -26,12 +26,19 @@ namespace TPANUAL.Clases.DAO
                     .Include(oe => oe.Compra.Items
                         .Select(i => i.Categorias
                             .Select(c => c.Criterio)
+                            )
+                        )
+                    .Include(oe => oe.Compra.Presupuestos
+                        .Select(p => p.Items
+                            .Select(i => i.Categorias
+                                .Select(c => c.Criterio)
                                 )
                             )
-                    .Include(oe => oe.Compra.Presupuestos)
+                        )
                     .Include(oe => oe.Compra.Revisores)
                     .Include(oe => oe.Compra.Bandeja)
                     .Include(oe => oe.Compra.Persona)
+                    .Include(oe => oe.Compra.Entidad)
                     .ToList();
 
                 return operacionesDeEgreso;
