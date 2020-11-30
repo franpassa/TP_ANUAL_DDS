@@ -27,7 +27,8 @@ namespace TPANUAL
         public DbSet<Empresa> empresas { get; set; }
         public DbSet<OSC> oscs { get; set; }
         public DbSet<Pais> pais { get; set; }
-        public DbSet<Proveedor> proveedor { get; set; }
+        public DbSet<PersonaProveedora> personaProveedora { get; set; }
+        public DbSet<EntidadJuridicaProveedora> entidadJuridicaProveedora { get; set; }
         public DbSet<Presupuesto> presupuesto { get; set; }
         public DbSet<Provincia> provincia { get; set; }
         public DbSet<Usuario> usuario { get; set; }
@@ -55,21 +56,21 @@ namespace TPANUAL
 
             modelBuilder.Entity<PersonaProveedora>().HasMany(m => m.presupuestos);
 
-            modelBuilder.Entity<PersonaProveedora>().Map(m =>
-            {
-                m.MapInheritedProperties();
-                m.ToTable("personaproveedora");
-            });
+            //modelBuilder.Entity<PersonaProveedora>().Map(m =>
+            //{
+            //    m.MapInheritedProperties();
+            //    m.ToTable("personaproveedora");
+            //});
 
             modelBuilder.Entity<EntidadJuridicaProveedora>().HasMany(m => m.compras);
 
             modelBuilder.Entity<EntidadJuridicaProveedora>().HasMany(m => m.presupuestos);
 
-            modelBuilder.Entity<EntidadJuridicaProveedora>().Map(m =>
-            {
-                m.MapInheritedProperties();
-                m.ToTable("entidadjuridicaproveedora");
-            });
+            //modelBuilder.Entity<EntidadJuridicaProveedora>().Map(m =>
+            //{
+            //    m.MapInheritedProperties();
+            //    m.ToTable("entidadjuridicaproveedora");
+            //});
 
             modelBuilder.Entity<EntidadBase>().Map(m =>
             {

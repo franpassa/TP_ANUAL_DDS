@@ -16,14 +16,17 @@ namespace TPANUAL {
 
         [Column("RazonSocial")]
         public string RazonSocial { get; set; }
+
+        [Column("CUIT")]     // dni para persona, cuit para entidad juridica
+        public string CUIT { get; set; }
         public List<Compra> compras { get; set; }
         public List<Presupuesto> presupuestos { get; set; }
 
-        public EntidadJuridicaProveedora(Direccion direccionPostal, string codigoInscripcion, string CUIT, string razonSocial)
+        public EntidadJuridicaProveedora(Direccion direccionPostal, string codigoInscripcion, string _CUIT, string razonSocial)
         {
             DireccionPostal = direccionPostal;
             CodigoInscripcion = codigoInscripcion;
-            Numero_identificatorio = CUIT;
+            CUIT = _CUIT;
             RazonSocial = razonSocial;
             ID_Direccion = direccionPostal.ID_Direccion;
         }

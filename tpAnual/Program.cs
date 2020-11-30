@@ -15,36 +15,7 @@ namespace TPANUAL
         static void Main(string[] args) 
         {
             using (var contexto = new DB_Context())
-            {
-
-                EntidadJuridicaProveedora ejp = new EntidadJuridicaProveedora(contexto.direccion.Find(1), "ejp", "1212837192837", "ejpRazonSocial");
-
-                contexto.proveedor.Add(ejp);
-
-                PersonaProveedora mirna = new PersonaProveedora(contexto.direccion.Find(8), "23098213", "Mirna");
-
-                contexto.proveedor.Add(mirna);
-
-                contexto.SaveChanges();
-
-                var persona =  EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(4);
-
-                Console.WriteLine(persona.RazonSocial);
-                Console.WriteLine(persona.Numero_identificatorio);
-                Console.WriteLine(persona.CodigoInscripcion);
-                Console.WriteLine(persona.ID_Proveedor);
-                Console.WriteLine(persona.ID_Direccion);
-
-                var per = PersonaProveedoraDAO.obtenerPersonaProveedora(7);
-
-                Console.WriteLine(per.ID_Proveedor);
-                Console.WriteLine(per.ID_Direccion);
-                Console.WriteLine(per.Numero_identificatorio);
-                Console.WriteLine(per.Nombre);
-
-                Console.ReadLine();
-
-                /*
+            {   
                 //API_MercadoLibre ml = API_MercadoLibre.getInstance();
                 //ml.persistir(contexto);
 
@@ -212,14 +183,14 @@ namespace TPANUAL
                 //Item alguno = new Item("alguno", "ya me aburri", 123123, categoriaCuzco);
 
                 //guardo el proveedor
-                contexto.proveedor.Add(mirna);
-                contexto.proveedor.Add(isma);
-                contexto.proveedor.Add(kronk);
-                contexto.proveedor.Add(cuzco);
+                contexto.personaProveedora.Add(mirna);
+                contexto.personaProveedora.Add(isma);
+                contexto.personaProveedora.Add(kronk);
+                contexto.personaProveedora.Add(cuzco);
 
 
 
-                /*OPERACION DE EGRESO 1*/   /*
+                /*OPERACION DE EGRESO 1*/   
 
                 //creo atributos de compra 1
                 List<Usuario> usuariosRevisoresCompra1 = new List<Usuario> { pedro, scarlet, daniel };
@@ -281,7 +252,7 @@ namespace TPANUAL
                 MinMining.agregarOperacionDeEgreso(operacionDeEgreso3);
 
 
-                /*CREO Y AGREGO OPERACIONES DE INGRESO*/    /*
+                /*CREO Y AGREGO OPERACIONES DE INGRESO*/    
 
                 OperacionDeIngreso op1 = new OperacionDeIngreso("Prestamo", null, 7824, DateTime.Now);
                 OperacionDeIngreso op2 = new OperacionDeIngreso("Prestamo", null, 23734, DateTime.Now);
@@ -302,21 +273,30 @@ namespace TPANUAL
                     zapatuya.agregarOperacionDeIngreso(operacion);
                 }
 
-
-
-                //guardo los cambios en la base de datos
                 contexto.SaveChanges();
 
-                */
+                EntidadJuridicaProveedora ejp = new EntidadJuridicaProveedora(contexto.direccion.Find(1), "ejp", "1212837192837", "ejpRazonSocial");
 
+                contexto.entidadJuridicaProveedora.Add(ejp);
 
+                contexto.SaveChanges();
 
+                var persona = EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(1);
 
+                Console.WriteLine(persona.RazonSocial);
+                Console.WriteLine(persona.CUIT);
+                Console.WriteLine(persona.CodigoInscripcion);
+                Console.WriteLine(persona.ID_Proveedor);
+                Console.WriteLine(persona.ID_Direccion);
 
+                var per = PersonaProveedoraDAO.obtenerPersonaProveedora(1);
 
+                Console.WriteLine(per.ID_Proveedor);
+                Console.WriteLine(per.ID_Direccion);
+                Console.WriteLine(per.DNI);
+                Console.WriteLine(per.Nombre);
 
-
-
+                Console.ReadLine();
 
 
                 //API_MercadoLibre ml = API_MercadoLibre.getInstance();

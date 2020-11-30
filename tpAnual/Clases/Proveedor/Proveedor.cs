@@ -9,13 +9,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TPANUAL {
 	public abstract class Proveedor {
-		[Key]
-		[Column("ID_Proveedor")]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int ID_Proveedor { get; set; }
 
-		[Column("Numero_Identificatorio")]     // dni para persona, cuit para entidad juridica
-		public string Numero_identificatorio { get; set; }
+        [Key]
+        [Column("ID_Proveedor")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID_Proveedor { get; set; }
 
 		[Column("ID_Direccion")]
 		public int? ID_Direccion { get; set; }

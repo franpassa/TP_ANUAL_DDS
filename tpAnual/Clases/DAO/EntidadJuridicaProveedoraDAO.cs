@@ -18,7 +18,7 @@ namespace TPANUAL.Clases.DAO
         public static EntidadJuridicaProveedora obtenerEntidadJuridicaProveedora(int _id)
         {
             using var contexto = new DB_Context();
-            var prov = (EntidadJuridicaProveedora)contexto.proveedor.Find(_id);
+            var prov = (EntidadJuridicaProveedora)contexto.entidadJuridicaProveedora.Find(_id);
             return prov;
         }
     }

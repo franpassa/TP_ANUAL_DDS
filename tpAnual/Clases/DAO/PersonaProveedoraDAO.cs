@@ -18,7 +18,7 @@ namespace TPANUAL.Clases.DAO
         public static PersonaProveedora obtenerPersonaProveedora(int _ID)
         {
             using var contexto = new DB_Context();
-            var personaProveedora = (PersonaProveedora)contexto.proveedor.Find(_ID);
+            var personaProveedora = contexto.personaProveedora.Find(_ID);
 
             return personaProveedora;
         }
