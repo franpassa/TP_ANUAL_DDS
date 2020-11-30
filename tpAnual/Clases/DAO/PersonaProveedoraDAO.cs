@@ -15,7 +15,7 @@ namespace TPANUAL.Clases.DAO
     {
         private PersonaProveedoraDAO() { }
 
-        public static PersonaProveedora obtenerPersonaProveedora(string _dni) //no busca por id (PK) -> busca por el dni
+        public static PersonaProveedora obtenerPersonaProveedora(int _ID) //no busca por id (PK) -> busca por el dni
         {
             using var contexto = new DB_Context();
             var personaProveedora = contexto.personaProveedora.Find(_ID);
