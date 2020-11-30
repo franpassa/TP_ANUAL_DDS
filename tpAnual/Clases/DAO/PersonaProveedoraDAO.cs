@@ -15,11 +15,12 @@ namespace TPANUAL.Clases.DAO
     {
         private PersonaProveedoraDAO() { }
 
-        public static PersonaProveedora obtenerPersonaProveedora(int _ID)
+        public static PersonaProveedora obtenerPersonaProveedora(string _dni) //no busca por id (PK) -> busca por el dni
         {
             using var contexto = new DB_Context();
-            var personaProveedora = (PersonaProveedora)contexto.proveedor.Find(_ID);
-
+            var prov = (PersonaProveedora)contexto.proveedor.Where(p => p.Numero_identificatorio == _dni).FirstOrDefault();
+            var direc = contexto.direccion.Find(prov.ID_Direccion);
+            PersonaProveedora personaProveedora = new PersonaProveedora(direc, prov.Numero_identificatorio, prov.Nombre);
             return personaProveedora;
         }
     }
