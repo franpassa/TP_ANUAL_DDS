@@ -8,36 +8,42 @@
 using System.Collections.Generic;
 using TPANUAL;
 
-public class Vinculador {
+public class Vinculador
+{
 
 	private List<Condicion> condiciones;
 	private CriterioVinculador criterio;
-    public List<Condicion> Condiciones { get => condiciones; set => condiciones = value; }
-    public CriterioVinculador Criterio { get => criterio; set => criterio = value; }
+	public List<Condicion> Condiciones { get => condiciones; set => condiciones = value; }
+	public CriterioVinculador Criterio { get => criterio; set => criterio = value; }
 
-	public Vinculador(List<Condicion> condiciones){
+	public Vinculador(List<Condicion> condiciones)
+	{
 		Condiciones = condiciones;
 	}
 
-	public void cambiarCriterio(CriterioVinculador criterio){
+	public void cambiarCriterio(CriterioVinculador criterio)
+	{
 		Criterio = criterio;
 	}
 
-	public void cambiarCriterio(List<CriterioVinculador> criterios){
+	public void cambiarCriterio(List<CriterioVinculador> criterios)
+	{
 		Criterio = new Mix(criterios);
 	}
 
-	public bool cumpleCondiciones(OperacionDeEgreso opegreso, OperacionDeIngreso opingreso){
+	public bool cumpleCondiciones(OperacionDeEgreso opegreso, OperacionDeIngreso opingreso)
+	{
 		bool flag = true;
-		foreach(Condicion condicion in Condiciones)
-        {
+		foreach (Condicion condicion in Condiciones)
+		{
 			flag = flag && condicion.cumpleCondicion(opegreso, opingreso);
-        }
+		}
 		return flag;
 	}
 
-	public void vincular(DB_Context contexto, Organizacion organizacion) {
+	public void vincular(DB_Context contexto, Organizacion organizacion)
+	{
 
-        Criterio.vincular(contexto, organizacion);
+		Criterio.vincular(contexto, organizacion);
 	}
 }

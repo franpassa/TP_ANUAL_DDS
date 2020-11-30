@@ -1,22 +1,22 @@
-﻿@using TPANUAL
+﻿
 @{
     ViewBag.Title = "Egresos";
-    Usuario usuario = (Usuario)Session["Usuario"];
-    List<OperacionDeEgreso> operacionesDeEgreso = (List<OperacionDeEgreso>)Session["Egresos"];
-    Organizacion org = (Organizacion)Session["Organizacion"];
-    List<Pais> paises = (List<Pais>)Session["Paises"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int cantPresupuestos = (int)Session["CantPresReqMax"];
+    int presupuestoActual = 1+(int)Session["CantPresReqMax"]-(int)Session["CantPresReq"];
 }
+
+
 <div class="content">
     <div class="row">
         <div class="col-12">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h1>Nueva compra</h1>
+                    <h1>Presupuesto @presupuestoActual/@cantPresupuestos</h1>
                 </div>
                 <div class="card-body pl-3 pr-3">
-                    @using (Html.BeginForm("FormRegistroCompra", "Egresos", FormMethod.Post))
+                    @using (Html.BeginForm("FormRegistroPresupuesto", "Egresos", FormMethod.Post))
                     {
-                        <input type="hidden" name="_IdOrg" value=@usuario.ID_organizacion required>
                         <ul class="row nav nav-tabs mb-3" id="pills-tab" role="tablist">
                             <li class="col-6 text-center nav-item">
                                 <a class="nav-link active" id="pills-info-tab" data-toggle="pill" href="#pills-info" role="tab" aria-controls="pills-info" aria-selected="true">Info</a>
@@ -28,50 +28,6 @@
 
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <h3>Compra</h3>
-                                        <div class="form-group">
-                                            <h6>Fecha de la compra</h6>
-                                            <input class="form-input-tp" type="date" name="_fechaCompra" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <h6>Usuarios revisores</h6>
-                                            <select multiple class="form-control form-input-tp" id="UsuariosRevisores" name="_UsuariosRevisores">
-                                                @foreach (Usuario u in org.Usuarios)
-                                                {
-                                                    <option value=@u.ID_Usuario> @u.NombreUsuario </option>
-                                                }
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <h3>Medio de pago</h3>
-
-                                        <div class="form-group">
-                                            <h6>Tipo de pago</h6>
-                                            <input class="form-input-tp" type="text" placeholder="Tipo de pago" name="_tipoPago" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <h6>Numero</h6>
-                                            <input class="form-input-tp" type="number" placeholder="Numero" name="_numero" required>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <h6>Pais</h6>
-                                            <select id="_IdPais" name="_IdPais">
-                                                @foreach (Pais p in paises)
-                                                {
-                                                    <option value=@p.ID_Pais> @p.Nombre </option>
-                                                }
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr />
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h3>Presupuestos</h3>
@@ -85,8 +41,8 @@
                                             <input class="form-input-tp" type="text" placeholder="ID de la entidad jurídica proveedora" name="_IdEntidadJuridica">
                                         </div>
                                         <div class="form-group">
-                                            <h6>Presupuestos requeridos</h6>
-                                            <input class="form-input-tp" type="number" placeholder="Cantidad de presupuestos requeridos" name="_cantPresReq">
+                                            <h6>Detalle del presupuesto</h6>
+                                            <input class="form-input-tp" type="text" placeholder="Detalle del presupuesto" name="_Detalle">
                                         </div>
                                     </div>
 
@@ -154,15 +110,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col">
                                 <button class="btn btn-success animation-on-hover" type="submit" style="width: 100%;">
-                                    Crear nueva compra
+                                    Agregar presupuesto
                                 </button>
-                            </div>
-                            <div class="col-6">
-                                <a href="~/Home/Egresos" class="btn btn-warning animation-on-hover" style="width: 100%;">
-                                    Volver
-                                </a>
                             </div>
                         </div>
                     }

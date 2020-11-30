@@ -54,6 +54,20 @@ namespace INTERFAZ.Controllers
             }
         }
 
+        public ActionResult NuevoPresupuesto()
+        {
+            ViewBag.Title = "Egresos";
+
+            if (Session["Usuario"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
+
         public ActionResult Ingresos()
         {
             if (Session["Usuario"] != null)

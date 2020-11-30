@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using TPANUAL;
 using TPANUAL.Clases.DAO;
 
-
 namespace INTERFAZ.Controllers
 {
     public class EgresosController : Controller
@@ -89,23 +88,19 @@ namespace INTERFAZ.Controllers
             var n_usuarios = new List<Usuario> { };
 
             foreach(string IdUsuario in _UsuariosRevisores)
-            {
                 n_usuarios.Add(UsuarioDAO.obtenerUsuario(int.Parse(IdUsuario)));
-            }
 
             PersonaProveedora n_personaProveedora = null;
             EntidadJuridicaProveedora n_entidadJuridicaProveedora = null;
 
             if(_IdPersona.Length != 0)
-            {
                 n_personaProveedora = PersonaProveedoraDAO.obtenerPersonaProveedora(int.Parse(_IdPersona));
-            }
             else
-            {
                 n_entidadJuridicaProveedora = EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(int.Parse(_IdEntidadJuridica));
-            }
-
+            
             CriterioCompra n_criterio = new MenorValor();
+
+            if(_cantPresReq == "") _cantPresReq = "0"; 
 
             Compra n_compra = new Compra(
                 int.Parse(_cantPresReq),
@@ -125,9 +120,119 @@ namespace INTERFAZ.Controllers
 
             n_oe.ID_Organizacion = int.Parse(_IdOrg);
 
-            OperacionDeEgresoDAO.guardar(n_oe);
 
-            return RedirectToAction("Egresos", "Home");
+            if(_cantPresReq == null || int.Parse(_cantPresReq) == 0)
+            {
+                OperacionDeEgresoDAO.guardar(n_oe);
+                return RedirectToAction("Egresos", "Home");
+            }
+            else
+            {
+                Session["NuevoEgreso"] = n_oe;
+                Session["CantPresReq"] = int.Parse(_cantPresReq);
+                Session["CantPresReqMax"] = int.Parse(_cantPresReq);
+                return RedirectToAction("NuevoPresupuesto", "Home");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult FormRegistroPresupuesto(
+            string _Detalle,
+            string _IdPersona,
+            string _IdEntidadJuridica,
+            string[] _IdDocumentoComercial,
+            string[] _TipoDeDocumento,
+            string[] _ItemsNombres,
+            string[] _ItemsDescripciones,
+            string[] _ItemsCategoriasCriterios,
+            string[] _ItemsValoresTotales
+            )
+        {
+            var n_oe = (OperacionDeEgreso)Session["NuevoEgreso"];
+
+            List<Item> n_items = new List<Item>() { };
+            for (int i = 0; i < _ItemsNombres.Length; i++)
+            {
+                // Parseo el texto de Categoria, Criterio.
+                var categorias_criterios = new Dictionary<String, List<String>> { };
+                string categoria, criterio;
+
+                foreach (String dupla in _ItemsCategoriasCriterios[i].Replace(" ", string.Empty).Split('.'))
+                {
+                    if (dupla.Count() > 0)
+                    {
+                        categoria = dupla.Split(',')[0];
+                        criterio = dupla.Split(',')[1];
+
+                        if (!categorias_criterios.ContainsKey(categoria))
+                            categorias_criterios.Add(categoria, new List<string> { });
+
+                        if (!categorias_criterios[categoria].Contains(criterio))
+                            categorias_criterios[categoria].Add(criterio);
+                    }
+                }
+
+                var categorias = new List<Categoria> { };
+
+                foreach (var kvp in categorias_criterios)
+                {
+                    foreach (var value in kvp.Value)
+                    {
+                        categorias.Add(
+                            new Categoria(kvp.Key,
+                                new Criterio(value, null)));
+                    }
+                }
+
+                n_items.Add(
+                new Item(
+                        _ItemsNombres[i],
+                        _ItemsDescripciones[i],
+                        float.Parse(_ItemsValoresTotales[i]),
+                        categorias
+                    )
+                );
+            }
+
+            var n_documentosComerciales = new List<DocumentoComercial>() { };
+            for (int i = 0; i < _IdDocumentoComercial.Length; i++)
+            {
+                n_documentosComerciales.Add(
+                    new DocumentoComercial(int.Parse(_IdDocumentoComercial[i]), _TipoDeDocumento[i])
+                    );
+            }
+
+            PersonaProveedora n_personaProveedora = null;
+            EntidadJuridicaProveedora n_entidadJuridicaProveedora = null;
+
+            if (_IdPersona.Length != 0)
+                n_personaProveedora = PersonaProveedoraDAO.obtenerPersonaProveedora(int.Parse(_IdPersona));
+            else
+                n_entidadJuridicaProveedora = EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(int.Parse(_IdEntidadJuridica));
+
+            var n_presupuesto = new Presupuesto(
+                n_personaProveedora,
+                n_entidadJuridicaProveedora,
+                n_items,
+                null,
+                _Detalle,
+                n_documentosComerciales
+                );
+
+            n_oe.Compra.agregarPresupuesto(n_presupuesto);
+
+            Session["CantPresReq"] = (int)Session["CantPresReq"]-1;
+
+            if ((int)Session["CantPresReq"] > 0)
+            {
+                Session["NuevoEgreso"] = n_oe;
+                return RedirectToAction("NuevoPresupuesto", "Home");
+            }
+            else
+            {
+                OperacionDeEgresoDAO.guardar((OperacionDeEgreso)Session["NuevoEgreso"]);
+                return RedirectToAction("Egresos", "Home");
+            }
         }
 
         [HttpPost]
