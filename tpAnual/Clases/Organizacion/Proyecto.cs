@@ -15,8 +15,6 @@ namespace TPANUAL
         [Column("ID_Proyecto")]
         public int ID_Proyecto { get; set; }
 
-        [Column("ID_Director_Responsable")]
-        public int? ID_Director_Responsable { get; set; }
         public Usuario Director_Responsable { get; set; }
 
         public List<OperacionDeIngreso> IngresosAsociados { get; set; }

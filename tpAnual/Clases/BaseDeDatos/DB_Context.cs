@@ -30,6 +30,7 @@ namespace TPANUAL
         public DbSet<PersonaProveedora> personaProveedora { get; set; }
         public DbSet<EntidadJuridicaProveedora> entidadJuridicaProveedora { get; set; }
         public DbSet<Presupuesto> presupuesto { get; set; }
+        public DbSet<Proyecto> proyecto { get; set; }
         public DbSet<Provincia> provincia { get; set; }
         public DbSet<Usuario> usuario { get; set; }
         public DbSet<Categoria> categoria { get; set; }
