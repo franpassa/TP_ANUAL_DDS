@@ -16,8 +16,8 @@ namespace TPANUAL
         {
             using (var contexto = new DB_Context())
             {
-                //API_MercadoLibre ml = API_MercadoLibre.getInstance();
-                //ml.persistir(contexto);
+                API_MercadoLibre ml = API_MercadoLibre.getInstance();
+                ml.persistir(contexto);
 
                 //creo usuario Pedro
                 Usuario pedro = new Usuario("pedritoelmejor", "pepito");
@@ -275,7 +275,7 @@ namespace TPANUAL
 
                 contexto.SaveChanges();
 
-                EntidadJuridicaProveedora ejp = new EntidadJuridicaProveedora(contexto.direccion.Find(1), "ejp", "1212837192837", "ejpRazonSocial");
+                EntidadJuridicaProveedora ejp = new EntidadJuridicaProveedora(contexto.direccion.Find(12), "ejp", "1212837192837", "ejpRazonSocial");
 
                 contexto.entidadJuridicaProveedora.Add(ejp);
 

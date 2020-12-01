@@ -17,8 +17,7 @@ class Program
 
             vinculador.cambiarCriterio( criterio );
 
-            vinculador.vincular(1);
-        
+            vinculador.vincular(1);        
     }
 }
 

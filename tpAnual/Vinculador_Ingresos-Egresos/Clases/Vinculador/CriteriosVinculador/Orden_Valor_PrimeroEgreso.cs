@@ -11,9 +11,7 @@ using TPANUAL;
 
 public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
 
-	public Orden_Valor_PrimeroEgreso(){
-
-	}
+	public Orden_Valor_PrimeroEgreso() {	}
 
 	public override void vincular(DB_Context contexto, Organizacion organizacion){
 
@@ -27,7 +25,6 @@ public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
 
 		foreach(OperacionDeIngreso opingreso in listaIngresos)
         {
-
 			foreach(OperacionDeEgreso opegreso in listaEgresos)
             {
 				if (opingreso.Monto >= opegreso.ValorTotal 
@@ -43,8 +40,5 @@ public class Orden_Valor_PrimeroEgreso : CriterioVinculador {
 				}
 			}
 		}
-		
-		Console.WriteLine("ok");
-		Console.ReadLine();
 	}
 }

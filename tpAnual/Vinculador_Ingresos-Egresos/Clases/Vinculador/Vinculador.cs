@@ -52,4 +52,14 @@ public class Vinculador
 
 		Criterio.vincular(contexto, organizacion);
 	}
+
+	public static void desvincular(int id_organizacion)
+    {
+		var contexto = new DB_Context();
+		contexto.Database.ExecuteSqlCommand($@"
+			UPDATE operaciondeegreso
+			SET IngresoAsociado_ID_OperacionDeIngreso = null
+			WHERE ID_Organizacion = {id_organizacion.ToString()};
+		");
+	}
 }

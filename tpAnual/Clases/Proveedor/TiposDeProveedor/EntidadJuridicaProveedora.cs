@@ -28,7 +28,7 @@ namespace TPANUAL {
             CodigoInscripcion = codigoInscripcion;
             CUIT = _CUIT;
             RazonSocial = razonSocial;
-            ID_Direccion = direccionPostal.ID_Direccion;
+            // ID_Direccion = direccionPostal.ID_Direccion; // Que es esto? tira error, no tiene sentido
         }
 
         public EntidadJuridicaProveedora() { }

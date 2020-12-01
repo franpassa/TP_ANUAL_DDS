@@ -28,7 +28,6 @@ public class Fecha : CriterioVinculador {
 
 		foreach (OperacionDeIngreso opingreso in listaIngresos)
 		{
-
 			foreach (OperacionDeEgreso opegreso in listaEgresos)
 			{
 				if (opingreso.Monto >= opegreso.ValorTotal 
@@ -40,13 +39,8 @@ public class Fecha : CriterioVinculador {
 
 					// Si se puede, lo asocio
 					asociarEgresoIngreso(contexto, opegreso, opingreso);
-
 				}
 			}
 		}
-
-		Console.WriteLine("ok");
-		Console.ReadLine();
 	}
-
 }

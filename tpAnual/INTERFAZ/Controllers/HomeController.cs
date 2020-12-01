@@ -137,7 +137,7 @@ namespace INTERFAZ.Controllers
             }
             else
             {
-                return View("Vinculador");
+                return View("Index");
             }
         }
     }

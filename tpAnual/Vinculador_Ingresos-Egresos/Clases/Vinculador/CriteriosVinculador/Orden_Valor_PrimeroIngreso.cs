@@ -42,9 +42,5 @@ public class Orden_Valor_PrimeroIngreso : CriterioVinculador {
 				}
 			}
 		}
-
-		Console.WriteLine("ok");
-		Console.ReadLine();
 	}
-
 }
