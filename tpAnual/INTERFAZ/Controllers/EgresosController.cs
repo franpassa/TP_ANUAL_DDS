@@ -249,5 +249,101 @@ namespace INTERFAZ.Controllers
                 return RedirectToAction("Egresos", "Home");
             }
         }
+        [HttpPost]
+        public ActionResult formVincular(
+            string _ovpe, 
+            string _ID_ORGANIZACION, 
+            string _periodoDeVinculacion, 
+            string _ovpi, 
+            string _mix, 
+            string _fecha, 
+            string[] _TipoCriterio )
+        {
+
+            List<CriterioVinculador> criterios = new List<CriterioVinculador>() { };
+            for (int i = 0; i < _TipoCriterio.Length; i++)
+            {
+                if (_TipoCriterio[i] == "ovpe")
+                {
+                    criterios.Add(new Orden_Valor_PrimeroEgreso());
+                }
+                else if (_TipoCriterio[i] == "ovpi")
+                {
+                    criterios.Add(new Orden_Valor_PrimeroIngreso());
+                }
+                else if (_TipoCriterio[i] == "fecha")
+                {
+                    criterios.Add(new Fecha());
+                }
+            }
+            if (_ovpe != null)
+            {
+                // Creo condiciones
+                List<Condicion> condiciones = new List<Condicion>() { new PeriodoDeAceptabilidad(int.Parse(_periodoDeVinculacion)) };
+                // Creo el vinculador con sus parametros
+                Vinculador vinculador = new Vinculador(condiciones);
+
+                CriterioVinculador criterio = new Orden_Valor_PrimeroEgreso();
+                criterio.Vinculador = vinculador;
+
+                vinculador.cambiarCriterio(criterio);
+
+                vinculador.vincular(int.Parse(_ID_ORGANIZACION));
+                return RedirectToAction("Egresos", "Home");
+                
+            }
+            else if (_ovpi != null)
+            {
+                // Creo condiciones
+                List<Condicion> condiciones = new List<Condicion>() { new PeriodoDeAceptabilidad(int.Parse(_periodoDeVinculacion)) };
+                // Creo el vinculador con sus parametros
+                Vinculador vinculador = new Vinculador(condiciones);
+
+                CriterioVinculador criterio = new Orden_Valor_PrimeroIngreso();
+                criterio.Vinculador = vinculador;
+
+                vinculador.cambiarCriterio(criterio);
+
+                vinculador.vincular(int.Parse(_ID_ORGANIZACION));
+                return RedirectToAction("Egresos", "Home");
+            }
+            else if (_mix != null)
+            {
+                // Creo condiciones
+                List<Condicion> condiciones = new List<Condicion>() { new PeriodoDeAceptabilidad(int.Parse(_periodoDeVinculacion)) };
+                // Creo el vinculador con sus parametros
+                Vinculador vinculador = new Vinculador(condiciones);
+
+                CriterioVinculador criterio = new Mix(criterios);
+                foreach(CriterioVinculador c in criterios)
+                {
+                    c.Vinculador = vinculador;
+                }
+                criterio.Vinculador = vinculador;
+
+                vinculador.cambiarCriterio(criterio);
+
+                vinculador.vincular(int.Parse(_ID_ORGANIZACION));
+                return RedirectToAction("Egresos", "Home");
+
+            }
+            else if (_fecha != null)
+            {
+                // Creo condiciones
+                List<Condicion> condiciones = new List<Condicion>() { new PeriodoDeAceptabilidad(int.Parse(_periodoDeVinculacion)) };
+                // Creo el vinculador con sus parametros
+                Vinculador vinculador = new Vinculador(condiciones);
+
+                CriterioVinculador criterio = new Fecha();
+                criterio.Vinculador = vinculador;
+
+                vinculador.cambiarCriterio(criterio);
+
+                vinculador.vincular(int.Parse(_ID_ORGANIZACION));
+                return RedirectToAction("Egresos", "Home");
+            }
+            return RedirectToAction("Egresos", "Home");
+               
+        }
     }
 }

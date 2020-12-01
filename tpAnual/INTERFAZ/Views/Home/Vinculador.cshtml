@@ -1,0 +1,181 @@
+﻿@using TPANUAL
+@{
+    ViewBag.Title = "Vinculador";
+    Usuario usuario = (Usuario)Session["Usuario"];
+    List<OperacionDeEgreso> operacionesDeEgreso = (List<OperacionDeEgreso>)Session["Egresos"];
+
+}
+<div class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-chart">
+                <div class="cuadro-texto alert alert-info" role="alert">
+                    @using (Html.BeginForm("formVincular", "Egresos", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <h2> Orden Valor Primero Egreso </h2>
+                            <input name="_ID_ORGANIZACION" value=@usuario.ID_organizacion type="hidden">
+                            <div>
+                                <h6> Periodo de Vinculacion </h6>
+                                <input class="form-input-tp" type="text" placeholder="Periodo de Vinculacion" name="_periodoDeVinculacion" required>
+                                <button class="btn btn-danger animation-on-hover mb-0" type="submit" name="_ovpe">
+                                    Vincular
+                                </button>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+
+                <div class="cuadro-texto alert alert-info" role="alert">
+                    @using (Html.BeginForm("formVincular", "Egresos", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <h2> Orden Valor Primero Ingreso </h2>
+                            <input name="_ID_ORGANIZACION" value=@usuario.ID_organizacion type="hidden">
+                            <div>
+                                <h6> Periodo de Vinculacion </h6>
+                                <input class="form-input-tp" type="text" placeholder="Periodo de Vinculacion" name="_periodoDeVinculacion" required>
+                                <button class="btn btn-danger animation-on-hover mb-0" type="submit" name="_ovpi">
+                                    Vincular
+                                </button>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+
+                <div class="cuadro-texto alert alert-info" role="alert">
+                    @using (Html.BeginForm("formVincular", "Egresos", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <h2> Fecha </h2>
+                            <input name="_ID_ORGANIZACION" value=@usuario.ID_organizacion type="hidden">
+                            <div>
+                                <h6> Periodo de Vinculacion </h6>
+                                <input class="form-input-tp" type="text" placeholder="Periodo de Vinculacion" name="_periodoDeVinculacion" required>
+                                <button class="btn btn-danger animation-on-hover mb-0" type="submit" name="_fecha">
+                                    Vincular
+                                </button>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+
+                <div class="cuadro-texto alert alert-info" role="alert">
+                    @using (Html.BeginForm("formVincular", "Egresos", FormMethod.Post))
+                    {
+                        <h2> Mix </h2>
+                        <input name="_ID_ORGANIZACION" value=@usuario.ID_organizacion type="hidden">
+
+                        <ul class="row nav nav-tabs mb-3" id="pills-tab" role="tablist">
+
+                            <li class="col-6 text-center nav-item">
+                                <a class="nav-link" id="pills-items-tab" data-toggle="pill" href="#pills-items" role="tab" aria-controls="pills-items" aria-selected="false">Criterios</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+
+                            <div class="tab-pane fade" id="pills-items" role="tabpanel" aria-labelledby="pills-items-tab">
+                                <div class="row">
+                                    <div class="col">
+                                        <table class="table tabla-items">
+                                            <thead>
+                                                <h6> Perido de Vinculacion</h6>
+                                                <input type="text" class="form-control form-input-tp" name="_periodoDeVinculacion" placeholder="periodo de vinculacion" required>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <h6>Criterio</h6>
+                                                            <select id="_criterio" name="_TipoCriterio">
+                                                                <option value="ovpe"> orden valor primero egreso</option>
+                                                                <option value="ovpi"> orden valor primero ingreso  </option>
+                                                                <option value="fecha"> fecha  </option>
+                                                            </select>
+                                                        </div>
+
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr id="NuevoCriterio"></tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="col text-center">
+                                            <a class="btn btn-success btn-fab btn-icon btn-round animation-on-hover" onclick="agregarItem(NuevoCriterio)">
+                                                <i class="fas fa-plus" style="color: white;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger animation-on-hover mb-0" type="submit" name="_mix">
+                            Vincular
+                        </button>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="~/Home/NuevaCompra" class="boton-flotante btn btn-info animation-on-hover">
+    <div class="mr-4">
+        Registrar
+        <br>
+        nueva compra
+    </div>
+    <div class="ml-4">
+        <i class="far fa-plus-square"></i>
+    </div>
+</a>
+
+<style>
+    .form-input-tp {
+        width: 75%;
+        color: #D2D3D8;
+    }
+
+    .tabla-items {
+        max-height: 100px;
+        overflow-y: scroll;
+    }
+</style>
+
+<script type="text/javascript">
+    var ID_Criterio = 0;
+
+    function agregarItem() {
+        document.getElementById('NuevoCriterio').insertAdjacentHTML('beforebegin', `
+             <tr id="${ID_Criterio}">
+                <td>
+                    <div class="form-group">
+                        <h6>Criterio</h6>
+                            <select id="_criterio" name="_TipoCriterio">
+                                <option value="ovpe"> orden valor primero egreso</option>
+                                <option value="ovpi"> orden valor primero ingreso  </option>
+                                <option value="fecha"> fecha  </option>
+                            </select>
+                     </div>
+                  
+                </td>
+                <td>
+                <a class="text-center btn btn-warning btn-fab btn-icon btn-round animation-on-hover" onclick="borrar(${ID_Criterio})">
+                     <i class="fas fa-trash-alt" style="color: white;"></i>
+                </a>
+                </td>
+            </tr>
+        `);
+        ID_item++;
+    }
+
+    function borrar(_ID) {
+        document.getElementById(_ID).remove();
+    }
+</script>
+
+

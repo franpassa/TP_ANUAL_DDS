@@ -41,8 +41,14 @@ public class Vinculador
 		return flag;
 	}
 
-	public void vincular(DB_Context contexto, Organizacion organizacion)
+	public void vincular(int id_organizacion)
 	{
+		var contexto = new DB_Context();
+		Organizacion organizacion = contexto.empresas.Find(id_organizacion);
+		if( organizacion == null)
+        {
+			organizacion = contexto.oscs.Find(id_organizacion);
+		}
 
 		Criterio.vincular(contexto, organizacion);
 	}

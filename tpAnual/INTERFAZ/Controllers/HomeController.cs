@@ -129,5 +129,16 @@ namespace INTERFAZ.Controllers
                 return View("Index");
             }
         }
+        public ActionResult Vinculador()
+        {
+            if (Session["Usuario"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("Vinculador");
+            }
+        }
     }
 }

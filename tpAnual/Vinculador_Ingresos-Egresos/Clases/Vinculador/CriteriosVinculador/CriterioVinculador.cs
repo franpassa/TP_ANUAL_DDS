@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TPANUAL;
 
+
 public abstract class CriterioVinculador {
 
 	private Vinculador vinculador;

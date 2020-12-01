@@ -199,6 +199,7 @@
     <Content Include="Views\Home\Items.cshtml" />
     <Content Include="Views\Home\NuevaCompra.cshtml" />
     <Content Include="Views\Home\NuevoPresupuesto.cshtml" />
+    <Content Include="Views\Home\Vinculador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TPANUAL.csproj">

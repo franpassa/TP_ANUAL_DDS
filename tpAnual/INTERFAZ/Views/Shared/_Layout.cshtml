@@ -143,7 +143,7 @@
                         {
                             <li class="active ">
                                 <a href="~/Home/Items">
-                                    <i class="fas fa-boxes"></i>                                    
+                                    <i class="fas fa-boxes"></i>
                                     <p>Items</p>
                                 </a>
                             </li>
@@ -154,6 +154,26 @@
                                 <a href="~/Home/Items">
                                     <i class="fas fa-boxes"></i>
                                     <p>Items</p>
+                                </a>
+                            </li>
+                        }
+                    }
+                    @{
+                        if (ViewBag.Title == "Vinculador")
+                        {
+                            <li class="active ">
+                                <a href="~/Home/Vinculador">
+                                    <i class="fas fa-cog"></i>
+                                    <p>Vinculador</p>
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="~/Home/Vinculador">
+                                    <i class="fas fa-cog"></i>
+                                    <p>Vinculador</p>
                                 </a>
                             </li>
                         }
