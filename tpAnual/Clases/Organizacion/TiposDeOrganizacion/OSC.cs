@@ -21,6 +21,7 @@ namespace TPANUAL {
             PromedioVentasAnuales = promedioVentasAnuales;
             TipoEntidad = tipoEntidad;
             Usuarios = usuarios;
+            Proyectos = new List<Proyecto>();
         }
 
         public OSC() { }

@@ -25,8 +25,9 @@ namespace TPANUAL {
             PromedioVentasAnuales = promedioVentasAnuales;
             TipoEntidad = tipoEntidad;
             Usuarios = usuarios;
+            Proyectos = new List<Proyecto>();
         }
-
+        
         public Empresa() { }
 
         public void definirEstructura(){

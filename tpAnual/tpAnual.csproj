@@ -172,6 +172,7 @@
     <Compile Include="Clases\BaseDeDatos\DB_Context.cs" />
     <Compile Include="Clases\Direccion\Direccion.cs" />
     <Compile Include="Clases\DocumentoComercial\DocumentoComercial.cs" />
+    <Compile Include="Clases\Organizacion\Proyecto.cs" />
     <Compile Include="Clases\Organizacion\TiposDeOrganizacion\Empresa\Empresa.cs" />
     <Compile Include="Clases\Organizacion\Entidad\EntidadBase.cs" />
     <Compile Include="Clases\Organizacion\Entidad\EntidadJuridica.cs" />

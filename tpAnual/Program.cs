@@ -16,6 +16,7 @@ namespace TPANUAL
         {
             using (var contexto = new DB_Context())
             {
+                /*
                 API_MercadoLibre ml = API_MercadoLibre.getInstance();
                 ml.persistir(contexto);
 
@@ -190,7 +191,7 @@ namespace TPANUAL
 
 
 
-                /*OPERACION DE EGRESO 1*/   
+                /*OPERACION DE EGRESO 1*/   /*
 
                 //creo atributos de compra 1
                 List<Usuario> usuariosRevisoresCompra1 = new List<Usuario> { pedro, scarlet, daniel };
@@ -252,7 +253,7 @@ namespace TPANUAL
                 MinMining.agregarOperacionDeEgreso(operacionDeEgreso3);
 
 
-                /*CREO Y AGREGO OPERACIONES DE INGRESO*/    
+                /*CREO Y AGREGO OPERACIONES DE INGRESO*/   /* 
 
                 OperacionDeIngreso op1 = new OperacionDeIngreso("Prestamo", null, 7824, DateTime.Now);
                 OperacionDeIngreso op2 = new OperacionDeIngreso("Prestamo", null, 23734, DateTime.Now);

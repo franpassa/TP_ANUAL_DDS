@@ -25,6 +25,9 @@ namespace TPANUAL
         [Column("Monto")]
         public float Monto { get; set; }
 
+        [Column("ID_Proyecto")]
+        public int ID_Proyecto { get; set; }
+
         public List<OperacionDeEgreso> EgresosAsociados { get; set; }
         public OperacionDeIngreso(string descripcion, List<OperacionDeEgreso> egresosAsociados, float monto, DateTime fecha)
         {

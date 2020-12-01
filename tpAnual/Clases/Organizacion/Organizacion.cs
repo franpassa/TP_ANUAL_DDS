@@ -40,6 +40,8 @@ namespace TPANUAL {
 
         public List<OperacionDeIngreso> OperacionesDeIngreso { get; set; }
 
+        public List<Proyecto> Proyectos { get; set; }
+
         public void agregarOperacionDeEgreso(OperacionDeEgreso operacion)
         {
             OperacionesDeEgreso.Add(operacion);
@@ -48,6 +50,11 @@ namespace TPANUAL {
         public void agregarOperacionDeIngreso(OperacionDeIngreso operacion)
         {
             OperacionesDeIngreso.Add(operacion);
+        }
+
+        public void agregarProyecto(Proyecto proyecto)
+        {
+            Proyectos.Add(proyecto);
         }
 
         public Organizacion() { }
