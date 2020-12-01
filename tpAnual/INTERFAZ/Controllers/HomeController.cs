@@ -23,8 +23,6 @@ namespace INTERFAZ.Controllers
 
         public ActionResult Egresos()
         {
-            ViewBag.Title = "Egresos";
-
             if (Session["Usuario"] != null)
             {
                 Session["Egresos"] = OperacionDeEgresoDAO.obtenerEgresos((Usuario)Session["Usuario"]);
@@ -39,8 +37,6 @@ namespace INTERFAZ.Controllers
 
         public ActionResult NuevaCompra()
         {
-            ViewBag.Title = "Egresos";
-
             if (Session["Usuario"] != null)
             {
                 Session["Egresos"] = OperacionDeEgresoDAO.obtenerEgresos((Usuario)Session["Usuario"]);
@@ -56,8 +52,6 @@ namespace INTERFAZ.Controllers
 
         public ActionResult NuevoPresupuesto()
         {
-            ViewBag.Title = "Egresos";
-
             if (Session["Usuario"] != null)
             {
                 return View();
@@ -94,41 +88,6 @@ namespace INTERFAZ.Controllers
             }
         }
 
-        public ActionResult Presupuestos()
-        {
-            if (Session["Usuario"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return View("Index");
-            }
-        }
-
-        public ActionResult Proveedores()
-        {
-            if (Session["Usuario"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return View("Index");
-            }
-        }
-        
-        public ActionResult Items()
-        {
-            if (Session["Usuario"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return View("Index");
-            }
-        }
         public ActionResult Vinculador()
         {
             if (Session["Usuario"] != null)

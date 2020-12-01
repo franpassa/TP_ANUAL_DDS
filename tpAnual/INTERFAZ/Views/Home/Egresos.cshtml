@@ -15,32 +15,13 @@
                             <div class="col">
                                 <h1 class="card-title">
                                     Compra #@oe.Compra.ID_Compra
-                                    <button class="btn btn-primary btn-fab btn-icon btn-round animation-on-hover" data-toggle="modal" data-target="#popup-@oe.Compra.ID_Compra" style="float:right;">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
                                 </h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal modal-black fade blur" tabindex="-1" role="dialog" id="popup-@oe.Compra.ID_Compra" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h3 class="modal-title text-center">Editar compra</h3>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Este  es el form para editar la compra #@oe.Compra.ID_Compra</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success animation-on-hover">Guardar cambios</button>
-                                    <button type="button" class="btn btn-danger animation-on-hover" data-dismiss="modal">Cerrar</button>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-body pl-3 pr-3">
                         <div class="row invertir-sm">
-                            <div class="cuadros-texto col-xl-2">
+                            <div class="cuadros-texto col-xl-4">
                                 <div class="cuadro-texto alert alert-default" role="alert">
                                     <h6>Proveedor</h6>
                                     @if (oe.Compra.Persona == null)
@@ -70,7 +51,7 @@
                                         </div>
                                         <hr>
                                     }
-                                    <div class="cuadro-texto alert alert-info" role="alert">
+                                    <div class="cuadro-texto alert alert-info text-center" role="alert">
                                         @using (Html.BeginForm("FormRevisor", "Egresos", FormMethod.Post))
                                         {
                                             <input name="_ID_Compra" value=@oe.Compra.ID_Compra type="hidden">
@@ -105,7 +86,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-10">
+                            <div class="col-xl-8">
                                 <h2>Items</h2>
                                 <div class="tabla-compras">
                                     <table class="table table-striped table-hover">
@@ -149,102 +130,64 @@
                         <hr />
                         @if (oe.Compra.Presupuestos.Any())
                         {
-                            <h2>Presupuestos</h2>
-                            <ul class="nav nav-tabs" id="Tab-Presupuestos" role="tablist">
-                                @foreach (Presupuesto presupuesto in oe.Compra.Presupuestos)
-                                {
-                                    string mostrar = "", seleccionado = "false";
-                                    if (oe.Compra.Presupuestos.First() == presupuesto) 
-                                    { 
-                                        mostrar = "active"; seleccionado = "true"; 
-                                    }
-                                    else 
-                                    { 
-                                        mostrar = ""; seleccionado = "false"; 
-                                    }
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link @mostrar" 
-                                           id="@presupuesto.ID_Presupuesto-presupuesto-tab" 
-                                           data-toggle = "tab" 
-                                           href="#@presupuesto.ID_Presupuesto-presupuesto-panel"
-                                           role="tab" 
-                                           aria-controls="@presupuesto.ID_Presupuesto-presupuesto-panel"
-                                           aria-selected="@seleccionado">
-                                            Presupuesto #@presupuesto.ID_Presupuesto
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                            <div class="tab-content" id="Tab-Presupuestos-Contenido">
-                                @foreach (Presupuesto presupuesto in oe.Compra.Presupuestos)
-                                {
-                                    string mostrar="";
-                                    if (oe.Compra.Presupuestos.First() == presupuesto) 
-                                    { 
-                                        mostrar = "show active"; 
-                                    }
-                                    else 
-                                    { 
-                                        mostrar = "";
-                                    }
-
-                                    <div class="tab-pane fade @mostrar" 
-                                         id="@presupuesto.ID_Presupuesto-presupuesto-panel" 
-                                         role="tabpanel" 
-                                         aria-labelledby="@presupuesto.ID_Presupuesto-presupuesto-tab">
-                                        <div class="row">
-                                            <div class="col-xl-2">
-                                                <div class="cuadro-texto alert alert-default" role="alert" style="margin-top: 32px;">
-                                                    <h6>Detalle</h6>
-                                                    <p>@presupuesto.Detalle</p>
-                                                    <hr>
-                                                    <h6>Valor total</h6>
-                                                    <p>$@presupuesto.ValorTotal</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-10">
-                                                <div class="tabla-compras" style="margin-top: 32px;">
-                                                    <table class="table table-stripped table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>ID</th>
-                                                                <th>Nombre</th>
-                                                                <th>Descripción</th>
-                                                                <th>Categoría, Criterio.</th>
-                                                                <th class="text-right">Valor</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach (Item item in presupuesto.Items)
-                                                            {
-                                                                <tr>
-                                                                    <td>@item.ID_Item</td>
-                                                                    <td>@item.Nombre</td>
-                                                                    <td>@item.Descripcion</td>
-                                                                    <td>
-                                                                        @if (item.Categorias != null)
-                                                                        {
-                                                                            foreach (Categoria cat in item.Categorias)
-                                                                            {
-                                                                                <p> @cat.Nombre, @cat.Criterio.Nombre. </p>
-                                                                            }
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            <p> Item sin categoria </p>
-                                                                        }
-                                                                    </td>
-                                                                    <td class="text-right"> $@item.ValorTotal</td>
-                                                                </tr>
-                                                            }
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
+                            foreach (Presupuesto presupuesto in oe.Compra.Presupuestos)
+                            {
+                                <div class="row"> 
+                                    <h2>
+                                        Presupuesto #@presupuesto.ID_Presupuesto
+                                    </h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="cuadro-texto alert alert-default" role="alert" style="margin-top: 32px;">
+                                            <h6>Detalle</h6>
+                                            <p>@presupuesto.Detalle</p>
+                                            <hr>
+                                            <h6>Valor total</h6>
+                                            <p>$@presupuesto.ValorTotal</p>
                                         </div>
                                     </div>
-                                }
-                            </div>
+                                    <div class="col-xl-8">
+                                        <div class="tabla-compras" style="margin-top: 32px;">
+                                            <table class="table table-stripped table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Nombre</th>
+                                                        <th>Descripción</th>
+                                                        <th>Categoría, Criterio.</th>
+                                                        <th class="text-right">Valor</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (Item item in presupuesto.Items)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.ID_Item</td>
+                                                            <td>@item.Nombre</td>
+                                                            <td>@item.Descripcion</td>
+                                                            <td>
+                                                                @if (item.Categorias != null)
+                                                                {
+                                                                    foreach (Categoria cat in item.Categorias)
+                                                                    {
+                                                                        <p> @cat.Nombre, @cat.Criterio.Nombre. </p>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p> Item sin categoria </p>
+                                                                }
+                                                            </td>
+                                                            <td class="text-right"> $@item.ValorTotal</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         }
                         else
                         {

@@ -125,7 +125,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngresosController.cs" />
     <Compile Include="Controllers\VinculadorController.cs" />
-    <Compile Include="Controllers\OrganizacionController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -190,14 +189,11 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="packages.config" />
-    <Content Include="Views\Home\Proveedores.cshtml" />
-    <Content Include="Views\Home\Presupuestos.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Views\Home\Items.cshtml" />
     <Content Include="Views\Home\NuevaCompra.cshtml" />
     <Content Include="Views\Home\NuevoPresupuesto.cshtml" />
     <Content Include="Views\Home\Vinculador.cshtml" />
