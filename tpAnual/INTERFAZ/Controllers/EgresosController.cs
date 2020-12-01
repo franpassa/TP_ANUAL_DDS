@@ -259,23 +259,6 @@ namespace INTERFAZ.Controllers
             string _fecha, 
             string[] _TipoCriterio )
         {
-
-            List<CriterioVinculador> criterios = new List<CriterioVinculador>() { };
-            for (int i = 0; i < _TipoCriterio.Length; i++)
-            {
-                if (_TipoCriterio[i] == "ovpe")
-                {
-                    criterios.Add(new Orden_Valor_PrimeroEgreso());
-                }
-                else if (_TipoCriterio[i] == "ovpi")
-                {
-                    criterios.Add(new Orden_Valor_PrimeroIngreso());
-                }
-                else if (_TipoCriterio[i] == "fecha")
-                {
-                    criterios.Add(new Fecha());
-                }
-            }
             if (_ovpe != null)
             {
                 // Creo condiciones
@@ -309,6 +292,22 @@ namespace INTERFAZ.Controllers
             }
             else if (_mix != null)
             {
+                List<CriterioVinculador> criterios = new List<CriterioVinculador>() { };
+                for (int i = 0; i < _TipoCriterio.Length; i++)
+                {
+                    if (_TipoCriterio[i] == "ovpe")
+                    {
+                        criterios.Add(new Orden_Valor_PrimeroEgreso());
+                    }
+                    else if (_TipoCriterio[i] == "ovpi")
+                    {
+                        criterios.Add(new Orden_Valor_PrimeroIngreso());
+                    }
+                    else if (_TipoCriterio[i] == "fecha")
+                    {
+                        criterios.Add(new Fecha());
+                    }
+                }
                 // Creo condiciones
                 List<Condicion> condiciones = new List<Condicion>() { new PeriodoDeAceptabilidad(int.Parse(_periodoDeVinculacion)) };
                 // Creo el vinculador con sus parametros
