@@ -53,6 +53,7 @@ namespace TPANUAL.Clases.DAO
                     Usuario usuarioNuevo = new Usuario(_contraseña, _usuario);
                     contexto.usuario.Add(usuarioNuevo);
                     contexto.SaveChanges();
+                    Logger.getInstance.update("Se agrega un nuevo usuario." + " ID Usuario:" + usuarioNuevo.ID_Usuario.ToString());
                     return usuarioNuevo;
                 }
             }

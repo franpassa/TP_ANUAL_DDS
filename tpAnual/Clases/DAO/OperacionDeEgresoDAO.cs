@@ -61,6 +61,8 @@ namespace TPANUAL.Clases.DAO
             var contexto = new DB_Context();
             contexto.operacionDeEgreso.Add(_oe);
             contexto.SaveChanges();
+            Logger.getInstance.update("Se agregó una operacion de egreso a la base de datos" + _oe.ID_OperacionDeEgreso.ToString());
+            //Junto con la operacion de egreso, se agregan todas las entidades asociadas a la misma
         }
 
 
@@ -74,6 +76,7 @@ namespace TPANUAL.Clases.DAO
                 c.agregarRevisor(u);
 
                 contexto.SaveChanges();
+                Logger.getInstance.update("Se modifica una compra agregando un revisor." + " ID Compra:" +_ID_Compra.ToString());
             }
         }
         
@@ -93,6 +96,8 @@ namespace TPANUAL.Clases.DAO
                         );
 
                 contexto.SaveChanges();
+
+                Logger.getInstance.update("Se modifica una compra quitando un revisor." + " ID Compra:" + _ID_Compra.ToString());
             }
         }
     }
