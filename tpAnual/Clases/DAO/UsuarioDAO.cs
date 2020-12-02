@@ -48,13 +48,22 @@ namespace TPANUAL.Clases.DAO
             }
             else
             {
-                using (var contexto = new DB_Context())
+                var contexto = new DB_Context();
+                var usuarioExistente = contexto.usuario
+                .Where(u => u.NombreUsuario == _usuario)
+                .FirstOrDefault();
+
+                if (usuarioExistente == null)
                 {
                     Usuario usuarioNuevo = new Usuario(_contraseña, _usuario);
                     contexto.usuario.Add(usuarioNuevo);
                     contexto.SaveChanges();
                     Logger.getInstance.update("Se agrega un nuevo usuario." + " ID Usuario:" + usuarioNuevo.ID_Usuario.ToString());
                     return usuarioNuevo;
+                }
+                else
+                {
+                    return null;
                 }
             }
         }

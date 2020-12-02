@@ -40,6 +40,10 @@ namespace INTERFAZ.Controllers
                 else
                 {
                     List<String> errores = ValidadorDeContraseña.getInstanceValidadorContra().mostrarMsjValidadorLista(_contraseña);
+                    if (errores == null)
+                    {
+                        errores.Add("Nombre de usuario existente.");
+                    }
                     Session["erroresFormSesion"] = errores;
                     Session["_usuario"] = _usuario;
                     Session["_contraseña"] = _contraseña;
