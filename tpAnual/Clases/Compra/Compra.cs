@@ -88,7 +88,7 @@ namespace TPANUAL {
 
         public async Task validar()
         {
-            await ValidadorDeCompra.getInstanceValidadorCompra.ValidarCompra(OperacionDeEgreso);
+            await ValidadorDeCompra.getInstanceValidadorCompra.ValidarCompra(this);
         }
 
         public float valorTotal(){

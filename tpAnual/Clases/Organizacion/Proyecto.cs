@@ -62,11 +62,11 @@ namespace TPANUAL
             Monto_Ingresos += operacion.Monto;
         }
 
-        public async Task validar()
+        public void validar()
         {
             foreach(OperacionDeEgreso ope in EgresosAsociados)
             {
-                await ValidadorDeCompra.getInstanceValidadorCompra.ValidarCompra(ope);
+                ValidadorDeCompra.getInstanceValidadorCompra.validarEgreso(ope);
             }
             
         }
