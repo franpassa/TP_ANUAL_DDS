@@ -19,21 +19,56 @@ namespace TPANUAL
 
         public List<OperacionDeIngreso> IngresosAsociados { get; set; }
 
-        [Column("Monto")]
-        public float Monto { get; set; }
+        public List<OperacionDeEgreso> EgresosAsociados { get; set; }
+
+        [Column("Monto_Ingresos")]
+        public float Monto_Ingresos { get; set; }
+
+        [Column("Monto_Egresos")]
+        public float Monto_Egresos { get; set; }
 
         [Column("Monto_Maximo_Presupuestos")]
         public float Monto_Maximo_Presupuestos { get; set; }
 
-        public Proyecto(List<OperacionDeIngreso> ingAs, Usuario director, float monto_max)
+        [Column("Cant_presupuestos")]
+        public int Cant_presupuestos { get; set; }
+
+        public Proyecto(List<OperacionDeIngreso> ingAs, List<OperacionDeEgreso> egAs, Usuario director, float monto_max, int cant_pres)
         {
             IngresosAsociados = ingAs;
             Director_Responsable = director;
             foreach(OperacionDeIngreso ingreso in ingAs)
             {
-                this.Monto += ingreso.Monto;
+                this.Monto_Ingresos += ingreso.Monto;
             }
             Monto_Maximo_Presupuestos = monto_max;
+            Cant_presupuestos = cant_pres;
+            EgresosAsociados = egAs;
+            foreach (OperacionDeEgreso egreso in egAs)
+            {
+                this.Monto_Egresos += egreso.ValorTotal;
+            }
+        }
+
+        public void agregarEgresoAsociado(OperacionDeEgreso operacion)
+        {
+            EgresosAsociados.Add(operacion);
+            Monto_Egresos += operacion.ValorTotal;
+        }
+
+        public void agregarIngresoAsociado(OperacionDeIngreso operacion)
+        {
+            IngresosAsociados.Add(operacion);
+            Monto_Ingresos += operacion.Monto;
+        }
+
+        public async Task validar()
+        {
+            foreach(OperacionDeEgreso ope in EgresosAsociados)
+            {
+                await ValidadorDeCompra.getInstanceValidadorCompra.ValidarCompra(ope);
+            }
+            
         }
 
     }

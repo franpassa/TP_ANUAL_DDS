@@ -31,44 +31,89 @@ namespace TPANUAL
 
         //VALIDADOR DE COMPRA
 
-        public async Task ValidarCompra(Compra compra)
+        public async Task ValidarCompra(OperacionDeEgreso ope)
         {
             await Task.Delay(1);
 
-            compra.Bandeja.Clear();
+            ope.Compra.Bandeja.Clear();
 
-            if (compra.esConPresupuesto())
+            if (ope.ProyectoAsociado != null)        //si esta asociado a un proyecto, debe cumplir esos requerimientos
             {
-                if ((compra.Presupuestos).Count == compra.CantidadDePresupuestosRequeridos) // PUNTO A
+                if(ope.ProyectoAsociado.Monto_Egresos > ope.ProyectoAsociado.Monto_Maximo_Presupuestos)   //si sobrepasa el monto maximo
                 {
-                    compra.agregarMensaje("Cantidad de presupuestos correcta.");
-                }
-                else
-                {
-                    compra.agregarMensaje("Cantidad de presupuestos incorrecta.");
-                }
-
-                if (compra.itemsElegidosEstanEnPresupuestos()) // PUNTO B
-                {
-                    compra.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
-
-                    if (compra.Criterio.cumpleCriterio(compra)) // PUNTO C
+                    ope.Compra.agregarMensaje("La Operacion de Egreso necesita " + ope.ProyectoAsociado.Cant_presupuestos.ToString() + " presupuestos.");
+                    
+                    if ((ope.Compra.Presupuestos).Count == ope.ProyectoAsociado.Cant_presupuestos)    //cant presupuestos
                     {
-                        compra.agregarMensaje("Presupuesto elegido en base al criterio.");
+                        ope.Compra.agregarMensaje("Cantidad de presupuestos correcta.");
                     }
                     else
                     {
-                        compra.agregarMensaje("Presupuesto no elegido en base al criterio.");
+                        ope.Compra.agregarMensaje("Cantidad de presupuestos incorrecta.");
                     }
+
+                    if (ope.Compra.itemsElegidosEstanEnPresupuestos()) // PUNTO B
+                    {
+                        ope.Compra.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
+
+                        if (ope.Compra.Criterio.cumpleCriterio(ope.Compra)) // PUNTO C
+                        {
+                            ope.Compra.agregarMensaje("Presupuesto elegido en base al criterio.");
+                        }
+                        else
+                        {
+                            ope.Compra.agregarMensaje("Presupuesto no elegido en base al criterio.");
+                        }
+                    }
+                    else
+                    {
+                        ope.Compra.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
+                    }
+
                 }
                 else
                 {
-                    compra.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
-                }
-                
+                    ope.Compra.agregarMensaje("La compra no necesita presupuestos.");
+                }             
+
+            }
+            else
+            {
+
+                if (ope.Compra.esConPresupuesto())
+                {
+                    if ((ope.Compra.Presupuestos).Count == ope.Compra.CantidadDePresupuestosRequeridos) // PUNTO A
+                    {
+                        ope.Compra.agregarMensaje("Cantidad de presupuestos correcta.");
+                    }
+                    else
+                    {
+                        ope.Compra.agregarMensaje("Cantidad de presupuestos incorrecta.");
+                    }
+
+                    if (ope.Compra.itemsElegidosEstanEnPresupuestos()) // PUNTO B
+                    {
+                        ope.Compra.agregarMensaje("Compra realizada en base a la lista de presupuestos.");
+
+                        if (ope.Compra.Criterio.cumpleCriterio(ope.Compra)) // PUNTO C
+                        {
+                            ope.Compra.agregarMensaje("Presupuesto elegido en base al criterio.");
+                        }
+                        else
+                        {
+                            ope.Compra.agregarMensaje("Presupuesto no elegido en base al criterio.");
+                        }
+                    }
+                    else
+                    {
+                        ope.Compra.agregarMensaje("Compra no realizada en base a la lista de presupuestos.");
+                    }
+
                 }
             }
+
         }
 
         // END VALIDADOR COMPRA
     }
+}

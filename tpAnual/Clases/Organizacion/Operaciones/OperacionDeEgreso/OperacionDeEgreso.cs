@@ -16,6 +16,8 @@ namespace TPANUAL {
 		public int ID_OperacionDeEgreso { get; set; }
 		public OperacionDeIngreso IngresoAsociado { get; set; }
 
+		public Proyecto ProyectoAsociado { get; set; }
+
 		[Column("ID_Organizacion")]
 		public int ID_Organizacion { get; set; }
 
