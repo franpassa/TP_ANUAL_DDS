@@ -62,7 +62,7 @@
 
                                         <div class="form-group">
                                             <h6>Pais</h6>
-                                            <select id="_IdPais" name="_IdPais">
+                                            <select class="form-input-tp" id="_IdPais" name="_IdPais">
                                                 @foreach (Pais p in paises)
                                                 {
                                                     <option value=@p.ID_Pais> @p.Nombre </option>
@@ -190,7 +190,13 @@
 <style>
     .form-input-tp {
         width: 75%;
-        color: #D2D3D8;
+        background-color: #27293D;
+        color: #BEBFC5;
+        border: solid;
+        border-width: 1px;
+        border-radius: 2px;
+        border-color: #3D3F51;
+        padding: 5px
     }
 
     .tabla-items {

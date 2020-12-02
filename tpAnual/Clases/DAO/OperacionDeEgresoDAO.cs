@@ -59,8 +59,19 @@ namespace TPANUAL.Clases.DAO
         public static void guardar(OperacionDeEgreso _oe)
         {
             var contexto = new DB_Context();
+
+            // Guardo revisores y los saco de la compra para 
+            // agregarlos después
+            var revisores = _oe.Compra.Revisores;
+            _oe.Compra.Revisores = null;
+
             contexto.operacionDeEgreso.Add(_oe);
             contexto.SaveChanges();
+
+            // Agrego revisores a la compra
+            foreach(Usuario u in revisores)
+                OperacionDeEgresoDAO.agregarRevisorCompra(_oe.Compra.ID_Compra, u.ID_Usuario);
+
             Logger.getInstance.update("Se agregó una operacion de egreso a la base de datos" + _oe.ID_OperacionDeEgreso.ToString());
             //Junto con la operacion de egreso, se agregan todas las entidades asociadas a la misma
         }
