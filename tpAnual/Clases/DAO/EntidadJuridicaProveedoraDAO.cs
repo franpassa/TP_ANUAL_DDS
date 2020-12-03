@@ -21,5 +21,12 @@ namespace TPANUAL.Clases.DAO
             var prov = (EntidadJuridicaProveedora)contexto.entidadJuridicaProveedora.Find(_id);
             return prov;
         }
+
+        public static List<EntidadJuridicaProveedora> obtenerEntidadesJuridicasProveedoras()
+        {
+            var contexto = new DB_Context();
+            var entidadesJuridicasProveedoras = contexto.entidadJuridicaProveedora.ToList();
+            return entidadesJuridicasProveedoras;
+        }
     }
 }

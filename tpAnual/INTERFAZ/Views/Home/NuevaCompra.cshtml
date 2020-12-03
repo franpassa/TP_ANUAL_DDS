@@ -5,6 +5,8 @@
     List<OperacionDeEgreso> operacionesDeEgreso = (List<OperacionDeEgreso>)Session["Egresos"];
     Organizacion org = (Organizacion)Session["Organizacion"];
     List<Pais> paises = (List<Pais>)Session["Paises"];
+    List<PersonaProveedora> personasProveedoras = (List<PersonaProveedora>)Session["PersonasProveedoras"];
+    List<EntidadJuridicaProveedora> entidadesJuridicasProveedoras = (List<EntidadJuridicaProveedora>)Session["EntidadesJuridicasProveedoras"];
 }
 <div class="content">
     <div class="row">
@@ -38,6 +40,8 @@
 
                                         <div class="form-group">
                                             <h6>Usuarios revisores</h6>
+                                            <label>(Ctrl+click para seleccionar multiples usuarios)</label>
+
                                             <select multiple class="form-control form-input-tp" id="UsuariosRevisores" name="_UsuariosRevisores">
                                                 @foreach (Usuario u in org.Usuarios)
                                                 {
@@ -77,26 +81,17 @@
                                         <h3>Presupuestos</h3>
 
                                         <div class="form-group">
-                                            <h6>ID Proveedor</h6>
-                                            <input class="form-input-tp" type="text" placeholder="ID del proveedor" name="_IdProveedor">
-                                        </div>
-
-                                        <div class="mt-1 mb-3">
-                                            <h6>Tipo de proveedor</h6>
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="_TipoProveedor" id="inlineRadio1" value="PersonaProveedora" required>
-                                                    Persona proveedora
-                                                    <span class="form-check-sign"></span>
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="_TipoProveedor" id="inlineRadio2" value="EntidadJuridicaProveedora" required>
-                                                    Entidad jurídica proveedora
-                                                    <span class="form-check-sign"></span>
-                                                </label>
-                                            </div>
+                                            <h6>Proveedor</h6>
+                                            <select class="form-input-tp" id="_proveedor" name="_Proveedor">
+                                                @foreach (EntidadJuridicaProveedora ejp in entidadesJuridicasProveedoras)
+                                                {
+                                                    <option value="@ejp.ID_Proveedor ejp"> @ejp.RazonSocial</option>
+                                                }
+                                                @foreach (PersonaProveedora pp in personasProveedoras)
+                                                {
+                                                    <option value="@pp.ID_Proveedor pp"> @pp.Nombre </option>
+                                                }
+                                            </select>
                                         </div>
 
                                         <div class="form-group">

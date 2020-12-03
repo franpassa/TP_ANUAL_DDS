@@ -42,6 +42,8 @@ namespace INTERFAZ.Controllers
                 Session["Egresos"] = OperacionDeEgresoDAO.obtenerEgresos((Usuario)Session["Usuario"]);
                 Session["Organizacion"] = OrganizacionDAO.obtenerOrganizacion((Usuario)Session["Usuario"]);
                 Session["Paises"] = Pais.obtenerPaises();
+                Session["PersonasProveedoras"] = PersonaProveedoraDAO.obtenerPersonasProveedoras();
+                Session["EntidadesJuridicasProveedoras"] = EntidadJuridicaProveedoraDAO.obtenerEntidadesJuridicasProveedoras();
                 return View();
             }
             else
@@ -54,6 +56,8 @@ namespace INTERFAZ.Controllers
         {
             if (Session["Usuario"] != null)
             {
+                Session["PersonasProveedoras"] = PersonaProveedoraDAO.obtenerPersonasProveedoras();
+                Session["EntidadesJuridicasProveedoras"] = EntidadJuridicaProveedoraDAO.obtenerEntidadesJuridicasProveedoras();
                 return View();
             }
             else

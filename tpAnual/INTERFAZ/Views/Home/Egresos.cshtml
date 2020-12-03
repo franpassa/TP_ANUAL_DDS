@@ -132,14 +132,28 @@
                         {
                             foreach (Presupuesto presupuesto in oe.Compra.Presupuestos)
                             {
-                                <div class="row"> 
-                                    <h2>
-                                        Presupuesto #@presupuesto.ID_Presupuesto
-                                    </h2>
+                                <div class="row">
+                                    <div class="col">
+                                        <h2 class="mb-0">
+                                            Presupuesto #@presupuesto.ID_Presupuesto
+                                        </h2>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-4">
                                         <div class="cuadro-texto alert alert-default" role="alert" style="margin-top: 32px;">
+                                            @if (presupuesto.Persona != null)
+                                            {
+                                                <h6>Proveedor</h6>
+                                                <p>@presupuesto.Persona.Nombre</p>
+                                                <hr />
+                                            }
+                                            @if (presupuesto.Entidad != null)
+                                            {
+                                                <h6>Proveedor</h6>
+                                                <p>@presupuesto.Entidad.RazonSocial</p>
+                                                <hr />
+                                            }
                                             <h6>Detalle</h6>
                                             <p>@presupuesto.Detalle</p>
                                             <hr>

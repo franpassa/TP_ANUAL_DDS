@@ -1,9 +1,11 @@
-﻿
+﻿@using TPANUAL
 @{
     ViewBag.Title = "Egresos";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int cantPresupuestos = (int)Session["CantPresReqMax"];
-    int presupuestoActual = 1+(int)Session["CantPresReqMax"]-(int)Session["CantPresReq"];
+    int presupuestoActual = 1 + (int)Session["CantPresReqMax"] - (int)Session["CantPresReq"];
+    List<PersonaProveedora> personasProveedoras = (List<PersonaProveedora>)Session["PersonasProveedoras"];
+    List<EntidadJuridicaProveedora> entidadesJuridicasProveedoras = (List<EntidadJuridicaProveedora>)Session["EntidadesJuridicasProveedoras"];
 }
 
 
@@ -31,28 +33,18 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h3>Presupuestos</h3>
-
                                         <div class="form-group">
-                                            <h6>ID Proveedor</h6>
-                                            <input class="form-input-tp" type="text" placeholder="ID del proveedor" name="_IdProveedor">
-                                        </div>
-
-                                        <div class="mt-1 mb-3">
-                                            <h6>Tipo de proveedor</h6>
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="_TipoProveedor" id="inlineRadio1" value="PersonaProveedora" required>
-                                                    Persona proveedora
-                                                    <span class="form-check-sign"></span>
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                    <input class="form-check-input" type="radio" name="_TipoProveedor" id="inlineRadio2" value="EntidadJuridicaProveedora" required>
-                                                    Entidad jurídica proveedora
-                                                    <span class="form-check-sign"></span>
-                                                </label>
-                                            </div>
+                                            <h6>Proveedor</h6>
+                                            <select class="form-input-tp" id="_proveedor" name="_Proveedor">
+                                                @foreach (EntidadJuridicaProveedora ejp in entidadesJuridicasProveedoras)
+                                                {
+                                                    <option value="@ejp.ID_Proveedor ejp"> @ejp.RazonSocial</option>
+                                                }
+                                                @foreach (PersonaProveedora pp in personasProveedoras)
+                                                {
+                                                    <option value="@pp.ID_Proveedor pp"> @pp.Nombre </option>
+                                                }
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <h6>Detalle del presupuesto</h6>
@@ -140,7 +132,13 @@
 <style>
     .form-input-tp {
         width: 75%;
-        color: #D2D3D8;
+        background-color: #27293D;
+        color: #BEBFC5;
+        border: solid;
+        border-width: 1px;
+        border-radius: 2px;
+        border-color: #3D3F51;
+        padding: 5px
     }
 
     .tabla-items {

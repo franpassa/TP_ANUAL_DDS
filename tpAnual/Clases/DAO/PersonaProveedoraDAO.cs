@@ -17,9 +17,16 @@ namespace TPANUAL.Clases.DAO
 
         public static PersonaProveedora obtenerPersonaProveedora(int _ID) //no busca por id (PK) -> busca por el dni
         {
-            using var contexto = new DB_Context();
+            var contexto = new DB_Context();
             var personaProveedora = contexto.personaProveedora.Find(_ID);
             return personaProveedora;
+        }
+
+        public static List<PersonaProveedora> obtenerPersonasProveedoras()
+        {
+            var contexto = new DB_Context();
+            var personasProveedoras = contexto.personaProveedora.ToList();
+            return personasProveedoras;
         }
     }
 }

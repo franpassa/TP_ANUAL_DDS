@@ -19,8 +19,7 @@ namespace INTERFAZ.Controllers
             string _tipoPago,
             string _numero,
             string _IdPais,
-            string _TipoProveedor,
-            string _IdProveedor,
+            string _Proveedor,
             string[] _IdDocumentoComercial,
             string[] _TipoDeDocumento,
             string[] _ItemsNombres,
@@ -93,11 +92,14 @@ namespace INTERFAZ.Controllers
             PersonaProveedora n_personaProveedora = null;
             EntidadJuridicaProveedora n_entidadJuridicaProveedora = null;
 
-            if(_TipoProveedor == "PersonaProveedora")
-                n_personaProveedora = PersonaProveedoraDAO.obtenerPersonaProveedora(int.Parse(_IdProveedor));
-            if(_TipoProveedor == "EntidadJuridicaProveedora")
-                n_entidadJuridicaProveedora = EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(int.Parse(_IdProveedor));
-            
+            string id_proveedor = _Proveedor.Split(' ')[0];
+            string tipo_proveedor = _Proveedor.Split(' ')[1];
+
+            if (tipo_proveedor == "pp")
+                n_personaProveedora = PersonaProveedoraDAO.obtenerPersonaProveedora(int.Parse(id_proveedor));
+            if (tipo_proveedor == "ejp")
+                n_entidadJuridicaProveedora = EntidadJuridicaProveedoraDAO.obtenerEntidadJuridicaProveedora(int.Parse(id_proveedor));
+           
             CriterioCompra n_criterio = new MenorValor();
 
             if(_cantPresReq == "") _cantPresReq = "0"; 
