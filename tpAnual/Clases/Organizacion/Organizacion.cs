@@ -13,7 +13,7 @@ namespace TPANUAL {
     public abstract class Organizacion
     {
 
-        [Key, ForeignKey("TipoEntidad")]
+        [Key]
         [Column("ID_Organizacion")]
         public int ID_Organizacion { get; set; }
 
