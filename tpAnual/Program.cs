@@ -598,6 +598,11 @@ namespace TPANUAL
                     if (typeof(OperacionDeIngreso) == typeof(T))
                         lista.Add(new OperacionDeIngreso("Descripcion-" + i.ToString(), null, random.Next(10, 100000), DateTime.Now));
 
+                    if(typeof(Presupuesto) == typeof(T))
+                    {
+                        lista.Add(new Presupuesto(null, null, crear<Item>(random.Next(0,20)), null, "Detalle-" + i.ToString(), crear<DocumentoComercial>(random.Next(0,5))));
+                    }
+
                     if (typeof(Direccion) == typeof(T))
                     {
                         //Direccion d = new Direccion("Calle-" + i.ToString(), i.ToString(), i, contexto.ciudad.Find("TG9uZHJlc0dC"));
