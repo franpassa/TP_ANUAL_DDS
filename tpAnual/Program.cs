@@ -546,8 +546,145 @@ namespace TPANUAL
                 //*/
             }
         }
-        
-        private static void jobComplejo(Scheduler sched, Organizacion organizacion) {
+
+        /*
+         * Crea x cantidad de objetos con valores aleatorios. Ejemplo:
+         * List<Usuario> usuarios = crear<Usuario>(20); // Crea una lista de 20 usuarios
+         * 
+         * Si se necesita solo 1 objeto aleatorio, se puede hacer así:
+         * Usuario u = crear<Usuario>(1)[0];
+         */
+        static List<T> crear<T>(int cantidad)
+        {
+            var lista = new List<dynamic> { };
+
+            using (var contexto = new DB_Context())
+            {
+                for (int i = 0; i < cantidad; i++)
+                {
+                    Random random = new Random();
+                    var actividades = new List<Actividad> { new Servicios(), new Agropecuario(), new Comercio(), new IndustriaYMineria(), new Construccion() };
+
+                    if (typeof(Usuario) == typeof(T))
+                        lista.Add(new Usuario("Usuario-" + i.ToString(), "Contraseña-" + i.ToString()));
+
+                    if (typeof(Mensaje) == typeof(T))
+                        lista.Add(new Mensaje("Texto-" + i.ToString()));
+
+                    if (typeof(Criterio) == typeof(T))
+                        lista.Add(new Criterio("NombreCriterio-" + i.ToString(), null));
+
+                    if (typeof(Categoria) == typeof(T))
+                        lista.Add(new Categoria("NombreCategoria-" + i.ToString(), null));
+
+                    if (typeof(Item) == typeof(T))
+                        lista.Add(new Item("Nombre-" + i.ToString(), "Descripcion-" + i.ToString(), random.Next(50, 6000), crear<Categoria>(random.Next(1, 5))));
+
+                    if (typeof(MedioDePago) == typeof(T))
+                        lista.Add(new MedioDePago("AR", random.Next(0, 10).ToString(), "TipoDePago-" + i.ToString()));
+
+                    if (typeof(DocumentoComercial) == typeof(T))
+                        lista.Add(new DocumentoComercial(random.Next(0, 10), "TipoDocumento-" + i.ToString()));
+
+                    if (typeof(PersonaProveedora) == typeof(T))
+                        lista.Add(new PersonaProveedora(crear<Direccion>(1)[0], random.Next(00000000, 99999999).ToString(), "Nombre-" + i.ToString()));
+
+                    if (typeof(EntidadJuridicaProveedora) == typeof(T))
+                        lista.Add(new EntidadJuridicaProveedora(crear<Direccion>(1)[0], "CodigoInscripcion-" + i.ToString(), "CUIT-" + i.ToString(), "RazonSocial-" + i.ToString()));
+
+                    if (typeof(OperacionDeEgreso) == typeof(T))
+                        lista.Add(new OperacionDeEgreso(crear<Compra>(1)[0], crear<MedioDePago>(1)[0], crear<DocumentoComercial>(random.Next(1, 5)), DateTime.Now));
+
+                    if (typeof(OperacionDeIngreso) == typeof(T))
+                        lista.Add(new OperacionDeIngreso("Descripcion-" + i.ToString(), null, random.Next(10, 100000), DateTime.Now));
+
+                    if (typeof(Direccion) == typeof(T))
+                    {
+                        //Direccion d = new Direccion("Calle-" + i.ToString(), i.ToString(), i, contexto.ciudad.Find("TG9uZHJlc0dC"));
+                        //d.ID_Direccion = i;
+                        lista.Add(new Direccion("Calle-" + i.ToString(), i.ToString(), i, null));
+                    }
+
+                    if (typeof(Compra) == typeof(T))
+                    {
+                        PersonaProveedora pp = null;
+                        EntidadJuridicaProveedora ejp = null;
+
+                        if (random.Next(0, 2) == 0)
+                            pp = crear<PersonaProveedora>(1)[0];
+                        else
+                            ejp = crear<EntidadJuridicaProveedora>(1)[0];
+
+                        lista.Add(new Compra(random.Next(0, 6), new MenorValor(), crear<Item>(random.Next(0, 20)), null, pp, ejp));
+                    }
+
+                    // Está comentado porque crea todas las orgs con el mismo nombre
+                    //if (typeof(Organizacion) == typeof(T))
+                    //    if (random.Next(0, 2) == 0)
+                    //        lista.Add(crear<Empresa>(1)[0]);
+                    //    else
+                    //        lista.Add(crear<OSC>(1)[0]);
+
+                    if (typeof(Empresa) == typeof(T))
+                    {
+                        lista.Add(
+                            new Empresa(
+                                actividades[random.Next(0, 5)],
+                                random.Next(0, 50),
+                                random.Next(0, 1) == 0,
+                                "NombreEmpresa-" + i.ToString(),
+                                random.Next(1000, 100000),
+                                crear<EntidadBase>(1)[0],
+                                crear<Usuario>(random.Next(0, 10)))
+                            );
+                    }
+
+                    if (typeof(OSC) == typeof(T))
+                    {
+                        lista.Add(new OSC(
+                                actividades[random.Next(0, 4)],
+                                random.Next(0, 50),
+                                "NombreOSC-" + i.ToString(),
+                                random.Next(1000, 100000),
+                                crear<EntidadJuridica>(1)[0],
+                                crear<Usuario>(random.Next(0, 10)))
+                            );
+                    }
+
+                    if (typeof(TipoEntidad) == typeof(T))
+                    {
+                        if (random.Next(0, 2) == 0)
+                            lista.Add(crear<EntidadBase>(1));
+                        else
+                            lista.Add(crear<EntidadJuridica>(1));
+                    }
+
+                    if (typeof(EntidadBase) == typeof(T))
+                    {
+                        //EntidadJuridica ej = null;
+
+                        //if (random.Next(0, 9) > 7)
+                        //    ej = crear<EntidadJuridica>(1)[0];
+
+                        lista.Add(new EntidadBase("Descripción-" + i.ToString(), null, crear<Direccion>(1)[0]));
+                    }
+
+                    if (typeof(EntidadJuridica) == typeof(T))
+                    {
+                        var eb = new List<EntidadBase> { };
+
+                        if (random.Next(0, 10) > 7)
+                            eb = crear<EntidadBase>(random.Next(0, 3));
+
+                        lista.Add(new EntidadJuridica(eb, "CodigoInscripción-" + i.ToString(), "CUIT-" + i.ToString(), crear<Direccion>(1)[0], "RazonSocial-" + i.ToString()));
+                    }
+                }
+            }
+
+            return lista.Cast<T>().ToList();
+        }
+
+            private static void jobComplejo(Scheduler sched, Organizacion organizacion) {
 
             // Guardo el objeto dentro un objeto diccionario para que pueda accederlo desde el job
             JobDataMap jobData = new JobDataMap();
