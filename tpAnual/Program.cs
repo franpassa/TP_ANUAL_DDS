@@ -17,10 +17,9 @@ namespace TPANUAL
             using (var contexto = new DB_Context())
             {
 
-                //Pais arg = new Pais("AR");
-                //contexto.pais.Add(arg);
+                //API_MercadoLibre ml = API_MercadoLibre.getInstance();
+                //ml.persistir(contexto);
                 //contexto.SaveChanges();
-
 
                 Usuario u1 = new Usuario("user1", "user1");
                 Usuario u2 = new Usuario("user2", "user2");
@@ -42,10 +41,13 @@ namespace TPANUAL
                 Usuario u18 = new Usuario("user18", "user18");
                 Usuario u19 = new Usuario("user19", "user19");
                 Usuario u20 = new Usuario("user20", "user20");
+                Usuario u21 = new Usuario("user20", "user20");
+                Usuario u22 = new Usuario("user20", "user20");
+                Usuario u23 = new Usuario("user20", "user20");
 
-                List<Usuario> users = new List<Usuario> { u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15, u16, u17, u18, u19, u20};
+
+                List<Usuario> users = new List<Usuario> { u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15, u16, u17, u18, u19, u20, u21, u22 , u23 };
                 contexto.usuario.AddRange(users);
-                contexto.SaveChanges();
 
                 Direccion direcEb1 = new Direccion("direccion eb1", "1", 1, contexto.ciudad.Find("TUxBQ0NBUGZlZG1sYQ"));// capital  federal capital federal
                 Direccion direcEb2 = new Direccion("direccion eb2", "2", 2, contexto.ciudad.Find("TUxBQ0NBUGZlZG1sYQ"));// capital  federal capital federal
@@ -70,7 +72,6 @@ namespace TPANUAL
 
                 List<Direccion> direcs = new List<Direccion> {direcEb1, direcEb2, direcEb3, direcEb4, direcEb5, direcEb6, direcEb7, direcEb8, direcEb9, direcEb10, direcEj1, direcEj2, direcEj3, direcEj4, direcEj5, direcEj6, direcEj7, direcEj8, direcEj9, direcEj10, };
                 contexto.direccion.AddRange(direcs);
-                contexto.SaveChanges();
 
                 EntidadBase eb1 = new EntidadBase("entidadBase1", null, direcEb1);
                 EntidadBase eb2 = new EntidadBase("entidadBase2", null, direcEb2);
@@ -101,21 +102,19 @@ namespace TPANUAL
                 List<EntidadBase> ebasoc4 = new List<EntidadBase> { eb14 , eb16 };
                 List<EntidadBase> ebasoc5 = new List<EntidadBase> { eb15, eb16, eb17, eb18 };
 
-                EntidadJuridica ej1 = new EntidadJuridica(null, "codigo1", "", direcEj1, "entidadJuridica1");
-                EntidadJuridica ej2 = new EntidadJuridica(null, "codigo2", "", direcEj2, "entidadJuridica2");
-                EntidadJuridica ej3 = new EntidadJuridica(null, "codigo3", "", direcEj3, "entidadJuridica3");
-                EntidadJuridica ej4 = new EntidadJuridica(null, "codigo4", "", direcEj4, "entidadJuridica4");
-                EntidadJuridica ej5 = new EntidadJuridica(null, "codigo5", "", direcEj5, "entidadJuridica5");
-                EntidadJuridica ej6 = new EntidadJuridica(ebasoc1, "codigo6", "", direcEj6, "entidadJuridica6");
-                EntidadJuridica ej7 = new EntidadJuridica(ebasoc2, "codigo7", "", direcEj7, "entidadJuridica7");
-                EntidadJuridica ej8 = new EntidadJuridica(ebasoc3, "codigo8", "", direcEj8, "entidadJuridica8");
-                EntidadJuridica ej9 = new EntidadJuridica(ebasoc4, "codigo9", "", direcEj9, "entidadJuridica9");
-                EntidadJuridica ej10 = new EntidadJuridica(ebasoc5, "codigo10", "", direcEj10, "entidadJuridica10");
+                EntidadJuridica ej1 = new EntidadJuridica(null, "codigo1", "123456789", direcEj1, "entidadJuridica1");
+                EntidadJuridica ej2 = new EntidadJuridica(null, "codigo2", "123456789", direcEj2, "entidadJuridica2");
+                EntidadJuridica ej3 = new EntidadJuridica(null, "codigo3", "123456789", direcEj3, "entidadJuridica3");
+                EntidadJuridica ej4 = new EntidadJuridica(null, "codigo4", "123456789", direcEj4, "entidadJuridica4");
+                EntidadJuridica ej5 = new EntidadJuridica(null, "codigo5", "123456789", direcEj5, "entidadJuridica5");
+                EntidadJuridica ej6 = new EntidadJuridica(ebasoc1, "codigo6", "123456789", direcEj6, "entidadJuridica6");
+                EntidadJuridica ej7 = new EntidadJuridica(ebasoc2, "codigo7", "123456789", direcEj7, "entidadJuridica7");
+                EntidadJuridica ej8 = new EntidadJuridica(ebasoc3, "codigo8", "123456789", direcEj8, "entidadJuridica8");
+                EntidadJuridica ej9 = new EntidadJuridica(ebasoc4, "codigo9", "123456789", direcEj9, "entidadJuridica9");
+                EntidadJuridica ej10 = new EntidadJuridica(ebasoc5, "codigo10", "123456789", direcEj10, "entidadJuridica10");
 
                 List<EntidadJuridica> ejs  = new List<EntidadJuridica> { ej1, ej2, ej3, ej4, ej5, ej6, ej7, ej8, ej9, ej10};
                 contexto.entidadjuridica.AddRange(ejs);
-                contexto.SaveChanges();
-
 
                 //servicio no es comisionista ni agencia de viaje con entidad base 
                 Servicios actividadServicio1 = new Servicios();
@@ -165,13 +164,12 @@ namespace TPANUAL
                 OSC tiendaCTM2 = new OSC(actividadComercio2, 40, "tiendaCTM2", 207200000, eb5, null, usuariosDeComercio2);
 
                 Comercio actividadComercio3 = new Comercio();
-                List<Usuario> usuariosDeComercio3 = new List<Usuario> { u11 };
+                List<Usuario> usuariosDeComercio3 = new List<Usuario> { u11, u21, u22, u23 };
                 Empresa tiendaCTM3 = new Empresa(actividadComercio3, 40, false, "tiendaCTM3", 207200000, null, ej6, usuariosDeComercio3);
 
                 Comercio actividadComercio4 = new Comercio();
                 List<Usuario> usuariosDeComercio4 = new List<Usuario> { u12 };
                 OSC tiendaCTM4 = new OSC(actividadComercio4, 40, "tiendaCTM4", 207200000, eb6, null, usuariosDeComercio4);
-
 
                 IndustriaYMineria actividadIYM1 = new IndustriaYMineria();
                 List<Usuario> usuariosDeMineria1 = new List<Usuario> { u13 };
@@ -213,15 +211,33 @@ namespace TPANUAL
                 List<OSC> oscs = new List<OSC> { zapatuya2, zapatuya4, superSoja2, superSoja4, tiendaCTM2, tiendaCTM4, MinMining2, MinMining4, DunMaker2, DunMaker4 };
                 contexto.oscs.AddRange(oscs);
 
+                var oi = crear<OperacionDeIngreso>(100);
+                var oe = crear<OperacionDeEgreso>(100);
+
+                foreach (Empresa e in empresas)
+                {
+                    e.OperacionesDeIngreso.AddRange(oi.Take(3));
+                    e.OperacionesDeEgreso.AddRange(oe.Take(3));
+                    oi.RemoveRange(0, 3);
+                    oe.RemoveRange(0, 3);
+                }
+                foreach (OSC e in oscs)
+                {
+                    e.OperacionesDeIngreso.AddRange(oi.Take(3));
+                    e.OperacionesDeEgreso.AddRange(oe.Take(3));
+                    oi.RemoveRange(0, 3);
+                    oe.RemoveRange(0, 3);
+                }
+
                 contexto.SaveChanges();
-                Console.WriteLine();
+        
                 /*
-                * Crea x cantidad de objetos con valores aleatorios. Ejemplo:
-                 * List<Usuario> usuarios = crear<Usuario>(20); // Crea una lista de 20 usuarios
-                 * 
-                * Si se necesita solo 1 objeto aleatorio, se puede hacer así:
-                * Usuario u = crear<Usuario>(1)[0];
-                */
+        * Crea x cantidad de objetos con valores aleatorios. Ejemplo:
+        * List<Usuario> usuarios = crear<Usuario>(20); // Crea una lista de 20 usuarios
+        * 
+        * Si se necesita solo 1 objeto aleatorio, se puede hacer así:
+        * Usuario u = crear<Usuario>(1)[0];
+        */
                 static List<T> crear<T>(int cantidad)
                 {
                     var lista = new List<dynamic> { };
@@ -246,7 +262,7 @@ namespace TPANUAL
                                 lista.Add(new Categoria("NombreCategoria-" + i.ToString(), new Criterio("NombreCriterio-" + i.ToString(), null)));
 
                             if (typeof(Item) == typeof(T))
-                                lista.Add(new Item("Nombre-" + i.ToString(), "Descripcion-" + i.ToString(), random.Next(50, 6000), crear<Categoria>(random.Next(1, 5))));
+                                lista.Add(new Item("Nombre-" + i.ToString(), "Descripcion-" + i.ToString(), random.Next(50, 6000), crear<Categoria>(random.Next(1, 3))));
 
                             if (typeof(MedioDePago) == typeof(T))
                                 lista.Add(new MedioDePago("AR", random.Next(0, 10).ToString(), "TipoDePago-" + i.ToString()));
@@ -267,106 +283,114 @@ namespace TPANUAL
                                 lista.Add(new OperacionDeIngreso("Descripcion-" + i.ToString(), null, random.Next(10, 100000), DateTime.Now));
 
                             if (typeof(Presupuesto) == typeof(T))
-                            {
-                                lista.Add(new Presupuesto(null, null, crear<Item>(random.Next(0, 20)), null, "Detalle-" + i.ToString(), crear<DocumentoComercial>(random.Next(0, 5))));
-                            }
+                                lista.Add(new Presupuesto(null, null, crear<Item>(random.Next(0, 5)), null, "Detalle-" + i.ToString(), crear<DocumentoComercial>(random.Next(0, 5))));
 
-                            //if (typeof(Direccion) == typeof(T))
-                            //{
-                            //    lista.Add(new Direccion("Calle-" + i.ToString(), i.ToString(), i, null));
-                            //}
+                            if (typeof(Direccion) == typeof(T))
+                                lista.Add(new Direccion("Calle-" + i.ToString(), i.ToString(), i, null));
 
                             if (typeof(Compra) == typeof(T))
                             {
                                 PersonaProveedora pp = null;
                                 EntidadJuridicaProveedora ejp = null;
+                                int presReq = random.Next(0, 5);
+                                var presupuestos = crear<Presupuesto>(presReq);
+                                var mensajes = crear<Mensaje>(random.Next(0, 5));
 
+                                // Para crear la compra con proveedor
                                 if (random.Next(0, 2) == 0)
                                     pp = crear<PersonaProveedora>(1)[0];
                                 else
                                     ejp = crear<EntidadJuridicaProveedora>(1)[0];
 
-                                lista.Add(new Compra(random.Next(0, 6), new MenorValor(), crear<Item>(random.Next(0, 3)), null, pp, ejp));
+                                var c = new Compra(presReq, new MenorValor(), crear<Item>(random.Next(0, 5)), null, pp, ejp);
+
+                                for (int j = 0; j < presReq; j++)
+                                    c.agregarPresupuesto(presupuestos[j]);
+
+                                for (int k = 0; k < mensajes.Count; k++)
+                                    c.agregarMensaje(mensajes[k].texto);
+
+                                lista.Add(c);
                             }
 
-                            // Está comentado porque crea todas las orgs con el mismo nombre
-                            //if (typeof(Organizacion) == typeof(T))
-                            //    if (random.Next(0, 2) == 0)
-                            //        lista.Add(crear<Empresa>(1)[0]);
-                            //    else
-                            //        lista.Add(crear<OSC>(1)[0]);
+                            //Está comentado porque crea todas las orgs con el mismo nombre
+                            if (typeof(Organizacion) == typeof(T))
+                                if (random.Next(0, 2) == 0)
+                                    lista.Add(crear<Empresa>(1)[0]);
+                                else
+                                    lista.Add(crear<OSC>(1)[0]);
 
-                            //if (typeof(Empresa) == typeof(T))
-                            //{
-                            //    EntidadBase eb = null;
-                            //    EntidadJuridica ej = null;
+                            if (typeof(Empresa) == typeof(T))
+                            {
+                                EntidadBase eb = null;
+                                EntidadJuridica ej = null;
 
-                            //    if (random.Next(0, 2) == 0)
-                            //        eb = crear<EntidadBase>(1)[0];
-                            //    else
-                            //        ej = crear<EntidadJuridica>(1)[0];
+                                if (random.Next(0, 2) == 0)
+                                    eb = crear<EntidadBase>(1)[0];
+                                else
+                                    ej = crear<EntidadJuridica>(1)[0];
 
-                            //    lista.Add(
-                            //        new Empresa(
-                            //            actividades[random.Next(0, 5)],
-                            //            random.Next(0, 50),
-                            //            random.Next(0, 1) == 0,
-                            //            "NombreEmpresa-" + i.ToString(),
-                            //            random.Next(1000, 100000),
-                            //            eb,
-                            //            ej,
-                            //            crear<Usuario>(random.Next(0, 10)))
-                            //        );
-                            //}
+                                lista.Add(
+                                    new Empresa(
+                                        actividades[random.Next(0, 5)],
+                                        random.Next(0, 50),
+                                        random.Next(0, 1) == 0,
+                                        "NombreEmpresa-" + i.ToString(),
+                                        random.Next(1000, 100000),
+                                        eb,
+                                        ej,
+                                        crear<Usuario>(random.Next(0, 10)))
+                                    );
+                            }
 
-                            //if (typeof(OSC) == typeof(T))
-                            //{
-                            //    EntidadBase eb = null;
-                            //    EntidadJuridica ej = null;
+                            if (typeof(OSC) == typeof(T))
+                            {
+                                EntidadBase eb = null;
+                                EntidadJuridica ej = null;
 
-                            //    if (random.Next(0, 2) == 0)
-                            //        eb = crear<EntidadBase>(1)[0];
-                            //    else
-                            //        ej = crear<EntidadJuridica>(1)[0];
+                                if (random.Next(0, 2) == 0)
+                                    eb = crear<EntidadBase>(1)[0];
+                                else
+                                    ej = crear<EntidadJuridica>(1)[0];
 
-                            //    lista.Add(new OSC(
-                            //            actividades[random.Next(0, 4)],
-                            //            random.Next(0, 50),
-                            //            "NombreOSC-" + i.ToString(),
-                            //            random.Next(1000, 100000),
-                            //            eb,
-                            //            ej,
-                            //            crear<Usuario>(random.Next(0, 10)))
-                            //        );
-                            //}
+                                lista.Add(new OSC(
+                                        actividades[random.Next(0, 4)],
+                                        random.Next(0, 50),
+                                        "NombreOSC-" + i.ToString(),
+                                        random.Next(1000, 100000),
+                                        eb,
+                                        ej,
+                                        crear<Usuario>(random.Next(0, 10)))
+                                    );
+                            }
 
-                            //if (typeof(TipoEntidad) == typeof(T))
-                            //{
-                            //    if (random.Next(0, 2) == 0)
-                            //        lista.Add(crear<EntidadBase>(1));
-                            //    else
-                            //        lista.Add(crear<EntidadJuridica>(1));
-                            //}
+                            if (typeof(TipoEntidad) == typeof(T))
+                            {
+                                if (random.Next(0, 2) == 0)
+                                    lista.Add(crear<EntidadBase>(1));
+                                else
+                                    lista.Add(crear<EntidadJuridica>(1));
+                            }
 
-                            //if (typeof(EntidadBase) == typeof(T))
-                            //{
-                            //    EntidadJuridica ej = crear<EntidadJuridica>(1)[0];
-                            //    ej.BasesAsociadas = new List<EntidadBase> { }; // Vacio las entidades base aleaotrias creadas
-                            //    EntidadBase eb = new EntidadBase("Descripción-" + i.ToString(), ej, crear<Direccion>(1)[0]);
-                            //    ej.BasesAsociadas.Add(eb);
+                            if (typeof(EntidadBase) == typeof(T))
+                            {
+                                EntidadJuridica ej = crear<EntidadJuridica>(1)[0];
+                                ej.BasesAsociadas = new List<EntidadBase> { }; // Vacio las entidades base aleaotrias creadas
+                                EntidadBase eb = new EntidadBase("Descripción-" + i.ToString(), ej, crear<Direccion>(1)[0]);
+                                ej.BasesAsociadas.Add(eb);
 
-                            //    lista.Add(eb);
-                            //}
+                                lista.Add(eb);
+                            }
 
-                            //if (typeof(EntidadJuridica) == typeof(T))
-                            //{
-                            //    var eb = new List<EntidadBase> { };
+                            if (typeof(EntidadJuridica) == typeof(T))
+                            {
+                                var eb = new List<EntidadBase> { };
 
-                            //    if (random.Next(0, 10) > 7)
-                            //        eb = crear<EntidadBase>(random.Next(0, 3));
+                                if (random.Next(0, 10) > 7)
+                                    eb = crear<EntidadBase>(random.Next(0, 3));
 
-                            //    lista.Add(new EntidadJuridica(eb, "CodigoInscripción-" + i.ToString(), "CUIT-" + i.ToString(), crear<Direccion>(1)[0], "RazonSocial-" + i.ToString()));
-                            //}
+                                lista.Add(new EntidadJuridica(eb, "CodigoInscripción-" + i.ToString(), "CUIT-" + i.ToString(), crear<Direccion>(1)[0], "RazonSocial-" + i.ToString()));
+                            }
                         }
                     }
 

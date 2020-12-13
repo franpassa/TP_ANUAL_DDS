@@ -24,14 +24,22 @@
                             <div class="cuadros-texto col-xl-4">
                                 <div class="cuadro-texto alert alert-default" role="alert">
                                     <h6>Proveedor</h6>
-                                    @if (oe.Compra.Persona == null)
-                                    {
-                                        <p>@oe.Compra.Entidad.RazonSocial</p>
-                                    }
-                                    else
+                                    @if (oe.Compra.Persona != null)
                                     {
                                         <p>@oe.Compra.Persona.Nombre</p>
                                     }
+                                    else
+                                    {
+                                        if (oe.Compra.Entidad != null)
+                                        {
+                                            <p>@oe.Compra.Entidad.RazonSocial</p>
+                                        }
+                                        else
+                                        {
+                                            <p>No Hay Proveedor</p>
+                                        }
+                                    }
+
                                     <hr>
                                     <h6>Medio de pago</h6>
                                     <p>@oe.MedioDePago.TipoPago</p>
@@ -169,7 +177,6 @@
                                                         <th>ID</th>
                                                         <th>Nombre</th>
                                                         <th>Descripción</th>
-                                                        <th>Categoría, Criterio.</th>
                                                         <th class="text-right">Valor</th>
                                                     </tr>
                                                 </thead>
@@ -180,19 +187,6 @@
                                                             <td>@item.ID_Item</td>
                                                             <td>@item.Nombre</td>
                                                             <td>@item.Descripcion</td>
-                                                            <td>
-                                                                @if (item.Categorias != null)
-                                                                {
-                                                                    foreach (Categoria cat in item.Categorias)
-                                                                    {
-                                                                        <p> @cat.Nombre, @cat.Criterio.Nombre. </p>
-                                                                    }
-                                                                }
-                                                                else
-                                                                {
-                                                                    <p> Item sin categoria </p>
-                                                                }
-                                                            </td>
                                                             <td class="text-right"> $@item.ValorTotal</td>
                                                         </tr>
                                                     }
