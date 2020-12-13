@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////
 using System.Collections.Generic;
 using TPANUAL;
+using TPANUAL.Clases.DAO;
 
 public class Vinculador
 {
@@ -44,12 +45,7 @@ public class Vinculador
 	public void vincular(int id_organizacion)
 	{
 		var contexto = new DB_Context();
-		Organizacion organizacion = contexto.empresas.Find(id_organizacion);
-		if( organizacion == null)
-        {
-			organizacion = contexto.oscs.Find(id_organizacion);
-		}
-
+		Organizacion organizacion = OrganizacionDAO.obtenerOrganizacion( id_organizacion);
 		Criterio.vincular(contexto, organizacion);
 	}
 

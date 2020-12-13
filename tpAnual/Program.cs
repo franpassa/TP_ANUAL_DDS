@@ -19,6 +19,33 @@ namespace TPANUAL
                 //API_MercadoLibre ml = API_MercadoLibre.getInstance();
                 //ml.persistir(contexto);
 
+                var osc = crear<OSC>(1)[0];
+                osc.NombreFicticio = "Nike OSC";
+                
+                var oes = crear<OperacionDeEgreso>(50);
+                var ois = crear<OperacionDeIngreso>(50);
+
+                foreach (OperacionDeEgreso oe in oes)
+                {
+                    var presupuestos = crear<Presupuesto>(oe.Compra.CantidadDePresupuestosRequeridos);
+
+                    foreach(Presupuesto p in presupuestos)
+                    {
+                        p.Compra = oe.Compra;
+                        oe.Compra.agregarPresupuesto(p);
+                    }
+
+                    osc.agregarOperacionDeEgreso(oe);
+                }
+
+                foreach(OperacionDeIngreso oi in ois)
+                    osc.agregarOperacionDeIngreso(oi);
+
+                contexto.oscs.Add(osc);
+                contexto.SaveChanges();
+
+                Console.WriteLine();
+
                 //Direccion direcPedrito = new Direccion("Saavedra 353", "2", 1, contexto.ciudad.Find("TUxBQ0NBUGZlZG1sYQ"));// capital  federal capital federal
                 //Direccion direcJuancito = new Direccion("Mariano moreno 241", " ", 0, contexto.ciudad.Find("TUxBQ1NPQjVkNGVi"));// sobremonte cordoba
                 //Direccion direcBetito = new Direccion("Masferrer 1022", "c", 2, contexto.ciudad.Find("TUxBQ0ZPUjNmZWYz")); // fformosa formosa
@@ -27,10 +54,10 @@ namespace TPANUAL
 
                 //EntidadBase entidadBase = new EntidadBase("entidadBase8", null, direcPedrito);
                 //EntidadBase entidadBase2 = new EntidadBase("entidadBase9", null, direcJuancito);
-                
+
                 //EntidadJuridica entidad = new EntidadJuridica(new List<EntidadBase> { entidadBase, entidadBase2 }, "2", "2", direcBetito, "pepito");
 
-                //OSC osc = new OSC(null, 1, "franco", 1,null,entidad, new List<Usuario> { uso });
+                //OSC osc = new OSC(null, 1, "franco", 1, null, entidad, new List<Usuario> { uso });
 
                 //contexto.usuario.Add(uso);
                 //contexto.oscs.Add(osc);
@@ -40,7 +67,7 @@ namespace TPANUAL
                 //Organizacion org = OrganizacionDAO.obtenerOrganizacion(contexto.usuario.Find(1));
                 //Console.WriteLine(org.NombreFicticio);
                 //Console.ReadLine();
-               
+
 
                 ////creo usuario Pedro
                 //Usuario pedro = new Usuario("pedritoelmejor", "pepito");
@@ -73,9 +100,6 @@ namespace TPANUAL
 
 
 
-                //Direccion direcPedrito = new Direccion("Saavedra 353", "2", 1, contexto.ciudad.Find("TUxBQ0NBUGZlZG1sYQ"));// capital  federal capital federal
-                //Direccion direcJuancito = new Direccion("Mariano moreno 241", " ", 0, contexto.ciudad.Find("TUxBQ1NPQjVkNGVi"));// sobremonte cordoba
-                //Direccion direcBetito = new Direccion("Masferrer 1022", "c", 2, contexto.ciudad.Find("TUxBQ0ZPUjNmZWYz")); // fformosa formosa
                 //Direccion direcMatute = new Direccion("Fray Luis Beltran Este 343", "1", 4, contexto.ciudad.Find("TUxBQ01BTDZjYjM4")); // malargue mendoza
                 //Direccion direcNachito = new Direccion("Av. Domuyo S/N", " ", 0, contexto.ciudad.Find("TUxBQ01JTjhhZGE5")); // minas neuquen Q8353
                 //Direccion direcGiulsita = new Direccion("Perito Moreno Nº 3560", " ", 0, contexto.ciudad.Find("TUxBQ0VMQjM5MDg4MA")); // el bolson rio negro
@@ -86,8 +110,6 @@ namespace TPANUAL
                 //Direccion direcCuzco = new Direccion("Belgrano 536", " ", 0, contexto.ciudad.Find("TUxBQ1RJTGM5NTAx")); // tilcara jujuy
 
                 ////creo 
-                //EntidadBase entidadBase = new EntidadBase("entidadBase", null, direcPedrito);
-                //EntidadBase entidadBase2 = new EntidadBase("entidadBase2", null, direcJuancito);
                 //EntidadBase entidadBase3 = new EntidadBase("entidadBase3", null, direcBetito);
                 //EntidadBase entidadBase4 = new EntidadBase("entidadBase4", null, direcMatute);
                 //EntidadBase entidadBase5 = new EntidadBase("entidadBase5", null, direcNachito);
@@ -97,29 +119,29 @@ namespace TPANUAL
                 ////creo Organizacion
                 //Servicios actividadServicio = new Servicios();
                 //List<Usuario> usuariosDeOrg = new List<Usuario> { pedro, scarlet, daniel };
-                //Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, usuariosDeOrg);
+                //Empresa zapatuya = new Empresa(actividadServicio, 1, false, "zapaTuya", 8400000, entidadBase, null, usuariosDeOrg);
 
                 //Agropecuario actividadAgropecuario = new Agropecuario();
                 //List<Usuario> usuariosAgropecuario = new List<Usuario> { juan, megan };
-                //Empresa superSoja = new Empresa(actividadAgropecuario, 5, false, "superSoja", 12340000, entidadBase2, usuariosAgropecuario);
+                //Empresa superSoja = new Empresa(actividadAgropecuario, 5, false, "superSoja", 12340000, entidadBase2, null, usuariosAgropecuario);
 
                 //Comercio actividadComercio = new Comercio();
                 //List<Usuario> usuariosDeComercio = new List<Usuario> { beto, dillon, nola };
-                //Empresa tiendaCTM = new Empresa(actividadComercio, 32, false, "tiendaCTM", 1502002300, entidadBase3, usuariosDeComercio);
+                //Empresa tiendaCTM = new Empresa(actividadComercio, 32, false, "tiendaCTM", 1502002300, entidadBase3, null, usuariosDeComercio);
 
                 //IndustriaYMineria actividadIYM = new IndustriaYMineria();
                 //List<Usuario> usuariosDeMineria = new List<Usuario> { matias };
-                //Empresa MinMining = new Empresa(actividadIYM, 122, false, "MinMining", 1673990500, entidadBase4, usuariosDeMineria);
+                //Empresa MinMining = new Empresa(actividadIYM, 122, false, "MinMining", 1673990500, entidadBase4, null, usuariosDeMineria);
 
                 //Construccion actividadConstruccion = new Construccion();
                 //List<Usuario> usuariosDeConstruccion = new List<Usuario> { nacho, daphne };
-                //Empresa DunMaker = new Empresa(actividadConstruccion, 299, false, "DunMaker", 721230000, entidadBase5, usuariosDeConstruccion);
+                //Empresa DunMaker = new Empresa(actividadConstruccion, 299, false, "DunMaker", 721230000, entidadBase5, null, usuariosDeConstruccion);
 
-                //entidadBase.Organizacion = zapatuya;
-                //entidadBase2.Organizacion = superSoja;
-                //entidadBase3.Organizacion = tiendaCTM;
-                //entidadBase4.Organizacion = MinMining;
-                //entidadBase5.Organizacion = DunMaker;
+                ////entidadBase.Organizacion = zapatuya;
+                ////entidadBase2.Organizacion = superSoja;
+                ////entidadBase3.Organizacion = tiendaCTM;
+                ////entidadBase4.Organizacion = MinMining;
+                ////entidadBase5.Organizacion = DunMaker;
 
                 ////guardo organizacion
                 //contexto.empresas.Add(zapatuya);
@@ -129,11 +151,11 @@ namespace TPANUAL
                 //contexto.empresas.Add(DunMaker);
 
 
-                //contexto.tipoentidad.Add(entidadBase);
-                //contexto.tipoentidad.Add(entidadBase2);
-                //contexto.tipoentidad.Add(entidadBase3);
-                //contexto.tipoentidad.Add(entidadBase4);
-                //contexto.tipoentidad.Add(entidadBase5);
+                //contexto.entidadbase.Add(entidadBase);
+                //contexto.entidadbase.Add(entidadBase2);
+                //contexto.entidadbase.Add(entidadBase3);
+                //contexto.entidadbase.Add(entidadBase4);
+                //contexto.entidadbase.Add(entidadBase5);
                 ////contexto.tipoentidad.Add(entidadBase6);
                 ////contexto.tipoentidad.Add(entidadBase7);
 
@@ -302,7 +324,7 @@ namespace TPANUAL
                 //    zapatuya.agregarOperacionDeIngreso(operacion);
                 //}
 
-                
+
 
                 //contexto.SaveChanges();
 
@@ -329,6 +351,7 @@ namespace TPANUAL
 
                 //Console.ReadLine();
 
+                /*________________________________________________________________________________________________________________ */
 
                 //API_MercadoLibre ml = API_MercadoLibre.getInstance();
                 //ml.persistir(contexto);
@@ -583,7 +606,7 @@ namespace TPANUAL
          * 
          * Si se necesita solo 1 objeto aleatorio, se puede hacer así:
          * Usuario u = crear<Usuario>(1)[0];
-         *//*
+         */
         static List<T> crear<T>(int cantidad)
         {
             var lista = new List<dynamic> { };
@@ -605,7 +628,7 @@ namespace TPANUAL
                         lista.Add(new Criterio("NombreCriterio-" + i.ToString(), null));
 
                     if (typeof(Categoria) == typeof(T))
-                        lista.Add(new Categoria("NombreCategoria-" + i.ToString(), null));
+                        lista.Add(new Categoria("NombreCategoria-" + i.ToString(), new Criterio("NombreCriterio-" + i.ToString(), null)));
 
                     if (typeof(Item) == typeof(T))
                         lista.Add(new Item("Nombre-" + i.ToString(), "Descripcion-" + i.ToString(), random.Next(50, 6000), crear<Categoria>(random.Next(1, 5))));
@@ -662,6 +685,14 @@ namespace TPANUAL
 
                     if (typeof(Empresa) == typeof(T))
                     {
+                        EntidadBase eb = null;
+                        EntidadJuridica ej = null;
+
+                        if (random.Next(0, 2) == 0)
+                            eb = crear<EntidadBase>(1)[0];
+                        else
+                            ej = crear<EntidadJuridica>(1)[0];
+
                         lista.Add(
                             new Empresa(
                                 actividades[random.Next(0, 5)],
@@ -669,19 +700,29 @@ namespace TPANUAL
                                 random.Next(0, 1) == 0,
                                 "NombreEmpresa-" + i.ToString(),
                                 random.Next(1000, 100000),
-                                crear<EntidadBase>(1)[0],
+                                eb,
+                                ej,
                                 crear<Usuario>(random.Next(0, 10)))
                             );
                     }
 
                     if (typeof(OSC) == typeof(T))
                     {
+                        EntidadBase eb = null;
+                        EntidadJuridica ej = null;
+
+                        if (random.Next(0, 2) == 0)
+                            eb = crear<EntidadBase>(1)[0];
+                        else
+                            ej = crear<EntidadJuridica>(1)[0];
+
                         lista.Add(new OSC(
                                 actividades[random.Next(0, 4)],
                                 random.Next(0, 50),
                                 "NombreOSC-" + i.ToString(),
                                 random.Next(1000, 100000),
-                                crear<EntidadJuridica>(1)[0],
+                                eb,
+                                ej,
                                 crear<Usuario>(random.Next(0, 10)))
                             );
                     }
@@ -696,12 +737,12 @@ namespace TPANUAL
 
                     if (typeof(EntidadBase) == typeof(T))
                     {
-                        //EntidadJuridica ej = null;
+                        EntidadJuridica ej = crear<EntidadJuridica>(1)[0];
+                        ej.BasesAsociadas = new List<EntidadBase> { }; // Vacio las entidades base aleaotrias creadas
+                        EntidadBase eb = new EntidadBase("Descripción-" + i.ToString(), ej, crear<Direccion>(1)[0]);
+                        ej.BasesAsociadas.Add(eb);
 
-                        //if (random.Next(0, 9) > 7)
-                        //    ej = crear<EntidadJuridica>(1)[0];
-
-                        lista.Add(new EntidadBase("Descripción-" + i.ToString(), null, crear<Direccion>(1)[0]));
+                        lista.Add(eb);
                     }
 
                     if (typeof(EntidadJuridica) == typeof(T))
@@ -717,7 +758,7 @@ namespace TPANUAL
             }
 
             return lista.Cast<T>().ToList();
-        }*/
+        }
 
             private static void jobComplejo(Scheduler sched, Organizacion organizacion) {
 
