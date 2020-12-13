@@ -32,7 +32,9 @@ namespace TPANUAL {
         [Column("CantidadDePersonal")]
         public int CantidadPersonal { get; set; }
 
-        public virtual TipoEntidad TipoEntidad { get; set; }
+        public EntidadBase EntidadBase { get; set; }
+
+        public EntidadJuridica EntidadJuridica { get; set; }
 
         public List<Usuario> Usuarios { get; set; }
 

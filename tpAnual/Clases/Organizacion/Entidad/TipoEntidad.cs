@@ -9,11 +9,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace TPANUAL {
 	public abstract class TipoEntidad {
 
-        [Key,ForeignKey("Organizacion")]
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int ID_Entidad { get; set; }
-
-        public virtual Organizacion Organizacion { get; set; }
+        public int ID_Entidad { get; set; }
 
         [Column("ID_Direccion")]
 		public int? ID_Direccion { get; set; }

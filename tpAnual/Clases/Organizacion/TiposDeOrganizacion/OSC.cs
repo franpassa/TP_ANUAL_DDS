@@ -10,7 +10,7 @@ namespace TPANUAL {
 
     [Table("organizacion")]
     public class OSC : Organizacion{
-        public OSC(Actividad actividad, int cantidadPersonal, string nombreFicticio, float promedioVentasAnuales, TipoEntidad tipoEntidad, List<Usuario> usuarios)
+        public OSC(Actividad actividad, int cantidadPersonal, string nombreFicticio, float promedioVentasAnuales, EntidadBase EntidadBase_, EntidadJuridica EntidadJuridica_, List<Usuario> usuarios)
         {
             Actividad = actividad;
             CantidadPersonal = cantidadPersonal;
@@ -19,7 +19,8 @@ namespace TPANUAL {
             OperacionesDeEgreso = new List<OperacionDeEgreso>();
             OperacionesDeIngreso = new List<OperacionDeIngreso>();
             PromedioVentasAnuales = promedioVentasAnuales;
-            TipoEntidad = tipoEntidad;
+            EntidadBase = EntidadBase_;
+            EntidadJuridica = EntidadJuridica_;
             Usuarios = usuarios;
             Proyectos = new List<Proyecto>();
         }

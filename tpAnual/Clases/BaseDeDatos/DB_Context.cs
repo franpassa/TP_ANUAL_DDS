@@ -15,7 +15,8 @@ namespace TPANUAL
     {
         public DbSet<Mensaje> mensaje { get; set; }
         public DbSet<Ciudad> ciudad { get; set; }
-        public DbSet<TipoEntidad> tipoentidad { get; set; }
+        public DbSet<EntidadBase> entidadbase { get; set; }
+        public DbSet<EntidadJuridica> entidadjuridica { get; set; }
         public DbSet<Direccion> direccion { get; set; }
         public DbSet<DocumentoComercial> documentoComercial { get; set; }
         public DbSet<Compra> compra { get; set; }

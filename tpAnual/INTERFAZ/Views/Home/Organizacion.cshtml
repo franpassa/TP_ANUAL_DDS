@@ -63,9 +63,9 @@
                             <div class="cuadro-texto alert alert-default" role="alert">
                                 <h2>Tipo entidad</h2>
                                 <hr />
-                                @if (o.TipoEntidad.Equals(new EntidadJuridica())) //Si es entidad jurídica, muestro esto:
+                                @if (o.EntidadJuridica != null) //Si es entidad jurídica, muestro esto:
                                 {
-                                    EntidadJuridica ej = (EntidadJuridica)o.TipoEntidad;
+                                    EntidadJuridica ej = o.EntidadJuridica;
 
                                     <h6 class="text-center">Codigo de Inscripción</h6>
                                     <p class="text-center">@ej.CodigoInscripcion</p>
@@ -78,7 +78,7 @@
                                 }
                                 else // Si es entidad base, muestro esto:
                                 {
-                                    EntidadBase eb = (EntidadBase)o.TipoEntidad;
+                                    EntidadBase eb = o.EntidadBase;
 
                                     <h6 class="text-center">Descripción</h6>
                                     <p class="text-center">@eb.Descripcion</p>
